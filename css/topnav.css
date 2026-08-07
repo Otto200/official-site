@@ -166,3 +166,32 @@
         font-size: 12px; /* Tighter typography for mobile distribution */
     }
 }
+
+
+/* Navigation Action Block Layout Engine */
+.nav-actions-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px; /* Uniform horizontal gap between your preview and login blocks */
+}
+
+/* Compact button layout scaling rules for navigation bar compatibility */
+.btn-nav-action {
+    padding: 10px 18px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+}
+
+/* ==========================================================================
+   🖥️ DESKTOP INTERFACE OVERWRITE (Safe Overlay Pinning Fix)
+   ========================================================================== */
+@media (min-width: 993px) {
+    /* Updates the floating block rule to pin the entire pair of buttons to the right edge */
+    .nav-top-tier .nav-actions-group {
+        position: absolute;
+        right: 24px;
+        top: 16px;
+        pointer-events: auto;
+        z-index: 10;
+    }
+}
