@@ -118,3 +118,145 @@
         animation-duration: 30s; /* Faster relative pacing remains uniform */
     }
 }
+
+
+/* ==========================================================================
+   ABOUT ME: DUAL-ROW LIFESTYLE MATRIX STYLES
+   ========================================================================== */
+
+/* Keeps your text centered and aligned cleanly with your main core grid line */
+.about-me-text-block {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* 🌟 SCREEN BREAKOUT CONTAINER: Forces both rows to run edge-to-edge past layout bounds */
+.lifestyle-matrix-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 32px 0 0 0 !important;
+    padding: 8px 0 !important;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Vertical gap between Row 1 and Row 2 */
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+}
+
+.lifestyle-carousel-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Base track conveyor lane */
+.lifestyle-track {
+    display: flex;
+    gap: 1.25rem; /* Gap between cards in the same row */
+    width: max-content;
+}
+
+/* Hovering over the entire matrix freezes movement for easy inspection */
+.lifestyle-matrix-container:hover .lifestyle-track {
+    animation-play-state: paused;
+}
+
+/* Row 1 Layout: Right to Left (Moving Left) */
+.track-left {
+    animation: scrollSlideLeft 30s linear infinite;
+}
+
+/* Row 2 Layout: Left to Right (Moving Right - Faster Pacing) */
+.track-right {
+    animation: scrollSlideRight 22s linear infinite;
+}
+
+/* Individual Card Styling rules */
+.lifestyle-slide {
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+    background: var(--bg-card, #121212);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Explicit Ratio Dimensions */
+.ratio-4-5 {
+    width: 190px; /* Mobile width default */
+    aspect-ratio: 4 / 5;
+}
+
+.ratio-16-9 {
+    width: 270px; /* Mobile width default */
+    aspect-ratio: 16 / 9;
+}
+
+/* Image scaling mechanics */
+.lifestyle-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.lifestyle-slide:hover img {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES (Seamless 50% Reset Transitions)
+   ========================================================================== */
+
+/* Continuous Moving Left */
+@keyframes scrollSlideLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 0.625rem)); /* Shifts precisely half distance to loop invisibly */
+    }
+}
+
+/* Continuous Moving Right */
+@keyframes scrollSlideRight {
+    0% {
+        transform: translateX(calc(-50% - 0.625rem));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+   🖥️ DESKTOP MONITOR RESPONSIVE SCALING (Widescreen Adjustments)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    .lifestyle-matrix-container {
+        gap: 2rem;
+    }
+    
+    .ratio-4-5 {
+        width: 250px; /* Enlarged vertical scaling for high-res monitors */
+    }
+
+    .ratio-16-9 {
+        width: 400px; /* Enlarged horizontal scaling for high-res monitors */
+    }
+    
+    .track-left {
+        animation-duration: 40s; /* Tailored speed matching widescreen desktop space */
+    }
+    
+    .track-right {
+        animation-duration: 30s; /* Faster relative pacing remains uniform */
+    }
+}
