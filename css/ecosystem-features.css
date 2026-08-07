@@ -1,0 +1,106 @@
+/* ==========================================
+   SECTION 3: CAROUSEL OVERHAUL STYLES
+   ========================================== */
+
+/* Section & Carousel Wrapper Layout */
+.assets-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 1rem;
+}
+
+.assets-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem;
+}
+
+/* Scrollbar Styling for Navigation Feedback */
+.assets-slider::-webkit-scrollbar {
+    height: 6px;
+}
+.assets-slider::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.assets-slider::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* Card Container with Integrated Layout Rules */
+.asset-card {
+    flex: 0 0 85%; /* Mobile default layout preview */
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    background: #121212; /* Sync with your primary dark mode hex */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.asset-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Container for In-Card Media Assets */
+.asset-image-box {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+    background: #1a1a1a;
+    position: relative;
+}
+
+.asset-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Typography Container Box */
+.asset-content {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.asset-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    color: #ffffff;
+}
+
+.asset-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #a0a0a0;
+}
+
+/* Responsive Monitor Media Rules */
+@media (min-width: 768px) {
+    .asset-card {
+        flex: 0 0 45%; /* Reveals partial next card on tablet viewports */
+    }
+}
+
+@media (min-width: 1024px) {
+    .asset-card {
+        flex: 0 0 31%; /* Displays desktop grid preview layout hinting horizontal scroll */
+        flex-direction: column;
+    }
+    .asset-image-box {
+        height: 220px; /* Scaling optimization for high-density monitors */
+    }
+}
