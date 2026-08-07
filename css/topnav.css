@@ -31,13 +31,28 @@
     justify-content: space-between;
 }
 
-.brand-logo {
+./* Identity Alignment Engine: Logo + Text Alignment */
+.brand-logo-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between your webp logo and your text name */
+}
+
+.nav-logo-img {
+    height: 32px;      /* Standard professional height profile for navigation bar images */
+    width: auto;        /* Preserves the original aspect ratio of your logo.webp file */
+    display: block;
+}
+
+.brand-logo-text {
     font-size: 20px;
     font-weight: 800;
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
+
 
 /* Navigation Link Menu Frame (Force Center Alignment) */
 .nav-sub-section {
