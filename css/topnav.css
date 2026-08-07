@@ -195,3 +195,158 @@
         z-index: 10;
     }
 }
+
+
+/* ==========================================================================
+   NAVIGATION GLOBAL FULL-BLEED DESIGN RULES
+   ========================================================================== */
+
+.full-bleed-nav {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: rgba(11, 14, 17, 0.95); /* Matches --bg-main with high-tech transparency */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color, #262E38);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+/* Master content boundary and center alignment stack */
+.nav-content-stack {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* TIER 1 RULES: Brand Identity and Primary CTA triggers */
+.nav-top-tier {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 16px;
+}
+
+.brand-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.brand-text-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo-text {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-primary, #FFFFFF);
+    letter-spacing: 0.05em;
+}
+
+.brand-subtext {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-secondary, #9AA1A9);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.nav-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-nav-action {
+    white-space: nowrap;
+}
+
+/* TIER 2 RULES: Secondary Navigation Layer (Fixed for Touch Interfaces) */
+.nav-sub-section-container {
+    width: 100%;
+    border-top: 1px solid var(--border-color, #262E38);
+    background: rgba(21, 26, 32, 0.4); /* Subtle elevation background shift */
+    overflow-x: auto; /* Activates horizontal touch panning on mobile screens */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hides default native scrollbar track for clean layout tracking */
+.nav-sub-section-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-sub-section {
+    width: max-content;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+/* Fallback override rule for desktop layouts */
+@media (min-width: 1024px) {
+    .nav-sub-section {
+        width: 100%;
+        justify-content: center; /* Centers secondary links beautifully on monitor displays */
+    }
+}
+
+.nav-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary, #9AA1A9);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease-in-out;
+    white-space: nowrap; /* Forces anchor fields to retain spatial mapping metrics */
+}
+
+.nav-link:hover {
+    color: var(--accent-color, #E2B13C);
+}
+
+/* 📱 MOBILE VIEW SCREEN IMPROVEMENTS (Devices under 768px Width) */
+@media (max-width: 768px) {
+    .nav-top-tier {
+        padding: 12px 16px;
+    }
+    
+    .brand-logo-text {
+        font-size: 14px;
+    }
+    
+    .brand-subtext {
+        font-size: 9px;
+    }
+    
+    .nav-sub-section {
+        padding: 10px 16px;
+        gap: 18px; /* Tighter padding density optimized for mobile viewports */
+    }
+    
+    .nav-link {
+        font-size: 12px;
+    }
+}
