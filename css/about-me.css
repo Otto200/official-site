@@ -31,12 +31,12 @@
 
 /* Row 1: Right to Left (Standard speed) */
 .track-left {
-    animation: scrollSlideLeft 50s linear infinite;
+    animation: scrollSlideLeft 20s linear infinite;
 }
 
 /* Row 2: Left to Right (Slightly faster speed) */
 .track-right {
-    animation: scrollSlideRight 40s linear infinite;
+    animation: scrollSlideRight 10s linear infinite;
 }
 
 /* General Slide Styling */
@@ -111,11 +111,11 @@
     }
     
     .track-left {
-        animation-duration: 40s; /* Tailored speed matching desktop monitors */
+        animation-duration: 20s; /* Tailored speed matching desktop monitors */
     }
     
     .track-right {
-        animation-duration: 30s; /* Faster relative pacing remains uniform */
+        animation-duration: 10s; /* Faster relative pacing remains uniform */
     }
 }
 
@@ -170,12 +170,12 @@
 
 /* Row 1 Layout: Right to Left (Moving Left) */
 .track-left {
-    animation: scrollSlideLeft 30s linear infinite;
+    animation: scrollSlideLeft 20s linear infinite;
 }
 
 /* Row 2 Layout: Left to Right (Moving Right - Faster Pacing) */
 .track-right {
-    animation: scrollSlideRight 22s linear infinite;
+    animation: scrollSlideRight 10s linear infinite;
 }
 
 /* Individual Card Styling rules */
@@ -253,10 +253,10 @@
     }
     
     .track-left {
-        animation-duration: 40s; /* Tailored speed matching widescreen desktop space */
+        animation-duration: 20s; /* Tailored speed matching widescreen desktop space */
     }
     
     .track-right {
-        animation-duration: 30s; /* Faster relative pacing remains uniform */
+        animation-duration: 10s; /* Faster relative pacing remains uniform */
     }
 }
