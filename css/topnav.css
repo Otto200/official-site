@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ELITE DUAL-ROW NAVIGATION MOTOR (PC, Tablet & Mobile Fluid View)
+   ELITE DUAL-ROW NAVIGATION MOTOR (Centered Menu Version)
    ========================================================================== */
 
 /* Main Navigation Box wrapper */
@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: space-between;
     height: 72px; /* Desktop Standard Height */
+    position: relative; /* Anchor for absolute elements */
 }
 
 /* Structural Alignment blocks */
@@ -38,10 +39,11 @@
     letter-spacing: 0.05em;
 }
 
-/* Navigation Link Menu Frame */
+/* Navigation Link Menu Frame (Force Center Alignment) */
 .nav-sub-section {
     display: flex;
     align-items: center;
+    justify-content: center; /* Centers items horizontally */
     gap: 32px;
 }
 
@@ -59,18 +61,30 @@
 }
 
 /* ==========================================================================
-   🖥️ DESKTOP STRUCTURAL RULE (Forced Desktop Single-Line View)
+   🖥️ DESKTOP STRUCTURAL RULE (Forced Centered Links, Floating Side Blocks)
    ========================================================================== */
 @media (min-width: 993px) {
-    /* On PC, override top-tier container limits to expand across the full bar */
-    .nav-top-tier {
-        width: auto;
+    /* Push the menu sub-section to occupy full central real estate */
+    .nav-wrapper {
+        justify-content: center;
     }
-    /* Move login button visually to the right end on PC */
-    .nav-top-tier .btn-secondary {
+
+    .nav-top-tier {
+        width: 100%;
         position: absolute;
-        right: 24px;
-        top: 16px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        pointer-events: none; /* Allows clicks to pass through to links below it */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+    }
+
+    /* Reactive activation for brand/login mouse clicks */
+    .brand-logo, .nav-top-tier .btn-secondary {
+        pointer-events: auto;
     }
 }
 
@@ -103,15 +117,15 @@
     .nav-sub-section {
         width: 100%;
         display: flex !important;
-        flex-wrap: wrap; /* Wrap links gracefully if mobile screens are extremely thin */
+        flex-wrap: wrap; /* Wrap links gracefully if mobile screens are thin */
         justify-content: center;
         align-items: center;
-        gap: 16px; /* Balanced tight padding for smaller glass screens */
+        gap: 16px; /* Balanced padding for smaller screens */
         padding-top: 12px;
         border-top: 1px solid var(--border-color); /* Separator line between top tier and links */
     }
 
     .nav-link {
-        font-size: 12px; /* Tighter typography allocation for clean screen distribution */
+        font-size: 12px; /* Tighter typography for mobile distribution */
     }
 }
