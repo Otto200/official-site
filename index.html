@@ -14,16 +14,20 @@
 </head>
 <body>
 
-       <!-- ==========================================
-       SECTION 1: THE TOP NAVIGATION BAR (Updated Layout)
+           <!-- ==========================================
+       SECTION 1: THE TOP NAVIGATION BAR (Dual-Row Layout)
        ========================================== -->
     <nav class="main-nav">
-        <div class="container nav-container">
-            <!-- Left Side: Brand Logo -->
-            <div class="brand-logo">BANKBUGS|FX</div>
+        <div class="container nav-wrapper">
             
-            <!-- Center Block: Elite Navigation Menus -->
-            <div class="nav-menu">
+            
+            <div class="nav-top-tier">
+                <div class="brand-logo">ALPHA DESK</div>
+                <a href="#" class="btn btn-secondary" onclick="alert('Access Restricted. Enter Ecosystem Node Password to synchronize workspace.'); return false;">Login</a>
+            </div>
+            
+            <!-- Tier 2: The Navigation Menu Sub-Section -->
+            <div class="nav-sub-section">
                 <a href="#" class="nav-link">Home</a>
                 <a href="#ecosystem" class="nav-link">My Trading Ecosystem</a>
                 <a href="#about" class="nav-link">About Me</a>
@@ -31,10 +35,9 @@
                 <a href="#channels" class="nav-link">Trading Channels</a>
             </div>
             
-            <!-- Right Side: Functional Login Gate -->
-            <a href="#" class="btn btn-secondary" onclick="alert('Access Restricted. Enter Ecosystem Node Password to synchronize workspace.'); return false;">Login</a>
         </div>
     </nav>
+
 
     <!-- ==========================================
        SECTION 2: THE TACTICAL HERO COMPONENT
