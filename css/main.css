@@ -32,21 +32,13 @@ body {
 
 /* The Live Animation Engine */
 @keyframes liveGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-
-
 /* ==========================================================================
-   2. REUSABLE ATOMIC UTILITIES (Fast Structural Layouts)
+   2. REUSABLE ATOMIC UTILITIES (Highly Compact Layout Framework)
    ========================================================================== */
 .container {
     width: 100%;
@@ -55,8 +47,9 @@ body {
     padding: 0 24px;
 }
 
+/* Hard-locked tight buffer clearance for all structural blocks */
 .section-padding {
-    padding: 100px 0;
+    padding: 24px 0 !important;
 }
 
 /* Unification Engine: Solid Filled Gold Buttons */
@@ -91,10 +84,9 @@ body {
 
 /* Secondary Button Reset (Ensures Login matching state) */
 .btn-secondary {
-    padding: 10px 20px; /* Kept slightly more compact for the navigation bar alignment */
+    padding: 10px 20px;
     font-size: 13px;
 }
-
 
 /* Typography Hierarchy */
 h1, h2, h3 {
@@ -103,71 +95,22 @@ h1, h2, h3 {
 }
 
 .section-title {
-    font-size: 36px;
+    font-size: 32px;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px; /* Tighter layout padding */
 }
 
 .section-subtitle {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--text-secondary);
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 20px auto; /* Slashed from 60px down to 20px */
 }
 
 /* ==========================================================================
    3. SECTION SPECIFIC COMPONENT STYLES (Your Blocks)
    ========================================================================== */
-
-/* Header Navigation Bar */
-.main-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: rgba(11, 14, 17, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-    height: 72px;
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.brand-logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* Hero Section */
-.hero-block {
-    text-align: center;
-    padding: 140px 0 100px 0;
-}
-
-.hero-block h1 {
-    font-size: 54px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-block p {
-    font-size: 18px;
-    color: var(--text-secondary);
-    max-width: 650px;
-    margin: 0 auto 40px auto;
-}
 
 /* Core Assets Layout Grid */
 .assets-grid {
@@ -179,7 +122,7 @@ h1, h2, h3 {
 .asset-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 40px;
+    padding: 32px; /* Balanced interior padding */
     border-radius: 8px;
     transition: border-color 0.2s ease-in-out;
 }
@@ -189,36 +132,36 @@ h1, h2, h3 {
 }
 
 .asset-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .asset-card p {
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: 14px;
 }
 
 /* Hard Evidence & Proof Gallery Grid */
 .proof-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 24px;
 }
 
 .proof-column {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px; /* Tight vertical block stack spacing */
 }
 
 .proof-column h3 {
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-secondary);
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 12px;
-    margin-bottom: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .image-container {
@@ -233,7 +176,7 @@ h1, h2, h3 {
     width: 100%;
     height: auto;
     display: block;
-    filter: grayscale(20%);
+    filter: grayscale(15%);
     transition: filter 0.2s ease;
 }
 
@@ -244,100 +187,73 @@ h1, h2, h3 {
 /* Institutional Footer & Disclaimer */
 .main-footer {
     border-top: 1px solid var(--border-color);
-    padding: 60px 0;
-    margin-top: 60px;
+    padding: 32px 0; /* Compacted footing blocks */
+    margin-top: 40px;
 }
 
 .disclaimer-text {
-    font-size: 12px;
-    color: #5F666E; /* Ultra-dimmed grey for strict visual legal separation */
+    font-size: 11px;
+    color: #5F666E;
     text-align: justify;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 /* ==========================================================================
-   CROSS-PLATFORM ENGINE (Seamless PC, Tablet & Mobile Scaling)
+   4. CROSS-PLATFORM SYSTEM SCALING (PC, Tablet & Mobile Fluidity)
    ========================================================================== */
-
-/* 🖥️ PC & WIDESCREEN STYLING (Default Global Grid) */
-.assets-grid, .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-}
 
 /* 📑 TABLET ORIENTATION MODE (Viewports under 1024px) */
 @media (max-width: 1024px) {
     .container {
-        padding: 0 32px; /* Extra safe margins for tablet bezels */
+        padding: 0 24px;
     }
-    
     .section-padding {
-        padding: 80px 0;
+        padding: 20px 0 !important;
     }
-    
-    .hero-block h1 {
-        font-size: 44px;
-        max-width: 100%;
-    }
-    
     .assets-grid {
-        gap: 20px; /* Tighter padding for balanced grid squares */
+        gap: 16px;
     }
-    
     .proof-grid {
-        gap: 24px;
+        gap: 16px;
     }
 }
 
 /* 📱 SMARTPHONE MOBILE ENGINE (Viewports under 768px - Full Display, Zero Content Loss) */
 @media (max-width: 768px) {
     .container {
-        padding: 0 20px; /* Fluid padding optimized for mobile displays */
+        padding: 0 16px;
     }
-    
     .section-padding {
-        padding: 60px 0;
+        padding: 16px 0 !important; /* Extremely tight stack padding for small glass interfaces */
     }
-    
-    /* Smoothly downscale large font blocks to prevent text clipping */
-    .hero-block {
-        padding: 100px 0 50px 0;
-    }
-    
-    .hero-block h1 {
-        font-size: 32px;
-        line-height: 1.2;
-    }
-    
-    .hero-block p {
-        font-size: 15px;
-        margin-bottom: 32px;
-    }
-    
     .section-title {
-        font-size: 26px;
+        font-size: 24px;
     }
-    
     .section-subtitle {
-        font-size: 14px;
-        margin-bottom: 40px;
+        font-size: 13px;
+        margin-bottom: 24px;
     }
-    
     /* Force grids into single columns so items stack gracefully on mobile screens */
     .assets-grid, .proof-grid {
         grid-template-columns: 1fr !important;
-        gap: 18px;
+        gap: 16px;
     }
-    
     .asset-card {
-        padding: 24px; /* Tighter inner margins for mobile efficiency */
+        padding: 20px;
     }
-    
     .proof-column h3 {
-        font-size: 15px;
-        margin-bottom: 12px;
+        font-size: 14px;
+        margin-bottom: 8px;
     }
+    .image-container {
+        border-radius: 6px;
+    }
+    .disclaimer-text {
+        font-size: 10px;
+        text-align: left;
+    }
+}
+
     
     /* Ensure all proof screenshots scale down elegantly without stretching layout rails */
     .image-container {
