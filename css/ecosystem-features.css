@@ -1,13 +1,28 @@
 /* ==========================================
-   SECTION 3: CAROUSEL OVERHAUL STYLES
+   SECTION 3: FULL-BLEED CAROUSEL STYLES
    ========================================== */
 
-/* Section & Carousel Wrapper Layout */
-.assets-carousel-wrapper {
-    position: relative;
+/* 🌟 ADDED: Keeps the section title and description text neatly inside your core layout lines */
+.assets-text-block {
     width: 100%;
-    overflow: hidden;
-    padding-bottom: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* 🌟 UPGRADED: Forces the slider track container to bypass margins and bleed edge-to-edge */
+.assets-carousel-wrapper {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 32px 0 0 0 !important;
+    padding: 8px 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
 }
 
 .assets-slider {
@@ -17,7 +32,8 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    padding: 0.5rem;
+    padding: 0 24px; /* Added internal padding so cards don't clip the mobile screens on initial load */
+    box-sizing: border-box;
 }
 
 /* Scrollbar Styling for Navigation Feedback */
@@ -48,12 +64,13 @@
 
 .asset-card:hover {
     transform: translateY(-4px);
+    border-color: rgba(226, 177, 60, 0.3); /* Integrated your primary gold highlight line */
 }
 
 /* Container for In-Card Media Assets */
 .asset-image-box {
     width: 100%;
-    height: 200px; 
+    aspect-ratio: 16 / 9; /* Swapped static 200px for a clean responsive desktop aspect ratio */
     overflow: hidden;
     background: #1a1a1a;
     position: relative;
@@ -93,6 +110,9 @@
     .asset-card {
         flex: 0 0 45%; /* Reveals partial next card on tablet viewports */
     }
+    .assets-slider {
+        padding: 0 32px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -100,7 +120,8 @@
         flex: 0 0 31%; /* Displays desktop grid preview layout hinting horizontal scroll */
         flex-direction: column;
     }
-    .asset-image-box {
-        height: 220px; /* Scaling optimization for high-density monitors */
+    .assets-slider {
+        /* Computes and injects perfect track padding to keep sliding cards aligned with centered titles on huge monitors */
+        padding: 0 calc((100vw - 1200px) / 2 + 24px); 
     }
 }
