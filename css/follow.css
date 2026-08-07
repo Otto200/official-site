@@ -1,110 +1,74 @@
 /* ==========================================================================
-   PRIVATE SOCIAL MATRIX ENGINE (Ultra-Compact, Centered Architecture)
+   PRIVATE SOCIAL STRIP ENGINE (Ultra-Minimal Flat Horizontal Architecture)
    ========================================================================== */
 
 .follow-section-block {
-    padding-top: 12px !important;    /* Adheres strictly to your compact section limits */
-    padding-bottom: 8px !important;
+    padding-top: 12px !important;    /* Hard locked tight compact buffers */
+    padding-bottom: 12px !important;
     width: 100%;
+    border-bottom: 1px solid var(--border-color); /* Elegant, thin separation line */
 }
 
-/* 💻 PC WIDESCREEN ENVIRONMENT LAYOUT (Symmetrical 4-Column Row Grid) */
-.social-channels-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    width: 100%;
-    margin-top: 16px;
-}
-
-/* Core Social Clickable Cards */
-.social-node-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 24px 16px;
+/* Master Strip Alignment Container */
+.social-horizontal-strip {
     display: flex;
-    flex-direction: column;
-    align-items: center;      /* Centers the icon vector, title, and handles vertically */
-    text-align: center;       /* Centers multi-line text arrays horizontally */
-    text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Minimal Vector Ring Framing */
-.social-icon-wrapper {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-color);
-    display: flex;
+    flex-direction: row !important; /* Strictly forces a horizontal row line across all layout viewports */
     align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    margin-bottom: 14px;
-    transition: all 0.25s ease-in-out;
+    justify-content: center;       /* Symmetrically centers the link pack inside the screen */
+    gap: 40px;                     /* Generous desktop element separation gap */
+    width: 100%;
 }
 
-/* Interactive Card Shifting Sequences */
-.social-node-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(226, 177, 60, 0.4); /* Smooth gold glow bounding border */
-    background-color: rgba(21, 26, 32, 0.6);
-}
-
-.social-node-card:hover .social-icon-wrapper {
-    color: var(--accent-color); /* Changes vector symbol to bright gold on link hover */
-    background-color: rgba(226, 177, 60, 0.05);
-    border-color: var(--accent-color);
-}
-
-/* Typography Text Array Elements */
-.social-platform-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 4px;
+/* Individual Flat Social Nodes */
+.social-strip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;                     /* Spacing between the icon image and official title */
+    color: var(--text-secondary);  /* Premium muted tech grey state */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: -0.01em;
+    transition: color 0.2s ease-in-out, transform 0.2s ease;
 }
 
-.social-platform-handle {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    letter-spacing: 0.01em;
+/* Elegant gold transform on hover */
+.social-strip-link:hover {
+    color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.social-strip-link svg {
+    display: block;
+    transition: stroke 0.2s ease;
 }
 
 /* ==========================================================================
-   📱 CROSS-PLATFORM DISPLAY MATRIX RESIZING ENG (Safe Screen Wrapping)
+   📱 MOBILE & SMARTPHONE FLUID RESPONSIVE INTEGRATION (Forced Single Row)
    ========================================================================== */
+@media (max-width: 768px) {
+    .social-horizontal-strip {
+        gap: 20px;                 /* Squeezes spacing on smaller screens to guarantee single line placement */
+        justify-content: space-between; /* Spreads layout out evenly from border margin to margin */
+    }
 
-/* 📑 TABLETS (Viewports under 1024px - Switches gracefully into dual pairs) */
-@media (max-width: 1024px) {
-    .social-channels-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px;
+    .social-strip-link {
+        gap: 6px;                  /* Tighter text to symbol padding clearance */
+        font-size: 12px;           /* Scales font down for safe compact visibility */
+    }
+    
+    .social-strip-link svg {
+        width: 16px;               /* Shrinks vector icon properties slightly for small glass widths */
+        height: 16px;
     }
 }
 
-/* 📱 MOBILE PHONES (Viewports under 576px - Flattens out cleanly into compact stacks) */
-@media (max-width: 576px) {
-    .social-channels-grid {
-        grid-template-columns: 1fr !important; /* Stack vertically to prevent squeezing content */
+/* Ultra small device safety check (e.g. older/compact smartphones) */
+@media (max-width: 380px) {
+    .social-horizontal-strip {
         gap: 12px;
     }
-    
-    .social-node-card {
-        padding: 18px 12px; /* Slims down vertical height dimensions to look tight on glass monitors */
-    }
-    
-    .social-icon-wrapper {
-        width: 42px;
-        height: 42px;
-        margin-bottom: 10px;
-    }
-    
-    .social-platform-title {
-        font-size: 14px;
+    .social-strip-title {
+        display: none;             /* Safely conceals text labels on extremely thin screens to keep icons row unified */
     }
 }
