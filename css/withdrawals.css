@@ -66,3 +66,104 @@
         animation-duration: 35s; /* Balances velocity across widescreen real estate */
     }
 }
+
+
+
+
+/* ==========================================
+   SECTION 4: PERFORMANCE MARQUEE ENGINE STYLES
+   ========================================== */
+
+/* Keeps the section headers and buttons locked uniform within standard desktop boundaries */
+.proof-text-block, 
+.proof-action-block {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.proof-action-block {
+    margin-top: 30px; /* Synchronized to your precise layout requirements */
+}
+
+.proof-action-text {
+    color: var(--text-secondary); 
+    margin-bottom: 24px; 
+    font-size: 15px;
+}
+
+/* 🌟 SCREEN BREAKOUT LAYER: Forces container width past standard margins edge-to-edge */
+.proof-carousel-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 32px 0 0 0 !important;
+    padding: 8px 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+}
+
+/* Moving Conveyor Lane (Continuous Left-to-Right Loop) */
+.proof-track {
+    display: flex;
+    gap: 1.5rem; /* Layout item split buffers */
+    width: max-content;
+    animation: autoScrollRight 30s linear infinite;
+    box-sizing: border-box;
+}
+
+/* Pauses layout animation on cursor hover for close inspection */
+.proof-carousel-container:hover .proof-track {
+    animation-play-state: paused;
+}
+
+/* Slide Cards configured to strict 16:9 Desktop Ratio */
+.proof-slide {
+    width: 290px; /* Compact mobile default width scaling */
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+    background: var(--bg-card, #121212);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.proof-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.proof-slide:hover img {
+    transform: scale(1.03);
+}
+
+/* Smooth continuous motion animation mapping */
+@keyframes autoScrollRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Loops after shifting by exactly half the track length */
+        transform: translateX(calc(-50% - 0.75rem));
+    }
+}
+
+/* Responsive Desktop Optimizations */
+@media (min-width: 1024px) {
+    .proof-slide {
+        width: 420px; /* Expanded card sizing optimized for high-res layout viewing */
+    }
+    .proof-track {
+        animation-duration: 35s; /* Balances velocity across widescreen real estate */
+    }
+}
+
