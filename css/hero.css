@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .hero-section {
-    padding-top: 12px !important;    /* Dramatically tightened top spacing below your nav */
-    padding-bottom: 8px !important; /* Tightened bottom space to move seamlessly to Section 3 */
+    padding-top: 12px !important;    /* Hard-locked 12px top spacing on all systems */
+    padding-bottom: 8px !important;  /* Hard-locked 8px bottom spacing on all systems */
     overflow: hidden;
     width: 100%;
 }
@@ -153,8 +153,8 @@
    ========================================================================== */
 @media (max-width: 1024px) {
     .hero-section {
-        padding-top: 24px !important;
-        padding-bottom: 16px !important;
+        padding-top: 12px !important;    /* Maintained 12px top padding on tablets */
+        padding-bottom: 8px !important;   /* Maintained 8px bottom padding on tablets */
     }
     .hero-block h1 {
         font-size: 32px;
@@ -167,8 +167,8 @@
 
 @media (max-width: 768px) {
     .hero-section {
-        padding-top: 20px !important;
-        padding-bottom: 12px !important;
+        padding-top: 12px !important;    /* Maintained 12px top padding on mobile phones */
+        padding-bottom: 8px !important;   /* Maintained 8px bottom padding on mobile phones */
     }
     .hero-block h1 {
         font-size: 24px;
