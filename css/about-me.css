@@ -7,8 +7,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Gap between row 1 and row 2 */
-    padding: 2rem 0;
+    gap: 0.4rem; /* Gap between row 1 and row 2 */
+    padding: 1rem 0;
 }
 
 .lifestyle-carousel-row {
