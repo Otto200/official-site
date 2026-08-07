@@ -48,7 +48,7 @@
     display: inline-flex !important;
     align-items: center !important;
     justify-content: flex-start;
-    gap: 8px; /* Space between logo image and your dual-line text area */
+    gap: 4px; /* Space between logo image and your dual-line text area */
 }
 
 .brand-text-column {
@@ -65,7 +65,7 @@
 }
 
 .brand-logo-text {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -75,7 +75,7 @@
 
 /* Tiny Gold Subtext Styling Hooks */
 .brand-subtext {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     color: var(--accent-color); /* Automatically pulls your existing golden theme color */
     text-transform: uppercase;
