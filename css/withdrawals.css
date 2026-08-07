@@ -1,0 +1,68 @@
+/* ==========================================
+   SECTION 4: AUTO-SLIDING CAROUSEL STYLES
+   ========================================== */
+
+.proof-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1.5rem 0;
+    background: transparent;
+}
+
+/* Linear infinite scrolling track running left to right */
+.proof-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: autoScrollRight 25s linear infinite;
+}
+
+/* Pauses layout animation on cursor hover for close inspection */
+.proof-carousel-container:hover .proof-track {
+    animation-play-state: paused;
+}
+
+/* Slide Cards configured to strict 16:9 Desktop Ratio */
+.proof-slide {
+    width: 320px; /* Fixed mobile default width scaling */
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #121212;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.proof-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.proof-slide:hover img {
+    transform: scale(1.03);
+}
+
+/* Smooth continuous motion animation mapping */
+@keyframes autoScrollRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Loops after shifting by a full view block */
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive Desktop Optimizations */
+@media (min-width: 1024px) {
+    .proof-slide {
+        width: 440px; /* Expanded card sizing optimized for high-res layout viewing */
+    }
+    .proof-track {
+        animation-duration: 35s; /* Balances velocity across widescreen real estate */
+    }
+}
