@@ -75,11 +75,11 @@
 
 /* Tiny Gold Subtext Styling Hooks */
 .brand-subtext {
-    font-size: 7px;
+    font-size: 8px;
     font-weight: 700;
     color: var(--accent-color); /* Automatically pulls your existing golden theme color */
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin-top: 2px; /* Tightly buffers the gap right below the main brand name text */
     white-space: nowrap;
 }
