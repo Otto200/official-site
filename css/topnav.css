@@ -1,50 +1,27 @@
-/* ==========================================
-   CROSS-PLATFORM NAVIGATION ENGINE 
-   ========================================== */
-
-/* 🖥️ PC View: Standard Flex Row */
+/* Center Navigation Links Framework */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 32px; /* Smooth, institutional spacing between menu items */
 }
 
-/* 📱 Tablet & Mobile View: Full Display App-Style Strip */
+.nav-link {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Elegant light gold shift when hovering */
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Ensure menus hide beautifully on mobile devices to prevent layout breaking */
 @media (max-width: 992px) {
-    /* 1. Change the top nav structure to handle full wrap layout */
-    .nav-container {
-        flex-direction: column;
-        height: auto;
-        padding: 12px 16px;
-        gap: 12px;
-    }
-    
-    .main-nav {
-        height: auto; /* Lets the navigation box expand cleanly */
-    }
-
-    /* 2. Turn menu links into a slick, swipeable horizontal container */
     .nav-menu {
-        display: flex !important; /* Forces full display on all devices */
-        width: 100%;
-        justify-content: flex-start;
-        overflow-x: auto; /* Enables touch swiping for long link chains */
-        white-space: nowrap;
-        padding: 4px 0 8px 0;
-        gap: 20px;
-        -webkit-overflow-scrolling: touch; /* Smooth inertia scrolling for iPhones */
-    }
-    
-    /* Hide ugly scrollbars on Android/Chrome/Safari while keeping swipe action active */
-    .nav-menu::-webkit-scrollbar {
-        display: none;
-    }
-    .nav-menu {
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
-    }
-
-    .nav-link {
-        font-size: 13px; /* Slightly tighter text sizing for smaller screens */
+        display: none; /* Keeps layout clean on mobile by hiding long link list */
     }
 }
