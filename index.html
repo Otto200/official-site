@@ -59,60 +59,80 @@
     </nav>
 
 
-              <!-- ==========================================
-       SECTION 2: THE TACTICAL HERO COMPONENT
-       ========================================== -->
-    <header class="hero-section container">
-        <div class="hero-block">
-            <!-- Elite Header Group -->
-            <span class="hero-tagline">Looking to start FX trading from PNG?</span>
-            <h1>Use my ecosystem. Follow my exact Trading System to make money</h1>
+             <!-- ==========================================
+     SECTION 2: THE TACTICAL HERO COMPONENT (FULL-BLEED FIXED OVERHAUL)
+     ========================================== -->
+<header class="hero-section" style="width: 100vw; max-width: 100vw; margin: 0; padding: 48px 0; overflow-x: hidden; box-sizing: border-box; display: flex; flex-direction: column; align-items: center;">
+    
+    <!-- Content Wrapper: Keeps typography neat, while letting the marquee burst out to full screen width -->
+    <div class="hero-block" style="width: 100%; max-width: 1200px; padding: 0 24px; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
+        
+        <!-- Elite Header Group -->
+        <span class="hero-tagline" style="display: block; margin-bottom: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-color);">Looking to start FX trading from PNG?</span>
+        <h1 style="font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 32px; max-width: 900px; color: var(--text-primary);">Use my ecosystem. Follow my exact Trading System to make money</h1>
 
-            <!-- Interactive Auto-Sliding Preview Matrix -->
-            <div class="marquee-wrapper">
-                <div class="marquee-track">
-                    <!-- Card 1 -->
-                    <div class="preview-card">
-                        <img src="img/preview-playbook.webp" alt="Playbook Blueprint">
-                        <div class="card-overlay"><span>Playbook Framework</span></div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="preview-card">
-                        <img src="img/preview-indicators.webp" alt="Custom Indicators">
-                        <div class="card-overlay"><span>Proprietary Indicators</span></div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="preview-card">
-                        <img src="img/preview-portal.webp" alt="Web Portal Engine">
-                        <div class="card-overlay"><span>Web Portal Workspace</span></div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="preview-card">
-                        <img src="img/preview-broadcast.webp" alt="Live Execution Broadcast">
-                        <div class="card-overlay"><span>Execution Feeds</span></div>
-                    </div>
-                    <!-- Card 5 -->
-                    <div class="preview-card">
-                        <img src="img/preview-metrics.webp" alt="Risk Analytics Matrix">
-                        <div class="card-overlay"><span>Risk Management Tools</span></div>
-                    </div>
+    </div>
 
-                    <!-- Cloned Cards to Ensure Seamless Infinite Loop (Do Not Delete) -->
-                    <div class="preview-card"><img src="img/preview-playbook.webp" alt=""><div class="card-overlay"><span>Playbook Framework</span></div></div>
-                    <div class="preview-card"><img src="img/preview-indicators.webp" alt=""><div class="card-overlay"><span>Proprietary Indicators</span></div></div>
-                    <div class="preview-card"><img src="img/preview-portal.webp" alt=""><div class="card-overlay"><span>Web Portal Workspace</span></div></div>
-                    <div class="preview-card"><img src="img/preview-broadcast.webp" alt=""><div class="card-overlay"><span>Execution Feeds</span></div></div>
-                    <div class="preview-card"><img src="img/preview-metrics.webp" alt=""><div class="card-overlay"><span>Risk Management Tools</span></div></div>
-                </div>
+    <!-- 🌟 THE BREAKOUT MARQUEE ENGINE: Forced 100% full-screen display width edge-to-edge -->
+    <div class="marquee-wrapper" style="width: 100vw !important; max-width: 100vw !important; margin: 32px 0 !important; padding: 8px 0 !important; overflow: hidden !important; background: transparent; box-sizing: border-box; position: relative; left: 50%; right: 50%; transform: translateX(-50%);">
+        
+        <!-- Continuous Scrolling Core Track Running Right-to-Left -->
+        <div class="marquee-track" style="display: flex; gap: 16px; width: max-content; animation: heroInfiniteScroll 25s linear infinite; box-sizing: border-box;">
+            
+            <!-- Card 1 -->
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);">
+                <img src="img/preview-playbook.webp" alt="Playbook Blueprint" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Playbook Framework</span></div>
+            </div>
+            <!-- Card 2 -->
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);">
+                <img src="img/preview-indicators.webp" alt="Custom Indicators" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Proprietary Indicators</span></div>
+            </div>
+            <!-- Card 3 -->
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);">
+                <img src="img/preview-portal.webp" alt="Web Portal Engine" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Web Portal Workspace</span></div>
+            </div>
+            <!-- Card 4 -->
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);">
+                <img src="img/preview-broadcast.webp" alt="Live Execution Broadcast" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Execution Feeds</span></div>
+            </div>
+            <!-- Card 5 -->
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);">
+                <img src="img/preview-metrics.webp" alt="Risk Analytics Matrix" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Risk Management Tools</span></div>
             </div>
 
-            <!-- Closing High-Status Copywriting Block -->
-            <p class="hero-pitch">Get direct access to my proprietary strategy, custom charting indicators, and real-time trade execution updates. No subscriptions. No commercial courses. Access is strictly managed via our private onboarding desk to filter in genuine, disciplined traders only.</p>
-
-            <!-- Active Action Portal Button -->
-            <a href="https://wa.link" class="btn btn-primary hero-cta">Interested? Request Free Access</a>
+            <!-- Cloned Cards for Seamless Loop Layout -->
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);"><img src="img/preview-playbook.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"><div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Playbook Framework</span></div></div>
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);"><img src="img/preview-indicators.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"><div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Proprietary Indicators</span></div></div>
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);"><img src="img/preview-portal.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"><div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Web Portal Workspace</span></div></div>
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);"><img src="img/preview-broadcast.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"><div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Execution Feeds</span></div></div>
+            <div class="preview-card" style="flex-shrink: 0; width: clamp(240px, 30vw, 340px); aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); position: relative; background: var(--bg-card);"><img src="img/preview-metrics.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"><div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 13px; font-weight: 600;"><span>Risk Management Tools</span></div></div>
         </div>
-    </header>
+    </div>
+
+    <!-- Extra Styles Script Injection for Loop Mechanics -->
+    <style>
+        @keyframes heroInfiniteScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 8px)); } /* Shifting exactly half distance minus gap spacing */
+        }
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
+    </style>
+
+    <!-- Closing High-Status Copywriting Block -->
+    <div class="hero-block" style="width: 100%; max-width: 1200px; padding: 0 24px; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
+        <p class="hero-pitch" style="font-size: clamp(14px, 2vw, 16px); line-height: 1.6; color: var(--text-secondary); max-width: 720px; margin-top: 16px; margin-bottom: 32px;">Get direct access to my proprietary strategy, custom charting indicators, and real-time trade execution updates. No subscriptions. No commercial courses. Access is strictly managed via our private onboarding desk to filter in genuine, disciplined traders only.</p>
+
+        <!-- Active Action Portal Button -->
+        <a href="https://wa.link" class="btn btn-primary hero-cta" target="_blank" rel="noopener">Interested? Request Free Access</a>
+    </div>
+</header>
 
 
     <!-- ==========================================
