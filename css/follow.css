@@ -1,0 +1,110 @@
+/* ==========================================================================
+   PRIVATE SOCIAL MATRIX ENGINE (Ultra-Compact, Centered Architecture)
+   ========================================================================== */
+
+.follow-section-block {
+    padding-top: 12px !important;    /* Adheres strictly to your compact section limits */
+    padding-bottom: 8px !important;
+    width: 100%;
+}
+
+/* 💻 PC WIDESCREEN ENVIRONMENT LAYOUT (Symmetrical 4-Column Row Grid) */
+.social-channels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+/* Core Social Clickable Cards */
+.social-node-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* Centers the icon vector, title, and handles vertically */
+    text-align: center;       /* Centers multi-line text arrays horizontally */
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Minimal Vector Ring Framing */
+.social-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Interactive Card Shifting Sequences */
+.social-node-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(226, 177, 60, 0.4); /* Smooth gold glow bounding border */
+    background-color: rgba(21, 26, 32, 0.6);
+}
+
+.social-node-card:hover .social-icon-wrapper {
+    color: var(--accent-color); /* Changes vector symbol to bright gold on link hover */
+    background-color: rgba(226, 177, 60, 0.05);
+    border-color: var(--accent-color);
+}
+
+/* Typography Text Array Elements */
+.social-platform-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+}
+
+.social-platform-handle {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   📱 CROSS-PLATFORM DISPLAY MATRIX RESIZING ENG (Safe Screen Wrapping)
+   ========================================================================== */
+
+/* 📑 TABLETS (Viewports under 1024px - Switches gracefully into dual pairs) */
+@media (max-width: 1024px) {
+    .social-channels-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+    }
+}
+
+/* 📱 MOBILE PHONES (Viewports under 576px - Flattens out cleanly into compact stacks) */
+@media (max-width: 576px) {
+    .social-channels-grid {
+        grid-template-columns: 1fr !important; /* Stack vertically to prevent squeezing content */
+        gap: 12px;
+    }
+    
+    .social-node-card {
+        padding: 18px 12px; /* Slims down vertical height dimensions to look tight on glass monitors */
+    }
+    
+    .social-icon-wrapper {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 10px;
+    }
+    
+    .social-platform-title {
+        font-size: 14px;
+    }
+}
