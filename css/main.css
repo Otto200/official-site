@@ -1,20 +1,3 @@
-/* Paste this at the absolute top of your global CSS file */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; /* Stops horizontal rogue elements from causing janky shifts */
-    margin: 0;
-    padding: 0;
-}
-
-
-
 /* ==========================================================================
    1. GLOBAL SYSTEM STYLES & RESET (The Foundation)
    ========================================================================== */
@@ -35,6 +18,14 @@ html, body {
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hard locks rogue layout elements from creating janky side scrolling */
+}
+
 body {
     background: linear-gradient(-45deg, #0b0e11, #12161a, #07090b, #151b22);
     background-size: 400% 400%;
@@ -43,7 +34,6 @@ body {
     font-family: var(--font-stack);
     line-height: 1.6;
     letter-spacing: -0.01em;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -57,11 +47,22 @@ body {
 /* ==========================================================================
    2. REUSABLE ATOMIC UTILITIES (Highly Compact Layout Framework)
    ========================================================================== */
+/* Retained for text hierarchy balance to keep typography readable */
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+}
+
+/* 🌟 CRITICAL FIX: Add this helper class to any section containing your sliders */
+.full-bleed {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 /* Hard-locked tight buffer clearance for all structural blocks */
@@ -240,6 +241,10 @@ h1, h2, h3 {
     .container {
         padding: 0 16px;
     }
+    .full-bleed {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     .section-padding {
         padding: 16px 0 !important; /* Extremely tight stack padding for small glass interfaces */
     }
@@ -249,6 +254,7 @@ h1, h2, h3 {
     .section-subtitle {
         font-size: 13px;
         margin-bottom: 24px;
+        padding: 0 16px; /* Protects text tracking from clipping screen bezels */
     }
     /* Force grids into single columns so items stack gracefully on mobile screens */
     .assets-grid, .proof-grid {
@@ -265,24 +271,11 @@ h1, h2, h3 {
     .image-container {
         border-radius: 6px;
     }
-    .disclaimer-text {
-        font-size: 10px;
-        text-align: left;
-    }
-}
-
-    
-    /* Ensure all proof screenshots scale down elegantly without stretching layout rails */
-    .image-container {
-        border-radius: 6px;
-    }
-    
     .image-container img {
         filter: grayscale(0%); /* Full clarity display for mobile viewers */
     }
-    
     .disclaimer-text {
-        font-size: 11px;
-        text-align: left; /* Improved legibility for narrow mobile paragraphs */
+        font-size: 10px;
+        text-align: left;
     }
 }
