@@ -31,7 +31,7 @@
 
 /* Row 1: Right to Left (Standard speed) */
 .track-left {
-    animation: scrollSlideLeft 20s linear infinite;
+    animation: scrollSlideLeft 10s linear infinite;
 }
 
 /* Row 2: Left to Right (Slightly faster speed) */
@@ -111,7 +111,7 @@
     }
     
     .track-left {
-        animation-duration: 20s; /* Tailored speed matching desktop monitors */
+        animation-duration: 10s; /* Tailored speed matching desktop monitors */
     }
     
     .track-right {
@@ -170,7 +170,7 @@
 
 /* Row 1 Layout: Right to Left (Moving Left) */
 .track-left {
-    animation: scrollSlideLeft 20s linear infinite;
+    animation: scrollSlideLeft 10s linear infinite;
 }
 
 /* Row 2 Layout: Left to Right (Moving Right - Faster Pacing) */
@@ -253,7 +253,7 @@
     }
     
     .track-left {
-        animation-duration: 20s; /* Tailored speed matching widescreen desktop space */
+        animation-duration: 10s; /* Tailored speed matching widescreen desktop space */
     }
     
     .track-right {
