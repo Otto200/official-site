@@ -1,11 +1,12 @@
 /* ==========================================================================
-   HIGH-STATUS HERO ENGINE (Auto-Sliding Marquee & Responsive Text)
+   HIGH-STATUS HERO ENGINE (Compact & Edge-to-Edge Fluid Marquee)
    ========================================================================== */
 
 .hero-section {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding-top: 32px !important;    /* Dramatically tightened top spacing below your nav */
+    padding-bottom: 24px !important; /* Tightened bottom space to move seamlessly to Section 3 */
     overflow: hidden;
+    width: 100%;
 }
 
 .hero-block {
@@ -13,41 +14,43 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
 }
 
 /* Local Tagline Styling */
 .hero-tagline {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--accent-color);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px; /* Reduced gap below tagline */
 }
 
 /* Institutional Headline Statement */
 .hero-block h1 {
-    font-size: 46px;
+    font-size: 40px; /* Sized down slightly for a tighter visual grid pack */
     line-height: 1.2;
     font-weight: 800;
     letter-spacing: -0.02em;
-    max-width: 950px;
-    margin-bottom: 60px;
+    max-width: 900px;
+    margin-top: 0;
+    margin-bottom: 32px; /* Compressed spacing right before carousel element */
     color: var(--text-primary);
 }
 
-/* 🔄 THE AUTOMATED INFINITE SCROLLING ENGINE (No JavaScript Required) */
+/* 🔄 FULL EDGE-TO-EDGE BREAKOUT SCROLLING ENGINE (Fills all empty side gaps) */
 .marquee-wrapper {
-    width: 100vw;
+    /* Breakout formula: Forces element to stretch 100% full-screen width from dead center */
+    width: 100vw !important;
     position: relative;
     left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    transform: translateX(-50%);
+    
     overflow: hidden;
-    padding: 20px 0;
-    margin-bottom: 60px;
-    background-color: rgba(21, 26, 32, 0.3); /* Subtle background contrast track */
+    padding: 16px 0; /* Compact inner padding for cards */
+    margin-bottom: 36px; /* Reduced margin down below carousel track */
+    background-color: rgba(21, 26, 32, 0.4); 
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -55,11 +58,11 @@
 .marquee-track {
     display: flex;
     width: max-content;
-    gap: 24px;
-    animation: infiniteSlide 25s linear infinite; /* Seamless infinite moving cycle */
+    gap: 20px; /* Clean gap spacing between the carousel images */
+    animation: infiniteSlide 28s linear infinite; /* Controlled, premium cruise speed */
 }
 
-/* Pause sliding animation when a mouse hovers to allow close inspection */
+/* Pause sliding animation on cursor hover */
 .marquee-wrapper:hover .marquee-track {
     animation-play-state: paused;
 }
@@ -67,15 +70,15 @@
 /* The Core Card Components */
 .preview-card {
     position: relative;
-    width: 320px;
-    height: 200px;
+    width: 320px; /* Maintains elite standard sizing footprint */
+    height: 190px; /* Proportionately compacted height to eliminate vertical bloat */
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
 }
 
 .preview-card img {
@@ -83,18 +86,18 @@
     height: 100%;
     object-fit: cover;
     filter: brightness(75%) contrast(110%);
-    transition: filter 0.3s ease, scale 0.3s ease;
+    transition: filter 0.25s ease, scale 0.25s ease;
 }
 
 /* Micro-Interaction Shifting Effects */
 .preview-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: var(--accent-color);
 }
 
 .preview-card:hover img {
     filter: brightness(95%);
-    scale: 1.03;
+    scale: 1.02;
 }
 
 /* Interactive Text Hover Overlays */
@@ -103,14 +106,14 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 16px;
+    padding: 14px;
     background: linear-gradient(transparent, rgba(11, 14, 17, 0.95));
     display: flex;
     align-items: flex-end;
 }
 
 .card-overlay span {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -119,16 +122,17 @@
 
 /* Bottom Copy Positioning */
 .hero-pitch {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     color: var(--text-secondary);
     max-width: 720px;
-    margin-bottom: 40px;
+    margin-top: 0;
+    margin-bottom: 28px; /* Compact balance padding right above action button */
     text-align: center;
 }
 
 .hero-cta {
-    transform: scale(1.03);
+    margin-bottom: 12px;
 }
 
 /* ==========================================================================
@@ -139,7 +143,7 @@
         transform: translateX(0);
     }
     100% {
-        /* Loops halfway through because the exact duplicate set takes over seamlessly */
+        /* Flawlessly loops halfway across duplicate nodes for seamless visual cycle */
         transform: translateX(-50%);
     }
 }
@@ -149,33 +153,37 @@
    ========================================================================== */
 @media (max-width: 1024px) {
     .hero-section {
-        padding-top: 80px;
+        padding-top: 24px !important;
+        padding-bottom: 16px !important;
     }
     .hero-block h1 {
-        font-size: 36px;
-        padding: 0 20px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    .marquee-wrapper {
+        margin-bottom: 28px;
     }
 }
 
 @media (max-width: 768px) {
     .hero-section {
-        padding-top: 60px;
-        padding-bottom: 50px;
+        padding-top: 20px !important;
+        padding-bottom: 12px !important;
     }
     .hero-block h1 {
-        font-size: 26px;
-        margin-bottom: 40px;
+        font-size: 24px;
+        margin-bottom: 20px;
     }
     .marquee-wrapper {
-        margin-bottom: 40px;
-        padding: 10px 0;
+        margin-bottom: 24px;
+        padding: 12px 0;
     }
     .preview-card {
-        width: 260px; /* Slimmer card scaling for smaller smartphone viewpoints */
-        height: 160px;
+        width: 250px; /* Compact mobile footprint */
+        height: 150px;
     }
     .hero-pitch {
         font-size: 14px;
-        padding: 0 10px;
+        margin-bottom: 24px;
     }
 }
