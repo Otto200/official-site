@@ -31,12 +31,12 @@
 
 /* Row 1: Right to Left (Standard speed) */
 .track-left {
-    animation: scrollSlideLeft 20s linear infinite;
+    animation: scrollSlideLeft 8s linear infinite;
 }
 
 /* Row 2: Left to Right (Slightly faster speed) */
 .track-right {
-    animation: scrollSlideRight 11s linear infinite;
+    animation: scrollSlideRight 2s linear infinite;
 }
 
 /* General Slide Styling */
