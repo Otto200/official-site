@@ -356,3 +356,56 @@ full blees css
         font-size: 12px;
     }
 }
+
+
+...................................
+
+/* ==========================================================================
+   UPDATED DESKTOP STRUCTURAL LAYOUT RULES (PC ALIGNMENT FIX)
+   ========================================================================== */
+
+/* TIER 1 FIXED: Restricts layout bounding boxes on wide desktop PC screens */
+.nav-top-tier {
+    width: 100%;
+    max-width: 1200px; /* Locks the logo and buttons to your exact core center line */
+    margin: 0 auto;    /* Centers the entire flex tracking lane horizontally */
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Forcefully drives buttons to the absolute right side */
+    box-sizing: border-box;
+    gap: 16px;
+}
+
+/* TIER 2 FIXED: Aligns menu links uniformly under the logo space */
+.nav-sub-section {
+    width: 100%;
+    max-width: 1200px; /* Locks the line link structure to match Tier 1 exactly */
+    margin: 0 auto;    /* Centers the sub-menu layout on widescreen PC viewports */
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns sub links to the left side under the logo */
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+/* Fallback adjustment rule for ultra-wide desktop monitors */
+@media (min-width: 1024px) {
+    .nav-sub-section {
+        width: 100%;
+        justify-content: flex-start; /* Keeps structural text flow locked uniform on PC screens */
+    }
+}
+
+/* 📱 MOBILE VIEW COMPATIBILITY PRESERVATION (Under 768px Width) */
+@media (max-width: 768px) {
+    .nav-top-tier {
+        padding: 12px 16px;
+    }
+    .nav-sub-section {
+        width: max-content; /* Restores touch-drag horizontal scroll for tiny devices */
+        padding: 10px 16px;
+        gap: 18px;
+    }
+}
