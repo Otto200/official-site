@@ -19,10 +19,9 @@
 }
 
 body {
-    /* Replace 'your-background-image.jpg' with your actual image path or a web link */
-    background: linear-gradient(rgba(11, 14, 17, 0.92), rgba(11, 14, 17, 0.95)), 
-                url('img/background-image.webp') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(-45deg, #0b0e11, #12161a, #07090b, #151b22);
+    background-size: 400% 400%;
+    animation: liveGradient 15s ease infinite;
     color: var(--text-primary);
     font-family: var(--font-stack);
     line-height: 1.6;
@@ -30,6 +29,20 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
+
+/* The Live Animation Engine */
+@keyframes liveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 
 /* ==========================================================================
