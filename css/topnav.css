@@ -31,11 +31,12 @@
     justify-content: space-between;
 }
 
-./* Identity Alignment Engine: Logo + Text Alignment */
+/* Identity Alignment Engine: Logo + Text Alignment Symmetrically Locked */
 .brand-logo-group {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px; /* Space between your webp logo and your text name */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    gap: 12px; /* Perfect tight spacing right before your brand name text */
 }
 
 .nav-logo-img {
@@ -52,7 +53,6 @@
     letter-spacing: 0.05em;
     white-space: nowrap;
 }
-
 
 /* Navigation Link Menu Frame (Force Center Alignment) */
 .nav-sub-section {
@@ -97,9 +97,11 @@
         padding: 0 24px;
     }
 
-    /* Reactive activation for brand/login mouse clicks */
-    .brand-logo, .nav-top-tier .btn-secondary {
+    /* Reactive activation for brand logo group and login button mouse clicks */
+    .brand-logo-group, .nav-top-tier .btn-secondary {
         pointer-events: auto;
+        position: relative;
+        z-index: 10;
     }
 }
 
@@ -119,13 +121,14 @@
         gap: 16px;
     }
 
-    /* Force Logo and Login onto the same line, spanning 100% width */
+    /* Force Logo-Group and Login onto the same line, spanning 100% width */
     .nav-top-tier {
         width: 100%;
         display: flex !important;
         flex-direction: row !important;
         align-items: center;
         justify-content: space-between;
+        pointer-events: auto;
     }
 
     /* Convert Menu Links into a clean centered sub-section row under the logo line */
