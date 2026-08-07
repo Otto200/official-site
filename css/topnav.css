@@ -31,28 +31,47 @@
     justify-content: space-between;
 }
 
-/* Identity Alignment Engine: Logo + Text Alignment Symmetrically Locked */
+/* Identity Alignment Engine: Logo + Column Alignment Mechanics */
 .brand-logo-group {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: flex-start;
-    gap: 12px; /* Perfect tight spacing right before your brand name text */
+    gap: 14px; /* Space between logo image and your dual-line text area */
+}
+
+.brand-text-column {
+    display: flex;
+    flex-direction: column; /* Forces subtext to drop perfectly straight under the brand name */
+    justify-content: center;
+    line-height: 1.1; /* Keeps line height tight and professional */
 }
 
 .nav-logo-img {
-    height: 32px;      /* Standard professional height profile for navigation bar images */
-    width: auto;        /* Preserves the original aspect ratio of your logo.webp file */
+    height: 38px;      /* Slightly scaled height profile to balance the dual-line text block layout */
+    width: auto;        
     display: block;
 }
 
 .brand-logo-text {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 800;
     color: var(--text-primary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     white-space: nowrap;
 }
+
+/* Tiny Gold Subtext Styling Hooks */
+.brand-subtext {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-color); /* Automatically pulls your existing golden theme color */
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px; /* Tightly buffers the gap right below the main brand name text */
+    white-space: nowrap;
+}
+
 
 /* Navigation Link Menu Frame (Force Center Alignment) */
 .nav-sub-section {
