@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // MASTER USER CREDENTIAL PAIRS
     // Add, change, or remove usernames and keys here for your traders
     const VALID_USER_KEY_PAIRS = {
-        "admin": "PNG_ECOSYSTEM_2026",
-        "trader1": "IC_ACCESS_NOW",
-        "guest": "VIP_PASS"
+        "Otto Eric": "admin@bankbugsfx",
+        "Costigan Moilani": "admin@bankbugsfx",
+        "Darvincy Rodgers": "admin@bankbugsfx"
     };
 
     loginForm.addEventListener("submit", (e) => {
