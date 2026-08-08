@@ -62,7 +62,7 @@
     display: flex;
     width: max-content;
     gap: 20px; /* Clean gap spacing between the carousel images */
-    animation: infiniteSlide 10s linear infinite; /* Controlled, premium cruise speed */
+    animation: infiniteSlide 8s linear infinite; /* Controlled, premium cruise speed */
 }
 
 /* Pause sliding animation on cursor hover */
