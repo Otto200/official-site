@@ -1,0 +1,84 @@
+/* ==========================================================================
+   INTERACTIVE VERIFICATION MODAL GRAPHIC STYLING
+   ========================================================================== */
+
+dialog.crypto-modal-gate {
+    border: none;
+    background: transparent;
+    padding: 0;
+    max-width: 400px;
+    width: calc(100% - 32px);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+dialog.crypto-modal-gate::backdrop {
+    background: rgba(11, 14, 17, 0.85);
+    backdrop-filter: blur(4px);
+}
+
+.modal-surface {
+    background: #151a20; /* Deep base color block template match */
+    border: 1px solid var(--border-color, #2a3440);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.modal-surface h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--text-primary, #ffffff);
+    letter-spacing: -0.01em;
+}
+
+.modal-surface p {
+    font-size: 14px;
+    color: var(--text-secondary, #a0aec0);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.modal-surface input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    background: #0b0e11;
+    border: 1px solid var(--border-color, #2a3440);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-surface input[type="text"]:focus {
+    border-color: var(--accent-color, #3182ce);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.modal-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.modal-btn.btn-secondary {
+    background: transparent;
+    color: var(--text-secondary, #a0aec0);
+    border: 1px solid var(--border-color, #2a3440);
+}
+
+.modal-btn.btn-submit {
+    background: var(--accent-color, #3182ce);
+    color: #ffffff;
+}
