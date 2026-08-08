@@ -1,184 +1,319 @@
 /* ==========================================================================
-   PRIVATE SYSTEM CORE DASHBOARD WORKSPACE GRID
+   INTERACTIVE WORKSPACE FRAMEWORK BLUEPRINT
    ========================================================================== */
 
-.dash-navbar {
-    width: 100%;
+/* Layout Engine Root Variable Mapping */
+:root {
+    --nav-height: 64px;
+    --footer-height: 36px;
+    --sidebar-width-open: 260px;
+    --sidebar-width-collapsed: 68px;
+    --transition-speed: 0.3s;
+}
+
+/* Master Page Canvas Constraints */
+html, body {
+    height: 100vh;
+    overflow: hidden; /* Locks page canvas grid from broken external scrollings */
+}
+
+/* ==========================================================================
+   1. FIXED POSITION TOP NAVIGATION SECTION
+   ========================================================================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--nav-height);
     background-color: var(--bg-card);
     border-bottom: 1px solid var(--border-color);
-    padding: 16px 0;
-}
-
-.dash-nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
 }
 
-.dash-logo {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
     color: var(--text-primary);
 }
 
-.dash-logo span {
+.logo-badge {
+    font-size: 10px;
+    font-weight: 700;
     color: var(--accent-color);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-left: 6px;
     border: 1px solid var(--accent-color);
     padding: 2px 6px;
     border-radius: 4px;
+    letter-spacing: 0.05em;
 }
 
-.dash-user-controls {
+.nav-tabs-wrapper {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all var(--transition-speed) ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+}
+
+.nav-link.active {
+    border-bottom: 2px solid var(--accent-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.nav-profile-zone {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
 .user-badge {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--text-primary);
     background-color: var(--bg-main);
     border: 1px solid var(--border-color);
     padding: 6px 12px;
     border-radius: 4px;
-    text-transform: capitalize;
 }
 
 .logout-link {
     background: transparent !important;
     border: none !important;
     color: #FF4A4A;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 4px;
-    transition: opacity 0.2s;
+    transition: opacity var(--transition-speed);
 }
 
 .logout-link:hover {
     opacity: 0.8;
 }
 
-.dash-welcome-card {
-    text-align: left;
-    margin-bottom: 32px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 24px;
+/* ==========================================================================
+   2. APP MIDDLE BODY STRUCTURAL GRID ARRANGEMENT
+   ========================================================================== */
+.app-layout-body {
+    position: fixed;
+    top: var(--nav-height);
+    bottom: var(--footer-height);
+    left: 0;
+    width: 100vw;
+    display: flex;
+    background-color: var(--bg-main);
 }
 
-.dash-title {
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.03em;
-    margin-bottom: 8px;
-}
-
-.dash-subtitle {
-    font-size: 15px;
-    color: var(--text-secondary);
-    margin: 0;
-}
-
-/* Tool Component Card Extensions */
-.tool-card {
-    position: relative;
+/* ==========================================================================
+   3. COLLAPSIBLE SIDEBAR PANEL ENGINE
+   ========================================================================== */
+#sidebar {
+    height: 100%;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 240px;
+    transition: width var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
-.card-status-pill {
+#sidebar.sidebar-open {
+    width: var(--sidebar-width-open);
+}
+
+#sidebar.sidebar-collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.sidebar-controls {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Collapsible Activation Controller Item Styling */
+#sidebar-toggle {
+    width: 32px;
+    height: 32px;
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#sidebar-toggle:hover {
+    border-color: var(--accent-color) !important;
+}
+
+.toggle-icon {
+    position: relative;
+    width: 16px;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: transform var(--transition-speed);
+}
+
+.toggle-icon::before, .toggle-icon::after {
+    content: '';
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 10px;
+    width: 16px;
+    height: 2px;
+    background-color: var(--text-primary);
+    left: 0;
+    transition: transform var(--transition-speed);
+}
+
+.toggle-icon::before { top: -5px; }
+.toggle-icon::after { bottom: -5px; }
+
+/* Handle arrow transformations depending on menu status states */
+#sidebar.sidebar-collapsed .toggle-icon {
+    background-color: transparent;
+}
+#sidebar.sidebar-collapsed .toggle-icon::before {
+    transform: translateY(5px) rotate(45deg);
+}
+#sidebar.sidebar-collapsed .toggle-icon::after {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+.sidebar-strategy-menu {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-heading {
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 4px 8px;
-    border-radius: 4px;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+#sidebar.sidebar-collapsed .menu-heading {
+    opacity: 0;
+}
+
+.strategy-list-placeholders {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.strategy-placeholder-item {
+    height: 36px;
+    width: 100%;
     background-color: var(--bg-main);
     border: 1px solid var(--border-color);
+    border-radius: 4px;
 }
 
-.card-status-pill.online {
-    color: #4CDF87;
-    border-color: rgba(76, 223, 135, 0.2);
+.strategy-placeholder-item.active {
+    border-color: var(--accent-color);
 }
 
-.card-status-pill.stable {
+/* ==========================================================================
+   4. MIDDLE CORE VIEWPORT AREA CONTAINER
+   ========================================================================== */
+.content-viewport {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto; /* Activates vertical content tracking scrolling rules */
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.page-content {
+    width: 100%;
+    min-height: 100%;
+    border: 1px dashed var(--border-color); /* Temporary wireframe design marker line */
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   5. FIXED POSITION BOTTOM HEADER NAVIGATION BAR FOOTER
+   ========================================================================== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--footer-height);
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.status-indicator-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4CDF87;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #4CDF87;
+}
+
+.status-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.metric-snapshots-placeholder {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.metric-label {
+    color: var(--text-secondary);
+}
+
+.metric-value {
     color: var(--accent-color);
-    border-color: rgba(226, 177, 60, 0.2);
-}
-
-.card-status-pill.secure {
-    color: #3182CE;
-    border-color: rgba(49, 130, 206, 0.2);
-}
-
-.tool-card h3 {
-    margin-top: 16px;
-}
-
-.action-row {
-    margin-top: auto;
-    padding-top: 24px;
-    text-align: left;
-}
-
-.tool-card .dash-action {
-    width: auto;
-    background-color: var(--bg-main) !important;
-    color: var(--text-primary) !important;
-    border: 1px solid var(--border-color) !important;
-    box-shadow: none !important;
-}
-
-.tool-card .dash-action:hover {
-    border-color: var(--accent-color) !important;
-    color: var(--accent-color) !important;
-    transform: translateY(-1px);
-}
-
-/* Responsive Structural Wrapping Engine for Dashboard Grids */
-@media (max-width: 768px) {
-    .dash-nav-container {
-        padding: 0 16px;
-    }
-    .dash-title {
-        font-size: 26px;
-    }
-    .tool-card {
-        min-height: auto;
-    }
-}
-
-
-
-
-
-.dashboard-workspace-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr; /* Sidebar width + Main content space */
-    gap: 24px;
-    align-items: start;
-}
-
-@media (max-width: 768px) {
-    .dashboard-workspace-layout {
-        grid-template-columns: 1fr; /* Stacks to single column profile on small mobile viewports */
-    }
+    margin-left: 4px;
 }
