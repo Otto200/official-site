@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem Login Gateway</title>
+    <!-- Main Global Site Styles -->
+    <link rel="stylesheet" href="css/style.css"> 
+    <!-- Dedicated Login Page Styles -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            
+            <div class="login-header">
+                <h2>Ecosystem Login</h2>
+                <p>Enter the verified account details sent to your private WhatsApp window.</p>
+            </div>
+
+            <!-- Client Form Endpoint Trigger -->
+            <form id="login-form" onsubmit="return false;">
+                
+                <div class="form-group">
+                    <label for="username">Account Name / ID</label>
+                    <input type="text" id="username" placeholder="Enter assigned name" required autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="access-key">Private Access Key</label>
+                    <input type="password" id="access-key" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+
+                <!-- Uses your native .btn styling framework flawlessly -->
+                <button type="submit" class="btn">Unlock Dashboard</button>
+                
+                <div id="error-box" class="error-message">Invalid name or private access key.</div>
+            </form>
+
+            <div class="no-account-prompt">
+                Need details? <a href="index.html">Request Free Access Here</a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Login Authentication Handling Script -->
+    <script src="js/auth-gateway.js"></script>
+</body>
+</html>
