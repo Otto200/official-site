@@ -60,7 +60,7 @@
 </nav>
 
 
-            <!-- ==========================================
+        <!-- ==========================================
      SECTION 2: THE TACTICAL HERO COMPONENT
      ========================================== -->
 <header class="hero-section full-bleed-hero">
@@ -111,26 +111,38 @@
         </div>
     </div>
 
-  <!-- Closing Copywriting & Action Blocks -->
-<div class="hero-block structural-center-box">
-    <p class="hero-pitch">Get direct access to my propfirm trading system, custom charting indicators, and real-time trade execution updates. No subscriptions. No commercial courses. Just Raw Trading. Access is strictly given via my private whatsapp to all PNG traders. Create your trading account then Request</p>
-    
-    <!-- Vertical Action Button Container -->
-    <div class="hero-cta-vertical-group">
-        <!-- First Button -->
-        <a href="https://ic.com/open-trading-account/live/?camp=92891" class="btn btn-primary hero-cta" target="_blank" rel="noopener">Create IC Trading Account</a>
+    <!-- Closing Copywriting & Action Blocks -->
+    <div class="hero-block structural-center-box">
+        <p class="hero-pitch">Get direct access to my propfirm trading system, custom charting indicators, and real-time trade execution updates. No subscriptions. No commercial courses. Just Raw Trading. Access is strictly given via my private whatsapp to all PNG traders. Create your trading account then Request</p>
         
-        <!-- Text Separator -->
-        <span class="cta-vertical-separator">then</span>
-        
-        <!-- Second Button -->
-        <a href="https://wa.link" class="btn btn-primary hero-cta" target="_blank" rel="noopener">Request Free Access</a>
+        <!-- Vertical Action Button Container -->
+        <div class="hero-cta-vertical-group">
+            <!-- First Button -->
+            <a href="https://ic.com/open-trading-account/live/?camp=92891" class="btn btn-primary hero-cta" target="_blank" rel="noopener">Create IC Trading Account</a>
+            
+            <!-- Text Separator -->
+            <span class="cta-vertical-separator">then</span>
+            
+            <!-- Second Button: Connected to JavaScript Trigger Engine -->
+            <a href="#" class="btn btn-primary hero-cta" id="whatsapp-gate-trigger" rel="noopener">Request Free Access</a>
+        </div>
     </div>
-</div>
 
-
+    <!-- Interactive Verification Overlay Window Template -->
+    <dialog id="account-modal" class="crypto-modal-gate">
+        <div class="modal-surface">
+            <h3>Verification Step</h3>
+            <p>Enter your IC Trading Account Name to request free access to the ecosystem via WhatsApp.</p>
+            <input type="text" id="ic-account-input" placeholder="e.g. John Doe" autocomplete="off" required>
+            <div class="modal-actions">
+                <button type="button" id="modal-cancel-btn" class="modal-btn btn-secondary">Cancel</button>
+                <button type="button" id="modal-submit-btn" class="modal-btn btn-submit">Proceed to WhatsApp</button>
+            </div>
+        </div>
+    </dialog>
 
 </header>
+
 
 
 <!-- ==========================================
