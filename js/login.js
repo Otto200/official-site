@@ -53,3 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+    // 👁️ PASSWORD REVEAL ENGINE INITIALIZATION
+    const passwordInput = document.getElementById("access-key");
+    const passwordToggle = document.getElementById("password-toggle-btn");
+
+    if (passwordInput && passwordToggle) {
+        passwordToggle.addEventListener("click", () => {
+            // Dynamic cross-toggle between text and masked password parameters
+            const isPassword = passwordInput.getAttribute("type") === "password";
+            
+            passwordInput.setAttribute("type", isPassword ? "text" : "password");
+            passwordToggle.textContent = isPassword ? "Hide" : "Show";
+            
+            // Keep the user cursor active inside the text element path
+            passwordInput.focus();
+        });
+    }
+
