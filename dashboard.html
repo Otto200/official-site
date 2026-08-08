@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecosystem Dashboard | BANKBUGS</title>
+    <title>Trading Playbook Dashboard | BANKBUGS</title>
     <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
     <script>
         (() => {
@@ -15,16 +15,24 @@
     </script>
     <!-- Main Global Site Styles -->
     <link rel="stylesheet" href="css/main.css"> 
-     <link rel="stylesheet" href="css/topnav.css"> 
     <!-- Dedicated Dashboard Panel Styles -->
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
-    <!-- Dashboard Core Header Layout -->
+    <!-- 1. TOP NAVIGATION BAR -->
     <header class="dash-navbar">
         <div class="dash-nav-container">
-            <div class="dash-logo">BANKBUGS <span>WORKSPACE</span></div>
+            <div class="dash-logo">BANKBUGS <span>PLAYBOOK</span></div>
+            
+            <nav class="dash-nav-links">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Pre-Market</a>
+                <a href="#" class="nav-link">Playbook</a>
+                <a href="#" class="nav-link">Journal</a>
+                <a href="#" class="nav-link">Rules</a>
+            </nav>
+
             <div class="dash-user-controls">
                 <span id="active-user-badge" class="user-badge">Trader</span>
                 <button type="button" id="logout-btn" class="logout-link">Disconnect</button>
@@ -32,61 +40,111 @@
         </div>
     </header>
 
-    <!-- Main Workspace Control Panel Section -->
-    <main class="container section-padding">
+    <!-- Main Workspace Content Structure -->
+    <div class="container dashboard-workspace-layout">
         
-        <!-- Welcome Matrix Box -->
-        <div class="dash-welcome-card">
-            <h1 class="dash-title">Proprietary Trading Workspace v1.0</h1>
-            <p class="dash-subtitle">Live system feeds, technical indicators, and execution tools optimized for Papua New Guinea infrastructure.</p>
-        </div>
+        <!-- 2. STRATEGY SELECTOR SIDEBAR -->
+        <aside class="strategy-sidebar">
+            <div class="sidebar-header">
+                <h3>Select Strategy</h3>
+            </div>
+            <div class="strategy-buttons-group">
+                <button type="button" class="strategy-btn active" data-strategy="trend">Trend Continuation</button>
+                <button type="button" class="strategy-btn" data-strategy="reversion">Mean Reversion</button>
+                <button type="button" class="strategy-btn" data-strategy="breakout">Breakout</button>
+            </div>
+        </aside>
 
-        <!-- System Architecture Work Grid Matrix -->
-        <div class="assets-grid">
+        <!-- 3. MAIN CONTENT CONTAINER (The Playbook Area) -->
+        <main class="playbook-content-area">
             
-            <!-- Indicator Monitor Node Block -->
-            <div class="asset-card tool-card">
-                <div class="card-status-pill online">Active Level Indicator</div>
-                <h3>System Level Tracking</h3>
-                <p>Automated market pricing engine displaying high-value level structures on your charts.</p>
-                <div class="action-row">
-                    <a href="#" class="btn btn-secondary dash-action">Launch Chart Overlay</a>
+            <!-- Section A: Pre-Flight Checklist -->
+            <section class="asset-card checklist-section">
+                <h3>Pre-Flight Checklist</h3>
+                <p class="section-subtitle-left">You must fully verify your systematic rules before initializing active trading operations.</p>
+                
+                <div class="checklist-container">
+                    <label class="checklist-label">
+                        <input type="checkbox" class="checklist-item">
+                        <span class="custom-checkbox"></span>
+                        HTF Trend Alignment (Daily/H4 Confirmation)
+                    </label>
+                    <label class="checklist-label">
+                        <input type="checkbox" class="checklist-item">
+                        <span class="custom-checkbox"></span>
+                        Volume Above Average (Relative Volume > 1)
+                    </label>
+                    <label class="checklist-label">
+                        <input type="checkbox" class="checklist-item">
+                        <span class="custom-checkbox"></span>
+                        No High-Impact News (Within 30-Minute Windows)
+                    </label>
                 </div>
-            </div>
 
-            <!-- Execution Strategy Node Block -->
-            <div class="asset-card tool-card">
-                <div class="card-status-pill online">Live Feeds</div>
-                <h3>Execution Broadcasts</h3>
-                <p>Real-time order entries and position tracking indices from the onboarding desk.</p>
-                <div class="action-row">
-                    <a href="#" class="btn btn-secondary dash-action">Open Feed Monitor</a>
+                <div class="checklist-action-row">
+                    <button type="button" id="proceed-btn" class="btn btn-secondary dash-action" disabled>Proceed to Entry</button>
                 </div>
-            </div>
+            </section>
 
-            <!-- Risk Management Utility Card -->
-            <div class="asset-card tool-card">
-                <div class="card-status-pill stable">Risk Manager</div>
-                <h3>PNG Banking Guide</h3>
-                <p>Strategic banking corridors, withdrawal procedures, and funding tracking pipelines.</p>
-                <div class="action-row">
-                    <a href="#" class="btn btn-secondary dash-action">View Infrastructure Docs</a>
+            <!-- Section B: Strategy Guide Card -->
+            <section class="asset-card strategy-guide-section">
+                <div class="strategy-card-header">
+                    <h3 id="strategy-display-title">Trend Continuation Blueprint</h3>
+                    <span class="card-status-pill online">System Verified</span>
                 </div>
-            </div>
-
-            <!-- Strategy Playbook Card -->
-            <div class="asset-card tool-card">
-                <div class="card-status-pill secure">Core Strategy</div>
-                <h3>System Execution Matrix</h3>
-                <p>The unalterable technical blueprint detailing execution setups and risk parameters.</p>
-                <div class="action-row">
-                    <a href="#" class="btn btn-secondary dash-action">Unlock Playbook Blueprint</a>
+                
+                <div class="strategy-instructions">
+                    <p id="strategy-display-text">Identify a strong structural trend line on the higher timeframe. Wait for a pullback to the key value levels before executing positions. Ensure risk parameters map directly to your playbook rules.</p>
                 </div>
-            </div>
 
-        </div>
+                <!-- TradingView Chart Widget Frame Container Layout -->
+                <div class="tradingview-widget-container">
+                    <div class="widget-placeholder-frame">
+                        <!-- Chart iframe rendering boundary box ready for your TradingView Embed Code -->
+                        <div class="chart-embed-fallback">
+                            <span>TradingView Live Interface Frame Layer</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    </main>
+            <!-- Section C: Static Position Size Calculator -->
+            <section class="asset-card calculator-section">
+                <h3>Risk Management Engine</h3>
+                <p class="section-subtitle-left">Compute your position sizing variables automatically to prevent account blowouts.</p>
+                
+                <div class="calculator-form-grid">
+                    <div class="form-group">
+                        <label for="calc-balance">Account Balance ($)</label>
+                        <input type="number" id="calc-balance" placeholder="e.g. 100000" min="0" step="any">
+                    </div>
+                    <div class="form-width-spacer"></div>
+                    <div class="form-group">
+                        <label for="calc-risk">Risk Percentage (%)</label>
+                        <input type="number" id="calc-risk" placeholder="e.g. 1" min="0" max="100" step="any">
+                    </div>
+                    <div class="form-group">
+                        <label for="calc-entry">Entry Price ($)</label>
+                        <input type="number" id="calc-entry" placeholder="e.g. 1.2500" min="0" step="any">
+                    </div>
+                    <div class="form-width-spacer"></div>
+                    <div class="form-group">
+                        <label for="calc-stop">Stop Loss Price ($)</label>
+                        <input type="number" id="calc-stop" placeholder="e.g. 1.2450" min="0" step="any">
+                    </div>
+                </div>
+
+                <div class="calculator-output-block">
+                    <button type="button" id="calc-btn" class="btn">Calculate Size</button>
+                    <div class="result-display-wrapper">
+                        <span class="result-label">Calculated Position Size:</span>
+                        <div id="calc-result" class="result-value">0.00</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
 
     <!-- Integrated Footer Disclaimer -->
     <footer class="main-footer">
