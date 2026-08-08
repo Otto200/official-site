@@ -27,10 +27,15 @@
                     <input type="text" id="username" placeholder="Enter IC Trading Account name" required autocomplete="username">
                 </div>
                 
-                <div class="form-group">
-                    <label for="access-key">Access Code</label>
-                    <input type="password" id="access-key" placeholder="••••••••" required autocomplete="current-password">
-                </div>
+                <<div class="form-group">
+    <label for="access-key">Access Code</label>
+    <div class="password-field-wrapper">
+        <input type="password" id="access-key" placeholder="••••••••" required autocomplete="current-password">
+        <!-- Modern visual toggle trigger anchor element -->
+        <button type="button" id="password-toggle-btn" class="password-toggle-btn" aria-label="Toggle password visibility">Show</button>
+    </div>
+</div>
+
 
                 <!-- Uses your native .btn styling framework flawlessly -->
                 <button type="submit" class="btn">Access Trading System</button>
