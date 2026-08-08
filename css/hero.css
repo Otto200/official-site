@@ -322,3 +322,58 @@
         transform: translateX(calc(-50% - 8px)); 
     }
 }
+
+
+
+/* ==========================================================================
+   DYNAMIC MULTI-BUTTON ACTION GROUP DESIGN
+   ========================================================================== */
+
+.hero-cta-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensures elements stack gracefully on narrow mobile displays */
+    gap: 16px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Elite Text Separator Configuration */
+.cta-separator {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    opacity: 0.85;
+    padding: 0 4px;
+    transition: color 0.25s ease;
+}
+
+/* Subtle accent highlight effect on main component hover states */
+.hero-cta-group:hover .cta-separator {
+    color: var(--accent-color);
+}
+
+/* Responsive Structural Wrapping Engine for Mobile Screens */
+@media (max-width: 640px) {
+    .hero-cta-group {
+        flex-direction: column; /* Stacks components cleanly down the page center */
+        gap: 12px;
+    }
+    
+    .hero-cta-group .hero-cta {
+        width: 100%; /* Forces broad, tap-friendly targets on mobile viewport sizes */
+        max-width: 340px;
+        margin-bottom: 0 !important;
+    }
+    
+    .cta-separator {
+        padding: 4px 0;
+        font-size: 12px;
+    }
+}
