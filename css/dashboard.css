@@ -165,3 +165,20 @@
         min-height: auto;
     }
 }
+
+
+
+
+
+.dashboard-workspace-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Sidebar width + Main content space */
+    gap: 24px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .dashboard-workspace-layout {
+        grid-template-columns: 1fr; /* Stacks to single column profile on small mobile viewports */
+    }
+}
