@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem Dashboard | BANKBUGS</title>
+    <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
+    <script>
+        (() => {
+            const sessionToken = sessionStorage.getItem("ecosystem_session_state");
+            if (sessionToken !== "authorized") {
+                window.location.replace("login.html");
+            }
+        })();
+    </script>
+    <!-- Main Global Site Styles -->
+    <link rel="stylesheet" href="css/main.css"> 
+    <!-- Dedicated Dashboard Panel Styles -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Dashboard Core Header Layout -->
+    <header class="dash-navbar">
+        <div class="dash-nav-container">
+            <div class="dash-logo">BANKBUGS <span>WORKSPACE</span></div>
+            <div class="dash-user-controls">
+                <span id="active-user-badge" class="user-badge">Trader</span>
+                <button type="button" id="logout-btn" class="logout-link">Disconnect</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Control Panel Section -->
+    <main class="container section-padding">
+        
+        <!-- Welcome Matrix Box -->
+        <div class="dash-welcome-card">
+            <h1 class="dash-title">Proprietary Trading Workspace v1.0</h1>
+            <p class="dash-subtitle">Live system feeds, technical indicators, and execution tools optimized for Papua New Guinea infrastructure.</p>
+        </div>
+
+        <!-- System Architecture Work Grid Matrix -->
+        <div class="assets-grid">
+            
+            <!-- Indicator Monitor Node Block -->
+            <div class="asset-card tool-card">
+                <div class="card-status-pill online">Active Level Indicator</div>
+                <h3>System Level Tracking</h3>
+                <p>Automated market pricing engine displaying high-value level structures on your charts.</p>
+                <div class="action-row">
+                    <a href="#" class="btn btn-secondary dash-action">Launch Chart Overlay</a>
+                </div>
+            </div>
+
+            <!-- Execution Strategy Node Block -->
+            <div class="asset-card tool-card">
+                <div class="card-status-pill online">Live Feeds</div>
+                <h3>Execution Broadcasts</h3>
+                <p>Real-time order entries and position tracking indices from the onboarding desk.</p>
+                <div class="action-row">
+                    <a href="#" class="btn btn-secondary dash-action">Open Feed Monitor</a>
+                </div>
+            </div>
+
+            <!-- Risk Management Utility Card -->
+            <div class="asset-card tool-card">
+                <div class="card-status-pill stable">Risk Manager</div>
+                <h3>PNG Banking Guide</h3>
+                <p>Strategic banking corridors, withdrawal procedures, and funding tracking pipelines.</p>
+                <div class="action-row">
+                    <a href="#" class="btn btn-secondary dash-action">View Infrastructure Docs</a>
+                </div>
+            </div>
+
+            <!-- Strategy Playbook Card -->
+            <div class="asset-card tool-card">
+                <div class="card-status-pill secure">Core Strategy</div>
+                <h3>System Execution Matrix</h3>
+                <p>The unalterable technical blueprint detailing execution setups and risk parameters.</p>
+                <div class="action-row">
+                    <a href="#" class="btn btn-secondary dash-action">Unlock Playbook Blueprint</a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Integrated Footer Disclaimer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p class="disclaimer-text">Risk Warning: Trading leveraged financial instruments involves substantial risk of loss. Past performance metrics are not guarantees of future performance. Access is restricted to authorized system participants only.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Workspace Dashboard Scripts -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
