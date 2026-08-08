@@ -1,0 +1,118 @@
+/* ==========================================================================
+   ECOSYSTEM ACCESS INTERACTIVE FORM OVERLAY LAYOUT
+   ========================================================================== */
+
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.login-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    padding: 40px 32px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.login-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.login-header p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 32px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Focus input fields glow with your custom yellow gold variables */
+.form-group input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(226, 177, 60, 0.15);
+}
+
+/* Force standard system atomic button elements to adapt layout container sizing widths */
+.login-card .btn {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+.error-message {
+    color: #FF4A4A;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 16px;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.no-account-prompt {
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+}
+
+.no-account-prompt a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.no-account-prompt a:hover {
+    color: var(--accent-hover);
+}
+
+/* Cross-Platform Viewport Compression Scale adjustments */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 32px 20px;
+    }
+}
