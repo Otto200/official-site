@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecosystem Login Gateway</title>
+    <title>Login BANKBUGS|FX</title>
     <!-- Main Global Site Styles -->
     <link rel="stylesheet" href="css/style.css"> 
     <!-- Dedicated Login Page Styles -->
@@ -16,36 +16,36 @@
             
             <div class="login-header">
                 <h2>Ecosystem Login</h2>
-                <p>Enter the verified account details sent to your private WhatsApp window.</p>
+                <p>Enter Login access sent to your WhatsApp.</p>
             </div>
 
             <!-- Client Form Endpoint Trigger -->
             <form id="login-form" onsubmit="return false;">
                 
                 <div class="form-group">
-                    <label for="username">Account Name / ID</label>
+                    <label for="username">Account Name/MT5 ID</label>
                     <input type="text" id="username" placeholder="Enter assigned name" required autocomplete="username">
                 </div>
                 
                 <div class="form-group">
-                    <label for="access-key">Private Access Key</label>
+                    <label for="access-key">Access Code</label>
                     <input type="password" id="access-key" placeholder="••••••••" required autocomplete="current-password">
                 </div>
 
                 <!-- Uses your native .btn styling framework flawlessly -->
-                <button type="submit" class="btn">Unlock Dashboard</button>
+                <button type="submit" class="btn">Access Full Ecosystem Dashboard</button>
                 
-                <div id="error-box" class="error-message">Invalid name or private access key.</div>
+                <div id="error-box" class="error-message">Invalid name/ID or Access Code.</div>
             </form>
 
             <div class="no-account-prompt">
-                Need details? <a href="index.html">Request Free Access Here</a>
+                Need details? <a href="index.html">Request Free Access</a>
             </div>
             
         </div>
     </div>
 
     <!-- Login Authentication Handling Script -->
-    <script src="js/auth-gateway.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
