@@ -323,4 +323,41 @@
     }
 }
 
+/* ==========================================================================
+   VERTICAL STEP-BY-STEP ACTION FLOW ENGINE
+   ========================================================================== */
+
+.hero-cta-vertical-group {
+    display: flex;
+    flex-direction: column; /* Hard-locked vertical stack strategy */
+    align-items: center;    /* Keeps everything perfectly centered horizontally */
+    width: 100%;
+    max-width: 360px;       /* Sets an elegant, uniform width for the stack */
+    margin: 0 auto;
+    gap: 8px;               /* Tight, professional gap between items */
+}
+
+/* Forces both buttons to have identical, uniform width */
+.hero-cta-vertical-group .hero-cta {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0 !important; /* Overrides any previous loose margins */
+}
+
+/* Premium Vertical Text Separator Customization */
+.cta-vertical-separator {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 0;         /* Visual breathing room above and below text */
+    opacity: 0.85;
+    transition: color 0.25s ease;
+}
+
+/* High-status visual response on group hover interaction */
+.hero-cta-vertical-group:hover .cta-vertical-separator {
+    color: var(--accent-color);
+}
 
