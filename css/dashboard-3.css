@@ -617,26 +617,7 @@ button:active {
    10. CROSS-PLATFORM SYSTEM BREAKPOINTS
    ========================================================================== */
 
-/* Tablet Optimization Mode */
-@media (max-width: 1024px) {
-    :root {
-        --side-menu-width: 240px;
-    }
-    .content-space {
-        padding: 20px;
-    }
-    .nav-meta {
-        gap: 16px;
-    }
-    .live-node {
-        display: none;
-    }
-    .assets-grid, .proof-grid {
-        gap: 16px;
-    }
-}
-
-//* Mobile Adaptive Phone Engine Breakpoint */
+/* Mobile Adaptive Phone Engine Breakpoint */
 @media (max-width: 768px) {
     body {
         overflow-y: auto;
@@ -649,67 +630,91 @@ button:active {
         flex-direction: column;
     }
     
-    /* 🛠️ FIX: Strict Horizontal Alignment. Hard locks row height and blocks wrapping */
+    /* 🛠️ RE-ENGINEERED: Tight structural row bounds that protect the tracking nodes */
     .tier-1 {
-        padding: 0 12px;
-        height: 54px;               /* Locked tight height boundary */
-        flex-direction: row !important; /* Forces strict row flow orientation */
-        flex-wrap: nowrap !important;   /* Hard-locks elements from splitting downwards */
+        padding: 0 8px;              /* Maximized horizontal side spacing padding */
+        height: 54px;               
+        display: flex !important;
+        flex-direction: row !important; 
+        flex-wrap: nowrap !important;   
         justify-content: space-between;
         align-items: center;
-        gap: 6px;
-        overflow: hidden;           /* Clean security frame guard */
+        gap: 4px;                   /* Slashed gaps to guarantee everything fits */
+        overflow: visible !important; /* Allow elements to sit naturally within view */
     }
     
-    /* 🛠️ FIX: Scales corporate brand down on mobile screen real estate */
+    /* 🛠️ FIX: Scales down corporate brand typography footprint to clear line paths */
+    .nav-brand {
+        gap: 4px;
+        flex-shrink: 1;             /* Allows branding to shrink if screen is ultra-narrow */
+    }
+
     .brand-name {
-        font-size: 12px;
-        letter-spacing: 0.5px;
+        font-size: 11px;            /* Highly efficient footprint size */
+        letter-spacing: 0.2px;
+        flex-shrink: 1;
     }
     
     .brand-logo {
-        width: 26px;
-        height: 26px;
-        font-size: 11px;
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+        border-radius: 4px;
     }
     
-    /* 🛠️ FIX: Micro padding optimization for mobile metadata string alignment */
+    /* 🛠️ FIX: Hard-locks metadata from wrapping or distorting layout alignments */
     .nav-meta {
-        gap: 8px;
+        gap: 6px;
+        flex-shrink: 0;             /* Protects user metrics zone from collapsing */
     }
 
-    /* 🛠️ FIX: Retains absolute node visibility on the single horizontal row */
+    /* 🛠️ FIX: Hard locks absolute visibility and sets micro alignment shapes */
     .live-node {
         display: flex !important; 
-        padding: 4px 8px;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 4px 6px;
         gap: 4px;
+        background-color: rgba(226, 177, 60, 0.08); /* Boost highlight tracking contrast */
     }
     
     .node-count {
-        font-size: 10px;
+        font-size: 9.5px;
+        font-weight: 700;
     }
     
     .user-profile {
-        gap: 8px;
+        gap: 6px;
     }
 
-    /* 🛠️ FIX: Gracefully clips exceptionally long names with elegant ellipses (...) if screens are tiny */
+    /* 🛠️ FIX: Safeguards text tracks by applying truncation rules if names are massive */
     .trader-name {
-        font-size: 11px;
-        max-width: 75px;
+        font-size: 10.5px;
+        max-width: 65px;            /* Prevents name from stepping over live status bounds */
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .logout-btn {
-        padding: 4px 8px;
+        padding: 4px 6px;
         font-size: 10px;
     }
     
     .tier-2 {
-        padding: 8px 12px;
+        padding: 8px 8px;
         height: auto;
     }
+}
+
+/* 🛠️ FIX: Ensure Tablet viewports also securely preserve the Live Node string */
+@media (max-width: 1024px) {
+    .live-node {
+        display: flex !important;   /* Overrides any default component drops */
+        visibility: visible !important;
+    }
+}
+
 
 
     /* Grids scale down onto stacked individual cards fluidly */
