@@ -1,0 +1,43 @@
+/* ==========================================================================
+   BACKGROUNDS MODULAR CONFIGURATION (KEEPING MAIN CSS CLEAN)
+   ========================================================================== */
+
+/* Universal performance properties applied across all targeted sections */
+#section-hero, 
+#section-about, 
+#ecosystem-features, 
+#section-join {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   INDIVIDUAL IMAGES WITH BUILT-IN DARK ACCENT OVERLAYS FOR HIGH CONTRAST
+   ========================================================================== */
+
+/* Section 1: Hero Setup */
+#section-hero {
+    background-image: linear-gradient(rgba(11, 14, 17, 0.80), rgba(11, 14, 17, 0.85)), 
+                      url('img/herobg.webp');
+}
+
+/* Section 2: About / Credentials Setup */
+#section-about {
+    background-image: linear-gradient(rgba(21, 26, 32, 0.85), rgba(21, 26, 32, 0.85)), 
+                      url('img/featurebg.webp');
+}
+
+/* Section 3: The Ecosystem Card (The section we upgraded) */
+#ecosystem-features {
+    background-image: linear-gradient(rgba(21, 26, 32, 0.90), rgba(21, 26, 32, 0.90)), 
+                      url('img/withdrawalbg.webp');
+}
+
+/* Section 4: Join / CTA Setup */
+#section-join {
+    background-image: linear-gradient(rgba(11, 14, 17, 0.85), rgba(11, 14, 17, 0.90)), 
+                      url('img/aboutbg.webp');
+}
