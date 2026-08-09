@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // 📝 PREMIUM PREFILLED TEXT ENGINE FORMATTING
-        const rawMessage = `Hi Otto, I just created my account. Here is my IC Trading Account Name: ${accountName}. Please send me free access to use BANKBUGS|FX trading ecosystem.`;
+        const rawMessage = `Hey Otto! I just signed up on IC under the name: ${accountName}. Can you confirm and send me the login details for the BANKBUGS|FX Ecosystem Dashboard? Thanks bro!`;
         
         // URL encode the message to escape spaces, punctuation, and system symbols cleanly
         const encodedMessage = encodeURIComponent(rawMessage);
