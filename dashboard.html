@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Playbook Workspace | BANKBUGS</title>
-    <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
+    <title>BANKBUGS|FX Dashboard</title>
+
+  <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
     <script>
         (() => {
             const sessionToken = sessionStorage.getItem("ecosystem_session_state");
@@ -14,75 +15,288 @@
         })();
     </script>
     <!-- File Linking Requirements -->
-    <link rel="stylesheet" href="css/main.css"> 
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Premium Gold & Dark Layout Stylesheet -->
+    <link rel="stylesheet" href="css/dashboard-3.css">
 </head>
 <body>
 
-    <!-- 1. LOCKED TOP NAVIGATION -->
-    <header class="top-nav">
-        <div class="nav-brand">
-            <span class="logo-text">BANKBUGS</span>
-            <span class="logo-badge">WORKSPACE</span>
-        </div>
-         
-        <nav class="nav-tabs-wrapper">
-            <a href="#" class="nav-link active">Home</a>
-            <a href="#" class="nav-link">Playbook</a>
-            <a href="#" class="nav-link">Journal</a>
-        </nav>
+    <!-- OVERLAY BACKDROP MASK (Sharp/Clear) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <div class="nav-profile-zone">
-            <span id="active-user-badge" class="user-badge">Trader</span>
-            <button type="button" id="logout-btn" class="logout-link">logout</button>
+    <!-- TOP NAVIGATION -->
+    <header class="top-nav">
+        
+        <div class="tier-1">
+            <div class="nav-brand">
+                <div class="brand-logo">BB</div>
+                <span class="brand-name">BANKBUGS|FX</span>
+            </div>
+            <div class="nav-meta">
+                <div class="live-node">
+                    <span class="pulse-dot"></span>
+                    <span class="node-count">68 Active Traders</span>
+                </div>
+                <div class="user-profile">
+                    <span class="trader-name">Alex Cooper</span>
+                    <button class="logout-btn">Log Out</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tier 2: Core Utility Section Triggers -->
+        <div class="tier-2">
+            <!-- Sidebar Controller Trigger -->
+            <button class="t2-btn toggle-sidebar-btn" id="myDashboardBtn">My Dashboard</button>
+            <button class="t2-btn active">Broker</button>
+            <button class="t2-btn">Prop Firm</button>
+            <button class="t2-btn">Trading Apps</button>
+            <button class="t2-btn">Trading Books</button>
+            <button class="t2-btn">Indicators</button>
+            <button class="t2-btn">Trading Bots (EA)</button>
         </div>
     </header>
 
-    <!-- Master Layout Body Wrapper (Houses Sidebar and Main Content) -->
-    <div class="app-layout-body">
+    <!-- MAIN BODY CONTROLLER WORKSPACE -->
+    <div class="main-container">
         
-        <!-- 2. COLLAPSIBLE SIDEBAR MENU -->
-        <aside id="sidebar" class="sidebar-open">
-            <div class="sidebar-controls">
-                <button type="button" id="sidebar-toggle" aria-label="Toggle Menu">
-                    <span class="toggle-icon"></span>
-                </button>
-            </div>
-            
-            <nav class="sidebar-strategy-menu">
-                <span class="menu-heading">Strategies</span>
-                <!-- Placeholder vertical list for strategy selection items -->
-                <div class="strategy-list-placeholders">
-                    <div class="strategy-placeholder-item active"></div>
-                    <div class="strategy-placeholder-item"></div>
-                    <div class="strategy-placeholder-item"></div>
+        <!-- RESPONSIVE OVERLAY SIDE MENU NAVIGATION -->
+        <aside class="side-menu" id="sideMenu">
+            <div class="menu-header">Complete Journey</div>
+            <nav class="side-nav">
+                
+                <!-- Nav Item 1 (With Dropdown) -->
+                <div class="nav-dropdown open">
+                    <button class="dropdown-trigger">I'm New Here</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn active">Introduction</button>
+                        <button class="subnav-btn">How to Earn</button>
+                        <button class="subnav-btn">What to Do</button>
+                    </div>
                 </div>
+
+                <!-- Nav Item 2 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Trading Account Setup</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Broker Choice</button>
+                        <button class="subnav-btn">Registration Steps</button>
+                        <button class="subnav-btn">Verification Guard</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 3 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Trading Platform Setup</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">MT4/MT5 Config</button>
+                        <button class="subnav-btn">API Integrations</button>
+                        <button class="subnav-btn">Terminal Settings</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 4 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Beginner Templates</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Trend Rider v1</button>
+                        <button class="subnav-btn">Daily Pivot Map</button>
+                        <button class="subnav-btn">Session High/Low</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 5 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Intermediate Templates</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Order Block Scanner</button>
+                        <button class="subnav-btn">FVG Liquidity</button>
+                        <button class="subnav-btn">Volume Profile Pack</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 6 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Active Trader</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Live Watchlist</button>
+                        <button class="subnav-btn">Daily Checklist</button>
+                        <button class="subnav-btn">Execution Log</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 7 (Focus Target With Dropdown) -->
+                <div class="nav-dropdown core-focus">
+                    <button class="dropdown-trigger">Core Concepts</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Market Structure</button>
+                        <button class="subnav-btn">Liquidity Sweeps</button>
+                        <button class="subnav-btn">Premium vs Discount</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 8 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">System Indicators (Tool)</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Installation Guide</button>
+                        <button class="subnav-btn">Alert Parameters</button>
+                        <button class="subnav-btn">Download Binaries</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 9 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Trading System (Playbook)</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Setup Rulebook</button>
+                        <button class="subnav-btn">Invalidation Zones</button>
+                        <button class="subnav-btn">Scale-In Matrix</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 10 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Backtested System Data</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">EURUSD 5Y Report</button>
+                        <button class="subnav-btn">NAS100 Metrics</button>
+                        <button class="subnav-btn">Win-Rate Breakdown</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 11 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">Request Help</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Open Support Ticket</button>
+                        <button class="subnav-btn">1-on-1 Booking</button>
+                        <button class="subnav-btn">Bug Reporting</button>
+                    </div>
+                </div>
+
+                <!-- Nav Item 12 (With Dropdown) -->
+                <div class="nav-dropdown">
+                    <button class="dropdown-trigger">FAQ</button>
+                    <div class="dropdown-content">
+                        <button class="subnav-btn">Billing Queries</button>
+                        <button class="subnav-btn">Indicator Fixes</button>
+                        <button class="subnav-btn">Membership Tiers</button>
+                    </div>
+                </div>
+
             </nav>
         </aside>
 
-        <!-- 3. MAIN CONTENT VIEWPORT -->
-        <main class="content-viewport">
-            <!-- Future playbook dashboards and modules will be injected here -->
-            <div class="page-content">
-                <!-- Content Injector Placeholder Boundary Box -->
+        <!-- MAIN INTERACTIVE CONTENT CANVAS AREA -->
+        <main class="content-space">
+            <div class="content-card">
+                <h1>Core Concepts: Market Structure</h1>
+                <p>Welcome to the workspace panel. This middle zone dynamically updates when users click navigation elements across Tier 2 headers, primary side menus, or bottom terminal buttons.</p>
+                
+                <!-- Asset Grid Component Example inside Content -->
+                <div class="assets-grid">
+                    <div class="asset-card">
+                        <h3>EURUSD Analysis</h3>
+                        <p>Track live institutional liquidity pool accumulation parameters inside premium zones.</p>
+                    </div>
+                    <div class="asset-card">
+                        <h3>NAS100 Setup</h3>
+                        <p>Monitor execution rulebooks regarding clean daily structural breaks.</p>
+                    </div>
+                </div>
             </div>
         </main>
-        
+
     </div>
 
-    <!-- 4. LOCKED BOTTOM BAR -->
+        <!-- BOTTOM FIXED FOOTER MENU TERMINAL -->
     <footer class="bottom-nav">
-        <div class="status-indicator-group">
-            <span class="status-pulse-dot"></span>
-            <span class="status-text">System Operational</span>
-        </div>
-        <div class="metric-snapshots-placeholder">
-            <span class="metric-label">Feed Latency:</span>
-            <span class="metric-value">12ms</span>
-        </div>
+        <button class="b-nav-btn">
+            <span class="btn-text">Watchlist</span>
+        </button>
+        <button class="b-nav-btn">
+            <span class="btn-text">Trading Plan</span>
+        </button>
+        <button class="b-nav-btn active">
+            <span class="btn-text">Risk Control</span>
+        </button>
+        <button class="b-nav-btn">
+            <span class="btn-text">Live Trade Alert</span>
+        </button>
+        <button class="b-nav-btn">
+            <span class="btn-text">Review</span>
+        </button>
     </footer>
 
-    <!-- Existing Script File Linking Requirement -->
-    <script src="js/dashboard.js"></script>
+       <script>
+        // --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const sessionState = sessionStorage.getItem("ecosystem_session_state");
+            const activeUser = sessionStorage.getItem("ecosystem_active_user");
+            const traderNameElement = document.querySelector(".trader-name");
+
+            // Hard check: If the token is empty or invalid, block entry and boot to login
+            if (sessionState !== "authorized" || !activeUser) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            // Success: Inject the authenticated database username into the Top Nav Tier 1 profile
+            if (traderNameElement) {
+                traderNameElement.textContent = activeUser;
+            }
+        });
+
+        // --- 🚪 SECURE LOG OUT ENGINE ---
+        const logoutBtn = document.querySelector(".logout-btn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+                // Clear session tokens completely
+                sessionStorage.removeItem("ecosystem_session_state");
+                sessionStorage.removeItem("ecosystem_active_user");
+                // Clear all fallback keys
+                sessionStorage.clear(); 
+                // Return to login gate
+                window.location.href = "login.html";
+            });
+        }
+
+        // --- 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS ---
+        const sideMenu = document.getElementById('sideMenu');
+        const myDashboardBtn = document.getElementById('myDashboardBtn');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        // Toggle Sidebar Open/Closed state when clicking My Dashboard
+        myDashboardBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sideMenu.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        // Close sidebar if user clicks anywhere outside of it
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = sideMenu.contains(e.target);
+            const isClickOnToggleBtn = myDashboardBtn.contains(e.target);
+            
+            if (!isClickInsideMenu && !isClickOnToggleBtn && sideMenu.classList.contains('active')) {
+                sideMenu.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            }
+        });
+
+        // Accordion functionality for dropdown items
+        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const parent = trigger.parentElement;
+                parent.classList.toggle('open');
+            });
+        });
+    </script>
 </body>
 </html>
+
