@@ -4,7 +4,7 @@
 
 .hero-section {
     padding-top: 12px !important;    /* Hard-locked 12px top spacing on all systems */
-    padding-bottom: 8px !important;  /* Hard-locked 8px bottom spacing on all systems */
+    padding-bottom: 16px !important;  /* Hard-locked 8px bottom spacing on all systems */
     overflow: hidden;
     width: 100%;
 }
