@@ -1,59 +1,65 @@
-/**
- * ECOSYSTEM PRIVATE WORKSPACE MASTER SYSTEM CONTROLLER
- * Handles global structural interactions, layouts, states, and session persistence.
- */
-document.addEventListener("DOMContentLoaded", () => {
+  <script>
+        // --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const sessionState = sessionStorage.getItem("ecosystem_session_state");
+            const activeUser = sessionStorage.getItem("ecosystem_active_user");
+            const traderNameElement = document.querySelector(".trader-name");
 
-    // ==========================================================================
-    // 0. SYSTEM PROFILE & SESSION VALIDATION LOGIC
-    // ==========================================================================
-    const userBadge = document.getElementById("active-user-badge");
-    const logoutBtn = document.getElementById("logout-btn");
+            // Hard check: If the token is empty or invalid, block entry and boot to login
+            if (sessionState !== "authorized" || !activeUser) {
+                window.location.href = "login.html";
+                return;
+            }
 
-    const activeUser = sessionStorage.getItem("ecosystem_active_user");
-    if (activeUser && userBadge) {
-        userBadge.textContent = activeUser;
-    }
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-            sessionStorage.removeItem("ecosystem_session_state");
-            sessionStorage.removeItem("ecosystem_active_user");
-            window.location.replace("login.html");
-        });
-    }
-
-    // ==========================================================================
-    // 1. COLLAPSIBLE SIDEBAR MECHANICAL STATE ENGINE
-    // ==========================================================================
-    const sidebarToggle = document.getElementById("sidebar-toggle");
-    const sidebar = document.getElementById("sidebar");
-
-    if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener("click", () => {
-            // Evaluates and alternates state attributes cleanly for layout manipulation
-            if (sidebar.classList.contains("sidebar-open")) {
-                sidebar.classList.remove("sidebar-open");
-                sidebar.classList.add("sidebar-collapsed");
-            } else {
-                sidebar.classList.remove("sidebar-collapsed");
-                sidebar.classList.add("sidebar-open");
+            // Success: Inject the authenticated database username into the Top Nav Tier 1 profile
+            if (traderNameElement) {
+                traderNameElement.textContent = activeUser;
             }
         });
-    }
 
-    // ==========================================================================
-    // 2. NAVIGATION TAB VISUAL SELECTION MOCKUP
-    // ==========================================================================
-    const navLinks = document.querySelectorAll(".nav-link");
+        // --- 🚪 SECURE LOG OUT ENGINE ---
+        const logoutBtn = document.querySelector(".logout-btn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+                // Clear session tokens completely
+                sessionStorage.removeItem("ecosystem_session_state");
+                sessionStorage.removeItem("ecosystem_active_user");
+                // Clear all fallback keys
+                sessionStorage.clear(); 
+                // Return to login gate
+                window.location.href = "login.html";
+            });
+        }
 
-    if (navLinks.length > 0) {
-        navLinks.forEach(link => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault(); // Blocks default jumping paths
-                navLinks.forEach(item => item.classList.remove("active"));
-                link.classList.add("active");
+        // --- 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS ---
+        const sideMenu = document.getElementById('sideMenu');
+        const myDashboardBtn = document.getElementById('myDashboardBtn');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        // Toggle Sidebar Open/Closed state when clicking My Dashboard
+        myDashboardBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sideMenu.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        // Close sidebar if user clicks anywhere outside of it
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = sideMenu.contains(e.target);
+            const isClickOnToggleBtn = myDashboardBtn.contains(e.target);
+            
+            if (!isClickInsideMenu && !isClickOnToggleBtn && sideMenu.classList.contains('active')) {
+                sideMenu.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            }
+        });
+
+        // Accordion functionality for dropdown items
+        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const parent = trigger.parentElement;
+                parent.classList.toggle('open');
             });
         });
-    }
-});
+    </script>
