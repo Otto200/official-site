@@ -1,4 +1,4 @@
-  <script>
+
         // --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
         document.addEventListener("DOMContentLoaded", () => {
             const sessionState = sessionStorage.getItem("ecosystem_session_state");
@@ -62,4 +62,4 @@
                 parent.classList.toggle('open');
             });
         });
-    </script>
+  
