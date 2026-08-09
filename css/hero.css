@@ -1,6 +1,3 @@
-
-
-
 /* ==========================================================================
    HIGH-STATUS HERO ENGINE (Compact & Edge-to-Edge Fluid Marquee)
    ========================================================================== */
@@ -24,45 +21,43 @@
 .hero-tagline {
     font-size: 13px;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--accent-color, #E2B13C);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 12px; /* Reduced gap below tagline */
+    margin-bottom: 12px; 
 }
 
 /* Institutional Headline Statement */
 .hero-block h1 {
-    font-size: 40px; /* Sized down slightly for a tighter visual grid pack */
+    font-size: 40px; 
     line-height: 1.2;
     font-weight: 800;
     letter-spacing: -0.02em;
     max-width: 900px;
     margin-top: 0;
-    margin-bottom: 32px; /* Compressed spacing right before carousel element */
-    color: var(--text-primary);
+    margin-bottom: 32px; 
+    color: var(--text-primary, #ffffff);
 }
 
 /* 🔄 FULL EDGE-TO-EDGE BREAKOUT SCROLLING ENGINE (Fills all empty side gaps) */
 .marquee-wrapper {
-    /* Breakout formula: Forces element to stretch 100% full-screen width from dead center */
     width: 100vw !important;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    
     overflow: hidden;
-    padding: 16px 0; /* Compact inner padding for cards */
-    margin-bottom: 36px; /* Reduced margin down below carousel track */
+    padding: 16px 0; 
+    margin-bottom: 36px; 
     background-color: rgba(21, 26, 32, 0.4); 
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color, #262E38);
+    border-bottom: 1px solid var(--border-color, #262E38);
 }
 
 .marquee-track {
     display: flex;
     width: max-content;
-    gap: 20px; /* Clean gap spacing between the carousel images */
-    animation: infiniteSlide 8s linear infinite; /* Controlled, premium cruise speed */
+    gap: 20px; 
+    animation: heroInfiniteScroll 25s linear infinite; 
 }
 
 /* Pause sliding animation on cursor hover */
@@ -73,10 +68,10 @@
 /* The Core Card Components */
 .preview-card {
     position: relative;
-    width: 320px; /* Maintains elite standard sizing footprint */
-    height: 190px; /* Proportionately compacted height to eliminate vertical bloat */
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
+    width: 320px; 
+    height: 190px; 
+    background-color: var(--bg-card, #151A20);
+    border: 1px solid var(--border-color, #262E38);
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
@@ -95,7 +90,7 @@
 /* Micro-Interaction Shifting Effects */
 .preview-card:hover {
     transform: translateY(-3px);
-    border-color: var(--accent-color);
+    border-color: var(--accent-color, #E2B13C);
 }
 
 .preview-card:hover img {
@@ -120,207 +115,89 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--text-primary);
+    color: var(--text-primary, #ffffff);
 }
 
 /* Bottom Copy Positioning */
 .hero-pitch {
     font-size: 15px;
     line-height: 1.6;
-    color: var(--text-secondary);
+    color: var(--text-secondary, #9AA1A9);
     max-width: 720px;
     margin-top: 0;
-    margin-bottom: 28px; /* Compact balance padding right above action button */
+    margin-bottom: 32px; 
     text-align: center;
 }
 
-.hero-cta {
-    margin-bottom: 12px;
-}
-
 /* ==========================================================================
-   🔄 THE SCROLL ENGINE ANIMATION MATRIX
+   📋 NEW: ONBOARDING DIRECTIONS COMPONENT STYLING
    ========================================================================== */
-@keyframes infiniteSlide {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Flawlessly loops halfway across duplicate nodes for seamless visual cycle */
-        transform: translateX(-50%);
-    }
-}
-
-/* ==========================================================================
-   📱 CROSS-PLATFORM SYSTEM SCALING (PC, Tablet & Mobile Fluidity)
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .hero-section {
-        padding-top: 12px !important;    /* Maintained 12px top padding on tablets */
-        padding-bottom: 8px !important;   /* Maintained 8px bottom padding on tablets */
-    }
-    .hero-block h1 {
-        font-size: 32px;
-        margin-bottom: 24px;
-    }
-    .marquee-wrapper {
-        margin-bottom: 28px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        padding-top: 12px !important;    /* Maintained 12px top padding on mobile phones */
-        padding-bottom: 8px !important;   /* Maintained 8px bottom padding on mobile phones */
-    }
-    .hero-block h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-    .marquee-wrapper {
-        margin-bottom: 24px;
-        padding: 12px 0;
-    }
-    .preview-card {
-        width: 250px; /* Compact mobile footprint */
-        height: 150px;
-    }
-    .hero-pitch {
-        font-size: 14px;
-        margin-bottom: 24px;
-    }
-}
-
-
-/* ==========================================================================
-   HERO FULL-BLEED ENGINE & TRACK ANIMATION RULES
-   ========================================================================== */
-
-/* Main Header structural framing */
-.full-bleed-hero {
-    width: 100vw;
-    max-width: 100vw;
-    margin: 0;
-    padding: 48px 0;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Internal content boundary containment utility */
-.structural-center-box {
+.hero-steps-container {
     width: 100%;
-    max-width: 1200px;
-    padding: 0 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-color, #262E38);
+    border-radius: 10px;
+    padding: 24px;
     box-sizing: border-box;
 }
 
-/* Elite Header Group Details */
-.hero-tagline {
-    display: block;
-    margin-bottom: 12px;
+.steps-main-title {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 800;
+    color: var(--accent-color, #E2B13C);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent-color);
+    letter-spacing: 0.06em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color, #262E38);
+    padding-bottom: 12px;
 }
 
-.hero-main-title {
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    margin-bottom: 32px;
-    max-width: 900px;
-    color: var(--text-primary);
-}
-
-/* 🌟 FULL SCREEN OVERRIDE TRAIT */
-.edge-breakout-marquee {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin: 32px 0 !important;
-    padding: 8px 0 !important;
-    overflow: hidden !important;
-    box-sizing: border-box;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-}
-
-/* Moving conveyor lane */
-.hero-carousel-speed {
+.hero-steps-list {
     display: flex;
+    flex-direction: column;
     gap: 16px;
-    width: max-content;
-    animation: heroInfiniteScroll 25s linear infinite;
-    box-sizing: border-box;
 }
 
-/* Pauses movement upon desktop user hover interaction */
-.hero-carousel-speed:hover {
-    animation-play-state: paused;
+.hero-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
 }
 
-/* Individual Preview Cards configured to precise 16:9 constraints */
-.16-9-card {
+.step-num {
+    font-size: 12px;
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--accent-color, #E2B13C);
+    background: rgba(226, 177, 60, 0.08);
+    border: 1px solid rgba(226, 177, 60, 0.2);
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    width: clamp(240px, 30vw, 340px);
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    position: relative;
-    background: var(--bg-card);
+    margin-top: 2px;
 }
 
-.16-9-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Clean text label gradient layout overlay */
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+.step-text h4 {
+    font-size: 14px;
+    font-weight: 700;
     color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.step-text p {
     font-size: 13px;
-    font-weight: 600;
-}
-
-/* Lower copywriting and activation parameters */
-.hero-pitch {
-    font-size: clamp(14px, 2vw, 16px);
-    line-height: 1.6;
-    color: var(--text-secondary);
-    max-width: 720px;
-    margin-top: 16px;
-    margin-bottom: 32px;
-}
-
-/* INFINITE LOOP ANIMATION CALCULATION */
-@keyframes heroInfiniteScroll {
-    0% { 
-        transform: translateX(0); 
-    }
-    100% { 
-        /* Shifts perfectly half distance minus track gap offset */
-        transform: translateX(calc(-50% - 8px)); 
-    }
+    line-height: 1.4;
+    color: var(--text-secondary, #9AA1A9);
+    margin: 0;
 }
 
 /* ==========================================================================
@@ -329,35 +206,60 @@
 
 .hero-cta-vertical-group {
     display: flex;
-    flex-direction: column; /* Hard-locked vertical stack strategy */
-    align-items: center;    /* Keeps everything perfectly centered horizontally */
+    flex-direction: column; 
+    align-items: center;    
     width: 100%;
-    max-width: 360px;       /* Sets an elegant, uniform width for the stack */
+    max-width: 360px;       
     margin: 0 auto;
-    gap: 8px;               /* Tight, professional gap between items */
+    gap: 8px;               
 }
 
-/* Forces both buttons to have identical, uniform width */
 .hero-cta-vertical-group .hero-cta {
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 0 !important; /* Overrides any previous loose margins */
+    margin-bottom: 0 !important; 
 }
 
-/* Premium Vertical Text Separator Customization */
 .cta-vertical-separator {
     font-size: 13px;
     font-weight: 700;
-    color: var(--text-secondary);
+    color: var(--text-secondary, #9AA1A9);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    padding: 6px 0;         /* Visual breathing room above and below text */
+    padding: 6px 0;         
     opacity: 0.85;
     transition: color 0.25s ease;
 }
 
-/* High-status visual response on group hover interaction */
 .hero-cta-vertical-group:hover .cta-vertical-separator {
-    color: var(--accent-color);
+    color: var(--accent-color, #E2B13C);
 }
 
+/* ==========================================================================
+   🔄 INFINITE LOOP ANIMATION CALCULATION WITH GAP CORRECTION
+   ========================================================================== */
+@keyframes heroInfiniteScroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* Shifts perfectly half distance minus track gap offset */
+        transform: translateX(calc(-50% - 10px)); 
+    }
+}
+
+/* ==========================================================================
+   📱 MOBILE & DESKTOP STRUCTURAL ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-block h1 {
+        font-size: 26px;
+        margin-bottom: 24px;
+    }
+    .hero-steps-container {
+        padding: 16px;
+    }
+    .hero-step-item {
+        gap: 12px;
+    }
+}
