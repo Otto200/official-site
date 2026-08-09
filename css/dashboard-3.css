@@ -630,79 +630,80 @@ button:active {
         flex-direction: column;
     }
     
-    /* 🛠️ RE-ENGINEERED: Tight structural row bounds that protect the tracking nodes */
+    /* 🛠️ RE-ENGINEERED: Tight structural row bounds with strict zero-buffer tracking */
     .tier-1 {
-        padding: 0 8px;              /* Maximized horizontal side spacing padding */
-        height: 54px;               
+        padding: 0 4px;              /* Cut internal padding spaces completely */
+        height: 60px;                /* Expanded row framework height for bigger text */
         display: flex !important;
         flex-direction: row !important; 
         flex-wrap: nowrap !important;   
         justify-content: space-between;
         align-items: center;
-        gap: 4px;                   /* Slashed gaps to guarantee everything fits */
-        overflow: visible !important; /* Allow elements to sit naturally within view */
+        gap: 2px;                    /* Slashed gaps down to an absolute minimum */
+        overflow: visible !important; 
     }
     
-    /* 🛠️ FIX: Scales down corporate brand typography footprint to clear line paths */
+    /* 🛠️ FIX: Removes inner gaps while handling massive text sizing constraints */
     .nav-brand {
-        gap: 4px;
-        flex-shrink: 1;             /* Allows branding to shrink if screen is ultra-narrow */
+        gap: 2px;                    /* Zero padding buffer zone */
+        flex-shrink: 1;             
     }
 
     .brand-name {
-        font-size: 11px;            /* Highly efficient footprint size */
-        letter-spacing: 0.2px;
+        font-size: 22px;             /* Upgraded: 2x Bigger crisp corporate typography */
+        letter-spacing: -0.2px;
         flex-shrink: 1;
     }
     
     .brand-logo {
-        width: 24px;
-        height: 24px;
-        font-size: 10px;
-        border-radius: 4px;
+        width: 48px;                 /* Upgraded: 2x Bigger graphic badge tracker box */
+        height: 48px;                
+        font-size: 20px;             
+        border-radius: 6px;
+        flex-shrink: 0;
     }
     
-    /* 🛠️ FIX: Hard-locks metadata from wrapping or distorting layout alignments */
+    /* 🛠️ FIX: Hard-locks meta from shifting while handling larger content tracks */
     .nav-meta {
-        gap: 6px;
-        flex-shrink: 0;             /* Protects user metrics zone from collapsing */
+        gap: 4px;                    /* Cut padding space down to keep row unified */
+        flex-shrink: 0;             
     }
 
-    /* 🛠️ FIX: Hard locks absolute visibility and sets micro alignment shapes */
+    /* 🛠️ FIX: Strict node display force rules with scaled metrics */
     .live-node {
         display: flex !important; 
         visibility: visible !important;
         opacity: 1 !important;
-        padding: 4px 6px;
-        gap: 4px;
-        background-color: rgba(226, 177, 60, 0.08); /* Boost highlight tracking contrast */
+        padding: 4px 6px;            /* Compact component padding footprint */
+        gap: 2px;                    
+        background-color: rgba(226, 177, 60, 0.1); 
     }
     
     .node-count {
-        font-size: 9.5px;
-        font-weight: 700;
+        font-size: 19px;             /* Upgraded: 2x Bigger clear metrics counter */
+        font-weight: 800;
     }
     
     .user-profile {
-        gap: 6px;
+        gap: 4px;                    /* Cut blank layout padding tracks */
     }
 
-    /* 🛠️ FIX: Safeguards text tracks by applying truncation rules if names are massive */
+    /* 🛠️ FIX: Clips excessively long text names to protect horizontal rows */
     .trader-name {
-        font-size: 10.5px;
-        max-width: 65px;            /* Prevents name from stepping over live status bounds */
+        font-size: 21px;             /* Upgraded: 2x Bigger profile identity text */
+        max-width: 140px;            /* Proportional boundary constraint */
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
     .logout-btn {
-        padding: 4px 6px;
-        font-size: 10px;
+        padding: 6px 12px;           /* Upgraded: Bigger action target layout button */
+        font-size: 20px;             /* Upgraded: 2x Bigger structural text layout font */
     }
     
     .tier-2 {
-        padding: 8px 8px;
+        padding: 8px 4px;            /* Cut outer viewport boundary buffer space */
         height: auto;
     }
 }
@@ -710,10 +711,11 @@ button:active {
 /* 🛠️ FIX: Ensure Tablet viewports also securely preserve the Live Node string */
 @media (max-width: 1024px) {
     .live-node {
-        display: flex !important;   /* Overrides any default component drops */
+        display: flex !important;   
         visibility: visible !important;
     }
 }
+
 
 
 
