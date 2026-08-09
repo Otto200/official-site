@@ -1,69 +1,53 @@
 /* ==========================================================================
-   SECTION 3: CONSOLIDATED ECOSYSTEM CORE OFFER CARD STYLES
+   SECTION 3: UPGRADED ECOSYSTEM HUB STYLES (SIMPLE & BOLD TRADING THEME)
    ========================================================================== */
 
 /* Spacing alignment for text rows */
 .assets-text-block {
     width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
-/* Master Integrated Offer Panel */
-.ecosystem-offer-card {
+/* Master Grid Hub */
+.ecosystem-upgrade-hub {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Mobile first stack */
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+/* LEFT COLUMN: Authority Panel */
+.hub-authority-panel {
     width: 100%;
     background-color: var(--bg-card, #151A20);
     border: 1px solid var(--border-color, #262E38);
     border-radius: 12px;
-    overflow: hidden;
+    padding: 32px 24px;
     display: flex;
-    flex-direction: column; /* Mobile stack first */
+    flex-direction: column;
+    justify-content: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
-.ecosystem-offer-card:hover {
-    border-color: rgba(226, 177, 60, 0.25); /* Subtle gold perimeter aura */
-}
-
-/* LEFT COLUMN: Visual Hardware Preview Screen */
-.offer-preview-monitor {
-    width: 100%;
-    aspect-ratio: 16 / 9;
+/* Verification Live Pulse Badge */
+.verification-badge {
+    align-self: flex-start;
     background: #0b0e11;
-    position: relative;
-    overflow: hidden;
-}
-
-.offer-preview-monitor img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.ecosystem-offer-card:hover .offer-preview-monitor img {
-    transform: scale(1.02); /* Clean, high-tech camera punch-in on card interaction */
-}
-
-/* System Live Status Ping Element */
-.monitor-status-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: rgba(11, 14, 17, 0.85);
     border: 1px solid var(--border-color, #262E38);
-    backdrop-filter: blur(8px);
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 11px;
     font-weight: 700;
+    font-family: monospace;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #ffffff;
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 20px;
 }
 
 .status-pulse {
@@ -81,13 +65,66 @@
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
 }
 
-/* RIGHT COLUMN: Feature Spec Listing Area */
-.offer-spec-matrix {
+.authority-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+.authority-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary, #9AA1A9);
+    margin: 0 0 20px 0;
+}
+
+.quote-box {
+    border-left: 3px solid var(--accent-color, #E2B13C);
+    padding-left: 16px;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 28px;
+    line-height: 1.5;
+}
+
+/* Call to Action Button */
+.cta-button-gold {
+    display: inline-block;
+    text-align: center;
+    background: var(--accent-color, #E2B13C);
+    color: #000000;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button-gold:hover {
+    background: #f0c253;
+    transform: translateY(-2px);
+}
+
+/* RIGHT COLUMN: Objectives Stack Panel */
+.hub-objectives-stack {
     width: 100%;
+    background-color: var(--bg-card, #151A20);
+    border: 1px solid var(--border-color, #262E38);
+    border-radius: 12px;
     padding: 24px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.hub-objectives-stack:hover {
+    border-color: rgba(226, 177, 60, 0.25); /* Subtle gold perimeter aura */
 }
 
 .matrix-header {
@@ -95,15 +132,16 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border-color, #262E38);
-    padding-bottom: 12px;
-    margin-bottom: 16px;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
 }
 
 .matrix-header h3 {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: #ffffff;
+    margin: 0;
 }
 
 .matrix-version {
@@ -116,95 +154,88 @@
     border: 1px solid rgba(226, 177, 60, 0.15);
 }
 
-/* Feature Item Grid Framework */
-.spec-features-grid {
+/* Node Elements Container */
+.objectives-nodes-grid {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
-/* Individual Feature Item Interaction Design */
-.spec-item {
+/* Node List Item Design */
+.objective-node {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    padding: 12px;
+    padding: 16px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.01);
     border: 1px solid transparent;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
 }
 
-.spec-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.05);
-    transform: translateX(4px); /* Interactive shift right on selection pointer focus */
+.objective-node:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(26, 34, 43, 1);
+    transform: translateX(6px); /* Interactive shift right on hover */
 }
 
-.spec-icon-box {
-    font-size: 11px;
+.node-number {
+    font-size: 12px;
     font-weight: 800;
     font-family: monospace;
     color: var(--accent-color, #E2B13C);
     background: rgba(226, 177, 60, 0.08);
     border: 1px solid rgba(226, 177, 60, 0.2);
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-top: 2px;
 }
 
-.spec-item:hover .spec-icon-box {
+.objective-node:hover .node-number {
     background: var(--accent-color, #E2B13C);
     color: #000000;
     border-color: var(--accent-color, #E2B13C);
 }
 
-.spec-info h4 {
-    font-size: 14px;
+.node-content h4 {
+    font-size: 15px;
     font-weight: 700;
     color: #ffffff;
-    margin: 0 0 4px 0;
+    margin: 0 0 6px 0;
     transition: color 0.2s ease;
 }
 
-.spec-item:hover .spec-info h4 {
-    color: var(--accent-color, #E2B13C); /* Glows title to theme accent color upon active selection */
+.objective-node:hover .node-content h4 {
+    color: var(--accent-color, #E2B13C); /* Glows title to theme gold color */
 }
 
-.spec-info p {
+.node-content p {
     margin: 0;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.5;
     color: var(--text-secondary, #9AA1A9);
 }
 
 /* ==========================================================================
-   🖥️ DESKTOP MONITOR INTERFACE OVERWRITES (Widescreen 2-Column Split Configuration)
+   🖥️ DESKTOP MONITOR LAYOUT (Symmetric 2-Column Desktop Split)
    ========================================================================== */
 @media (min-width: 993px) {
-    .ecosystem-offer-card {
-        flex-direction: row; /* Split visual grid symmetrically horizontally */
+    .ecosystem-upgrade-hub {
+        flex-direction: row; /* Horizontal alignment side-by-side */
         align-items: stretch;
     }
 
-    .offer-preview-monitor {
-        width: 52%; /* Slightly larger visual focus weighting */
-        aspect-ratio: auto; /* Free form scaling height match via row layout binding stretch */
+    .hub-authority-panel {
+        width: 42%; /* Firm anchor sizing */
+        padding: 40px;
     }
 
-    .offer-spec-matrix {
-        width: 48%;
-        padding: 32px; /* Amplified padding scale for monitor setups */
-        justify-content: center;
-    }
-    
-    .spec-features-grid {
-        gap: 8px; /* Tighter layout lines across spacious canvas settings */
+    .hub-objectives-stack {
+        width: 58%; /* Wider space given to the objectives stack */
+        padding: 40px;
     }
 }
