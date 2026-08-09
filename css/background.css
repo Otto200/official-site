@@ -41,3 +41,8 @@
     background-image: linear-gradient(rgba(11, 14, 17, 0.85), rgba(11, 14, 17, 0.90)), 
                       url('../img/aboutbg.webp');
 }
+/* Section 4: Join / CTA Setup */
+#system-strategy {
+    background-image: linear-gradient(rgba(11, 14, 17, 0.85), rgba(11, 14, 17, 0.90)), 
+                      url('../img/strategybg.webp');
+}
