@@ -633,7 +633,7 @@ button:active {
     /* 🛠️ RE-ENGINEERED: Tight structural row bounds with strict zero-buffer tracking */
     .tier-1 {
         padding: 0 4px;              /* Cut internal padding spaces completely */
-        height: 60px;                /* Expanded row framework height for bigger text */
+        height: 54px;                /* Returned to default compact framework height */
         display: flex !important;
         flex-direction: row !important; 
         flex-wrap: nowrap !important;   
@@ -643,63 +643,63 @@ button:active {
         overflow: visible !important; 
     }
     
-    /* 🛠️ FIX: Removes inner gaps while handling massive text sizing constraints */
+    /* 🛠️ FIX: Removes inner gaps while maintaining original default proportions */
     .nav-brand {
-        gap: 2px;                    /* Zero padding buffer zone */
+        gap: 4px;                    /* Zero padding buffer zone */
         flex-shrink: 1;             
     }
 
     .brand-name {
-        font-size: 22px;             /* Upgraded: 2x Bigger crisp corporate typography */
-        letter-spacing: -0.2px;
+        font-size: 12px;             /* Returned to original default compact scale */
+        letter-spacing: 0.5px;
         flex-shrink: 1;
     }
     
     .brand-logo {
-        width: 48px;                 /* Upgraded: 2x Bigger graphic badge tracker box */
-        height: 48px;                
-        font-size: 20px;             
-        border-radius: 6px;
+        width: 26px;                 /* Returned to original default micro badge box */
+        height: 26px;                
+        font-size: 11px;             
+        border-radius: 4px;
         flex-shrink: 0;
     }
     
-    /* 🛠️ FIX: Hard-locks meta from shifting while handling larger content tracks */
+    /* 🛠️ FIX: Hard-locks meta from shifting while handling standard content tracks */
     .nav-meta {
         gap: 4px;                    /* Cut padding space down to keep row unified */
         flex-shrink: 0;             
     }
 
-    /* 🛠️ FIX: Strict node display force rules with scaled metrics */
+    /* 🛠️ FIX: Strict node display force rules with default dimensions preserved */
     .live-node {
         display: flex !important; 
         visibility: visible !important;
         opacity: 1 !important;
         padding: 4px 6px;            /* Compact component padding footprint */
-        gap: 2px;                    
-        background-color: rgba(226, 177, 60, 0.1); 
+        gap: 4px;                    
+        background-color: rgba(226, 177, 60, 0.08); 
     }
     
     .node-count {
-        font-size: 19px;             /* Upgraded: 2x Bigger clear metrics counter */
-        font-weight: 800;
+        font-size: 10px;             /* Returned to original default metrics footprint */
+        font-weight: 700;
     }
     
     .user-profile {
         gap: 4px;                    /* Cut blank layout padding tracks */
     }
 
-    /* 🛠️ FIX: Clips excessively long text names to protect horizontal rows */
+    /* 🛠️ FIX: Clips long user identities safely within the default tracking paths */
     .trader-name {
-        font-size: 21px;             /* Upgraded: 2x Bigger profile identity text */
-        max-width: 140px;            /* Proportional boundary constraint */
+        font-size: 11px;             /* Returned to original default text sizing */
+        max-width: 75px;             /* Proportional default boundary scale */
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
     .logout-btn {
-        padding: 6px 12px;           /* Upgraded: Bigger action target layout button */
-        font-size: 20px;             /* Upgraded: 2x Bigger structural text layout font */
+        padding: 4px 8px;            /* Returned to original default target footprint */
+        font-size: 10px;             /* Returned to original default styling tracking font */
     }
     
     .tier-2 {
@@ -715,9 +715,6 @@ button:active {
         visibility: visible !important;
     }
 }
-
-
-
 
     /* Grids scale down onto stacked individual cards fluidly */
     .assets-grid, .proof-grid {
