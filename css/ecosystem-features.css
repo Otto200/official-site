@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SECTION 3: UPGRADED ECOSYSTEM HUB STYLES (SIMPLE & BOLD TRADING THEME)
+   SECTION 3: UPGRADED ECOSYSTEM HUB STYLES (FINTECH MOCKUP SHOWCASE)
    ========================================================================== */
 
 /* Spacing alignment for text rows */
@@ -8,234 +8,169 @@
     margin-bottom: 40px;
 }
 
-/* Master Grid Hub */
-.ecosystem-upgrade-hub {
+/* Master Device Showcase Panel */
+.ecosystem-device-showcase {
     width: 100%;
     display: flex;
-    flex-direction: column; /* Mobile first stack */
-    gap: 24px;
+    flex-direction: row;
+    gap: 32px;
     box-sizing: border-box;
+    padding: 20px 24px 40px 24px;
+    
+    /* Mobile-first horizontal slider framework */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* LEFT COLUMN: Authority Panel */
-.hub-authority-panel {
-    width: 100%;
-    background-color: var(--bg-card, #151A20);
-    border: 1px solid var(--border-color, #262E38);
-    border-radius: 12px;
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    box-sizing: border-box;
-}
-
-/* Verification Live Pulse Badge */
-.verification-badge {
-    align-self: flex-start;
-    background: #0b0e11;
-    border: 1px solid var(--border-color, #262E38);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    font-family: monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.status-pulse {
-    width: 6px;
+/* Remove default scrollbar styles across fintech engine styling */
+.ecosystem-device-showcase::-webkit-scrollbar {
     height: 6px;
-    background-color: #2ec4b6; /* Live diagnostic teal indicator */
-    border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7);
-    animation: statusBlink 1.6s infinite;
 }
-
-@keyframes statusBlink {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 196, 182, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
+.ecosystem-device-showcase::-webkit-scrollbar-track {
+    background: rgba(21, 26, 32, 0.5);
 }
-
-.authority-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 16px 0;
-    line-height: 1.3;
-}
-
-.authority-text {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-secondary, #9AA1A9);
-    margin: 0 0 20px 0;
-}
-
-.quote-box {
-    border-left: 3px solid var(--accent-color, #E2B13C);
-    padding-left: 16px;
-    font-style: italic;
-    color: #ffffff;
-    font-size: 14px;
-    margin-bottom: 28px;
-    line-height: 1.5;
-}
-
-/* Call to Action Button */
-.cta-button-gold {
-    display: inline-block;
-    text-align: center;
+.ecosystem-device-showcase::-webkit-scrollbar-thumb {
     background: var(--accent-color, #E2B13C);
-    color: #000000;
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 10px;
 }
 
-.cta-button-gold:hover {
-    background: #f0c253;
-    transform: translateY(-2px);
-}
-
-/* RIGHT COLUMN: Objectives Stack Panel */
-.hub-objectives-stack {
-    width: 100%;
-    background-color: var(--bg-card, #151A20);
-    border: 1px solid var(--border-color, #262E38);
-    border-radius: 12px;
-    padding: 24px;
+/* Base Device Mockup Structure */
+.device-mockup {
+    flex: 0 0 100%; /* Default 1 full mockup on viewport screen at mobile dimensions */
+    scroll-snap-align: center;
     display: flex;
-    flex-direction: column;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.hub-objectives-stack:hover {
-    border-color: rgba(226, 177, 60, 0.25); /* Subtle gold perimeter aura */
-}
-
-.matrix-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-color, #262E38);
-    padding-bottom: 14px;
-    margin-bottom: 20px;
-}
-
-.matrix-header h3 {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #ffffff;
-    margin: 0;
-}
-
-.matrix-version {
-    font-size: 11px;
-    font-family: monospace;
-    color: var(--accent-color, #E2B13C);
-    background: rgba(226, 177, 60, 0.08);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(226, 177, 60, 0.15);
-}
-
-/* Node Elements Container */
-.objectives-nodes-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Node List Item Design */
-.objective-node {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid transparent;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.objective-node:hover {
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(26, 34, 43, 1);
-    transform: translateX(6px); /* Interactive shift right on hover */
-}
-
-.node-number {
-    font-size: 12px;
-    font-weight: 800;
-    font-family: monospace;
-    color: var(--accent-color, #E2B13C);
-    background: rgba(226, 177, 60, 0.08);
-    border: 1px solid rgba(226, 177, 60, 0.2);
-    width: 28px;
-    height: 28px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-.objective-node:hover .node-number {
-    background: var(--accent-color, #E2B13C);
-    color: #000000;
-    border-color: var(--accent-color, #E2B13C);
+/* Pure CSS Vector Engineering Frameworks */
+.mockup-frame {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    background-color: #0b0e11;
+    border: 1px solid var(--border-color, #262E38);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
 }
 
-.node-content h4 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 6px 0;
-    transition: color 0.2s ease;
+.mockup-frame:hover {
+    border-color: rgba(226, 177, 60, 0.4);
+    transform: translateY(-8px);
 }
 
-.objective-node:hover .node-content h4 {
-    color: var(--accent-color, #E2B13C); /* Glows title to theme gold color */
+/* Screen Housing Context */
+.mockup-screen {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #151A20;
+    display: flex;
 }
 
-.node-content p {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--text-secondary, #9AA1A9);
+.mockup-screen img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Interactive Futuristic Screen Glare Filter Overlay */
+.screen-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* 💻 VECTOR DEFINITIONS: Laptop */
+.laptop-frame {
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+}
+
+.laptop-frame .mockup-screen {
+    padding: 3% 4% 1% 4%; /* Bezel thickness ratio representation */
+    box-sizing: border-box;
+}
+
+.laptop-base {
+    width: 116%;
+    height: 12px;
+    background: #262E38;
+    border-radius: 0 0 12px 12px;
+    margin-left: -8%;
+    position: relative;
+    border-bottom: 2px solid var(--accent-color, #E2B13C);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* 📟 VECTOR DEFINITIONS: Tablet */
+.tablet-frame {
+    border-radius: 24px;
+    padding: 24px;
+    max-width: 480px;
+}
+
+.tablet-home-btn {
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--border-color, #262E38);
+    border-radius: 50%;
+    margin: 12px auto 0 auto;
+}
+
+/* 📱 VECTOR DEFINITIONS: Mobile */
+.mobile-frame {
+    border-radius: 36px;
+    padding: 16px 14px 20px 14px;
+    max-width: 290px;
+}
+
+.mobile-speaker {
+    width: 40px;
+    height: 4px;
+    background: var(--border-color, #262E38);
+    border-radius: 2px;
+    margin: 0 auto 12px auto;
 }
 
 /* ==========================================================================
-   🖥️ DESKTOP MONITOR LAYOUT (Symmetric 2-Column Desktop Split)
+   📟 MID-RANGE MEDIA BREAKPOINT LAYOUT (Tablets & Smaller Monitors)
+   ========================================================================== */
+@media (min-width: 640px) and (max-width: 992px) {
+    .device-mockup {
+        flex: 0 0 50%; /* Dynamically locks window to exactly two assets inside viewport frame bounds */
+    }
+}
+
+/* ==========================================================================
+   🖥️ HIGH-END DESKTOP MONITOR LAYOUT (Symmetric 3-Column Seamless Full View)
    ========================================================================== */
 @media (min-width: 993px) {
-    .ecosystem-upgrade-hub {
-        flex-direction: row; /* Horizontal alignment side-by-side */
-        align-items: stretch;
+    .ecosystem-device-showcase {
+        overflow-x: visible; /* Kills slider functionality to reveal absolute unified horizontal workspace */
+        display: grid;
+        grid-template-columns: 1.8fr 1.1fr 0.8fr; /* Weighted scaling proportions mapping to real hardware metrics */
+        align-items: flex-end;
+        gap: 24px;
+        padding: 40px 0;
     }
 
-    .hub-authority-panel {
-        width: 42%; /* Firm anchor sizing */
-        padding: 40px;
+    .device-mockup {
+        flex: none;
+        width: 100%;
+        scroll-snap-align: unset;
     }
-
-    .hub-objectives-stack {
-        width: 58%; /* Wider space given to the objectives stack */
-        padding: 40px;
+    
+    .tablet-frame, .mobile-frame {
+        max-width: 100%; /* Fluid container matching grid columns */
     }
 }
