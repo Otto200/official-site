@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BANKBUGS|FX Dashboard</title>
 
-  <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
+    <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
     <script>
         (() => {
             const sessionToken = sessionStorage.getItem("ecosystem_session_state");
@@ -14,226 +14,238 @@
             }
         })();
     </script>
-    <!-- File Linking Requirements -->
+    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Premium Gold & Dark Layout Stylesheet -->
-    <link rel="stylesheet" href="css/dashboard-3.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <!-- Dashboard Core & Component Stylesheets -->
+    <link rel="stylesheet" href="css/dashboardlayout.css">
+    
 </head>
 <body>
 
-    <!-- OVERLAY BACKDROP MASK (Sharp/Clear) -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <!-- TOP NAVIGATION -->
+    <!-- Two-Tier Top Navigation (Locked & Flexed) -->
     <header class="top-nav">
         
-        <div class="tier-1">
+        <div class="tier-one">
             <div class="nav-brand">
-                <div class="brand-logo">BB</div>
-                <span class="brand-name">BANKBUGS|FX</span>
+                <div class="brand-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <span class="brand-name">BANKBUGS<span class="gold-glow-text">|FX</span></span>
             </div>
-            <div class="nav-meta">
-                <div class="live-node">
+            
+            <div class="tier-one-actions">
+                <div class="live-node-pill">
                     <span class="pulse-dot"></span>
-                    <span class="node-count">1,248 Live</span>
+                    <span class="node-count"><span class="dynamic-counter">142</span> Active Users</span>
                 </div>
-                <div class="user-profile">
-                    <span class="trader-name">Alex Cooper</span>
-                    <button class="logout-btn">Log Out</button>
+                <div class="user-profile-tag">
+                    <span class="username-display">Premium Trader</span>
                 </div>
+                <button class="logout-btn-interactive" onclick="window.location.replace('login.html')">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                    <span class="btn-text">Logout</span>
+                </button>
             </div>
-
         </div>
-        
-        <!-- Tier 2: Core Utility Section Triggers -->
-        <div class="tier-2">
-            <!-- Sidebar Controller Trigger -->
-            <button class="t2-btn toggle-sidebar-btn" id="myDashboardBtn">My Dashboard</button>
-            <button class="t2-btn active">Broker</button>
-            <button class="t2-btn">Prop Firm</button>
-            <button class="t2-btn">Trading Apps</button>
-            <button class="t2-btn">Trading Books</button>
-            <button class="t2-btn">Indicators</button>
-            <button class="t2-btn">Trading Bots (EA)</button>
+
+        <!-- Tier Two: Utility Controls -->
+        <div class="tier-two">
+            <button class="menu-toggle-btn" id="sidebarToggle" aria-label="Toggle Side Resources Menu">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <span>Resources Dashboard</span>
+            </button>
+            <div class="tier-two-dropdowns">
+                <button class="tier-two-btn" onclick="toggleMainDisplay('core-concepts-panel')">Core Concepts</button>
+                <button class="tier-two-btn" onclick="toggleMainDisplay('indicators-panel')">Tools/Indicators</button>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN BODY CONTROLLER WORKSPACE -->
-    <div class="main-container">
+    <!-- Master App Layout Container -->
+    <div class="app-layout-wrapper">
         
-        <!-- RESPONSIVE OVERLAY SIDE MENU NAVIGATION -->
-        <aside class="side-menu" id="sideMenu">
-            <div class="menu-header">Complete Journey</div>
-            <nav class="side-nav">
+        <!-- Collapsible Side Resources Menu Grid -->
+        <aside class="side-resources-drawer" id="sideResourcesMenu">
+            <nav class="drawer-nav-tree">
                 
-                <!-- Nav Item 1 (With Dropdown) -->
-                <div class="nav-dropdown open">
-                    <button class="dropdown-trigger">I'm New Here</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn active">Introduction</button>
-                        <button class="subnav-btn">How to Earn</button>
-                        <button class="subnav-btn">What to Do</button>
+                <!-- Expandable Nav Item 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">📋 Core Concept</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('core-content-1')">Market Structure Masterclass</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 2 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Trading Account Setup</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Broker Choice</button>
-                        <button class="subnav-btn">Registration Steps</button>
-                        <button class="subnav-btn">Verification Guard</button>
+                <!-- Expandable Nav Item 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">📚 Trading Books</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('books-content-1')">Orderflow Mechanics PDF</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 3 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Trading Platform Setup</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">MT4/MT5 Config</button>
-                        <button class="subnav-btn">API Integrations</button>
-                        <button class="subnav-btn">Terminal Settings</button>
+                <!-- Expandable Nav Item 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">📉 Indicators</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('indicators-content-1')">Liquidity Engine v4.1</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 4 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Beginner Templates</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Trend Rider v1</button>
-                        <button class="subnav-btn">Daily Pivot Map</button>
-                        <button class="subnav-btn">Session High/Low</button>
+                <!-- Expandable Nav Item 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">🤖 EA (Expert Advisors)</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('ea-content-1')">Algo-Grid Scalper Bot</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 5 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Intermediate Templates</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Order Block Scanner</button>
-                        <button class="subnav-btn">FVG Liquidity</button>
-                        <button class="subnav-btn">Volume Profile Pack</button>
+                <!-- Expandable Nav Item 5 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">🖥️ VPS Setup</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('vps-content-1')">Ultra-Low Latency London Node</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 6 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Active Trader</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Live Watchlist</button>
-                        <button class="subnav-btn">Daily Checklist</button>
-                        <button class="subnav-btn">Execution Log</button>
+                <!-- Expandable Nav Item 6 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">📱 Pro Trading Apps</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('apps-content-1')">Terminal Engine Mobile Link</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 7 (Focus Target With Dropdown) -->
-                <div class="nav-dropdown core-focus">
-                    <button class="dropdown-trigger">Core Concepts</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Market Structure</button>
-                        <button class="subnav-btn">Liquidity Sweeps</button>
-                        <button class="subnav-btn">Premium vs Discount</button>
+                <!-- Expandable Nav Item 7 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">📊 Bankbugsfx Strategy Data</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('strategy-data-1')">Institutional Order Block Repository</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 8 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">System Indicators (Tool)</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Installation Guide</button>
-                        <button class="subnav-btn">Alert Parameters</button>
-                        <button class="subnav-btn">Download Binaries</button>
+                <!-- Expandable Nav Item 8 -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                        <span class="trigger-label">🎓 Mentorship Program</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <button class="subnav-action-btn" onclick="loadContent('mentorship-content-1')">1-on-1 Tape Reading Synchronicity</button>
                     </div>
                 </div>
 
-                <!-- Nav Item 9 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Trading System (Playbook)</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Setup Rulebook</button>
-                        <button class="subnav-btn">Invalidation Zones</button>
-                        <button class="subnav-btn">Scale-In Matrix</button>
-                    </div>
-                </div>
+                <!-- Standalone Nav Item 9 -->
+                <button class="standalone-nav-btn" onclick="loadContent('community-panel')">
+                    <span>👥 Our Community</span>
+                </button>
 
-                <!-- Nav Item 10 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Backtested System Data</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">EURUSD 5Y Report</button>
-                        <button class="subnav-btn">NAS100 Metrics</button>
-                        <button class="subnav-btn">Win-Rate Breakdown</button>
-                    </div>
-                </div>
+                <!-- Standalone Nav Item 10 -->
+                <button class="standalone-nav-btn" onclick="loadContent('signals-panel')">
+                    <span>⚡ Free Signal Group</span>
+                </button>
 
-                <!-- Nav Item 11 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">Request Help</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Open Support Ticket</button>
-                        <button class="subnav-btn">1-on-1 Booking</button>
-                        <button class="subnav-btn">Bug Reporting</button>
-                    </div>
-                </div>
-
-                <!-- Nav Item 12 (With Dropdown) -->
-                <div class="nav-dropdown">
-                    <button class="dropdown-trigger">FAQ</button>
-                    <div class="dropdown-content">
-                        <button class="subnav-btn">Billing Queries</button>
-                        <button class="subnav-btn">Indicator Fixes</button>
-                        <button class="subnav-btn">Membership Tiers</button>
-                    </div>
-                </div>
+                <!-- Premium CTA Nav Item 11 -->
+                <button class="premium-cta-btn" onclick="loadContent('billing-gateway')">
+                    <span class="premium-text-glow">👑 Unlock Full Features</span>
+                </button>
 
             </nav>
         </aside>
 
-        <!-- MAIN INTERACTIVE CONTENT CANVAS AREA -->
-        <main class="content-space">
-            <div class="content-card">
-                <h1>Core Concepts: Market Structure</h1>
-                <p>Welcome to the workspace panel. This middle zone dynamically updates when users click navigation elements across Tier 2 headers, primary side menus, or bottom terminal buttons.</p>
-                
-                <!-- Asset Grid Component Example inside Content -->
-                <div class="assets-grid">
-                    <div class="asset-card">
-                        <h3>EURUSD Analysis</h3>
-                        <p>Track live institutional liquidity pool accumulation parameters inside premium zones.</p>
-                    </div>
-                    <div class="asset-card">
-                        <h3>NAS100 Setup</h3>
-                        <p>Monitor execution rulebooks regarding clean daily structural breaks.</p>
-                    </div>
+        <!-- Main Display Content Workspace Window -->
+        <main class="dashboard-workspace-viewport">
+            <div id="workspace-dynamic-canvas" class="viewport-canvas">
+                <!-- Fallback/Default Content Display Area -->
+                <div class="empty-state-card">
+                    <h2>Welcome to the Terminal Console</h2>
+                    <p>Select an operation parameter or load a structural resource sub-navigation node to begin processing live market tracking data.</p>
                 </div>
             </div>
         </main>
-
     </div>
 
-        <!-- BOTTOM FIXED FOOTER MENU TERMINAL -->
-    <footer class="bottom-nav">
-        <button class="b-nav-btn">
-            <span class="btn-text">Watchlist</span>
+    <!-- Bottom Dock Navigation Bar -->
+    <nav class="bottom-dock-nav">
+        <button class="dock-action-btn active" onclick="handleDockPress(this, 'strategy')">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span class="dock-label">Strategy</span>
         </button>
-        <button class="b-nav-btn">
-            <span class="btn-text">Trading Plan</span>
+        <button class="dock-action-btn" onclick="handleDockPress(this, 'market')">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span class="dock-label">Market Analysis</span>
         </button>
-        <button class="b-nav-btn active">
-            <span class="btn-text">Risk Control</span>
+        <button class="dock-action-btn" onclick="handleDockPress(this, 'live')">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="dock-label">Live Execution</span>
         </button>
-        <button class="b-nav-btn">
-            <span class="btn-text">Live Trade Alert</span>
+        <button class="dock-action-btn" onclick="handleDockPress(this, 'review')">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span class="dock-label">Trade Review</span>
         </button>
-        <button class="b-nav-btn">
-            <span class="btn-text">Review</span>
+        <button class="dock-action-btn" onclick="handleDockPress(this, 'case')">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span class="dock-label">Case Study</span>
         </button>
-    </footer>
+    </nav>
 
-     <script src="js/dashboard.js" defer></script>
+    <!-- App JavaScript Engine -->
+    <script>
+        // Drawer Toggle Functionality
+        const sidebar = document.getElementById('sideResourcesMenu');
+        document.getElementById('sidebarToggle').addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Nested Accordion Structure Controller
+        function toggleSubNav(triggerElement) {
+            const currentItem = triggerElement.parentElement;
+            currentItem.classList.toggle('active');
+        }
+
+        // Active State Dock Button Switch Controller
+        function handleDockPress(btnRef, viewId) {
+            document.querySelectorAll('.dock-action-btn').forEach(b => b.classList.remove('active'));
+            btnRef.classList.add('active');
+            loadContent('dock-' + viewId);
+        }
+
+        // Placeholders for content execution mutations (Own active CSS states apply)
+        function toggleMainDisplay(panelId) {
+            const canvas = document.getElementById('workspace-dynamic-canvas');
+            canvas.innerHTML = `<div class='content-card-active animate-glow'><h2>Active Module View: ${panelId.toUpperCase().replace('-', ' ')}</h2><p>State instance initialized via top tier secondary navigation logic.</p></div>`;
+        }
+
+        // Secure content layout payload injector
+        function loadContent(nodeId) {
+            const canvas = document.getElementById('workspace-dynamic-canvas');
+            canvas.innerHTML = `<div class='content-card-active clicked-node-state'><h2>Target Payload Node: ${nodeId.toUpperCase()}</h2><p>Data payload injected securely into layout system viewport canvas layer.</p></div>`;
+        }
+    </script>
 </body>
 </html>
-
