@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const VALID_USER_KEY_PAIRS = {
         "Otto Eric": "admin@bankbugsfx",
         "Costigan Moilani": "admin@bankbugsfx",
-        "Darvincy Rodgers": "admin@bankbugsfx"
+        "Davincy Rodgers": "admin@bankbugsfx"
     };
 
     loginForm.addEventListener("submit", (e) => {
