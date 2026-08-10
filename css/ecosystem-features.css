@@ -13,10 +13,10 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 24px;
     box-sizing: border-box;
-    padding: 20px 24px 40px 24px;
-    align-items: flex-end; /* Locks elements to bottom path to showcase physical height steps */
+    padding: 20px 16px 40px 16px;
+    align-items: flex-end; /* Pins bottom edges cleanly across all views */
     
     /* Mobile-first horizontal slider framework */
     overflow-x: auto;
@@ -27,7 +27,7 @@
 
 /* Remove default scrollbar styles across fintech engine styling */
 .ecosystem-device-showcase::-webkit-scrollbar {
-    height: 6px;
+    height: 4px;
 }
 .ecosystem-device-showcase::-webkit-scrollbar-track {
     background: rgba(21, 26, 32, 0.5);
@@ -37,9 +37,8 @@
     border-radius: 10px;
 }
 
-/* Base Device Mockup Structure */
+/* Base Device Mockup Structure - Dynamic mobile stepping sizing */
 .device-mockup {
-    flex: 0 0 100%; /* Default 1 full mockup on viewport screen at mobile dimensions */
     scroll-snap-align: center;
     display: flex;
     justify-content: center;
@@ -47,19 +46,25 @@
     box-sizing: border-box;
 }
 
+/* Mobile-first scale hierarchy overrides */
+.laptop-mockup { flex: 0 0 85%; }  /* Laptop dominates the slider view */
+.tablet-mockup { flex: 0 0 55%; }  /* Tablet scales down distinctly below laptop dimensions */
+.mobile-mockup { flex: 0 0 35%; }  /* Phone stays compact and small */
+
 /* Pure CSS Vector Engineering Frameworks */
 .mockup-frame {
     position: relative;
     width: 100%;
+    height: auto;
     background-color: #0b0e11;
     border: 1px solid var(--border-color, #262E38);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
 }
 
 .mockup-frame:hover {
     border-color: rgba(226, 177, 60, 0.4);
-    transform: translateY(-8px);
+    transform: translateY(-4px);
 }
 
 /* Screen Housing Context with Explicit Sizing Frameworks */
@@ -92,7 +97,6 @@
 
 /* 💻 VECTOR DEFINITIONS: Laptop (1600 x 900 Ratio Base) */
 .laptop-frame {
-    max-width: 1600px;
     border-radius: 12px 12px 0 0;
     border-bottom: none;
 }
@@ -103,63 +107,65 @@
 
 .laptop-base {
     width: 108%;
-    height: 12px;
+    height: 10px;
     background: #262E38;
     border-radius: 0 0 12px 12px;
     margin-left: -4%;
     position: relative;
     border-bottom: 2px solid var(--accent-color, #E2B13C);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
 
 /* 📟 VECTOR DEFINITIONS: Tablet (525 x 700 Ratio Base) */
 .tablet-frame {
-    max-width: 525px;
-    border-radius: 24px;
-    padding: 16px;
+    border-radius: 20px;
+    padding: 12px;
     box-sizing: border-box;
 }
 
 .tablet-frame .mockup-screen {
     aspect-ratio: 525 / 700;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .tablet-home-btn {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border: 1px solid var(--border-color, #262E38);
     border-radius: 50%;
-    margin: 8px auto 0 auto;
+    margin: 6px auto 0 auto;
 }
 
 /* 📱 VECTOR DEFINITIONS: Mobile (269 x 500 Ratio Base) */
 .mobile-frame {
-    max-width: 269px;
-    border-radius: 32px;
-    padding: 24px 12px 16px 12px;
+    border-radius: 24px;
+    padding: 18px 10px 12px 10px;
     box-sizing: border-box;
 }
 
 .mobile-frame .mockup-screen {
     aspect-ratio: 269 / 500;
-    border-radius: 16px;
+    border-radius: 12px;
 }
 
 .mobile-speaker {
-    width: 32px;
-    height: 4px;
+    width: 24px;
+    height: 3px;
     background: var(--border-color, #262E38);
     border-radius: 2px;
-    margin: -12px auto 12px auto;
+    margin: -10px auto 10px auto;
 }
 
 /* ==========================================================================
    📟 MID-RANGE MEDIA BREAKPOINT LAYOUT (Tablets & Smaller Monitors)
    ========================================================================== */
 @media (min-width: 640px) and (max-width: 992px) {
-    .device-mockup {
-        flex: 0 0 50%; /* Locks view seamlessly to exactly two components inside viewport bounds */
+    /* Balance desktop boundaries gracefully on mid-tier viewports */
+    .laptop-mockup { flex: 0 0 60%; }
+    .tablet-mockup { flex: 0 0 40%; }
+    .mobile-mockup { flex: 0 0 25%; }
+    .ecosystem-device-showcase {
+        gap: 32px;
     }
 }
 
@@ -168,36 +174,33 @@
    ========================================================================== */
 @media (min-width: 993px) {
     .ecosystem-device-showcase {
-        overflow-x: visible; /* Disables slide behavior for full horizontal canvas integration */
+        overflow-x: visible; /* Disables side-sliding mechanics entirely for full desktop view */
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: flex-end; /* Strictly binds bottoms together */
+        align-items: flex-end; /* Strictly fastens bases together */
         gap: 40px;
         padding: 40px 0;
     }
 
     .device-mockup {
-        flex: 0 1 auto; /* Allows element width to shrink naturally based on max-height restrictions */
+        flex: 0 1 auto; /* Yields sizing directly to dynamic width/height aspect ratios */
         scroll-snap-align: unset;
     }
 
-    /* 
-       Height anchor system: Sets explicit proportional layout scaling limits.
-       Tablet and phone are guaranteed to step down beautifully beneath the laptop line.
-    */
+    /* Height tracking system overrides mobile values for proportional scaling */
     .laptop-frame {
         max-height: 28vw; 
-        width: calc(28vw * (1600 / 900)); /* Calculates exact scale width matching ratio */
+        width: calc(28vw * (1600 / 900)); 
     }
 
     .tablet-frame {
-        max-height: 22vw; /* Explicitly capped shorter than the laptop's frame height */
+        max-height: 22vw; /* Capped shorter than laptop screen */
         width: calc(22vw * (525 / 700)); 
     }
 
     .mobile-frame {
-        max-height: 18vw; /* Explicitly capped shorter than the tablet's frame height */
+        max-height: 18vw; /* Capped shorter than tablet screen */
         width: calc(18vw * (269 / 500));
     }
 }
