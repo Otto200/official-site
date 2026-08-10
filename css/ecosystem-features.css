@@ -16,6 +16,7 @@
     gap: 32px;
     box-sizing: border-box;
     padding: 20px 24px 40px 24px;
+    align-items: flex-end; /* Ensures natural alignment from bottom edge up */
     
     /* Mobile-first horizontal slider framework */
     overflow-x: auto;
@@ -42,7 +43,7 @@
     scroll-snap-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     box-sizing: border-box;
 }
 
@@ -50,7 +51,6 @@
 .mockup-frame {
     position: relative;
     width: 100%;
-    max-width: 100%;
     background-color: #0b0e11;
     border: 1px solid var(--border-color, #262E38);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
@@ -62,7 +62,7 @@
     transform: translateY(-8px);
 }
 
-/* Screen Housing Context */
+/* Screen Housing Context with Explicit Sizing Frameworks */
 .mockup-screen {
     position: relative;
     width: 100%;
@@ -73,7 +73,7 @@
 
 .mockup-screen img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
@@ -90,56 +90,68 @@
     z-index: 3;
 }
 
-/* 💻 VECTOR DEFINITIONS: Laptop */
+/* 💻 VECTOR DEFINITIONS: Laptop (1600 x 900) */
 .laptop-frame {
+    max-width: 1600px;
     border-radius: 12px 12px 0 0;
     border-bottom: none;
 }
 
 .laptop-frame .mockup-screen {
-    padding: 3% 4% 1% 4%; /* Bezel thickness ratio representation */
-    box-sizing: border-box;
+    aspect-ratio: 1600 / 900;
 }
 
 .laptop-base {
-    width: 116%;
+    width: 108%;
     height: 12px;
     background: #262E38;
     border-radius: 0 0 12px 12px;
-    margin-left: -8%;
+    margin-left: -4%;
     position: relative;
     border-bottom: 2px solid var(--accent-color, #E2B13C);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* 📟 VECTOR DEFINITIONS: Tablet */
+/* 📟 VECTOR DEFINITIONS: Tablet (525 x 700) */
 .tablet-frame {
+    max-width: 525px;
     border-radius: 24px;
-    padding: 24px;
-    max-width: 480px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.tablet-frame .mockup-screen {
+    aspect-ratio: 525 / 700;
+    border-radius: 8px;
 }
 
 .tablet-home-btn {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border: 1px solid var(--border-color, #262E38);
     border-radius: 50%;
-    margin: 12px auto 0 auto;
+    margin: 8px auto 0 auto;
 }
 
-/* 📱 VECTOR DEFINITIONS: Mobile */
+/* 📱 VECTOR DEFINITIONS: Mobile (269 x 500) */
 .mobile-frame {
-    border-radius: 36px;
-    padding: 16px 14px 20px 14px;
-    max-width: 290px;
+    max-width: 269px;
+    border-radius: 32px;
+    padding: 24px 12px 16px 12px;
+    box-sizing: border-box;
+}
+
+.mobile-frame .mockup-screen {
+    aspect-ratio: 269 / 500;
+    border-radius: 16px;
 }
 
 .mobile-speaker {
-    width: 40px;
+    width: 32px;
     height: 4px;
     background: var(--border-color, #262E38);
     border-radius: 2px;
-    margin: 0 auto 12px auto;
+    margin: -12px auto 12px auto;
 }
 
 /* ==========================================================================
@@ -147,30 +159,32 @@
    ========================================================================== */
 @media (min-width: 640px) and (max-width: 992px) {
     .device-mockup {
-        flex: 0 0 50%; /* Dynamically locks window to exactly two assets inside viewport frame bounds */
+        flex: 0 0 50%; /* Locks view seamlessly to exactly two components inside viewport bounds */
     }
 }
 
 /* ==========================================================================
-   🖥️ HIGH-END DESKTOP MONITOR LAYOUT (Symmetric 3-Column Seamless Full View)
+   🖥️ HIGH-END DESKTOP MONITOR LAYOUT (Proportional, Fully Scaled Display)
    ========================================================================== */
 @media (min-width: 993px) {
     .ecosystem-device-showcase {
-        overflow-x: visible; /* Kills slider functionality to reveal absolute unified horizontal workspace */
-        display: grid;
-        grid-template-columns: 1.8fr 1.1fr 0.8fr; /* Weighted scaling proportions mapping to real hardware metrics */
-        align-items: flex-end;
+        overflow-x: visible; /* Disables slide behavior for full horizontal canvas integration */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end; /* Locks elements to bottom path to highlight varying device heights */
         gap: 24px;
         padding: 40px 0;
     }
 
     .device-mockup {
-        flex: none;
-        width: 100%;
+        flex: 1; /* Allows fluid system scaling while honoring max-width properties */
+        width: auto;
         scroll-snap-align: unset;
     }
-    
-    .tablet-frame, .mobile-frame {
-        max-width: 100%; /* Fluid container matching grid columns */
-    }
+
+    /* Maintains precise relative sizing dependencies when screen scales */
+    .laptop-mockup { flex: 2.2; }
+    .tablet-mockup { flex: 1.1; }
+    .mobile-mockup { flex: 0.7; }
 }
