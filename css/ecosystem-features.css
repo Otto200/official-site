@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SECTION 3: UPGRADED ECOSYSTEM HUB STYLES (FINTECH MOCKUP SHOWCASE)
+   SECTION 3: UPGRADED ECOSYSTEM HUB STYLES (PROPORTIONAL FINTECH SHOWCASE)
    ========================================================================== */
 
 /* Spacing alignment for text rows */
@@ -16,7 +16,7 @@
     gap: 32px;
     box-sizing: border-box;
     padding: 20px 24px 40px 24px;
-    align-items: flex-end; /* Ensures natural alignment from bottom edge up */
+    align-items: flex-end; /* Locks elements to bottom path to showcase physical height steps */
     
     /* Mobile-first horizontal slider framework */
     overflow-x: auto;
@@ -90,7 +90,7 @@
     z-index: 3;
 }
 
-/* 💻 VECTOR DEFINITIONS: Laptop (1600 x 900) */
+/* 💻 VECTOR DEFINITIONS: Laptop (1600 x 900 Ratio Base) */
 .laptop-frame {
     max-width: 1600px;
     border-radius: 12px 12px 0 0;
@@ -112,7 +112,7 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* 📟 VECTOR DEFINITIONS: Tablet (525 x 700) */
+/* 📟 VECTOR DEFINITIONS: Tablet (525 x 700 Ratio Base) */
 .tablet-frame {
     max-width: 525px;
     border-radius: 24px;
@@ -133,7 +133,7 @@
     margin: 8px auto 0 auto;
 }
 
-/* 📱 VECTOR DEFINITIONS: Mobile (269 x 500) */
+/* 📱 VECTOR DEFINITIONS: Mobile (269 x 500 Ratio Base) */
 .mobile-frame {
     max-width: 269px;
     border-radius: 32px;
@@ -164,27 +164,40 @@
 }
 
 /* ==========================================================================
-   🖥️ HIGH-END DESKTOP MONITOR LAYOUT (Proportional, Fully Scaled Display)
+   🖥️ HIGH-END DESKTOP MONITOR LAYOUT (Strict Proportional Height Stepping)
    ========================================================================== */
 @media (min-width: 993px) {
     .ecosystem-device-showcase {
         overflow-x: visible; /* Disables slide behavior for full horizontal canvas integration */
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end; /* Locks elements to bottom path to highlight varying device heights */
-        gap: 24px;
+        justify-content: center;
+        align-items: flex-end; /* Strictly binds bottoms together */
+        gap: 40px;
         padding: 40px 0;
     }
 
     .device-mockup {
-        flex: 1; /* Allows fluid system scaling while honoring max-width properties */
-        width: auto;
+        flex: 0 1 auto; /* Allows element width to shrink naturally based on max-height restrictions */
         scroll-snap-align: unset;
     }
 
-    /* Maintains precise relative sizing dependencies when screen scales */
-    .laptop-mockup { flex: 2.2; }
-    .tablet-mockup { flex: 1.1; }
-    .mobile-mockup { flex: 0.7; }
+    /* 
+       Height anchor system: Sets explicit proportional layout scaling limits.
+       Tablet and phone are guaranteed to step down beautifully beneath the laptop line.
+    */
+    .laptop-frame {
+        max-height: 28vw; 
+        width: calc(28vw * (1600 / 900)); /* Calculates exact scale width matching ratio */
+    }
+
+    .tablet-frame {
+        max-height: 22vw; /* Explicitly capped shorter than the laptop's frame height */
+        width: calc(22vw * (525 / 700)); 
+    }
+
+    .mobile-frame {
+        max-height: 18vw; /* Explicitly capped shorter than the tablet's frame height */
+        width: calc(18vw * (269 / 500));
+    }
 }
