@@ -15,7 +15,7 @@
     display: flex;
     gap: 1.5rem;
     width: max-content;
-    animation: autoScrollRight 16s linear infinite;
+    animation: autoScrollRight 24s linear infinite;
 }
 
 /* Pauses layout animation on cursor hover for close inspection */
@@ -63,7 +63,7 @@
         width: 440px; /* Expanded card sizing optimized for high-res layout viewing */
     }
     .proof-track {
-        animation-duration: 16s; /* Balances velocity across widescreen real estate */
+        animation-duration: 24s; /* Balances velocity across widescreen real estate */
     }
 }
 
@@ -114,7 +114,7 @@
     display: flex;
     gap: 1.5rem; /* Layout item split buffers */
     width: max-content;
-    animation: autoScrollRight 8s linear infinite;
+    animation: autoScrollRight 24s linear infinite;
     box-sizing: border-box;
 }
 
@@ -163,7 +163,7 @@
         width: 420px; /* Expanded card sizing optimized for high-res layout viewing */
     }
     .proof-track {
-        animation-duration: 16s; /* Balances velocity across widescreen real estate */
+        animation-duration: 24s; /* Balances velocity across widescreen real estate */
     }
 }
 
