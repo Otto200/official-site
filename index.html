@@ -31,16 +31,21 @@
      SECTION 1: THE TOP NAVIGATION BAR (Dual-Row Layout)
      ========================================== -->
 <nav class="main-nav">
-    <!-- 🌟 FIX: Removed the ".container" class to let the navbar span the full display frame width -->
     <div class="nav-wrapper">
                   
         <div class="nav-top-tier">
-            
             <div class="brand-logo-group">
                 <img src="img/logo.webp" alt="BANKBUGS|FX Logo" class="nav-logo-img">
                 <div class="brand-text-column">
                     <span class="brand-logo-text">BANKBUGS|FX</span>
                     <span class="brand-subtext">PNG's Trading Ecosystem</span>
+                    
+                    <!-- 🍔 MOBILE HAMBURGER BUTTON (Hidden on Desktop) -->
+                    <button id="menu-toggle" class="hamburger-btn" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
             
@@ -51,8 +56,8 @@
             </div>
         </div>
 
-        <!-- Tier 2: The Navigation Menu Sub-Section -->
-        <div class="nav-sub-section">
+        <!-- Tier 2: The Navigation Menu Sub-Section (Becomes the Side Drawer on Mobile) -->
+        <div id="side-menu" class="nav-sub-section">
             <a href="#" class="nav-link">Getting Started</a>
             <a href="#ecosystem-features" class="nav-link">Ecosystem features</a>
             <a href="#system-strategy" class="nav-link">My Strategy</a>
@@ -63,6 +68,10 @@
         
     </div>
 </nav>
+
+<!-- 🌟 OUTSIDE CLICK BACKDROP OVERLAY -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
 
 
 <!-- ==========================================
