@@ -183,7 +183,7 @@
 
 
 /* ==========================================================================
-   SECTION 0: HERO ENGINE STYLING (MODIFIED FOR FLUSH BOTTOM BANNER)
+   SECTION 0: HERO ENGINE STYLING (UNIFIED TOP & BOTTOM BANNER MOTOR)
    ========================================================================== */
 
 /* Full-bleed containment boundary layout framework */
@@ -192,8 +192,8 @@
     width: 100vw !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    padding-top: 80px !important;    /* Spacious top buffer room for global menus */
-    padding-bottom: 0px !important;   /* CHANGED: Forced strictly to 0px to remove space before the border */
+    padding-top: 0px !important;      /* Forces top banner flush against the very top display edge */
+    padding-bottom: 0px !important;   /* Forces bottom banner flush against the bottom border */
     background-color: var(--bg-dark-surface, #0b0e11);
     border-bottom: 1px solid var(--border-color, #262E38);
     overflow-x: hidden;
@@ -203,96 +203,62 @@
     align-items: center;
 }
 
-/* ⚡ ADDED: Banner layout wrapper ensuring precise flush-mounting layout mechanics */
-.hero-embedded-banner-tray {
-    width: 100%;
-    max-width: 728px;
-    margin: 0 auto;
-    padding: 0 16px;                 /* Outer safety gutters for smaller display viewports */
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;           /* Locks the image canvas down onto the bottom line */
-}
-
-/* ⚡ ADDED: Responsive rules preventing layout-warp on mobile and tablets */
-.ic-partner-banner {
-    display: block;                  /* Kills native HTML inline image text-baseline whitespace gap */
-    max-width: 100%;
-    height: auto;                    /* Keeps original proportions when scaling down horizontally */
-    margin: 0;
-    padding: 0;
-}
-
-/* Maintain proper spacing variables in your existing media queries */
-@media (max-width: 768px) {
-    .hero-section.baseline-onboarding-hero {
-        padding-top: 56px !important;
-        padding-bottom: 0px !important; /* Forces 0px layout lock even on mobile devices */
-    }
-}
-
-
-
-/* ==========================================================================
-   SECTION 0: HERO ENGINE STYLING (MODIFIED FOR FLUSH TOP & BOTTOM BANNERS)
-   ========================================================================== */
-
-/* Full-bleed containment boundary layout framework */
-.hero-section.baseline-onboarding-hero {
-    position: relative;
-    width: 100vw !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding-top: 0px !important;      /* CHANGED: Forced to 0px to let the top banner touch the frame edge */
-    padding-bottom: 0px !important;   /* Maintained 0px layout lock for the bottom banner */
-    background-color: var(--bg-dark-surface, #0b0e11);
-    border-bottom: 1px solid var(--border-color, #262E38);
-    overflow-x: hidden;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* ⚡ ADDED: Top Banner layout wrapper to force absolute flush-mounting alignment */
+/* ⚡ TOP TRAFFIC DRIVE: Controls layout mechanics for the top Crypto banner */
 .hero-top-banner-tray {
     width: 100%;
     max-width: 728px;
     margin: 0 auto;
-    padding: 0 16px;                  /* Safety gutters for mobile viewports */
+    padding: 0 16px;                  /* Mobile safe screen edge margin protective gutter */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: flex-start;          /* Locks the image canvas tightly to the top boundary */
+    align-items: flex-start;          /* Pins image firmly to top structural boundary */
 }
 
-/* ⚡ ADDED: Spacing buffer layout rule to push content safely away from the top banner */
+/* ⚡ BOTTOM TRAFFIC DRIVE: Controls layout mechanics for the bottom cell banner */
+.hero-embedded-banner-tray {
+    width: 100%;
+    max-width: 728px;
+    margin: 0 auto;
+    padding: 0 16px;                 /* Mobile safe screen edge margin protective gutter */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;           /* Pins image firmly down onto the bottom border rule line */
+}
+
+/* ⚡ CENTER CONTENT SPACER: Replaces old header padding to insulate hero text blocks */
 .hero-block.structural-center-box {
-    padding-top: 56px;                /* Creates spacious buffer breathing room between top banner and text contents */
+    padding-top: 56px;                /* Breathing space room between the top banner and tagline eyebrow */
+    padding-bottom: 56px;             /* Breathing space room between text tools and bottom banner */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* ⚡ ADDED: Kills whitespace layout gaps and ensures seamless mobile auto-scaling */
-.ic-top-partner-banner {
-    display: block;                   /* Prevents traditional browser image-baseline gap tracking */
+/* ⚡ IMAGE RESET HOOKS: Kills inline code text-baseline layout gaps & activates fluid auto-scaling */
+.ic-top-partner-banner,
+.ic-partner-banner {
+    display: block;                   /* Prevents natural HTML inline image whitespace displacement gaps */
     max-width: 100%;
-    height: auto;                     /* Keeps original proportions when scaling down horizontally */
+    height: auto;                     /* Maintains native image aspect ratio rules across variable widths */
     margin: 0;
     padding: 0;
 }
 
-/* Responsive updates for small screen platforms */
+
+/* ==========================================================================
+   📱 PHONE & TABLET SCALING ENGINE (Unified Multi-Banner Viewports)
+   ========================================================================== */
 @media (max-width: 768px) {
     .hero-section.baseline-onboarding-hero {
-        padding-top: 0px !important;  /* Locks banner flush to top even on mobile devices */
-        padding-bottom: 0px !important;
+        padding-top: 0px !important;  /* Retains the flush lock at the absolute top boundary */
+        padding-bottom: 0px !important;/* Retains the flush lock at the absolute bottom border line */
     }
     
     .hero-block.structural-center-box {
-        padding-top: 36px;            /* Tighter responsive content gap for phone screens */
+        padding-top: 36px;            /* Scales down content spacing on compact mobile screens */
+        padding-bottom: 36px;         /* Scales down content spacing on compact mobile screens */
     }
 }
