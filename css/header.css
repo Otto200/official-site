@@ -1,0 +1,180 @@
+/* ==========================================================================
+   SECTION 0: HERO ENGINE STYLING
+   ========================================================================== */
+
+/* Full-bleed containment boundary layout framework */
+.hero-section.baseline-onboarding-hero {
+    position: relative;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding-top: 80px !important;    /* Spacious top buffer room for global menus */
+    padding-bottom: 0px !important;   /* Flushed clean directly against the credibility ribbon */
+    background-color: var(--bg-dark-surface, #0b0e11);
+    border-bottom: 1px solid var(--border-color, #262E38);
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Eyebrow Label Focus */
+.hero-tagline-eyebrow {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent-color, #E2B13C);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Big Typography Title Anchor */
+.hero-headline-title {
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary, #ffffff);
+    max-width: 900px;
+    margin: 0 auto 24px auto;
+}
+
+/* High-Scannability Reader Sub-text Box */
+.hero-subheadline-desc {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-secondary, #9AA1A9);
+    max-width: 760px;
+    margin: 0 auto 44px auto;
+}
+
+/* Unified Panel Area for CTAs & Badges */
+.hero-action-control-box {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto 56px auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Offer Micro-Label Alert */
+.action-offer-badge {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-color, #E2B13C);
+    background: rgba(226, 177, 60, 0.06);
+    border: 1px dashed rgba(226, 177, 60, 0.3);
+    padding: 6px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* Secondary Navigation Component Link */
+.hero-secondary-trigger-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary, #ffffff);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    margin-top: 18px;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+}
+.hero-secondary-trigger-link:hover {
+    color: var(--accent-color, #E2B13C);
+}
+
+/* Friction Mitigation supporting info text style */
+.hero-supporting-meta-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-secondary, #9AA1A9);
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   🔒 THE INSTITUTIONAL CREDIBILITY STRIP
+   ========================================================================== */
+
+.authority-credibility-strip {
+    width: 100vw;
+    background: rgba(21, 26, 32, 0.5);
+    border-top: 1px solid var(--border-color, #262E38);
+    padding: 18px 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.strip-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap; /* Wraps flawlessly down on narrow mobile panels */
+    max-width: 1200px;
+}
+
+.cred-pill-item {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary, #ffffff);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.cred-strip-divider {
+    color: var(--accent-color, #E2B13C);
+    font-weight: 900;
+}
+
+/* ==========================================================================
+   📱 PHONE & TABLET SCALING ENGINE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .hero-section.baseline-onboarding-hero {
+        padding-top: 56px !important;
+    }
+    
+    .hero-headline-title {
+        font-size: 32px;
+        line-height: 1.25;
+    }
+    
+    .hero-subheadline-desc {
+        font-size: 14.5px;
+        line-height: 1.6;
+        padding: 0 16px;
+        margin-bottom: 32px;
+    }
+    
+    .hero-action-control-box {
+        margin-bottom: 40px;
+    }
+    
+    .authority-credibility-strip {
+        padding: 16px;
+    }
+    
+    .strip-content-wrapper {
+        flex-direction: column; /* Stacks text rows cleanly vertically on tiny mobile viewports */
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .cred-strip-divider {
+        display: none; /* Safely drops middle formatting dots on stacked phone structures */
+    }
+    
+    .cred-pill-item {
+        font-size: 12px;
+        opacity: 0.9;
+    }
+}
