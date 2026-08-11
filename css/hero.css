@@ -1,265 +1,38 @@
 /* ==========================================================================
-   HIGH-STATUS HERO ENGINE (Compact & Edge-to-Edge Fluid Marquee)
+   PILLAR CARD IMAGE RENDER ENGINE
    ========================================================================== */
 
-.hero-section {
-    padding-top: 12px !important;    /* Hard-locked 12px top spacing on all systems */
-    padding-bottom: 24px !important;  /* Hard-locked 8px bottom spacing on all systems */
-    overflow: hidden;
+.pillar-card-visual-frame {
     width: 100%;
-}
-
-.hero-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-/* Local Tagline Styling */
-.hero-tagline {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent-color, #E2B13C);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px; 
-}
-
-/* Institutional Headline Statement */
-.hero-block h1 {
-    font-size: 40px; 
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    max-width: 900px;
-    margin-top: 0;
-    margin-bottom: 32px; 
-    color: var(--text-primary, #ffffff);
-}
-
-/* 🔄 FULL EDGE-TO-EDGE BREAKOUT SCROLLING ENGINE (Fills all empty side gaps) */
-.marquee-wrapper {
-    width: 100vw !important;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow: hidden;
-    padding: 16px 0; 
-    margin-bottom: 36px; 
-    background-color: rgba(21, 26, 32, 0.4); 
-    border-top: 1px solid var(--border-color, #262E38);
-    border-bottom: 1px solid var(--border-color, #262E38);
-}
-
-.marquee-track {
-    display: flex;
-    width: max-content;
-    gap: 20px; 
-    animation: heroInfiniteScroll 25s linear infinite; 
-}
-
-/* Pause sliding animation on cursor hover */
-.marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused;
-}
-
-/* The Core Card Components */
-.preview-card {
-    position: relative;
-    width: 320px; 
-    height: 190px; 
-    background-color: var(--bg-card, #151A20);
+    height: 110px; /* Locked height footprint for uniform image layouts */
+    background: #0b0e11;
     border: 1px solid var(--border-color, #262E38);
-    border-radius: 8px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    position: relative;
     overflow: hidden;
-    flex-shrink: 0;
-    cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
 }
 
-.preview-card img {
+/* Protective dimming gradient to align with high-status premium interfaces */
+.pillar-card-visual-frame::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(21, 26, 32, 0.1), rgba(21, 26, 32, 0.6));
+    pointer-events: none;
+}
+
+.pillar-media-asset {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(75%) contrast(110%);
-    transition: filter 0.25s ease, scale 0.25s ease;
+    object-fit: cover; /* Forces images to crop and fit smoothly without squishing */
+    object-position: center;
+    filter: brightness(80%) contrast(105%);
+    transition: filter 0.25s ease, transform 0.25s ease;
 }
 
-/* Micro-Interaction Shifting Effects */
-.preview-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-color, #E2B13C);
-}
-
-.preview-card:hover img {
-    filter: brightness(95%);
-    scale: 1.02;
-}
-
-/* Interactive Text Hover Overlays */
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(transparent, rgba(11, 14, 17, 0.95));
-    display: flex;
-    align-items: flex-end;
-}
-
-.card-overlay span {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-primary, #ffffff);
-}
-
-/* Bottom Copy Positioning */
-.hero-pitch {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-secondary, #9AA1A9);
-    max-width: 720px;
-    margin-top: 0;
-    margin-bottom: 32px; 
-    text-align: center;
-}
-
-/* ==========================================================================
-   📋 NEW: ONBOARDING DIRECTIONS COMPONENT STYLING
-   ========================================================================== */
-.hero-steps-container {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto 40px auto;
-    text-align: left;
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid var(--border-color, #262E38);
-    border-radius: 10px;
-    padding: 24px;
-    box-sizing: border-box;
-}
-
-.steps-main-title {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--accent-color, #E2B13C);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 1px solid var(--border-color, #262E38);
-    padding-bottom: 12px;
-}
-
-.hero-steps-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.hero-step-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.step-num {
-    font-size: 12px;
-    font-family: monospace;
-    font-weight: 700;
-    color: var(--accent-color, #E2B13C);
-    background: rgba(226, 177, 60, 0.08);
-    border: 1px solid rgba(226, 177, 60, 0.2);
-    width: 26px;
-    height: 26px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.step-text h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 4px 0;
-}
-
-.step-text p {
-    font-size: 13px;
-    line-height: 1.4;
-    color: var(--text-secondary, #9AA1A9);
-    margin: 0;
-}
-
-/* ==========================================================================
-   VERTICAL STEP-BY-STEP ACTION FLOW ENGINE
-   ========================================================================== */
-
-.hero-cta-vertical-group {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    width: 100%;
-    max-width: 360px;       
-    margin: 0 auto;
-    gap: 8px;               
-}
-
-.hero-cta-vertical-group .hero-cta {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 0 !important; 
-}
-
-.cta-vertical-separator {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-secondary, #9AA1A9);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 6px 0;         
-    opacity: 0.85;
-    transition: color 0.25s ease;
-}
-
-.hero-cta-vertical-group:hover .cta-vertical-separator {
-    color: var(--accent-color, #E2B13C);
-}
-
-/* ==========================================================================
-   🔄 INFINITE LOOP ANIMATION CALCULATION WITH GAP CORRECTION
-   ========================================================================== */
-@keyframes heroInfiniteScroll {
-    0% { 
-        transform: translateX(0); 
-    }
-    100% { 
-        /* Shifts perfectly half distance minus track gap offset */
-        transform: translateX(calc(-50% - 10px)); 
-    }
-}
-
-/* ==========================================================================
-   📱 MOBILE & DESKTOP STRUCTURAL ADJUSTMENTS
-   ========================================================================== */
-@media (max-width: 768px) {
-    .hero-block h1 {
-        font-size: 26px;
-        margin-bottom: 24px;
-    }
-    .hero-steps-container {
-        padding: 16px;
-    }
-    .hero-step-item {
-        gap: 12px;
-    }
+/* Hover optimization link to card element state */
+.pillar-delivery-card:hover .pillar-media-asset {
+    filter: brightness(95%) contrast(105%);
+    transform: scale(1.03);
 }
