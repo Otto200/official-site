@@ -1,24 +1,14 @@
-
 function redirectToWhatsApp() {
-  // Get the value typed by the user
-  const userName = document.getElementById('ic-name-input').value.trim();
-  
-  if (userName === "") {
-    alert("Please enter your registered full IC Name to proceed.");
-    return;
-  }
-  
-  // REPLACE 67570000000 WITH YOUR ACTUAL WHATSAPP NUMBER WITH COUNTRY CODE (675 for PNG)
+  // Target routing variables
   const whatsappNumber = "67576766296"; 
   
-  // Create your custom URL-encoded pre-filled text message
-  const messageText = `Hi Otto, I have completed IC Markets Registration. Please send me access to BANKBUGS|FX ecosystem. My registered full name is: ${userName}`;
+  // Professional pre-filled template message focused on account deployment instead of personal identity data
+  const messageText = "Hi Otto, I just registered with IC. Please get me free dashboard access to the BANKBUGS|FX ecosystem.";
   const encodedMessage = encodeURIComponent(messageText);
   
-  // Construct the final API URL
+  // Construct final API endpoint URL
   const whatsappUrl = `https://wa.me/67576766296?text=${encodedMessage}`;
   
-  // Open WhatsApp in a new tab
+  // Open communication channel in a secure new viewport window
   window.open(whatsappUrl, '_blank');
 }
-
