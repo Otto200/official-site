@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/withdrawals.css">
     <link rel="stylesheet" href="css/about-me.css">
     <link rel="stylesheet" href="css/follow.css">
-    <link rel="stylesheet" href="css/request-access.css">
+    <link rel="stylesheet" href="css/requirements-gate.css">
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -120,7 +120,7 @@
         
         
             <!-- Second Button: Connected to JavaScript Trigger Engine -->
-            <a href="#" class="btn btn-primary hero-cta" id="whatsapp-gate-trigger" rel="noopener">Request Ecosystem Access (Free)</a>
+            <a href="requirements-gate" class="scroll-cta-btn" rel="noopener">Get Free Access</a>
         </div>
     </div>
 
@@ -411,6 +411,39 @@
 </section>
 
 
+<section id="requirements-gate" class="requirements-section">
+  <div class="requirements-container">
+    <h2>Unlock Your Free Ecosystem Access Pass</h2>
+    <p class="requirements-subtitle">
+      Our structural analysis models, indicators, and live PNG trade alerts are 100% free, but they require a compatible execution environment. Follow these 2 simple steps to access ecosystem:
+    </p>
+
+    <div class="step-card">
+      <div class="step-number">Step 1</div>
+      <h3>Create Your Live Execution Environment (Required)</h3>
+      <p>Register a free Live or Demo account with our authorized broker partner, <strong>IC Markets</strong>. You must use our verified tracking link below so our backend can map your data path configuration.</p>
+      <!-- REPLACE YOUR_AFFILIATE_LINK WITH YOUR ACTUAL IC MARKETS TRACKING LINK -->
+      <a href="https://ic.com/open-trading-account/live/?camp=92891" target="_blank" class="broker-btn">
+        Create Account on IC Markets
+      </a>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">Step 2</div>
+      <h3>Submit Your Verification Details</h3>
+      <p>Enter the exact full name you registered on IC Markets. This links your profile inside the ecosystem.</p>
+      
+      <div class="form-group">
+        <input type="text" id="ic-name-input" placeholder="Enter Your Full Registered IC Name" required>
+        <button onclick="redirectToWhatsApp()" class="whatsapp-submit-btn">
+          Get free Access	
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
 
       <!-- ==========================================
        SECTION: THE PRIVATE SOCIAL MATRIX BLOCK
