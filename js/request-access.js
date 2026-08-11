@@ -12,7 +12,7 @@ function redirectToWhatsApp() {
   const whatsappNumber = "67576766296"; 
   
   // Create your custom URL-encoded pre-filled text message
-  const messageText = `Hi Otto, I have completed the IC Markets setup. Please send me access to BANKBUGS|FX ecosystem. My registered full name for verification is: ${userName}`;
+  const messageText = `Hi Otto, I have completed the IC Markets setup. Please send me access to BANKBUGS|FX ecosystem. My registered full name is: ${userName}`;
   const encodedMessage = encodeURIComponent(messageText);
   
   // Construct the final API URL
