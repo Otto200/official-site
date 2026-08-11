@@ -3,7 +3,7 @@ function redirectToWhatsApp() {
   const whatsappNumber = "67576766296"; 
   
   // Professional pre-filled template message focused on account deployment instead of personal identity data
-  const messageText = "Hi Otto, I just registered with IC. Please get me free dashboard access to the BANKBUGS|FX ecosystem.";
+  const messageText = "Hi Otto, Im interested";
   const encodedMessage = encodeURIComponent(messageText);
   
   // Construct final API endpoint URL
