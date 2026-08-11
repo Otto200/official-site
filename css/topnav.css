@@ -4,19 +4,15 @@
 
 /* Main Navigation Box wrapper - Forces background to bleed edge-to-edge */
 .main-nav {
-    position: sticky;
+    position: fixed;            /* CHANGED: Switched sticky to fixed for an unbreakable lock */
     top: 0;
-    z-index: 1000;
+    left: 0;                    /* ADDED: Pulls fixed navbar to the absolute screen left */
+    z-index: 10000;             /* CHANGED: Elevated layer weight to override scrolling sections */
     background-color: rgba(11, 14, 17, 0.90);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    width: 100vw;               /* Breaks open container rails to touch screen frame edges */
-    max-width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
-    overflow-x: hidden;
+    width: 100%;                /* CHANGED: Switched 100vw to 100% to eliminate nasty layout horizontal scrollbars */
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
 }
@@ -106,6 +102,20 @@
     color: var(--accent-color);
 }
 
+/* Navigation Action Block Layout Engine */
+.nav-actions-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px; /* Uniform horizontal gap between your preview and login blocks */
+}
+
+/* Compact button layout scaling rules for navigation bar compatibility */
+.btn-nav-action {
+    padding: 10px 18px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+}
+
 /* ==========================================================================
    🖥️ DESKTOP STRUCTURAL RULE (Forced Centered Links, Floating Side Blocks)
    ========================================================================== */
@@ -133,6 +143,16 @@
     .brand-logo-group, .nav-top-tier .btn-secondary, .nav-top-tier .nav-actions-group {
         pointer-events: auto;
         position: relative;
+        z-index: 10;
+    }
+
+    /* FIXED BUG: Switched from hard-coded top: 16px to top: 50% flex alignment to stop button displacement */
+    .nav-top-tier .nav-actions-group {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: auto;
         z-index: 10;
     }
 }
@@ -180,30 +200,15 @@
     }
 }
 
-/* Navigation Action Block Layout Engine */
-.nav-actions-group {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 12px; /* Uniform horizontal gap between your preview and login blocks */
-}
-
-/* Compact button layout scaling rules for navigation bar compatibility */
-.btn-nav-action {
-    padding: 10px 18px !important;
-    font-size: 12px !important;
-    white-space: nowrap !important;
-}
-
 /* ==========================================================================
-   🖥️ DESKTOP INTERFACE OVERWRITE (Safe Overlay Pinning Fix)
+   🚨 CRITICAL PAGE SPACING ENGINE (Fixed-Nav Content Correction)
    ========================================================================== */
-@media (min-width: 993px) {
-    /* Updates the floating block rule to pin the entire pair of buttons to the right edge */
-    .nav-top-tier .nav-actions-group {
-        position: absolute;
-        right: 24px;
-        top: 16px;
-        pointer-events: auto;
-        z-index: 10;
+body {
+    padding-top: 72px; /* Matches exact desktop nav height profile */
+}
+
+@media (max-width: 992px) {
+    body {
+        padding-top: 118px; /* Matches expanded mobile stacked layout height profile */
     }
 }
