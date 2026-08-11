@@ -1,524 +1,265 @@
 /* ==========================================================================
-   BANKBUGS|FX INSTITUTIONAL TERMINAL ARCHITECTURE DESIGN SYSTEM
+   HIGH-STATUS HERO ENGINE (Compact & Edge-to-Edge Fluid Marquee)
    ========================================================================== */
 
-:root {
-    --fx-bg-dark: #07090C;
-    --fx-surface-card: #0F1318;
-    --fx-surface-hover: #161C24;
-    --fx-accent: #E2B13C;
-    --fx-accent-rgb: 226, 177, 60;
-    --fx-text-main: #FFFFFF;
-    --fx-text-muted: #8A94A0;
-    --fx-border-low: #1A212A;
-    --fx-border-high: #2D3947;
-    --fx-transition-prime: cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.premium-ecosystem-section {
-    position: relative;
-    background-color: var(--fx-bg-dark);
-    padding: clamp(60px, 8vw, 120px) 0;
-    width: 100%;
+.hero-section {
+    padding-top: 12px !important;    /* Hard-locked 12px top spacing on all systems */
+    padding-bottom: 24px !important;  /* Hard-locked 8px bottom spacing on all systems */
     overflow: hidden;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    width: 100%;
 }
 
-/* Background Subtle Grid & Atmospheric Spotlight Filters */
-.ecosystem-grid-bg {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: 
-        linear-gradient(rgba(26, 33, 42, 0.25) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(26, 33, 42, 0.25) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.premium-ecosystem-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(1000px circle at var(--pointer-x, 50%) var(--pointer-y, 30%), rgba(var(--fx-accent-rgb), 0.04), transparent 75%);
-    pointer-events: none;
-    z-index: 2;
-}
-
-.ecosystem-container {
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    z-index: 3;
-}
-
-/* Institutional Layout Header Alignment */
-.ecosystem-header {
+.hero-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: clamp(30px, 5vw, 50px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 24px;
-}
-
-.ecosystem-eyebrow {
-    font-size: clamp(11px, 1.2vw, 13px);
-    font-weight: 700;
-    color: var(--fx-accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: inline-block;
-}
-
-.ecosystem-title {
-    font-size: clamp(26px, 4vw, 42px);
-    line-height: 1.15;
-    font-weight: 800;
-    color: var(--fx-text-main);
-    letter-spacing: -0.03em;
-    max-width: 800px;
-    margin: 0 0 20px 0;
-}
-
-.ecosystem-subtitle {
-    font-size: clamp(14px, 1.5vw, 16px);
-    line-height: 1.6;
-    color: var(--fx-text-muted);
-    max-width: 720px;
-    margin: 0;
-}
-
-/* Ecosystem Slider Viewport Architecture Track */
-.ecosystem-wrapper {
-    position: relative;
     width: 100%;
 }
 
-.ecosystem-connections-svg {
-    position: absolute;
-    top: 125px; left: 0; width: 100%; height: 2px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.architecture-path-svg {
-    width: 100%; height: 100%;
-    overflow: visible;
-}
-
-.connection-line-base {
-    stroke: var(--fx-border-low);
-    stroke-width: 1.5;
-}
-
-.connection-line-active {
-    stroke: url(#line-gradient-glow);
-    stroke-width: 1.5;
-    stroke-dasharray: 12 24;
-    animation: flowPulseTrack 10s linear infinite;
-}
-
-/* 🔄 NEW LAYER: Dedicated Horizontal Drag-and-Swipe Layout Track viewport */
-.ecosystem-slider-viewport {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 20px 0 35px 0;
-    box-sizing: border-box;
-    cursor: grab;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide Default Browser Track Bars */
-}
-
-.ecosystem-slider-viewport::-webkit-scrollbar {
-    display: none;
-}
-
-.ecosystem-slider-viewport:active {
-    cursor: grabbing;
-    scroll-behavior: auto;
-}
-
-/* Unified Single-Row Inline Flex Configuration (Locked across all screens) */
-.ecosystem-cards-grid {
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    padding: 0 clamp(24px, 5vw, 60px);
-}
-
-/* Premium Component Card Blocks */
-.ecosystem-card {
-    position: relative;
-    width: clamp(290px, 22vw, 350px);
-    background-color: rgba(15, 19, 24, 0.85);
-    border: 1px solid var(--fx-border-low);
-    border-radius: 4px;
-    padding: 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    outline: none;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    transition: 
-        transform 0.4s var(--fx-transition-prime),
-        border-color 0.4s ease,
-        background-color 0.4s ease,
-        box-shadow 0.4s ease,
-        opacity 0.4s ease,
-        filter 0.4s ease;
-}
-
-/* Focused Card Isolation Dimming Subsystem */
-.ecosystem-cards-grid:hover .ecosystem-card:not(:hover) {
-    opacity: 0.65;
-    filter: saturate(0.85) contrast(0.95);
-}
-
-.ecosystem-card:hover,
-.ecosystem-card:focus-within {
-    transform: translateY(-8px);
-    border-color: var(--fx-border-high);
-    background-color: var(--fx-surface-hover);
-    box-shadow: 
-        0 20px 45px rgba(0, 0, 0, 0.65),
-        0 0 1px rgba(var(--fx-accent-rgb), 0.2);
-}
-
-/* Cursor Glow Tracking Backplate */
-.card-border-glow {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 4px;
-    pointer-events: none;
-    background: radial-gradient(180px circle at var(--card-x, 50%) var(--card-y, 50%), rgba(var(--fx-accent-rgb), 0.12), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-.ecosystem-card:hover .card-border-glow {
-    opacity: 1;
-}
-
-/* Linear Matrix Scanner Sweep Lines */
-.card-scanner {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(var(--fx-accent-rgb), 0.3), transparent);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.ecosystem-card:hover .card-scanner {
-    opacity: 1;
-    animation: verticalScan 2.5s linear infinite;
-}
-
-.card-header-hud {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 22px;
-    position: relative;
-    z-index: 3;
-}
-
-.card-node {
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--fx-text-muted);
-    letter-spacing: 0.05em;
-    transition: color 0.3s ease;
-}
-
-.ecosystem-card:hover .card-node {
-    color: var(--fx-accent);
-}
-
-.card-status {
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background-color: var(--fx-border-high);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ecosystem-card:hover .card-status {
-    background-color: var(--fx-accent);
-    box-shadow: 0 0 6px var(--fx-accent);
-}
-
-/* Darkened Hardware Visual Frames */
-.card-media-box {
-    position: relative;
-    width: 100%;
-    height: 110px;
-    background-color: #0B0D11;
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 22px;
-    z-index: 3;
-}
-
-.card-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: brightness(55%) contrast(105%);
-    transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.ecosystem-card:hover .card-img {
-    filter: brightness(85%) contrast(110%);
-    transform: scale(1.03);
-}
-
-.card-fallback-text {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: monospace;
-    font-size: 9px;
-    color: rgba(255, 255, 255, 0.03);
-    letter-spacing: 0.15em;
-    pointer-events: none;
-}
-
-.card-content {
-    position: relative;
-    z-index: 3;
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--fx-text-main);
-    margin: 0 0 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.card-num {
-    font-family: monospace;
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--fx-text-muted);
-    transition: color 0.3s ease;
-}
-
-.ecosystem-card:hover .card-num {
-    color: var(--fx-accent);
-}
-
-.card-desc {
-    font-size: 13.5px;
-    line-height: 1.55;
-    color: var(--fx-text-muted);
-    margin: 0;
-}
-
-.card-footer-accent {
-    position: absolute;
-    bottom: 0; left: 12%; width: 0; height: 1px;
-    background-color: var(--fx-accent);
-    transition: width 0.4s var(--fx-transition-prime);
-    z-index: 3;
-}
-
-.ecosystem-card:hover .card-footer-accent {
-    width: 76%;
-}
-
-/* ==========================================================================
-   METRIC HUD AND MINIMALIST SLIDER SCROLLBAR TRACK
-   ========================================================================== */
-
-.slider-interface-metrics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 0 24px;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
-
-.metric-indicator {
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--fx-text-muted);
-    letter-spacing: 0.1em;
-    opacity: 0.6;
-}
-
-.terminal-bracket {
-    color: var(--fx-accent);
-}
-
-.slider-scrollbar-track {
-    position: relative;
-    width: 100%;
-    max-width: 240px;
-    height: 2px;
-    background-color: var(--fx-border-low);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.slider-scrollbar-thumb {
-    position: absolute;
-    top: 0; left: 0;
-    width: 20%;
-    height: 100%;
-    background-color: var(--fx-border-high);
-    border-radius: 2px;
-    transition: background-color 0.2s ease, left 0.1s ease-out;
-}
-
-.ecosystem-slider-viewport:active ~ .slider-interface-metrics .slider-scrollbar-thumb {
-    background-color: var(--fx-accent);
-}
-
-/* ==========================================================================
-   HIGH-STATUS INTERACTIVE ACTION LINK FOOTER
-   ========================================================================== */
-
-.ecosystem-footer {
-    margin-top: clamp(40px, 5vw, 64px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    position: relative;
-    z-index: 4;
-    padding: 0 24px;
-}
-
-.ecosystem-cta-link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-       background-color: transparent;
-    color: var(--fx-text-main);
-    text-decoration: none;
+/* Local Tagline Styling */
+.hero-tagline {
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    padding: 16px 38px;
-    border: 1px solid var(--fx-border-high);
-    border-radius: 4px;
+    color: var(--accent-color, #E2B13C);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px; 
+}
+
+/* Institutional Headline Statement */
+.hero-block h1 {
+    font-size: 40px; 
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 900px;
+    margin-top: 0;
+    margin-bottom: 32px; 
+    color: var(--text-primary, #ffffff);
+}
+
+/* 🔄 FULL EDGE-TO-EDGE BREAKOUT SCROLLING ENGINE (Fills all empty side gaps) */
+.marquee-wrapper {
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     overflow: hidden;
-    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    padding: 16px 0; 
+    margin-bottom: 36px; 
+    background-color: rgba(21, 26, 32, 0.4); 
+    border-top: 1px solid var(--border-color, #262E38);
+    border-bottom: 1px solid var(--border-color, #262E38);
 }
 
-.ecosystem-cta-link:hover {
-    color: var(--fx-accent);
-    border-color: var(--fx-accent);
-    box-shadow: 0 0 25px rgba(var(--fx-accent-rgb), 0.12);
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 20px; 
+    animation: heroInfiniteScroll 25s linear infinite; 
 }
 
-.cta-arrow-wrapper {
+/* Pause sliding animation on cursor hover */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* The Core Card Components */
+.preview-card {
+    position: relative;
+    width: 320px; 
+    height: 190px; 
+    background-color: var(--bg-card, #151A20);
+    border: 1px solid var(--border-color, #262E38);
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
+}
+
+.preview-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(75%) contrast(110%);
+    transition: filter 0.25s ease, scale 0.25s ease;
+}
+
+/* Micro-Interaction Shifting Effects */
+.preview-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color, #E2B13C);
+}
+
+.preview-card:hover img {
+    filter: brightness(95%);
+    scale: 1.02;
+}
+
+/* Interactive Text Hover Overlays */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(transparent, rgba(11, 14, 17, 0.95));
+    display: flex;
+    align-items: flex-end;
+}
+
+.card-overlay span {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary, #ffffff);
+}
+
+/* Bottom Copy Positioning */
+.hero-pitch {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary, #9AA1A9);
+    max-width: 720px;
+    margin-top: 0;
+    margin-bottom: 32px; 
+    text-align: center;
+}
+
+/* ==========================================================================
+   📋 NEW: ONBOARDING DIRECTIONS COMPONENT STYLING
+   ========================================================================== */
+.hero-steps-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-color, #262E38);
+    border-radius: 10px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.steps-main-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent-color, #E2B13C);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color, #262E38);
+    padding-bottom: 12px;
+}
+
+.hero-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.step-num {
+    font-size: 12px;
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--accent-color, #E2B13C);
+    background: rgba(226, 177, 60, 0.08);
+    border: 1px solid rgba(226, 177, 60, 0.2);
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16px; height: 16px;
-    transition: transform 0.3s var(--fx-transition-prime);
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
-.cta-arrow-svg {
-    width: 100%; height: 100%;
+.step-text h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
 }
 
-.ecosystem-cta-link:hover .cta-arrow-wrapper {
-    transform: translateX(6px);
+.step-text p {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text-secondary, #9AA1A9);
+    margin: 0;
 }
 
-.cta-glitch-line {
-    position: absolute;
-    top: 0; left: -100%; width: 30%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(var(--fx-accent-rgb), 0.25), transparent);
-    transform: skewX(-20deg);
-}
+/* ==========================================================================
+   VERTICAL STEP-BY-STEP ACTION FLOW ENGINE
+   ========================================================================== */
 
-.ecosystem-cta-link:hover .cta-glitch-line {
-    left: 140%;
-    transition: left 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hud-status-indicator {
+.hero-cta-vertical-group {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: monospace;
-    font-size: 11px;
-    color: var(--fx-text-muted);
-    letter-spacing: 0.05em;
-    opacity: 0.7;
+    flex-direction: column; 
+    align-items: center;    
+    width: 100%;
+    max-width: 360px;       
+    margin: 0 auto;
+    gap: 8px;               
 }
 
-.hud-pulse-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background-color: #22C55E;
-    box-shadow: 0 0 6px #22C55E;
-    animation: simplePulse 2s infinite;
+.hero-cta-vertical-group .hero-cta {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0 !important; 
 }
 
-/* ==========================================================================
-   CORE HARDWARE TIMING ROUTINES
-   ========================================================================== */
-
-@keyframes flowPulseTrack {
-    to { stroke-dashoffset: -216; }
+.cta-vertical-separator {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary, #9AA1A9);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 0;         
+    opacity: 0.85;
+    transition: color 0.25s ease;
 }
 
-@keyframes verticalScan {
-    0% { top: 0; }
-    50% { top: 100%; }
-    100% { top: 0; }
-}
-
-@keyframes simplePulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.25); opacity: 0.5; }
-    100% { transform: scale(1); opacity: 1; }
+.hero-cta-vertical-group:hover .cta-vertical-separator {
+    color: var(--accent-color, #E2B13C);
 }
 
 /* ==========================================================================
-   INTELLIGENT RESPONSIVE SWIPE CONSTRAINTS (NO MORE VERTICAL BREAKING)
+   🔄 INFINITE LOOP ANIMATION CALCULATION WITH GAP CORRECTION
    ========================================================================== */
-
-@media (max-width: 1024px) {
-    .ecosystem-connections-svg {
-        display: none;
+@keyframes heroInfiniteScroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* Shifts perfectly half distance minus track gap offset */
+        transform: translateX(calc(-50% - 10px)); 
     }
 }
 
+/* ==========================================================================
+   📱 MOBILE & DESKTOP STRUCTURAL ADJUSTMENTS
+   ========================================================================== */
 @media (max-width: 768px) {
-    .ecosystem-card {
-        width: calc(100vw - 64px);
-        transform: none !important;
+    .hero-block h1 {
+        font-size: 26px;
+        margin-bottom: 24px;
     }
-    
-    .ecosystem-slider-viewport {
-        padding-left: 0;
-        padding-right: 0;
+    .hero-steps-container {
+        padding: 16px;
+    }
+    .hero-step-item {
+        gap: 12px;
     }
 }
-
