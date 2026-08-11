@@ -178,3 +178,56 @@
         opacity: 0.9;
     }
 }
+
+
+
+
+/* ==========================================================================
+   SECTION 0: HERO ENGINE STYLING (MODIFIED FOR FLUSH BOTTOM BANNER)
+   ========================================================================== */
+
+/* Full-bleed containment boundary layout framework */
+.hero-section.baseline-onboarding-hero {
+    position: relative;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding-top: 80px !important;    /* Spacious top buffer room for global menus */
+    padding-bottom: 0px !important;   /* CHANGED: Forced strictly to 0px to remove space before the border */
+    background-color: var(--bg-dark-surface, #0b0e11);
+    border-bottom: 1px solid var(--border-color, #262E38);
+    overflow-x: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ⚡ ADDED: Banner layout wrapper ensuring precise flush-mounting layout mechanics */
+.hero-embedded-banner-tray {
+    width: 100%;
+    max-width: 728px;
+    margin: 0 auto;
+    padding: 0 16px;                 /* Outer safety gutters for smaller display viewports */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;           /* Locks the image canvas down onto the bottom line */
+}
+
+/* ⚡ ADDED: Responsive rules preventing layout-warp on mobile and tablets */
+.ic-partner-banner {
+    display: block;                  /* Kills native HTML inline image text-baseline whitespace gap */
+    max-width: 100%;
+    height: auto;                    /* Keeps original proportions when scaling down horizontally */
+    margin: 0;
+    padding: 0;
+}
+
+/* Maintain proper spacing variables in your existing media queries */
+@media (max-width: 768px) {
+    .hero-section.baseline-onboarding-hero {
+        padding-top: 56px !important;
+        padding-bottom: 0px !important; /* Forces 0px layout lock even on mobile devices */
+    }
+}
