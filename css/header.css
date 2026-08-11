@@ -181,7 +181,6 @@
 
 
 
-
 /* ==========================================================================
    SECTION 0: HERO ENGINE STYLING (UNIFIED TOP & BOTTOM BANNER MOTOR)
    ========================================================================== */
@@ -203,7 +202,7 @@
     align-items: center;
 }
 
-/* ⚡ TOP TRAFFIC DRIVE: Controls layout mechanics for the top Crypto banner */
+/* TOP TRAFFIC DRIVE: Controls layout mechanics for the top Crypto banner */
 .hero-top-banner-tray {
     width: 100%;
     max-width: 728px;
@@ -215,7 +214,7 @@
     align-items: flex-start;          /* Pins image firmly to top structural boundary */
 }
 
-/* ⚡ BOTTOM TRAFFIC DRIVE: Controls layout mechanics for the bottom cell banner */
+/* BOTTOM TRAFFIC DRIVE: Controls layout mechanics for the bottom cellphone banner */
 .hero-embedded-banner-tray {
     width: 100%;
     max-width: 728px;
@@ -227,7 +226,7 @@
     align-items: flex-end;           /* Pins image firmly down onto the bottom border rule line */
 }
 
-/* ⚡ CENTER CONTENT SPACER: Replaces old header padding to insulate hero text blocks */
+/* CENTER CONTENT SPACER: Replaces old header padding to insulate hero text blocks */
 .hero-block.structural-center-box {
     padding-top: 56px;                /* Breathing space room between the top banner and tagline eyebrow */
     padding-bottom: 56px;             /* Breathing space room between text tools and bottom banner */
@@ -237,10 +236,10 @@
     align-items: center;
 }
 
-/* ⚡ IMAGE RESET HOOKS: Kills inline code text-baseline layout gaps & activates fluid auto-scaling */
+/* IMAGE RESET HOOKS: Kills inline code text-baseline layout gaps & activates fluid auto-scaling */
 .ic-top-partner-banner,
 .ic-partner-banner {
-    display: block;                   /* Prevents natural HTML inline image whitespace displacement gaps */
+    display: block;                   /* Prevents natural HTML inline image whitespace gaps */
     max-width: 100%;
     height: auto;                     /* Maintains native image aspect ratio rules across variable widths */
     margin: 0;
@@ -262,3 +261,4 @@
         padding-bottom: 36px;         /* Scales down content spacing on compact mobile screens */
     }
 }
+
