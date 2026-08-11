@@ -1,0 +1,180 @@
+/* ==========================================================================
+   SECTION 4: PROBLEM MANIFEST STYLING ENGINE
+   ========================================================================== */
+
+.problem-manifest-section {
+    position: relative;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 64px 0 !important;
+    background-color: #0d1116; /* Dark background to frame problem narratives */
+    border-top: 1px solid var(--border-color, #262E38);
+    border-bottom: 1px solid var(--border-color, #262E38);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.problem-content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Section labels */
+.problem-header-block {
+    margin-bottom: 32px;
+}
+
+.problem-main-heading {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary, #ffffff);
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Central narrative copy */
+.problem-narrative-box {
+    max-width: 750px;
+    margin: 0 auto 48px auto;
+}
+
+.narrative-text-para {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary, #9AA1A9);
+    margin: 0 0 12px 0;
+}
+
+.narrative-text-para.highlight-friction {
+    color: #ef4444; /* Alert red tone to isolate user problem points */
+    font-weight: 600;
+}
+
+.system-idea-anchor-badge {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary, #9AA1A9);
+}
+
+.brand-anchor-tag {
+    font-weight: 800;
+    color: var(--accent-color, #E2B13C);
+}
+
+.system-core-slogan-line {
+    font-size: 22px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: var(--text-primary, #ffffff);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   🚨 THE 3 FRICTION REALITY CARDS MATRIX
+   ========================================================================== */
+
+.problem-friction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Clean desktop split layout */
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 56px;
+}
+
+.friction-item-card {
+    background: rgba(239, 68, 68, 0.02); /* Light warning tone background */
+    border: 1px solid rgba(239, 68, 68, 0.15); /* Red tinted layout line */
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.friction-item-card:hover {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: rgba(239, 68, 68, 0.04);
+}
+
+.friction-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.friction-warn-icon {
+    color: #ef4444;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.friction-card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary, #ffffff);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.friction-card-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-secondary, #9AA1A9);
+    margin: 0;
+}
+
+/* Outro Transitions */
+.problem-outro-transition-footer {
+    border-top: 1px solid var(--border-color, #262E38);
+    padding-top: 32px;
+    width: 100%;
+}
+
+.outro-earning-statement {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary, #ffffff);
+    margin: 0 0 8px 0;
+}
+
+.gold-text-accent {
+    color: var(--accent-color, #E2B13C);
+}
+
+.down-transition-indicator {
+    color: var(--accent-color, #E2B13C);
+    font-size: 20px;
+    animation: problemPulseDrop 2s infinite ease-in-out;
+}
+
+/* Subtle icon pulse animation */
+@keyframes problemPulseDrop {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(4px); opacity: 1; }
+}
+
+/* ==========================================================================
+   📱 PHONE & TABLET SCALING TRANSLATIONS
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .problem-main-heading { font-size: 30px; }
+    .problem-friction-grid { grid-template-columns: 1fr; gap: 16px; } /* Clean layout fallback stack */
+    .system-core-slogan-line { font-size: 18px; }
+}
+
+@media (max-width: 576px) {
+    .problem-manifest-section { padding: 48px 0 !important; }
+    .problem-main-heading { font-size: 24px; }
+    .narrative-text-para { font-size: 14.5px; }
+}
