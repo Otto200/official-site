@@ -6,6 +6,35 @@
 .assets-text-block {
     width: 100%;
     margin-bottom: 40px;
+    text-align: center;
+}
+
+.manifest-section-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent-color, #E2B13C);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 38px;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary, #ffffff);
+    max-width: 850px;
+    margin: 0 auto 16px auto;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary, #9AA1A9);
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 /* Master Device Showcase Panel */
@@ -17,6 +46,7 @@
     box-sizing: border-box;
     padding: 20px 16px 40px 16px;
     align-items: flex-end; /* Pins bottom edges cleanly across all views */
+    margin-bottom: 48px;
     
     /* Mobile-first horizontal slider framework */
     overflow-x: auto;
@@ -27,14 +57,18 @@
 
 /* Remove default scrollbar styles across fintech engine styling */
 .ecosystem-device-showcase::-webkit-scrollbar {
-    height: 4px;
+    height: 6px;
 }
 .ecosystem-device-showcase::-webkit-scrollbar-track {
-    background: rgba(21, 26, 32, 0.5);
+    background: rgba(21, 26, 32, 0.3);
+    border-radius: 10px;
 }
 .ecosystem-device-showcase::-webkit-scrollbar-thumb {
-    background: var(--accent-color, #E2B13C);
+    background: var(--border-color, #262E38);
     border-radius: 10px;
+}
+.ecosystem-device-showcase::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color, #E2B13C);
 }
 
 /* Base Device Mockup Structure - Dynamic mobile stepping sizing */
@@ -157,15 +191,84 @@
 }
 
 /* ==========================================================================
+   🛠️ NEW: SHOWCASE FEATURE BREAKDOWN ENGINE (4 Concrete Deliverables)
+   ========================================================================== */
+
+.showcase-features-breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 48px auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.showcase-feature-item {
+    background: rgba(21, 26, 32, 0.2);
+    border: 1px solid var(--border-color, #262E38);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.showcase-feature-item:hover {
+    border-color: var(--accent-color, #E2B13C);
+    background: rgba(21, 26, 32, 0.4);
+}
+
+.showcase-feature-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-primary, #ffffff);
+    margin: 0 0 10px 0;
+    letter-spacing: 0.02em;
+}
+
+.showcase-feature-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-secondary, #9AA1A9);
+    margin: 0;
+}
+
+.showcase-action-footer-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.hero-cta-vertical-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.hero-cta-vertical-group .hero-cta {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+}
+
+/* ==========================================================================
    📟 MID-RANGE MEDIA BREAKPOINT LAYOUT (Tablets & Smaller Monitors)
    ========================================================================== */
 @media (min-width: 640px) and (max-width: 992px) {
-    /* Balance desktop boundaries gracefully on mid-tier viewports */
     .laptop-mockup { flex: 0 0 60%; }
     .tablet-mockup { flex: 0 0 40%; }
     .mobile-mockup { flex: 0 0 25%; }
     .ecosystem-device-showcase {
         gap: 32px;
+    }
+    .section-title {
+        font-size: 30px;
     }
 }
 
@@ -202,5 +305,21 @@
     .mobile-frame {
         max-height: 18vw; /* Capped shorter than tablet screen */
         width: calc(18vw * (269 / 500));
+    }
+    
+    /* Lock features to an even 4-column row layout on large screens */
+    .showcase-features-breakdown-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    .showcase-features-breakdown-grid {
+        grid-template-columns: 1fr; /* Stacks column features cleanly on narrow mobile devices */
+        gap: 16px;
     }
 }
