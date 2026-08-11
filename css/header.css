@@ -231,3 +231,68 @@
         padding-bottom: 0px !important; /* Forces 0px layout lock even on mobile devices */
     }
 }
+
+
+
+/* ==========================================================================
+   SECTION 0: HERO ENGINE STYLING (MODIFIED FOR FLUSH TOP & BOTTOM BANNERS)
+   ========================================================================== */
+
+/* Full-bleed containment boundary layout framework */
+.hero-section.baseline-onboarding-hero {
+    position: relative;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding-top: 0px !important;      /* CHANGED: Forced to 0px to let the top banner touch the frame edge */
+    padding-bottom: 0px !important;   /* Maintained 0px layout lock for the bottom banner */
+    background-color: var(--bg-dark-surface, #0b0e11);
+    border-bottom: 1px solid var(--border-color, #262E38);
+    overflow-x: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ⚡ ADDED: Top Banner layout wrapper to force absolute flush-mounting alignment */
+.hero-top-banner-tray {
+    width: 100%;
+    max-width: 728px;
+    margin: 0 auto;
+    padding: 0 16px;                  /* Safety gutters for mobile viewports */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;          /* Locks the image canvas tightly to the top boundary */
+}
+
+/* ⚡ ADDED: Spacing buffer layout rule to push content safely away from the top banner */
+.hero-block.structural-center-box {
+    padding-top: 56px;                /* Creates spacious buffer breathing room between top banner and text contents */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ⚡ ADDED: Kills whitespace layout gaps and ensures seamless mobile auto-scaling */
+.ic-top-partner-banner {
+    display: block;                   /* Prevents traditional browser image-baseline gap tracking */
+    max-width: 100%;
+    height: auto;                     /* Keeps original proportions when scaling down horizontally */
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive updates for small screen platforms */
+@media (max-width: 768px) {
+    .hero-section.baseline-onboarding-hero {
+        padding-top: 0px !important;  /* Locks banner flush to top even on mobile devices */
+        padding-bottom: 0px !important;
+    }
+    
+    .hero-block.structural-center-box {
+        padding-top: 36px;            /* Tighter responsive content gap for phone screens */
+    }
+}
