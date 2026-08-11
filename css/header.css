@@ -202,7 +202,7 @@
     align-items: center;
 }
 
-/* TOP TRAFFIC DRIVE: Controls layout mechanics for the top Crypto banner */
+/* TOP TRAFFIC DRIVE: Controls layout mechanics for the top banner */
 .hero-top-banner-tray {
     width: 100%;
     max-width: 728px;
@@ -244,6 +244,15 @@
     height: auto;                     /* Maintains native image aspect ratio rules across variable widths */
     margin: 0;
     padding: 0;
+    border: 0 !important;             /* Kills legacy blue border frames around anchor images */
+}
+
+/* 🛡️ UNDERLINE SHIELD: Hides default text decorations if the top image is blocked/broken */
+.hero-top-banner-tray a,
+.hero-embedded-banner-tray a {
+    text-decoration: none !important; /* Disables browser-forced hyperlink underlines completely */
+    color: transparent !important;    /* Blends any fallback alt text seamlessly into dark spaces */
+    outline: none;
 }
 
 
