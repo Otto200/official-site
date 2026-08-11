@@ -7,7 +7,8 @@
 #section-about, 
 #ecosystem-features, 
 #section-join,
-#system-strategy{
+#system-strategy
+#section-onboarding{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -18,7 +19,11 @@
 /* ==========================================================================
    INDIVIDUAL IMAGES WITH BUILT-IN DARK ACCENT OVERLAYS FOR HIGH CONTRAST
    ========================================================================== */
-
+/* Section 1: Hero Setup */
+#section-onboarding {
+    background-image: linear-gradient(rgba(11, 14, 17, 0.80), rgba(11, 14, 17, 0.85)), 
+                      url('../img/herobg.webp');
+}
 /* Section 1: Hero Setup */
 #section-hero {
     background-image: linear-gradient(rgba(11, 14, 17, 0.80), rgba(11, 14, 17, 0.85)), 
