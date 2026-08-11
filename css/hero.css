@@ -1,265 +1,495 @@
 /* ==========================================================================
-   HIGH-STATUS HERO ENGINE (Compact & Edge-to-Edge Fluid Marquee)
+   BANKBUGS|FX INSTITUTIONAL TERMINAL ARCHITECTURE DESIGN SYSTEM
    ========================================================================== */
 
-.hero-section {
-    padding-top: 12px !important;    /* Hard-locked 12px top spacing on all systems */
-    padding-bottom: 24px !important;  /* Hard-locked 8px bottom spacing on all systems */
-    overflow: hidden;
-    width: 100%;
+:root {
+    --fx-bg-dark: #07090C;
+    --fx-surface-card: #0F1318;
+    --fx-surface-hover: #161C24;
+    --fx-accent: #E2B13C;
+    --fx-accent-rgb: 226, 177, 60;
+    --fx-text-main: #FFFFFF;
+    --fx-text-muted: #8A94A0;
+    --fx-border-low: #1A212A;
+    --fx-border-high: #2D3947;
+    --fx-transition-prime: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.hero-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-/* Local Tagline Styling */
-.hero-tagline {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent-color, #E2B13C);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px; 
-}
-
-/* Institutional Headline Statement */
-.hero-block h1 {
-    font-size: 40px; 
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    max-width: 900px;
-    margin-top: 0;
-    margin-bottom: 32px; 
-    color: var(--text-primary, #ffffff);
-}
-
-/* 🔄 FULL EDGE-TO-EDGE BREAKOUT SCROLLING ENGINE (Fills all empty side gaps) */
-.marquee-wrapper {
-    width: 100vw !important;
+.premium-ecosystem-section {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: var(--fx-bg-dark);
+    padding: clamp(60px, 8vw, 120px) 0;
+    width: 100%;
     overflow: hidden;
-    padding: 16px 0; 
-    margin-bottom: 36px; 
-    background-color: rgba(21, 26, 32, 0.4); 
-    border-top: 1px solid var(--border-color, #262E38);
-    border-bottom: 1px solid var(--border-color, #262E38);
-}
-
-.marquee-track {
-    display: flex;
-    width: max-content;
-    gap: 20px; 
-    animation: heroInfiniteScroll 25s linear infinite; 
-}
-
-/* Pause sliding animation on cursor hover */
-.marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused;
-}
-
-/* The Core Card Components */
-.preview-card {
-    position: relative;
-    width: 320px; 
-    height: 190px; 
-    background-color: var(--bg-card, #151A20);
-    border: 1px solid var(--border-color, #262E38);
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-    cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
-}
-
-.preview-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(75%) contrast(110%);
-    transition: filter 0.25s ease, scale 0.25s ease;
-}
-
-/* Micro-Interaction Shifting Effects */
-.preview-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-color, #E2B13C);
-}
-
-.preview-card:hover img {
-    filter: brightness(95%);
-    scale: 1.02;
-}
-
-/* Interactive Text Hover Overlays */
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(transparent, rgba(11, 14, 17, 0.95));
-    display: flex;
-    align-items: flex-end;
-}
-
-.card-overlay span {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-primary, #ffffff);
-}
-
-/* Bottom Copy Positioning */
-.hero-pitch {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-secondary, #9AA1A9);
-    max-width: 720px;
-    margin-top: 0;
-    margin-bottom: 32px; 
-    text-align: center;
-}
-
-/* ==========================================================================
-   📋 NEW: ONBOARDING DIRECTIONS COMPONENT STYLING
-   ========================================================================== */
-.hero-steps-container {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto 40px auto;
-    text-align: left;
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid var(--border-color, #262E38);
-    border-radius: 10px;
-    padding: 24px;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.steps-main-title {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--accent-color, #E2B13C);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 0;
-    margin-bottom: 20px;
+/* Background Subtle Grid & Atmospheric Spotlight Filters */
+.ecosystem-grid-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(26, 33, 42, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 33, 42, 0.25) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.premium-ecosystem-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(1000px circle at var(--pointer-x, 50%) var(--pointer-y, 30%), rgba(var(--fx-accent-rgb), 0.04), transparent 75%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ecosystem-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+/* Institutional Layout Header Alignment */
+.ecosystem-header {
     text-align: center;
-    border-bottom: 1px solid var(--border-color, #262E38);
-    padding-bottom: 12px;
-}
-
-.hero-steps-list {
+    margin-bottom: clamp(40px, 6vw, 70px);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-}
-
-.hero-step-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.step-num {
-    font-size: 12px;
-    font-family: monospace;
-    font-weight: 700;
-    color: var(--accent-color, #E2B13C);
-    background: rgba(226, 177, 60, 0.08);
-    border: 1px solid rgba(226, 177, 60, 0.2);
-    width: 26px;
-    height: 26px;
-    border-radius: 4px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
 }
 
-.step-text h4 {
-    font-size: 14px;
+.ecosystem-eyebrow {
+    font-size: clamp(11px, 1.2vw, 13px);
     font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 4px 0;
+    color: var(--fx-accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: inline-block;
 }
 
-.step-text p {
-    font-size: 13px;
-    line-height: 1.4;
-    color: var(--text-secondary, #9AA1A9);
+.ecosystem-title {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--fx-text-main);
+    letter-spacing: -0.03em;
+    max-width: 800px;
+    margin: 0 0 20px 0;
+}
+
+.ecosystem-subtitle {
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.6;
+    color: var(--fx-text-muted);
+    max-width: 720px;
     margin: 0;
 }
 
+/* Ecosystem Grid Routing & SVG Piping Infrastructure */
+.ecosystem-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.ecosystem-connections-svg {
+    position: absolute;
+    top: 105px; left: 0; width: 100%; height: 2px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.architecture-path-svg {
+    width: 100%; height: 100%;
+    overflow: visible;
+}
+
+.connection-line-base {
+    stroke: var(--fx-border-low);
+    stroke-width: 1.5;
+}
+
+.connection-line-active {
+    stroke: url(#line-gradient-glow);
+    stroke-width: 1.5;
+    stroke-dasharray: 12 24;
+    animation: flowPulseTrack 10s linear infinite;
+}
+
+/* High-Density 5-Column Core Desktop Array */
+.ecosystem-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Premium Component Card Blocks */
+.ecosystem-card {
+    position: relative;
+    background-color: rgba(15, 19, 24, 0.85);
+    border: 1px solid var(--fx-border-low);
+    border-radius: 4px;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    cursor: pointer;
+    transition: 
+        transform 0.4s var(--fx-transition-prime),
+        border-color 0.4s ease,
+        background-color 0.4s ease,
+        box-shadow 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
+}
+
+/* Focused Card Isolation Dimming Subsystem */
+.ecosystem-cards-grid:hover .ecosystem-card:not(:hover) {
+    opacity: 0.65;
+    filter: saturate(0.85) contrast(0.95);
+}
+
+.ecosystem-card:hover,
+.ecosystem-card:focus-within {
+    transform: translateY(-8px);
+    border-color: var(--fx-border-high);
+    background-color: var(--fx-surface-hover);
+    box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.65),
+        0 0 1px rgba(var(--fx-accent-rgb), 0.2);
+}
+
+/* Cursor Glow Tracking Backplate */
+.card-border-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 4px;
+    pointer-events: none;
+    background: radial-gradient(180px circle at var(--card-x, 50%) var(--card-y, 50%), rgba(var(--fx-accent-rgb), 0.12), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.ecosystem-card:hover .card-border-glow {
+    opacity: 1;
+}
+
+/* Linear Matrix Scanner Sweep Lines */
+.card-scanner {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(var(--fx-accent-rgb), 0.3), transparent);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ecosystem-card:hover .card-scanner {
+    opacity: 1;
+    animation: verticalScan 2.5s linear infinite;
+}
+
+.card-header-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 3;
+}
+
+.card-node {
+    font-family: monospace;
+    font-size: 10px;
+    color: var(--fx-text-muted);
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.ecosystem-card:hover .card-node {
+    color: var(--fx-accent);
+}
+
+.card-status {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background-color: var(--fx-border-high);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ecosystem-card:hover .card-status {
+    background-color: var(--fx-accent);
+    box-shadow: 0 0 6px var(--fx-accent);
+}
+
+/* Darkened Hardware Visual Frames */
+.card-media-box {
+    position: relative;
+    width: 100%;
+    height: 110px;
+    background-color: #0B0D11;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    z-index: 3;
+}
+
+.card-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(55%) contrast(105%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.ecosystem-card:hover .card-img {
+    filter: brightness(85%) contrast(110%);
+    transform: scale(1.03);
+}
+
+.card-fallback-text {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.03);
+    letter-spacing: 0.15em;
+    pointer-events: none;
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--fx-text-main);
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-num {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--fx-text-muted);
+    transition: color 0.3s ease;
+}
+
+.ecosystem-card:hover .card-num {
+    color: var(--fx-accent);
+}
+
+.card-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--fx-text-muted);
+    margin: 0;
+}
+
+.mobile-expand-details {
+    display: none;
+}
+
+.card-footer-accent {
+    position: absolute;
+    bottom: 0; left: 12%; width: 0; height: 1px;
+    background-color: var(--fx-accent);
+    transition: width 0.4s var(--fx-transition-prime);
+    z-index: 3;
+}
+
+.ecosystem-card:hover .card-footer-accent {
+    width: 76%;
+}
+
 /* ==========================================================================
-   VERTICAL STEP-BY-STEP ACTION FLOW ENGINE
+   HIGH-STATUS INTERACTIVE ACTION LINK FOOTER
    ========================================================================== */
 
-.hero-cta-vertical-group {
+.ecosystem-footer {
+    margin-top: clamp(44px, 6vw, 76px);
     display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    width: 100%;
-    max-width: 360px;       
-    margin: 0 auto;
-    gap: 8px;               
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 4;
 }
 
-.hero-cta-vertical-group .hero-cta {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 0 !important; 
-}
-
-.cta-vertical-separator {
+.ecosystem-cta-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: transparent;
+    color: var(--fx-text-main);
+    text-decoration: none;
     font-size: 13px;
     font-weight: 700;
-    color: var(--text-secondary, #9AA1A9);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 6px 0;         
-    opacity: 0.85;
-    transition: color 0.25s ease;
+    letter-spacing: 0.12em;
+    padding: 16px 38px;
+    border: 1px solid var(--fx-border-high);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero-cta-vertical-group:hover .cta-vertical-separator {
-    color: var(--accent-color, #E2B13C);
+.ecosystem-cta-link:hover {
+    color: var(--fx-accent);
+    border-color: var(--fx-accent);
+    box-shadow: 0 0 25px rgba(var(--fx-accent-rgb), 0.12);
+}
+
+.cta-arrow-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px; height: 16px;
+    transition: transform 0.3s var(--fx-transition-prime);
+}
+
+.cta-arrow-svg {
+    width: 100%; height: 100%;
+}
+
+.ecosystem-cta-link:hover .cta-arrow-wrapper {
+    transform: translateX(6px);
+}
+
+.cta-glitch-line {
+    position: absolute;
+    top: 0; left: -100%; width: 30%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(var(--fx-accent-rgb), 0.25), transparent);
+    transform: skewX(-20deg);
+}
+
+.ecosystem-cta-link:hover .cta-glitch-line {
+    left: 140%;
+    transition: left 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hud-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--fx-text-muted);
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+}
+
+.hud-pulse-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background-color: #22C55E;
+    box-shadow: 0 0 6px #22C55E;
+    animation: simplePulse 2s infinite;
 }
 
 /* ==========================================================================
-   🔄 INFINITE LOOP ANIMATION CALCULATION WITH GAP CORRECTION
+   CORE HARDWARE TIMING ROUTINES
    ========================================================================== */
-@keyframes heroInfiniteScroll {
-    0% { 
-        transform: translateX(0); 
-    }
-    100% { 
-        /* Shifts perfectly half distance minus track gap offset */
-        transform: translateX(calc(-50% - 10px)); 
-    }
+
+@keyframes flowPulseTrack {
+    to { stroke-dashoffset: -216; }
+}
+
+@keyframes verticalScan {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+}
+
+@keyframes simplePulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.25); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 /* ==========================================================================
-   📱 MOBILE & DESKTOP STRUCTURAL ADJUSTMENTS
+   INTELLIGENT VISUAL ASYMMETRIC RECOMPOSITION RULES (MEDIA ENGINES)
    ========================================================================== */
-@media (max-width: 768px) {
-    .hero-block h1 {
-        font-size: 26px;
-        margin-bottom: 24px;
+
+/* Tablet Optimization Layout Array Configuration */
+@media (max-width: 1024px) {
+    .ecosystem-cards-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
     }
-    .hero-steps-container {
-        padding: 16px;
+    
+    /* Intelligently maps cards out into stable dual balanced clusters and a center block */
+    .ecosystem-card[data-index="0"] { grid-column: span 3; }
+    .ecosystem-card[data-index="1"] { grid-column: span 3; }
+    .ecosystem-card[data-index="2"] { grid-column: span 3; }
+    .ecosystem-card[data-index="3"] { grid-column: span 3; }
+    .ecosystem-card[data-index="4"] { grid-column: 2 / span 4; }
+
+    .ecosystem-connections-svg {
+        display: none;
     }
-    .hero-step-item {
+}
+
+/* Mobile Uniform Functional Stacking Configuration */
+@media (max-width: 640px) {
+    .ecosystem-cards-grid {
+        grid-template-columns: 1fr;
         gap: 12px;
+    }
+
+    .ecosystem-card {
+        grid-column: span 1 !important;
+        padding: 20px;
+        transform: none !important; /* Cancel micro vertical layout shifting for swipe input integrity */
+    }
+
+    .card-media-box {
+        height: 95px;
+        margin-bottom: 14px;
+    }
+
+    /* Mobile Accordion Tap-Reveal Layout Space */
+    .mobile-expand-details {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--fx-accent);
+        border-top: 1px dashed var(--fx-border-low);
+        margin-top: 0;
+        padding-top: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease, opacity 0.2s ease;
+    }
+
+    .tech-label {
+        color: var(--fx-text-muted);
+    }
+
+    .ecosystem-card.is-active-tap .mobile-expand-details {
+        max-height: 60px;
+        margin-top: 12px;
+        padding-top: 12px;
+        opacity: 1;
     }
 }
