@@ -323,3 +323,46 @@
         gap: 16px;
     }
 }
+
+
+
+
+/* ==========================================================================
+   🎯 ECOSYSTEM SECTION TOP BANNER LAYOUT ENGINE
+   ========================================================================== */
+
+/* Target the parent section layout to remove accidental top spacing overrides */
+#ecosystem-features.full-bleed-section {
+    padding-top: 0 !important; /* Forces 0 padding to the top border of the section */
+}
+
+/* Banner container housing rules */
+.section-top-broker-banner {
+    width: 100%;
+    height: auto;
+    min-height: 45px; /* Protects layout structure from collapsing prior to asset download */
+    background-color: #0b0e11; /* Custom matches your BANKBUGS background-color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Clear container bounds */
+    margin: 0 0 40px 0; /* Creates breathing room strictly beneath the banner */
+    border-bottom: 1px solid var(--border-color); /* Ground alignment rule to blend into section */
+    overflow: hidden;
+}
+
+/* Highly fluid asset scaling behavior rules */
+.broker-banner-img {
+    display: block;
+    max-width: 100%;
+    height: auto; /* Scales proportionally down from 90px on small viewports */
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Responsive spacing modifications for tight layout environments */
+@media (max-width: 768px) {
+    .section-top-broker-banner {
+        margin-bottom: 24px; /* Tighter padding footprint for mobile screens */
+    }
+}
