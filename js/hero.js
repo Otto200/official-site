@@ -4,10 +4,12 @@
  */
 document.addEventListener('DOMContentLoaded', () => {
     const section = document.getElementById('section-ecosystem');
+    const sliderViewport = document.getElementById('ecosystem-slider');
+    const scrollThumb = document.getElementById('custom-thumb');
     const cardsGrid = section ? section.querySelector('.ecosystem-cards-grid') : null;
     const cards = section ? section.querySelectorAll('.ecosystem-card') : [];
 
-    if (!section || !cardsGrid) return;
+    if (!section || !sliderViewport || !scrollThumb || !cardsGrid) return;
 
     // 1. High-Performance Hardware-Accelerated Section Background Spotlight (Desktop Only)
     if (window.innerWidth > 768) {
@@ -33,40 +35,71 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Accessible Touch & Mobile Adaptive Accordion Tap Expansion Mechanics
-    cards.forEach(card => {
-        const handleInteraction = () => {
-            if (window.innerWidth <= 640) {
-                const isActive = card.classList.contains('is-active-tap');
-                
-                // Dissolve emphasis on all other sibling items across the active grid
-                cards.forEach(c => c.classList.remove('is-active-tap'));
-                
-                if (!isActive) {
-                    card.classList.add('is-active-tap');
-                    
-                    // Prevent sharp view snapping during dynamic mobile expansion steps
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }
-        };
+    // 3. Hardware-Accelerated Click-and-Drag Velocity Engine for Desktop Sliding Track
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-        card.addEventListener('click', handleInteraction);
+    sliderViewport.addEventListener('mousedown', (e) => {
+        isDown = true;
+        sliderViewport.style.cursor = 'grabbing';
+        startX = e.pageX - sliderViewport.offsetLeft;
+        scrollLeft = sliderViewport.scrollLeft;
+    });
+
+    sliderViewport.addEventListener('mouseleave', () => {
+        isDown = false;
+        sliderViewport.style.cursor = 'grab';
+    });
+
+    sliderViewport.addEventListener('mouseup', () => {
+        isDown = false;
+        sliderViewport.style.cursor = 'grab';
+    });
+
+    sliderViewport.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - sliderViewport.offsetLeft;
+        const walk = (x - startX) * 1.5; // Controls slider drift sensitivity ratios
+        sliderViewport.scrollLeft = scrollLeft - walk;
+    });
+
+    // 4. Dynamic Terminal Scrollbar Metric Sync Tracking HUD Indicators
+    const updateScrollIndicator = () => {
+        const maxScroll = sliderViewport.scrollWidth - sliderViewport.clientWidth;
+        if (maxScroll <= 0) return;
         
-        // Match system configurations with standard keyboard access rules
+        const currentPercentage = sliderViewport.scrollLeft / maxScroll;
+        const thumbWidthPercentage = (sliderViewport.clientWidth / sliderViewport.scrollWidth) * 100;
+        
+        // Binds bounds thresholds to prevent thumb clipping
+        const boundedThumbWidth = Math.max(15, Math.min(thumbWidthPercentage, 40));
+        scrollThumb.style.width = `${boundedThumbWidth}%`;
+        
+        const availableTrackWidth = 100 - boundedThumbWidth;
+        const leftOffset = currentPercentage * availableTrackWidth;
+        scrollThumb.style.left = `${leftOffset}%`;
+    };
+
+    sliderViewport.addEventListener('scroll', updateScrollIndicator);
+    window.addEventListener('resize', updateScrollIndicator);
+    updateScrollIndicator(); // Initialization trigger line
+
+    // 5. Accessible Focus Matrix Focus State Handler
+    cards.forEach(card => {
         card.addEventListener('focus', () => {
-            if (window.innerWidth > 640) {
+            if (window.innerWidth > 768) {
                 cardsGrid.classList.add('grid-has-focus');
             }
         });
 
         card.addEventListener('blur', () => {
             cardsGrid.classList.remove('grid-has-focus');
-            card.classList.remove('is-active-tap');
         });
     });
 
-    // 4. Inject Dynamic SVG Linear Gradient Mappings to Prevent Document Def Loss
+    // 6. Inject Dynamic SVG Linear Gradient Mappings to Prevent Def Loss across Vercel Routers
     const svgFrame = section.querySelector('.architecture-path-svg');
     if (svgFrame && !svgFrame.querySelector('defs')) {
         const definitionsSpace = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
