@@ -1,293 +1,183 @@
 /* ==========================================================================
-   HIGH-STATUS HERO VALUE ENGINE (Theater 16:9 Screen Layout Engine)
+   BANKBUGS|FX COMPONENT: THE HIGH-STATUS HERO COMPONENT
    ========================================================================== */
 
-:root {
-    --accent-color: #E2B13C;
-    --border-color: #262E38;
-    --bg-card: #151A20;
-    --bg-dark-surface: #0b0e11;
-    --text-primary: #ffffff;
-    --text-secondary: #9AA1A9;
-}
-
-/* Force edge-to-edge layout breakout */
-.hero-section.full-bleed-hero {
+.baseline-onboarding-hero {
     position: relative;
-    width: 100vw !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding-top: 24px !important;     
-    padding-bottom: 48px !important;  
-    background-color: var(--bg-dark-surface);
-    overflow-x: hidden;
-    box-sizing: border-box;
+    width: 100%;
+    min-height: 80vh; /* Dynamic vertical display block height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0 60px 0;
+    text-align: center;
 }
 
-.hero-block {
+/* Core Structural Alignment Box */
+.structural-center-box {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
 }
 
-/* Header typography */
-.core-delivery-manifest {
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.manifest-header {
-    margin-bottom: 48px;
-    text-align: center;
-    padding: 0 24px;
-}
-
-.manifest-section-label {
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--accent-color);
-    letter-spacing: 0.12em;
-    display: block;
-    margin-bottom: 14px;
-    text-transform: uppercase;
-}
-
-.manifest-main-heading {
-    font-size: 42px;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* ==========================================================================
-   🧭 THEATER TRACK CONTROLLER (Giant 16:9 Card Track Setup)
-   ========================================================================== */
-
-.pillars-delivery-grid.horizontal-fluid-track {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 32px;
-    width: 100%;
-    margin-bottom: 48px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    
-    /* Center the track content so layout feels balanced */
-    padding: 10px 24px 24px 24px;
-    box-sizing: border-box;
-    
-    /* Snaps directly to card center or card edges */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Desktop scrollbar controller */
-.pillars-delivery-grid.horizontal-fluid-track::-webkit-scrollbar {
-    height: 8px;
-    display: block;
-}
-.pillars-delivery-grid.horizontal-fluid-track::-webkit-scrollbar-track {
-    background: rgba(38, 46, 56, 0.2);
-    border-radius: 10px;
-}
-.pillars-delivery-grid.horizontal-fluid-track::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 10px;
-}
-.pillars-delivery-grid.horizontal-fluid-track::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
-}
-
-/* ==========================================================================
-   🎬 LAPTOP & LARGE PC FOOTPRINT (Massive 16:9 Experience)
-   ========================================================================== */
-
-.pillar-delivery-card.cinema-view-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 32px;
-    text-align: left;
-    
-    /* Gives you a massive preview box on desktops and large laptop layouts */
-    flex: 0 0 680px !important; 
-    width: 680px !important;
-    box-sizing: border-box;
-    scroll-snap-align: center; /* Snaps perfectly to the center line of the view */
-    
-    transform: translateZ(0);
-    will-change: transform, border-color;
-    transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pillar-delivery-card.cinema-view-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-4px);
-}
-
-.pillar-card-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-}
-
-.pillar-index-num {
-    font-family: monospace;
+/* Premium Gold Audience Hook Eyebrow */
+.hero-tagline-eyebrow {
     font-size: 13px;
     font-weight: 700;
+    letter-spacing: 0.18em;
     color: var(--accent-color);
-    background: rgba(226, 177, 60, 0.08);
-    border: 1px solid rgba(226, 177, 60, 0.2);
-    padding: 3px 9px;
-    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.pillar-card-title {
-    font-size: 18px;
-    font-weight: 800;
+/* Core Value Headline Proposition styling */
+.hero-headline-title {
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
-    letter-spacing: 0.08em;
-    margin: 0;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
 }
 
-/* 🖼️ STRICT 16:9 CINEMA CONTAINER */
-.pillar-card-visual-frame.cinema-16-9 {
-    width: 100%;
-    aspect-ratio: 16 / 9 !important; /* Perfect math constraint for laptop dashboards */
-    height: auto !important; 
-    background: #000000;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.pillar-card-visual-frame.cinema-16-9::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(21, 26, 32, 0), rgba(21, 26, 32, 0.5));
-    pointer-events: none;
-}
-
-.pillar-media-asset {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(85%) contrast(105%);
-    will-change: transform, filter;
-    transition: filter 0.25s ease, transform 0.25s ease;
-}
-
-.pillar-delivery-card:hover .pillar-media-asset {
-    filter: brightness(100%) contrast(105%);
-    transform: scale(1.02);
-}
-
-.pillar-card-description {
-    font-size: 15px;
+/* Contextual Subheadline Bridge Paragraph */
+.hero-subheadline-desc {
+    font-size: 16px;
     line-height: 1.6;
     color: var(--text-secondary);
-    margin: 0;
+    max-width: 640px;
+    margin: 0 auto 40px auto;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
-/* Footer layout rules */
-.manifest-summary-block {
-    border-top: 1px solid var(--border-color);
-    padding-top: 32px;
+/* Conversion Trigger Control Panel Frame */
+.hero-action-control-box {
     width: 100%;
-    text-align: center;
-    margin-top: 12px;
-}
-
-.manifest-anchor-pitch {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--accent-color);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
 }
 
 .hero-cta-vertical-group {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    width: 100%;
-    max-width: 380px;       
-    margin: 24px auto 0 auto;
-    padding: 0 24px;
+    display: block;
+    width: auto;
 }
 
-.hero-cta-vertical-group .hero-cta {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    display: inline-block;
+/* Script-Driven Interactive Primary Button */
+.hero-cta.scroll-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    background-color: var(--accent-color) !important; /* Forces solid gold fill */
+    color: #000000 !important;                        /* High contrast dark text */
+    border: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 14px rgba(226, 177, 60, 0.2);
+}
+
+/* Premium Hover Glow States */
+.hero-cta.scroll-cta-btn:hover {
+    background-color: var(--accent-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(226, 177, 60, 0.35);
+}
+
+.hero-cta.scroll-cta-btn:active {
+    transform: translateY(0);
+}
+
+/* Friction Minimizer Supporting Meta Note styling */
+.hero-supporting-meta-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    max-width: 480px;
+    line-height: 1.5;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
 }
 
 /* ==========================================================================
-   📱 PHONE & TABLET SCALING ENGINE
+   MICRO-ENGINE ENTRANCE ANIMATIONS
    ========================================================================== */
-
-@media (max-width: 992px) {
-    .manifest-main-heading {
-        font-size: 32px;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
     }
-    
-    /* Scales down element width metrics to keep swipe feeling swift on tablets */
-    .pillar-delivery-card.cinema-view-card {
-        flex: 0 0 500px !important;
-        width: 500px !important;
-        padding: 24px;
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
 
-@media (max-width: 768px) {
-    .manifest-main-heading {
-        font-size: 26px;
-        line-height: 1.35;
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -10px, 0);
     }
-    
-    .manifest-header {
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* ==========================================================================
+   CROSS-PLATFORM MEDIA SCALING
+   ========================================================================== */
+
+/* 📑 TABLET RENDERING BREAKPOINT */
+@media (max-width: 1024px) {
+    .hero-headline-title {
+        font-size: 42px;
+    }
+}
+
+/* 📱 SMARTPHONE BREAKPOINT (Fluid scaling layer for mobile viewport boundaries) */
+@media (max-width: 768px) {
+    .baseline-onboarding-hero {
+        min-height: auto;
+        padding: 60px 0 40px 0;
+    }
+    .structural-center-box {
+        padding: 0 16px;
+    }
+    .hero-tagline-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+    }
+    .hero-headline-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+    .hero-subheadline-desc {
+        font-size: 14px;
         margin-bottom: 32px;
     }
-
-    .pillars-delivery-grid.horizontal-fluid-track {
-        gap: 16px;
-        padding-left: 16px;
-        padding-right: 16px;
+    .hero-cta.scroll-cta-btn {
+        width: 100%; /* Spans full width on small screens to expand thumb click zones */
+        padding: 14px 28px;
+        font-size: 14px;
     }
-    
-    /* Fits perfectly on phone viewports while showing a subtle hint of the next item card */
-    .pillar-delivery-card.cinema-view-card {
-        flex: 0 0 88vw !important;
-        width: 88vw !important;
-        padding: 20px;
-        scroll-snap-align: center;
-    }
-    
-    .pillar-card-title {
-        font-size: 16px;
-    }
-    
-    .pillar-card-description {
-        font-size: 13.5px;
-    }
-    
-    .manifest-anchor-pitch {
-        font-size: 15px;
+    .hero-supporting-meta-text {
+        font-size: 11px;
+        padding: 0 8px;
     }
 }
