@@ -184,12 +184,12 @@
 
 
 /* ==========================================================================
-   UPDATED HERO CTA ACTION BOX MULTI-BUTTON GRID MATRIX
+   UPDATED HERO CTA ACTION BOX: ALL GOLD BUTTON ENGINE
    ========================================================================== */
 
 .hero-action-control-box {
     width: 100%;
-    max-width: 680px; /* Expands to cleanly accommodate secondary button sets side-by-side */
+    max-width: 820px; /* Expanded footprint to give the gold secondary actions optimal tracking room */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,33 +212,48 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
-/* High-Status Solid Gold Primary Button 1 */
-.hero-cta.scroll-cta-btn {
+/* 🌟 UNIFIED GOLD ACTION BUTTON BASE CLASS */
+.btn-hero-gold {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-weight: 700;
-    font-size: 15px;
-    padding: 16px 48px;
+    font-size: 12px;
+    padding: 14px 16px;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
-    background-color: var(--accent-color) !important;
-    color: #000000 !important;
+    background-color: var(--accent-color) !important; /* Force solid gold fill layout */
+    color: #000000 !important;                        /* Pure high-contrast dark text */
     border: none !important;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    box-shadow: 0 4px 14px rgba(226, 177, 60, 0.2);
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 12px rgba(226, 177, 60, 0.15);
+    white-space: nowrap; /* Keeps button layout strings on a clean single line on desktop views */
 }
 
-.hero-cta.scroll-cta-btn:hover {
+/* Micro Focus Profile Scaling for Button 1 (The Main Hook Target) */
+.btn-hero-gold.btn-hero-large {
+    font-size: 15px;
+    padding: 16px 52px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 14px rgba(226, 177, 60, 0.25);
+}
+
+/* Premium Hover Lift Transformation Engine */
+.btn-hero-gold:hover {
     background-color: var(--accent-hover) !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(226, 177, 60, 0.35);
+    box-shadow: 0 6px 20px rgba(226, 177, 60, 0.35);
+}
+
+.btn-hero-gold:active {
+    transform: translateY(0);
 }
 
 /* Horizontal 3-Column Secondary Alignment Hub */
@@ -249,42 +264,18 @@
     width: 100%;
 }
 
-/* Minimalist Dark Tech Outline Secondary Buttons (2, 3, 4) */
-.btn-hero-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(21, 26, 32, 0.4);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-weight: 600;
-    font-size: 12px;
-    padding: 12px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap; /* Prevents text from splitting into double rows on desktop views */
-}
-
-/* Smooth Premium Hover Action Map */
-.btn-hero-outline:hover {
-    border-color: rgba(226, 177, 60, 0.4);
-    color: var(--text-primary);
-    background-color: var(--bg-card);
-    transform: translateY(-1px);
-}
-
-.btn-hero-outline:active,
-.hero-cta.scroll-cta-btn:active {
-    transform: translateY(0);
-}
-
 /* ==========================================================================
-   CROSS-PLATFORM MULTI-BUTTON RESPONSIVE SCALING
+   CROSS-PLATFORM MULTI-BUTTON GOLD RESPONSIVE SCALING
    ========================================================================== */
+
+@media (max-width: 992px) {
+    /* Slightly compact typography spacing so buttons line up gracefully on landscape tablets */
+    .btn-hero-gold {
+        font-size: 11px;
+        padding: 14px 8px;
+        letter-spacing: 0.01em;
+    }
+}
 
 @media (max-width: 768px) {
     .hero-action-control-box {
@@ -292,20 +283,25 @@
         padding: 0 8px;
     }
     
-    .hero-cta.scroll-cta-btn {
-        width: 100%; /* Expands thumb trigger hitbox boundaries to device edges */
+    .hero-cta-primary-row {
+        width: 100%;
     }
     
-    /* Safely collapses 3-column rows into clean stacked decks for mobile */
+    .btn-hero-gold.btn-hero-large {
+        width: 100%; /* Expands thumb trigger hitbox layout to full screen width */
+    }
+    
+    /* Safely collapses 3 gold button rows into cleanly stacked blocks for mobile devices */
     .hero-cta-secondary-grid {
         grid-template-columns: 1fr !important;
         gap: 10px;
     }
     
-    .btn-hero-outline {
+    .btn-hero-gold {
         width: 100%;
-        padding: 14px 20px;
+        padding: 16px 20px;
         font-size: 13px;
-        white-space: normal; /* Enables graceful multi-line word wrapping on tiny device glasses */
+        white-space: normal; /* Enables text wrapping for long titles on small device displays */
     }
 }
+
