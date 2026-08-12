@@ -1,0 +1,396 @@
+/* ==========================================================================
+   BANKBUGS|FX COMPONENT LAYOUT ARCHITECTURE
+   ========================================================================== */
+
+.funnel-section {
+    position: relative;
+    width: 100%;
+}
+
+/* Funnel Header Configuration */
+.funnel-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.funnel-tagline {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+/* Funnel Path Progress Top Bar */
+.funnel-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 12px 28px;
+    border-radius: 50px;
+    margin-top: 24px;
+}
+
+.funnel-breadcrumb .step-link {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.funnel-breadcrumb .step-arrow {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Individual Vertical Funnel Blocks */
+.funnel-step-block {
+    border-top: 1px solid var(--border-color);
+    padding: 60px 0;
+}
+
+.step-block-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.step-block-header h2 {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.step-block-header h3 {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.step-block-header p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.step-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+    margin-top: 16px;
+}
+
+/* 01 - GET STARTED: 3-Column Desktop Grid Layout */
+.step-three-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.step-col-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-meta-title {
+    font-size: 12px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.step-col-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.card-highlights {
+    font-size: 13px;
+    color: var(--accent-color);
+    margin-bottom: auto; /* Pushes content down ensuring the CTA locks to the bottom */
+    padding-bottom: 24px;
+}
+
+.card-action {
+    margin-top: auto;
+    width: 100%;
+}
+
+.card-subtext {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Step 01: Platform Unified Tool Stack Layout */
+.platform-unified-card {
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(21, 26, 32, 0.6) 100%);
+}
+
+.platform-tools-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(11, 14, 17, 0.5);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.tool-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.tool-details h5 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.tool-details p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* 02 - GET INVOLVED: Premium Community Panel Layout */
+.community-cta-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--accent-color); /* Accented border for highlight */
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(226, 177, 60, 0.05);
+}
+
+.whatsapp-tag {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    background-color: rgba(226, 177, 60, 0.1);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.community-cta-card h3 {
+    font-size: 24px;
+    margin: 20px 0 8px 0;
+}
+
+.community-cta-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.cta-wrapper {
+    margin-bottom: 20px;
+}
+
+.cta-footer-tag {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* 03 - UNLOCK THE ECOSYSTEM: Alternating Rows Module Layout */
+.ecosystem-rows-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 24px;
+}
+
+.ecosystem-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Alternating flip engine logic for even-numbered desktop blocks */
+.ecosystem-row:nth-child(even) .ecosystem-info-pane {
+    order: 2;
+}
+.ecosystem-row:nth-child(even) .ecosystem-visual-pane {
+    order: 1;
+}
+
+.ecosystem-info-pane h3 {
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 16px;
+}
+
+/* Premium Left Accent Border on Titles */
+.ecosystem-info-pane h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 3px;
+    background-color: var(--accent-color);
+}
+
+.ecosystem-info-pane p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Exact Hardcoded 16:9 Aspect Constraints */
+.aspect-16-9 {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Mathematical ratio force for 16:9 responsive display */
+    overflow: hidden;
+}
+
+.aspect-16-9 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Protects layout asset images from warping */
+}
+
+/* Closing Summary Path Layout Block */
+.funnel-summary-footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: 60px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.funnel-summary-footer h4 {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.summary-badge-path {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+}
+
+.summary-list {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.summary-list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Bullet indicator style */
+.summary-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE ADAPTATIONS
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+    .step-three-grid {
+        gap: 16px;
+    }
+    .ecosystem-row {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .funnel-header {
+        margin-bottom: 40px;
+    }
+    .funnel-breadcrumb {
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 8px;
+        width: 100%;
+        padding: 16px;
+    }
+    .funnel-breadcrumb .step-arrow {
+        transform: rotate(90deg); /* Flips arrows downwards for stacked displays */
+    }
+    
+    /* Collapses Step 1 grid down cleanly into 1 element per screen view */
+    .step-three-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+    
+    .community-cta-card {
+        padding: 24px;
+    }
+    
+    /* Disables alternating layout setups to stack text elements on top of images on mobile devices */
+    .ecosystem-row {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+    .ecosystem-row:nth-child(even) .ecosystem-info-pane {
+        order: 1;
+    }
+    .ecosystem-row:nth-child(even) .ecosystem-visual-pane {
+        order: 2;
+    }
+}
