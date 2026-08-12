@@ -224,3 +224,22 @@
     color: #8b949e;
     line-height: 1.5;
 }
+
+
+
+/* Smooth Viewport State Change Animation */
+.bankbugs-strategy-dashboard {
+    animation: fadeViewportIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeViewportIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
