@@ -1,41 +1,51 @@
+// --- 🔐 MASTER ECOSYSTEM CONTROL ENGINE ---
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. AUTHENTICATION INTEGRITY ENGINE
+    // ==========================================
+    const sessionState = sessionStorage.getItem("ecosystem_session_state");
+    const activeUser = sessionStorage.getItem("ecosystem_active_user");
+    const traderNameElement = document.querySelector(".trader-name");
 
-        // --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
-        document.addEventListener("DOMContentLoaded", () => {
-            const sessionState = sessionStorage.getItem("ecosystem_session_state");
-            const activeUser = sessionStorage.getItem("ecosystem_active_user");
-            const traderNameElement = document.querySelector(".trader-name");
+    // Hard check: If the token is empty or invalid, block entry and boot to login
+    if (sessionState !== "authorized" || !activeUser) {
+        window.location.href = "login.html";
+        return; // Stop executing completely
+    }
 
-            // Hard check: If the token is empty or invalid, block entry and boot to login
-            if (sessionState !== "authorized" || !activeUser) {
-                window.location.href = "login.html";
-                return;
-            }
+    // Success: Inject the authenticated database username into the Top Nav Tier 1 profile
+    if (traderNameElement) {
+        traderNameElement.textContent = activeUser;
+    }
 
-            // Success: Inject the authenticated database username into the Top Nav Tier 1 profile
-            if (traderNameElement) {
-                traderNameElement.textContent = activeUser;
-            }
+
+    // ==========================================
+    // 2. 🚪 SECURE LOG OUT ENGINE
+    // ==========================================
+    const logoutBtn = document.querySelector(".logout-btn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            // Clear session tokens completely
+            sessionStorage.removeItem("ecosystem_session_state");
+            sessionStorage.removeItem("ecosystem_active_user");
+            // Clear all fallback keys
+            sessionStorage.clear(); 
+            // Return to login gate
+            window.location.href = "login.html";
         });
+    }
 
-        // --- 🚪 SECURE LOG OUT ENGINE ---
-        const logoutBtn = document.querySelector(".logout-btn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", () => {
-                // Clear session tokens completely
-                sessionStorage.removeItem("ecosystem_session_state");
-                sessionStorage.removeItem("ecosystem_active_user");
-                // Clear all fallback keys
-                sessionStorage.clear(); 
-                // Return to login gate
-                window.location.href = "login.html";
-            });
-        }
 
-        // --- 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS ---
-        const sideMenu = document.getElementById('sideMenu');
-        const myDashboardBtn = document.getElementById('myDashboardBtn');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
+    // ==========================================
+    // 3. 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS
+    // ==========================================
+    const sideMenu = document.getElementById('sideMenu');
+    const myDashboardBtn = document.getElementById('myDashboardBtn');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
 
+    // Safe Check: Only attach sidebar events if the elements exist on this specific page
+    if (sideMenu && myDashboardBtn && sidebarOverlay) {
         // Toggle Sidebar Open/Closed state when clicking My Dashboard
         myDashboardBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -53,17 +63,26 @@
                 sidebarOverlay.classList.remove('active');
             }
         });
+    }
 
-        // Accordion functionality for dropdown items
-        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const parent = trigger.parentElement;
+    // Accordion functionality for dropdown items inside the sidebar
+    document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const parent = trigger.parentElement;
+            if (parent) {
                 parent.classList.toggle('open');
-            });
+            }
         });
+    });
+
+}); // <-- End of DOMContentLoaded Wrap
 
 
+// ==========================================
+// 4. ⚓ BOTTOM DOCK VIEWPORT ROUTER
+// ==========================================
+// This function remains OUTSIDE DOMContentLoaded so the HTML 'onclick' attributes can access it globally.
 function handleDockPress(buttonElement, targetView) {
     // 1. Remove the 'active' styling class from all navigation buttons in the dock
     const allButtons = document.querySelectorAll('.dock-action-btn');
@@ -82,11 +101,9 @@ function handleDockPress(buttonElement, targetView) {
             strategyWorkspace.style.display = 'block';
         }
     } else {
-        // If they click another view button in the future (e.g., 'Journal', 'Alerts')
-        // hide the strategy workspace to clear the viewport canvas space
+        // Hide the strategy workspace if they click any other button
         if (strategyWorkspace) {
             strategyWorkspace.style.display = 'none';
         }
     }
 }
-
