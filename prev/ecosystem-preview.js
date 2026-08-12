@@ -62,4 +62,31 @@
                 parent.classList.toggle('open');
             });
         });
-  
+
+
+function handleDockPress(buttonElement, targetView) {
+    // 1. Remove the 'active' styling class from all navigation buttons in the dock
+    const allButtons = document.querySelectorAll('.dock-action-btn');
+    allButtons.forEach(btn => btn.classList.remove('active'));
+
+    // 2. Add the 'active' styling class to the specific button that was clicked
+    buttonElement.classList.add('active');
+
+    // 3. Select your core strategy workspace container
+    const strategyWorkspace = document.getElementById('strategy-workspace');
+
+    // 4. Evaluate which view was requested by the dock menu click
+    if (targetView === 'strategy') {
+        // Smoothly reveal the checklist dashboard layout
+        if (strategyWorkspace) {
+            strategyWorkspace.style.display = 'block';
+        }
+    } else {
+        // If they click another view button in the future (e.g., 'Journal', 'Alerts')
+        // hide the strategy workspace to clear the viewport canvas space
+        if (strategyWorkspace) {
+            strategyWorkspace.style.display = 'none';
+        }
+    }
+}
+
