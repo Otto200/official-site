@@ -11,43 +11,46 @@
 </head>
 <body>
 
-    <div class="login-wrapper">
-        <div class="login-card">
+  <div class="login-wrapper">
+    <div class="login-card">
+        
+        <div class="login-header">
+            <h2>Ecosystem Login</h2>
+            <p>Enter Login access sent to your WhatsApp.</p>
+        </div>
+
+        <!-- Client Form Endpoint Trigger -->
+        <form id="login-form" onsubmit="return false;">
             
-            <div class="login-header">
-                <h2>Ecosystem Login</h2>
-                <p>Enter Login access sent to your WhatsApp.</p>
-            </div>
-
-            <!-- Client Form Endpoint Trigger -->
-            <form id="login-form" onsubmit="return false;">
-                
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter bankbugsfx username" required autocomplete="username">
-                </div>
-                
-                <div class="form-group">
-                    <label for="access-key">Password</label>
-                    <div class="password-field-wrapper">
-                        <input type="password" id="access-key" placeholder="••••••••" required autocomplete="current-password">
-                        <!-- Modern visual toggle trigger anchor element -->
-                        <button type="button" id="password-toggle-btn" class="password-toggle-btn" aria-label="Toggle password visibility">Show</button>
-                    </div>
-                </div>
-
-                <!-- Uses your native .btn styling framework flawlessly -->
-                <button type="submit" class="btn">Access Trading Ecoystem</button>
-                
-                <div id="error-box" class="error-message">Invalid username or password.</div>
-            </form>
-
-            <div class="no-account-prompt">
-                Need details? <a href="index.html">Get Ecosystem Access</a>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter bankbugsfx username" required autocomplete="username">
             </div>
             
+            <div class="form-group">
+                <label for="access-key">Password</label>
+                <div class="password-field-wrapper">
+                    <input type="password" id="access-key" placeholder="••••••••" required autocomplete="current-password">
+                    <!-- Modern visual toggle trigger anchor element -->
+                    <button type="button" id="password-toggle-btn" class="password-toggle-btn" aria-label="Toggle password visibility">Show</button>
+                </div>
+            </div>
+
+            <!-- Uses your native .btn styling framework flawlessly -->
+            <button type="submit" class="btn">Access Trading Ecoystem</button>
+            
+            <!-- Added Visitor Link Button -->
+            <a href="ecosystem-preview.html" id="visitor-btn" class="btn btn-secondary" style="margin-top: 10px; display: block; text-align: center; text-decoration: none;">Continue as visitor</a>
+            
+            <div id="error-box" class="error-message">Invalid username or password.</div>
+        </form>
+
+        <div class="no-account-prompt">
+            Need details? <a href="index.html">Get Ecosystem Access</a>
         </div>
     </div>
+</div>
+
 
     <!-- Login Authentication Handling Script -->
     <script src="js/login.js"></script>
