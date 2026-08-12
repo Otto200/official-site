@@ -1,169 +1,128 @@
-/* ==========================================
-   SECTION 4: AUTO-SLIDING CAROUSEL STYLES
-   ========================================== */
+/* ==========================================================================
+   BANKBUGS|FX COMPONENT: UNALTERABLE PERFORMANCE EVIDENCE (MARQUEE)
+   ========================================================================== */
 
+#withdrawals.full-bleed {
+    background-color: transparent;
+    overflow: hidden; /* Hard locks rogue layout elements from creating side scrolling */
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Typography Container Constraints */
+.proof-text-block {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+/* Infinity Carousel Rails Layout */
 .proof-carousel-container {
     width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
+    margin: 40px 0;
     position: relative;
-    padding: 1.5rem 0;
-    background: transparent;
+    /* Soft edge vignette fades to give a premium depth overlay */
+    background: linear-gradient(to right, var(--bg-main) 0%, transparent 10%, transparent 90%, var(--bg-main) 100%);
 }
 
-/* Linear infinite scrolling track running left to right */
+/* Infinite Track Engine */
 .proof-track {
     display: flex;
-    gap: 1.5rem;
-    width: max-content;
-    animation: autoScrollRight 24s linear infinite;
+    width: max-content; /* Dynamically expands to contain all images */
+    gap: 24px;
+    animation: continuousMarquee 35s linear infinite;
 }
 
-/* Pauses layout animation on cursor hover for close inspection */
+/* Pause scroll animation on mouse hover for clean inspection */
 .proof-carousel-container:hover .proof-track {
     animation-play-state: paused;
 }
 
-/* Slide Cards configured to strict 16:9 Desktop Ratio */
+/* Individual Performance Slide Structuring */
 .proof-slide {
-    width: 320px; /* Fixed mobile default width scaling */
-    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    width: 320px; /* Locked optimal uniform image viewport width */
+    height: 180px; /* Forces uniform 16:9 box matrix matching the layout system */
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: #121212;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 .proof-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
+    object-fit: cover; /* Ensures screenshots clip neatly without crushing layout proportions */
+    filter: grayscale(15%);
+    transition: all 0.3s ease;
+}
+
+/* Slide Hover Transformation Engine */
+.proof-slide:hover {
+    border-color: rgba(226, 177, 60, 0.4);
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .proof-slide:hover img {
-    transform: scale(1.03);
+    filter: grayscale(0%);
 }
 
-/* Smooth continuous motion animation mapping */
-@keyframes autoScrollRight {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Loops after shifting by a full view block */
-        transform: translateX(-50%);
-    }
-}
-
-/* Responsive Desktop Optimizations */
-@media (min-width: 1024px) {
-    .proof-slide {
-        width: 440px; /* Expanded card sizing optimized for high-res layout viewing */
-    }
-    .proof-track {
-        animation-duration: 24s; /* Balances velocity across widescreen real estate */
-    }
-}
-
-
-
-
-/* ==========================================
-   SECTION 4: PERFORMANCE MARQUEE ENGINE STYLES
-   ========================================== */
-
-/* Keeps the section headers and buttons locked uniform within standard desktop boundaries */
-.proof-text-block, 
+/* Conversion Call-To-Action Layout Matrix */
 .proof-action-block {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    box-sizing: border-box;
     text-align: center;
 }
 
-.proof-action-block {
-    margin-top: 30px; /* Synchronized to your precise layout requirements */
-}
-
 .proof-action-text {
-    color: var(--text-secondary); 
-    margin-bottom: 24px; 
-    font-size: 15px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
-/* 🌟 SCREEN BREAKOUT LAYER: Forces container width past standard margins edge-to-edge */
-.proof-carousel-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin: 32px 0 0 0 !important;
-    padding: 8px 0 !important;
-    overflow: hidden !important;
-    box-sizing: border-box;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-}
-
-/* Moving Conveyor Lane (Continuous Left-to-Right Loop) */
-.proof-track {
-    display: flex;
-    gap: 1.5rem; /* Layout item split buffers */
-    width: max-content;
-    animation: autoScrollRight 24s linear infinite;
-    box-sizing: border-box;
-}
-
-/* Pauses layout animation on cursor hover for close inspection */
-.proof-carousel-container:hover .proof-track {
-    animation-play-state: paused;
-}
-
-/* Slide Cards configured to strict 16:9 Desktop Ratio */
-.proof-slide {
-    width: 290px; /* Compact mobile default width scaling */
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-    background: var(--bg-card, #121212);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.proof-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-.proof-slide:hover img {
-    transform: scale(1.03);
-}
-
-/* Smooth continuous motion animation mapping */
-@keyframes autoScrollRight {
+/* ==========================================================================
+   INFINITE SLIDE MARQUEE HARDWARE CORE ENGINE
+   ========================================================================== */
+@keyframes continuousMarquee {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     100% {
-        /* Loops after shifting by exactly half the track length */
-        transform: translateX(calc(-50% - 0.75rem));
+        /* Translates precisely across exactly half the track width (the original group) */
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
-/* Responsive Desktop Optimizations */
-@media (min-width: 1024px) {
-    .proof-slide {
-        width: 420px; /* Expanded card sizing optimized for high-res layout viewing */
+/* ==========================================================================
+   CROSS-PLATFORM MEDIA SCALING
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .proof-text-block, .proof-action-block {
+        padding: 0 16px;
+    }
+    .proof-carousel-container {
+        margin: 24px 0;
     }
     .proof-track {
-        animation-duration: 24s; /* Balances velocity across widescreen real estate */
+        gap: 16px;
+    }
+    .proof-slide {
+        width: 260px; /* Slightly downsized viewport footprint for small glass screens */
+        height: 146px; 
+        border-radius: 6px;
+    }
+    .proof-slide img {
+        filter: grayscale(0%); /* Always crisp clarity details on phone display views */
     }
 }
-
