@@ -1,4 +1,4 @@
-<script>
+
 document.addEventListener("DOMContentLoaded", function() {
     // Session state identifier block to enforce clean single-display rules
     const hasSeenAnnouncement = localStorage.getItem("bb_launch_notified");
@@ -30,4 +30,4 @@ function closeAnnouncerPopup() {
     // Encodes persistence token so the popup stops intrusive multi-load bursts on recurring visits
     localStorage.setItem("bb_launch_notified", "true");
 }
-</script>
+
