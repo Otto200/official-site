@@ -198,8 +198,8 @@
         <div class="brand-badge-group">
             <span class="brand-logo-icon"></span>
             <div>
-                <h2>BANKBUGS|FX Strategy bias</h2>
-                <p class="subtitle">Systematic Analysis & Position Execution model</p>
+                <h2>Strategy bias (demo)</h2>
+                <p class="subtitle">Analysis & Position Execution model</p>
             </div>
         </div>
         <div class="market-status-indicator">
@@ -281,10 +281,11 @@
 
     <!-- Bottom Dock Navigation Bar -->
     <nav class="bottom-dock-nav">
-        <button class="dock-action-btn active" onclick="handleDockPress(this, 'strategy')">
-            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <span class="dock-label">Strategy</span>
-        </button>
+       <button class="dock-action-btn active" onclick="handleDockPress(this, 'strategy'); document.getElementById('strategy-workspace')?.scrollIntoView({ behavior: 'smooth' })">
+    <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    <span class="dock-label">Strategy</span>
+</button>
+
         <button class="dock-action-btn" onclick="handleDockPress(this, 'market')">
             <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             <span class="dock-label">Market Analysis</span>
