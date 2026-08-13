@@ -305,3 +305,74 @@
     }
 }
 
+
+
+/* ==========================================================================
+   FINTECH INSTITUTIONAL STATUS NODE & VISUAL HIERARCHY PATCH
+   ========================================================================== */
+
+/* Sub-Wrapper to pin the active queue status directly underneath the WhatsApp Button */
+.cta-bundle-node-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 8px; /* Snugs the queue status line closely underneath the button layout */
+}
+
+/* Institutional Micro-Queue Text Layout */
+.institutional-queue-node {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #00E676; /* High-visibility Fintech Neon Green */
+    background: rgba(0, 230, 118, 0.07); /* Smooth background tint glow boundary */
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 230, 118, 0.15);
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
+/* Institutional SVG Vector Engineering Scale */
+.queue-vector-node {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: #00E676;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* Refinement Patch: Creating an outline button option for secondary tier choices to stop layout competing */
+.btn-hero-gold-outline {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(226, 177, 60, 0.4) !important;
+    box-shadow: none;
+}
+.btn-hero-gold-outline:hover {
+    background-color: rgba(226, 177, 60, 0.08) !important;
+    border-color: var(--accent-hover) !important;
+    color: var(--accent-hover) !important;
+}
+
+/* Mobile responsive consistency layer */
+@media (max-width: 768px) {
+    .cta-bundle-node-wrapper {
+        width: 100%;
+    }
+    .institutional-queue-node {
+        font-size: 10px;
+        padding: 5px 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
