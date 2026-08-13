@@ -192,7 +192,7 @@
             <div id="workspace-dynamic-canvas" class="viewport-canvas">
                 <!-- Enhanced Strategic Dashboard Core Layout -->
 <!-- Added id="strategy-workspace" for dynamic visibility toggling via the bottom dock nav -->
-<div id="strategy-workspace" class="bankbugs-strategy-dashboard">
+<div id="strategy-workspace" class="strategy">
     
     <header class="dashboard-core-header">
         <div class="brand-badge-group">
@@ -281,7 +281,7 @@
 
     <!-- Bottom Dock Navigation Bar -->
     <nav class="bottom-dock-nav">
-       <button class="dock-action-btn active" onclick="handleDockPress(this, 'strategy'); document.getElementById('workspace-dynamic-canvas')?.scrollIntoView({ behavior: 'smooth' })">
+       <button class="dock-action-btn active" onclick="handleDockPress(this, 'strategy'); document.getElementById('strategy-workspace')?.scrollIntoView({ behavior: 'smooth' })">
     <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     <span class="dock-label">Strategy</span>
 </button>
