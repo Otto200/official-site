@@ -172,10 +172,116 @@
             </nav>
         </aside>
 
-        <!-- Main Display Content Workspace Window -->
+               <!-- Main Display Content Workspace Window -->
         <main class="dashboard-workspace-viewport">
             <div id="strategy-workspace" class="strategy">
                 <header class="dashboard-core-header">
                     <div class="brand-badge-group">
                         <span class="brand-logo-icon"></span>
                         <div>
+                            <h2>Strategy bias (demo)</h2>
+                            <p class="subtitle">Analysis & Position Execution model</p>
+                        </div>
+                    </div>
+                    <div class="market-status-indicator">
+                        <span class="status-pulse-dot"></span>
+                        <span class="status-label">NY Session Active</span>
+                    </div>
+                </header>
+
+                <!-- Dashboard Grid Body Structure -->
+                <div class="dashboard-grid-layout">
+                    
+                    <!-- Left Column: The Strategic Execution Checklist -->
+                    <section class="dashboard-card checklist-section">
+                        <h3 class="card-title">🛡️ Execution Checklist</h3>
+                        <div class="checklist-container">
+                            <div class="checklist-item state-complete">
+                                <div class="custom-checkbox">✓</div>
+                                <div class="item-details">
+                                    <h4>Identify Higher Timeframe Structure</h4>
+                                    <p>Confirm 4H and H1 trend alignment before scaling down.</p>
+                                </div>
+                            </div>
+                            <div class="checklist-item state-complete">
+                                <div class="custom-checkbox">✓</div>
+                                <div class="item-details">
+                                    <h4>Locate Key S/D Zone</h4>
+                                    <p>Price must cleanly test supply/demand.</p>
+                                </div>
+                            </div>
+                            <div class="checklist-item state-pending">
+                                <div class="custom-checkbox"></div>
+                                <div class="item-details">
+                                    <h4>Wait for internal Timeframe MSS</h4>
+                                    <p>Look for an explicit Market Structure Shift on M5 or M1.</p>
+                                </div>
+                            </div>
+                            <div class="checklist-item state-pending">
+                                <div class="custom-checkbox"></div>
+                                <div class="item-details">
+                                    <h4>Calculate Lot Size for Risk Rule</h4>
+                                    <p>Ensure final risk do not exceed maximum caps.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right Column: Account & Risk Guardrails Matrix -->
+                    <section class="dashboard-card risk-matrix-section">
+                        <h3 class="card-title">📊 Risk & Discipline rules</h3>
+                        <div class="risk-stats-stack">
+                            <div class="stat-pill-row">
+                                <span class="stat-label">Max Risk Per Trade:</span>
+                                <span class="stat-value highlighted-red">1.0% Max</span>
+                            </div>
+                            <div class="stat-pill-row">
+                                <span class="stat-label">Daily Drawdown Cap:</span>
+                                <span class="stat-value highlighted-red">2.5% Hard Stop</span>
+                            </div>
+                            <div class="stat-pill-row">
+                                <span class="stat-label">Minimum Reward Ratio:</span>
+                                <span class="stat-value highlighted-green">1:3 RR Min</span>
+                            </div>
+                        </div>
+                        <div class="pro-tip-box">
+                            <h5>💡 Core Trading Rule</h5>
+                            <p>If all checklist requirements are not checked, do not execute the position. Discipline rewards consistency over long horizons.</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bottom Dock Navigation Bar -->
+    <nav class="bottom-dock-nav">
+        <a href="index.html" class="dock-action-btn active" style="text-decoration: none;">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span class="dock-label">Strategy</span>
+        </a>
+        <a href="market.html" class="dock-action-btn" style="text-decoration: none;">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span class="dock-label">Market Analysis</span>
+        </a>
+        <a href="live.html" class="dock-action-btn" style="text-decoration: none;">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="dock-label">Live Execution</span>
+        </a>
+        <a href="review.html" class="dock-action-btn" style="text-decoration: none;">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span class="dock-label">Trade Review</span>
+        </a>
+        <a href="cases.html" class="dock-action-btn" style="text-decoration: none;">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span class="dock-label">Case Study</span>
+        </a>
+    </nav>
+
+    <!-- Script Injection Engine links -->
+    <script src="js/ecosystem-preview.js"></script>
+    <script src="js/applayout.js"></script>
+    <script src="prev/strategy.js"></script>
+</body>
+</html>
+
