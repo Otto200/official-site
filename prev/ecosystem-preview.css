@@ -1,540 +1,401 @@
 /* ==========================================================================
-   1. MAIN DASHBOARD UI ENGINE & LAYOUT REGULATOR
+   BANKBUGS | FX DASHBOARD - CORE ENGINE STYLING
    ========================================================================== */
 
+/* 1. Global Reset & Variables */
 :root {
-    /* Premium Gold & Dark Theme Palette Variables */
-    --bg-main: #0a0b0d;
-    --bg-surface: #12141a;
-    --bg-surface-elevated: #1a1d26;
-    --primary-gold: #d4af37;
-    --accent-gold-glow: rgba(212, 175, 55, 0.35);
-    --gold-dimmed: #aa8c2c;
-    --neon-green: #00ff87;
-    --text-primary: #ffffff;
-    --text-muted: #8a92a3;
-    --border-color: rgba(255, 255, 255, 0.06);
-    
-    /* Strict Structural Spacing Constraints */
-    --top-nav-height: 110px;
-    --bottom-dock-height: 70px;
-    --sidebar-width: 320px;
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-main: #0a0e17;
+    --bg-surface: #121824;
+    --bg-surface-hover: #1c2638;
+    --brand-primary: #00ffcc;
+    --brand-secondary: #00a3ff;
+    --text-main: #ffffff;
+    --text-muted: #8fa0dd;
+    --border-color: #1e293b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --sidebar-width: 260px;
+    --chat-width: 320px;
 }
 
-/* Base Layout Framework Overrides */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
-/* Master Fixed Two-Tier Navigation Wrapper */
-.top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: var(--top-nav-height);
-    background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(18, 20, 26, 0.95) 100%);
-    border-bottom: 1px solid var(--border-color);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
+/* 2. Responsive Core Layout Wrapper */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr var(--chat-width);
+    min-height: 100vh;
 }
 
-/* Master Flexible Content Positioning Window */
-.app-layout-wrapper {
-    position: fixed;
-    top: var(--top-nav-height);
-    bottom: var(--bottom-dock-height);
-    left: 0;
-    width: 100vw;
-    display: flex;
-    overflow: hidden;
-}
-
-/* Side Resources Sliding Drawer Structure */
-.side-resources-drawer {
-    width: var(--sidebar-width);
-    height: 100%;
+/* 3. Left Navigation Sidebar */
+.sidebar {
     background-color: var(--bg-surface);
     border-right: 1px solid var(--border-color);
-    overflow-y: auto;
-    overflow-x: hidden;
-    flex-shrink: 0;
-    transition: var(--transition-smooth);
-    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
-/* Core Dashboard Content Viewport Area */
-.dashboard-workspace-viewport {
-    flex-grow: 1;
-    height: 100%;
+.sidebar-header {
     padding: 24px;
-    overflow-y: auto;
-    background: radial-gradient(circle at 50% 50%, #111318 0%, var(--bg-main) 100%);
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* Rigid Screen Bottom Interactive App Dock */
-.bottom-dock-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: var(--bottom-dock-height);
-    background: linear-gradient(0deg, #0d0f13 0%, var(--bg-surface) 100%);
-    border-top: 1px solid var(--border-color);
-    backdrop-filter: blur(16px);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 16px;
-    z-index: 1000;
+.brand-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-main);
 }
 
-
-/* ==========================================================================
-   2. INDIVIDUAL INTERACTIVE BUTTONS & HOVER GLOW SYSTEM
-   ========================================================================== */
-
-/* --- TIER 1 BUTTON: Logout Control --- */
-.logout-btn-interactive {
-    background: rgba(255, 75, 75, 0.08);
-    border: 1px solid rgba(255, 75, 75, 0.2);
-    color: #ff4b4b;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    transition: var(--transition-smooth);
+.brand-title span {
+    color: var(--brand-primary);
 }
 
-.logout-btn-interactive:hover {
-    background: #ff4b4b;
-    color: var(--text-primary);
-    box-shadow: 0 0 12px rgba(255, 75, 75, 0.4);
-    transform: translateY(-1px);
-}
-
-/* --- TIER 2 BUTTON A: Resources Menu Toggle --- */
-.menu-toggle-btn {
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
+.online-status {
     display: flex;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-.menu-toggle-btn:hover {
-    border-color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.05);
-    box-shadow: 0 0 14px var(--accent-gold-glow);
-    color: var(--primary-gold);
-}
-
-/* --- TIER 2 BUTTON B: Secondary Core Header Actions --- */
-.tier-two-btn {
-    background: transparent;
-    border: 1px solid transparent;
+    margin-top: 8px;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: var(--transition-smooth);
 }
 
-.tier-two-btn:hover {
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.1);
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--success);
 }
 
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 12px;
+}
 
-/* --- SIDE NAV BUTTON A: Primary Group Accordion Triggers --- */
-.accordion-trigger {
+.nav-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin: 20px 0 8px 12px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: var(--bg-surface-hover);
+    color: var(--brand-primary);
+}
+
+.sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 4. Central Strategy Desk Workspace */
+.main-workspace {
+    padding: 24px;
+    overflow-y: auto;
+    max-width: 1400px;
     width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-    padding: 16px 20px;
+    margin: 0 auto;
+}
+
+.workspace-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--text-primary);
-    font-size: 13px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+}
+
+.session-indicator {
+    background: rgba(0, 255, 204, 0.1);
+    color: var(--brand-primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    transition: var(--transition-smooth);
+    border: 1px solid rgba(0, 255, 204, 0.2);
 }
 
-.accordion-trigger:hover {
-    background: var(--bg-surface-elevated);
-    color: var(--primary-gold);
-    padding-left: 24px;
+/* Dashboard Interactive Panels Matrix */
+.dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-/* Active State layout changes when side list expands */
-.accordion-item.active .accordion-trigger {
-    color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.02);
-    box-shadow: inset 4px 0 0 var(--primary-gold);
-}
-
-
-/* --- SIDE NAV BUTTON B: Clickable Nested Sub-Navigation Nodes --- */
-.subnav-action-btn {
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 12px 20px 12px 36px;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-    display: block;
-    transition: var(--transition-smooth);
-}
-
-.subnav-action-btn:hover {
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.02);
-    padding-left: 40px;
-}
-
-
-/* --- SIDE NAV BUTTON C: Flat Standalone List Items --- */
-.standalone-nav-btn {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-    padding: 16px 20px;
-    color: var(--text-primary);
-    font-size: 13px;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-.standalone-nav-btn:hover {
-    background: var(--bg-surface-elevated);
-    box-shadow: inset 4px 0 0 var(--primary-gold);
-    color: var(--primary-gold);
-    padding-left: 24px;
-}
-
-
-/* --- SIDE NAV BUTTON D: Premium Call To Action Interface Glow --- */
-.premium-cta-btn {
-    width: calc(100% - 32px);
-    margin: 20px 16px;
-    background: linear-gradient(135deg, #1e1705 0%, #3a2e0b 100%);
-    border: 1px solid var(--primary-gold);
-    padding: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition-smooth);
-}
-
-.premium-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--accent-gold-glow);
-    background: linear-gradient(135deg, var(--primary-gold) 0%, #aa8c2c 100%);
-}
-
-.premium-text-glow {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: var(--primary-gold);
-    display: block;
-    text-align: center;
-    text-transform: uppercase;
-    transition: var(--transition-smooth);
-}
-
-.premium-cta-btn:hover .premium-text-glow {
-    color: var(--bg-main);
-}
-
-
-/* --- BOTTOM NAV BUTTON: Fixed Persistent App Control Vector Dock --- */
-.dock-action-btn {
-    background: transparent;
-    border: none;
+/* Interactive Charts Blueprint */
+.chart-placeholder {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
     color: var(--text-muted);
-    cursor: pointer;
-    height: 100%;
-    padding: 0 12px;
-    transition: var(--transition-smooth);
-}
-
-.dock-action-btn:hover {
-    color: var(--text-primary);
-}
-
-.dock-action-btn:hover .dock-icon {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
-}
-
-/* Active bottom button state variant */
-.dock-action-btn.active {
-    color: var(--primary-gold);
-}
-
-.dock-action-btn.active .dock-icon {
-    color: var(--primary-gold);
-    transform: translateY(-2px) scale(1.05);
-    filter: drop-shadow(0 0 8px var(--accent-gold-glow));
-}
-
-
-/* ==========================================================================
-   3. CLICK STATE VARIATIONS AND WORKSPACE INJECTIONS
-   ========================================================================== */
-
-/* Active state applied dynamically to items or sidebar options when running */
-.subnav-action-btn:active, 
-.subnav-action-btn.clicked-node-state {
-    color: var(--primary-gold) !important;
-    background: rgba(212, 175, 55, 0.05) !important;
-    font-weight: 700;
-    box-shadow: inset 3px 0 0 var(--primary-gold);
-}
-
-/* Display Canvas Layout Module Active Animation Box */
-.content-card-active.clicked-node-state {
-    border-color: var(--primary-gold);
-    box-shadow: 0 0 30px var(--accent-gold-glow);
-    animation: focusGlowPulse 2.5s infinite alternate;
-}
-
-@keyframes focusGlowPulse {
-    0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.15); }
-    100% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.4); }
-}
-
-
-/* ==========================================================================
-   4. TIER-ONE TEXT GLOW, ACCORDION DRAWERS & OTHER UI DECORATIONS
-   ========================================================================== */
-
-.tier-one {
-    height: 55px;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.brand-logo svg {
-    width: 24px;
-    height: 24px;
-    color: var(--primary-gold);
-    filter: drop-shadow(0 0 6px var(--accent-gold-glow));
-}
-
-.brand-name {
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    font-size: 16px;
-}
-
-.gold-glow-text {
-    color: var(--primary-gold);
-    text-shadow: 0 0 10px var(--accent-gold-glow);
-}
-
-.tier-one-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.live-node-pill {
-    background: rgba(0, 255, 135, 0.06);
-    border: 1px solid rgba(0, 255, 135, 0.2);
-    padding: 4px 10px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--neon-green);
-    letter-spacing: 0.3px;
-}
-
-.pulse-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--neon-green);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--neon-green);
-    animation: nodePulse 1.8s infinite ease-in-out;
-}
-
-@keyframes nodePulse {
-    0% { transform: scale(0.9); opacity: 0.6; }
-    50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px var(--neon-green); }
-    100% { transform: scale(0.9); opacity: 0.6; }
-}
-
-.tier-two {
-    height: 45px;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.tier-two-dropdowns {
-    display: flex;
-    gap: 12px;
-}
-
-.accordion-trigger .chevron {
-    width: 14px;
-    height: 14px;
-    color: var(--text-muted);
-    transition: transform var(--transition-smooth);
-}
-
-.accordion-item.active .chevron {
-    transform: rotate(180deg);
-    color: var(--primary-gold);
-}
-
-.accordion-content {
-    max-height: 0;
+    position: relative;
     overflow: hidden;
-    background: #101116;
-    transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
 }
 
-.accordion-item.active .accordion-content {
-    max-height: 500px;
-    transition: max-height 0.25s cubic-bezier(1, 0, 1, 0);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dock-icon {
-    width: 20px;
-    height: 20px;
-    transition: var(--transition-smooth);
-}
-
-.dock-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-}
-
-.empty-state-card, .content-card-active {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    padding: 32px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 600px;
-    margin: 40px auto;
-}
-
-.empty-state-card h2, .content-card-active h2 {
-    font-size: 20px;
+.chart-placeholder::before {
+    content: "📉";
+    font-size: 3rem;
     margin-bottom: 12px;
 }
 
-.empty-state-card p, .content-card-active p {
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.6;
+/* Tactical Trading Section Grid */
+.trading-tactics-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
 }
 
+.card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Checklist Styling Customizations */
+.checklist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checklist-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 12px;
+    background: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.checklist-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-primary);
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.checklist-text h5 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.checklist-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Rules Module Structure */
+.rules-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rule-metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--bg-main);
+    border-left: 4px solid var(--brand-secondary);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+}
+
+.rule-metric.hard-stop {
+    border-left-color: var(--danger);
+}
+
+.rule-metric span:last-child {
+    font-weight: 700;
+}
+
+.pro-tip-box {
+    margin-top: 16px;
+    background: rgba(0, 163, 255, 0.05);
+    border: 1px dashed var(--brand-secondary);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* 5. Right Hand Community Chat Panel Workspace */
+.chat-workspace {
+    background-color: var(--bg-surface);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.chat-message-bubble {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.chat-message-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.chat-input-area {
+    padding: 16px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 8px;
+}
+
+.chat-input {
+    flex: 1;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+}
+
+.btn-send {
+    background-color: var(--brand-primary);
+    color: var(--bg-main);
+    border: none;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-send:hover {
+    background-color: #00e6b8;
+}
 
 /* ==========================================================================
-   5. RESPONSIVE MEDIA FLEX LOGIC (PC, TABLET, MOBILE OVERRIDES)
+   6. Breakpoints Responsive Adaptability Matrix
    ========================================================================== */
 
-@media (max-width: 1024px) {
-    :root {
-        --sidebar-width: 280px;
+/* Laptop & Mid-size Desktops (Collapse Right Chat Sidebar into main feed flow) */
+@media (max-width: 1200px) {
+    .dashboard-container {
+        grid-template-columns: var(--sidebar-width) 1fr;
+    }
+    
+    .chat-workspace {
+        position: static;
+        height: 500px;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        grid-column: 2;
     }
 }
 
-@media (max-width: 768px) {
-    :root {
-        --top-nav-height: 100px;
-        --bottom-dock-height: 64px;
+/* Tablets View (Convert Main Tactics layout boxes into single column vertical stacks) */
+@media (max-width: 900px) {
+    .trading-tactics-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Devices (Complete Full-Stack Collapse for structural scrollability) */
+@media (max-width: 680px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
     }
     
-    /* Turn sidebar into hidden pull-out element over content */
-    .side-resources-drawer {
-        position: fixed;
-        left: calc(-1 * var(--sidebar-width));
-        top: var(--top-nav-height);
-        bottom: var(--bottom-dock-height);
+    .sidebar {
+        position: static;
         height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
     }
     
-    .side-resources-drawer.open {
-        left: 0;
-        box-shadow: 20px 0 40px rgba(0, 0, 0, 0.8);
+    .chat-workspace {
+        grid-column: 1;
     }
     
-    .dashboard-workspace-viewport {
-        padding: 16px;
-    }
-
-    .tier-one-actions .user-profile-tag {
-        display: none; /* Hide profile text on mobile devices to preserve navbar space */
-    }
-
-    .dock-label {
-        font-size: 9px;
+    .workspace-header {
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
     }
 }
