@@ -25,7 +25,7 @@ function closeAnnouncerPopup() {
         setTimeout(function() {
             modalOverlay.style.display = "none";
             document.body.style.overflow = ""; // Restores standard framework scroll bounds
-        }, 25000);
+        }, 250);
     }
     // Encodes persistence token so the popup stops intrusive multi-load bursts on recurring visits
     localStorage.setItem("bb_launch_notified", "true");
