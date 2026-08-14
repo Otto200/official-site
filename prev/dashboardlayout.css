@@ -104,6 +104,7 @@ body {
     z-index: 1000;
 }
 
+
 /* ==========================================================================
    2. INDIVIDUAL INTERACTIVE BUTTONS & HOVER GLOW SYSTEM
    ========================================================================== */
@@ -173,6 +174,7 @@ body {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
+
 /* --- SIDE NAV BUTTON A: Primary Group Accordion Triggers --- */
 .accordion-trigger {
     width: 100%;
@@ -204,6 +206,7 @@ body {
     box-shadow: inset 4px 0 0 var(--primary-gold);
 }
 
+
 /* --- SIDE NAV BUTTON B: Clickable Nested Sub-Navigation Nodes --- */
 .subnav-action-btn {
     width: 100%;
@@ -224,6 +227,7 @@ body {
     background: rgba(255, 255, 255, 0.02);
     padding-left: 40px;
 }
+
 
 /* --- SIDE NAV BUTTON C: Flat Standalone List Items --- */
 .standalone-nav-btn {
@@ -246,6 +250,7 @@ body {
     color: var(--primary-gold);
     padding-left: 24px;
 }
+
 
 /* --- SIDE NAV BUTTON D: Premium Call To Action Interface Glow --- */
 .premium-cta-btn {
@@ -281,6 +286,7 @@ body {
 .premium-cta-btn:hover .premium-text-glow {
     color: var(--bg-main);
 }
+
 
 /* --- BOTTOM NAV BUTTON: Fixed Persistent App Control Vector Dock --- */
 .dock-action-btn {
@@ -318,11 +324,12 @@ body {
     filter: drop-shadow(0 0 8px var(--accent-gold-glow));
 }
 
+
 /* ==========================================================================
    3. CLICK STATE VARIATIONS AND WORKSPACE INJECTIONS
    ========================================================================== */
 
-/* Active link logic mappings for static links */
+/* Active state applied dynamically to items or sidebar options when running */
 .subnav-action-btn:active, 
 .subnav-action-btn.clicked-node-state {
     color: var(--primary-gold) !important;
@@ -331,6 +338,7 @@ body {
     box-shadow: inset 3px 0 0 var(--primary-gold);
 }
 
+/* Display Canvas Layout Module Active Animation Box */
 .content-card-active.clicked-node-state {
     border-color: var(--primary-gold);
     box-shadow: 0 0 30px var(--accent-gold-glow);
@@ -342,6 +350,40 @@ body {
     100% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.4); }
 }
 
+
+/* ==========================================================================
+   4. TIER-ONE TEXT GLOW, ACCORDION DRAWERS & OTHER UI DECORATIONS
+   ========================================================================== */
+
+.tier-one {
+    height: 55px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-gold);
+    filter: drop-shadow(0 0 6px var(--accent-gold-glow));
+}
+
+.brand-name {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+}
+
+.gold-glow-text {
     color: var(--primary-gold);
     text-shadow: 0 0 10px var(--accent-gold-glow);
 }
