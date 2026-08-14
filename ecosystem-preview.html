@@ -69,123 +69,117 @@
     <!-- Master App Layout Container -->
     <div class="app-layout-wrapper">
         
-       <!-- Collapsible Side Resources Menu Grid -->
+      <!-- Collapsible Side Resources Menu Grid -->
         <aside class="side-resources-drawer" id="sideResourcesMenu">
             <nav class="drawer-nav-tree">
                 
-                <!-- Expandable Nav Item 1 -->
+                <!-- 1. Strategy -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
                         <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-                            Core Concept
+                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 2 18 2 18 6 6 6 6 2"/><rect width="14" height="14" x="5" y="6" rx="2"/><path d="M9 11h6"/><path d="M9 15h6"/></svg>
+                            Strategy
                         </span>
                         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('core-content-1')">Market Structure Masterclass</button>
+                        <button class="subnav-action-btn" onclick="loadContent('strategy-playbook')">Playbook</button>
+                        <button class="subnav-action-btn" onclick="loadContent('strategy-setups')">Setups</button>
+                        <button class="subnav-action-btn" onclick="loadContent('strategy-checklists')">Checklists</button>
                     </div>
                 </div>
 
-                <!-- Expandable Nav Item 2 -->
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
-                        <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
-                            Trading Books
-                        </span>
-                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('books-content-1')">Orderflow Mechanics PDF</button>
-                    </div>
-                </div>
-
-                <!-- Expandable Nav Item 3 -->
+                <!-- 2. Analysis -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
                         <span class="trigger-label">
                             <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                            Indicators
+                            Analysis
                         </span>
                         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('indicators-content-1')">Liquidity Engine v4.1</button>
+                        <button class="subnav-action-btn" onclick="loadContent('analysis-market-framework')">Market Framework</button>
+                        <button class="subnav-action-btn" onclick="loadContent('analysis-liquidity')">Liquidity</button>
+                        <button class="subnav-action-btn" onclick="loadContent('analysis-examples')">Examples</button>
                     </div>
                 </div>
 
-                <!-- Expandable Nav Item 4 -->
+                <!-- 3. Risk Control -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
                         <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/></svg>
-                            EA (Expert Advisors)
+                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Risk Control
                         </span>
                         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('ea-content-1')">Algo-Grid Scalper Bot</button>
+                        <button class="subnav-action-btn" onclick="loadContent('risk-framework')">Risk Framework</button>
+                        <button class="subnav-action-btn" onclick="loadContent('risk-position-sizing')">Position Sizing</button>
+                        <button class="subnav-action-btn" onclick="loadContent('risk-rules')">Rules</button>
                     </div>
                 </div>
 
-                <!-- Expandable Nav Item 5 -->
+                <!-- 4. Execution -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
                         <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6.01"/><line x1="6" y1="18" x2="6" y2="18.01"/></svg>
-                            VPS Setup
+                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            Execution
                         </span>
                         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('vps-content-1')">Ultra-Low Latency London Node</button>
+                        <button class="subnav-action-btn" onclick="loadContent('execution-trading-bots')">Trading Bots</button>
+                        <button class="subnav-action-btn" onclick="loadContent('execution-indicators')">Indicators</button>
+                        <button class="subnav-action-btn" onclick="loadContent('execution-models')">Execution Models</button>
                     </div>
                 </div>
 
-                <!-- Expandable Nav Item 6 -->
+                <!-- 5. Education -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
                         <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
-                            Pro Trading Apps
+                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                            Education
                         </span>
                         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('apps-content-1')">Terminal Engine Mobile Link</button>
+                        <button class="subnav-action-btn" onclick="loadContent('education-courses')">Courses</button>
+                        <button class="subnav-action-btn" onclick="loadContent('education-videos')">Videos</button>
+                        <button class="subnav-action-btn" onclick="loadContent('education-lessons')">Lessons</button>
                     </div>
                 </div>
 
-                <!-- Expandable Nav Item 7 -->
+                <!-- 6. Research -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
                         <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-                            Bankbugsfx Strategy Data
+                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            Research
                         </span>
                         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('strategy-data-1')">Institutional Order Block Repository</button>
+                        <button class="subnav-action-btn" onclick="loadContent('research-backtests')">Backtests</button>
+                        <button class="subnav-action-btn" onclick="loadContent('research-case-studies')">Case Studies</button>
+                        <button class="subnav-action-btn" onclick="loadContent('research-data-library')">Data Library</button>
                     </div>
                 </div>
 
-                <!-- Expandable Nav Item 8 -->
+                <!-- 7. Journal (Single-tier Accordion Item for consistent styling architecture) -->
                 <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                    <button class="accordion-trigger standalone-style" onclick="loadContent('trading-journal')">
                         <span class="trigger-label">
-                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5zM12 6V4M12 10V8M12 14v-2"/></svg>
-                            Mentorship Program
+                            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            Journal
                         </span>
-                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
-                    <div class="accordion-content">
-                        <button class="subnav-action-btn" onclick="loadContent('mentorship-content-1')">1-on-1 Tape Reading Synchronicity</button>
-                    </div>
                 </div>
 
-                <!-- Standalone Nav Item 9 -->
+                <!-- Standalone Nav Item 9 (Preserved) -->
                 <button class="standalone-nav-btn" onclick="loadContent('community-panel')">
                     <span>
                         <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -193,7 +187,7 @@
                     </span>
                 </button>
 
-                <!-- Standalone Nav Item 10 -->
+                <!-- Standalone Nav Item 10 (Preserved) -->
                 <button class="standalone-nav-btn" onclick="loadContent('signals-panel')">
                     <span>
                         <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -201,10 +195,7 @@
                     </span>
                 </button>
 
-                <!-- Premium CTA Nav Item 11 -->
-
-
-                                <!-- Premium CTA Nav Item 11 -->
+                              <!-- Premium CTA Nav Item 11 -->
                 <button class="premium-cta-btn" onclick="loadContent('billing-gateway')">
                     <span class="premium-text-glow">
                         <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -214,6 +205,7 @@
 
             </nav>
         </aside>
+
 
         <!-- Main Display Content Workspace Window -->
         <main class="dashboard-workspace-viewport">
