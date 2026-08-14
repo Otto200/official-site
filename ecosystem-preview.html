@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BANKBUGS|FX Dashboard</title>
-
-    <!-- Hard-Locked Session Guard: Blocks unauthorized direct URL hits -->
-    <script>
-        (() => {
-            const sessionToken = sessionStorage.getItem("ecosystem_session_state");
-            if (sessionToken !== "authorized") {
-                window.location.replace("login.html");
-            }
-        })();
-    </script>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://googleapis.com">
