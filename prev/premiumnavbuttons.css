@@ -1,0 +1,19 @@
+/* Align vector icons cleanly with sidebar text labels */
+.trigger-label, .standalone-nav-btn span, .premium-text-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Balances space between icon and text */
+}
+
+/* Base style for custom inline vector icons */
+.nav-icon {
+    flex-shrink: 0;
+    transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+/* Micro-interaction scale effect on button hover */
+.accordion-trigger:hover .nav-icon, 
+.standalone-nav-btn:hover .nav-icon,
+.premium-cta-btn:hover .nav-icon {
+    transform: scale(1.05);
+}
