@@ -35,7 +35,7 @@ body {
     width: 100vw;
 }
 
-/* ─── TWO-TIER TOP NAVIGATION ─── */
+/* ─── TWO-TIER TOP NAVIGATION (FIXED VISIBILITY) ─── */
 .multi-tier-header {
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
@@ -45,8 +45,9 @@ body {
     z-index: 110;
 }
 
+/* Fixed Tier One Display Configuration Rule */
 .header-tier-one {
-    height: 52px;
+    height: 56px;
     padding: 0 16px;
     display: flex;
     align-items: center;
@@ -54,58 +55,72 @@ body {
     border-bottom: 1px solid rgba(255, 215, 0, 0.05);
 }
 
-.brand { display: flex; align-items: center; gap: 8px; }
-.brand-icon { color: var(--accent-gold); width: 20px; height: 20px; }
-.brand h1 { font-size: 1rem; font-weight: 800; letter-spacing: 0.5px; }
+.brand { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+.brand-icon { color: var(--accent-gold); width: 22px; height: 22px; flex-shrink: 0; }
+.brand h1 { font-size: 1rem; font-weight: 800; letter-spacing: 0.5px; white-space: nowrap; }
 .brand h1 span { color: var(--accent-gold); }
 
 .user-actions { display: flex; align-items: center; gap: 10px; }
 .user-profile {
     display: flex; align-items: center; gap: 6px; font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.03); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
 }
-.user-icon { width: 12px; height: 12px; color: var(--accent-gold); }
-.logout-btn { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; }
+.user-icon { width: 14px; height: 14px; color: var(--accent-gold); }
+.logout-btn { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; padding: 4px; }
+.logout-btn i { width: 18px; height: 18px; transition: var(--transition-smooth); }
+.logout-btn:hover { color: #ff4d4d; }
 
 .header-tier-two {
-    height: 48px; padding: 0 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; background-color: rgba(0, 0, 0, 0.15);
+    height: 48px; padding: 0 4px; display: flex; align-items: center; justify-content: space-between; gap: 4px; background-color: rgba(0, 0, 0, 0.15);
 }
 
 .tier-two-tab {
-    flex: 1; color: var(--text-secondary); padding: 8px 0; border-radius: 6px; font-size: 0.78rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; transition: var(--transition-smooth);
+    flex: 1; height: 100%; color: var(--text-secondary); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth);
 }
-.tier-two-tab i { width: 14px; height: 14px; }
+.tier-two-tab i { width: 18px; height: 18px; }
 .tier-two-tab:hover { color: var(--text-primary); background-color: var(--bg-surface-hover); }
+.tier-two-tab:active { color: var(--accent-gold); background-color: var(--accent-gold-glow); }
 
-/* ─── PURE CSS LAYOUT TOGGLES BASED ON ACTIVE LINKS ─── */
-.tier-two-tab:active { color: var(--accent-gold); background-color: var(--accent-gold-glow); border: 1px solid var(--border-color); }
-
-@media (max-width: 480px) {
-    .tier-two-tab span { display: none; }
-    .tier-two-tab i { width: 16px; height: 16px; }
+/* Force user profile adjustments on micro mobile layouts */
+@media (max-width: 400px) {
     .username-display { display: none; }
+    .brand h1 { font-size: 0.9rem; }
 }
 
 .viewport-wrapper { flex: 1; display: flex; position: relative; overflow: hidden; }
 
-/* ─── SIDE SLIDER MECHANICS ─── */
+/* ─── SIDE DRAWER MECHANICS (FULLY SCROLLABLE) ─── */
 .side-drawer {
     position: absolute; top: 0; bottom: 0; left: -280px; width: 280px;
     background-color: var(--bg-surface); border-right: 1px solid var(--border-color);
     z-index: 150; transition: var(--transition-smooth); display: flex; flex-direction: column; box-shadow: 12px 0 32px rgba(0, 0, 0, 0.6);
 }
 
-/* Open menu when the active URL matching targets this ID container */
+/* Open configuration trigger targeting link route hash rules */
 .side-drawer:target, #sideResourcesMenu:target { left: 0; }
 
-.drawer-header { padding: 16px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+.drawer-header { padding: 16px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
 .drawer-header h3 { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
 .drawer-close-trigger { color: var(--text-secondary); display: flex; align-items: center; }
+.drawer-close-trigger i { width: 18px; height: 18px; }
 
-.drawer-nav { padding: 12px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+/* Enforcing strict vertical scrolling parameters inside list panel container */
+.drawer-nav { 
+    padding: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    overflow-y: auto; 
+    flex: 1;
+    -webkit-overflow-scrolling: touch; 
+}
 
 /* ─── ACCORDIONS ─── */
-.accordion-item { display: flex; flex-direction: column; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; background-color: rgba(255, 255, 255, 0.01); }
+.accordion-item { display: flex; flex-direction: column; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; background-color: rgba(255, 255, 255, 0.01); flex-shrink: 0; }
 .accordion-trigger { width: 100%; background: transparent; border: none; color: var(--text-primary); padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-align: left; font-size: 0.85rem; }
 .accordion-trigger span { display: flex; align-items: center; gap: 10px; }
 .accordion-trigger i { width: 15px; height: 15px; color: var(--text-secondary); }
@@ -122,7 +137,6 @@ body {
 .workspace { flex: 1; padding: 16px; overflow-y: auto; -webkit-overflow-scrolling: touch; background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.015) 1px, transparent 0); background-size: 20px 20px; }
 .canvas-layer { max-width: 800px; margin: 0 auto; position: relative; }
 
-/* Hide all view content cards by default */
 .content-card {
     display: none; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); animation: fadeScale 0.25s ease-out forwards;
 }
@@ -132,11 +146,8 @@ body {
 .content-card hr { border: none; border-top: 1px solid var(--border-color); margin-bottom: 16px; }
 .content-card p { color: var(--text-secondary); line-height: 1.6; font-size: 0.88rem; }
 
-/* Show the default fallback card ONLY if there is no URL hash target loaded */
 .content-card:first-child { display: block; }
 body:has(:target) #view-default { display: none; }
-
-/* Show specific container cards when their exact ID is matched in the URL target route */
 .content-card:target { display: block !important; }
 
 /* ─── PERMANENT FOOTER BOTTOM APP DOCK ─── */
@@ -145,22 +156,22 @@ body:has(:target) #view-default { display: none; }
 }
 
 .dock-btn {
-    color: var(--text-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 0.68rem; font-weight: 600; flex: 1; height: 100%; transition: var(--transition-smooth);
+    display: flex; align-items: center; justify-content: center; color: var(--text-secondary); flex: 1; height: 100%; transition: var(--transition-smooth);
 }
-.dock-btn i { width: 16px; height: 16px; }
+.dock-btn i { width: 18px; height: 18px; }
 .dock-btn:active { color: var(--accent-gold); }
 
-/* Responsive adjustments for larger monitors */
+/* Monitor Scale Formats Calibration rules */
 @media (min-width: 768px) {
-    .header-tier-one { height: 56px; padding: 0 24px; }
-    .brand h1 { font-size: 1.1rem; }
-    .header-tier-two { padding: 0 20px; gap: 8px; justify-content: flex-start; }
-    .tier-two-tab { flex: initial; padding: 8px 20px; font-size: 0.85rem; }
-    .workspace { padding: 28px; }
+    .header-tier-one { height: 60px; padding: 0 24px; }
+    .brand h1 { font-size: 1.15rem; }
+    .header-tier-two { padding: 0 12px; justify-content: flex-start; gap: 6px; }
+    .tier-two-tab { flex: initial; width: 50px; border-radius: 8px; }
+    .workspace { padding: 24px; }
     .content-card { padding: 32px; }
     .content-card h2 { font-size: 1.35rem; }
-    .dock-btn { font-size: 0.75rem; gap: 5px; }
-    .dock-btn i { width: 18px; height: 18px; }
+    .bottom-dock { padding: 0 20px; justify-content: flex-start; gap: 12px; }
+    .dock-btn { flex: initial; width: 56px; border-radius: 8px; }
 }
 
 @keyframes fadeScale {
