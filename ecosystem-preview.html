@@ -16,15 +16,27 @@
         <!-- ─── SIMPLIFIED SINGLE-TIER APP NAV HEADER ─── -->
         <header class="terminal-top-nav">
             <div class="terminal-left-block">
-                <!-- Hamburger link targets the absolute URL route hash hook anchor to open drawer via CSS -->
+                <!-- Premium Gold SVG Hamburger Menu Button -->
                 <a href="#sideResourcesMenu" id="dashboardToggleBtn" class="hamburger-menu-btn" title="Open Sidebar Dashboard">
-                    <i data-lucide="menu"></i>
+                    <svg xmlns="http://w3.org" viewBox="0 0 24 24" class="gold-svg">
+                        <defs>
+                            <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fff099" />
+                                <stop offset="50%" stop-color="#ffd700" />
+                                <stop offset="100%" stop-color="#b39200" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="url(#gold-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </a>
                 <h1 class="brand-title">BANKBUGS<span>FX</span></h1>
             </div>
             <div class="terminal-right-block">
+                <!-- Premium Gold SVG Logout Button -->
                 <button class="logout-btn" id="logoutBtn" title="Secure Exit">
-                    <i data-lucide="log-out"></i>
+                    <svg xmlns="http://w3.org" viewBox="0 0 24 24" class="gold-svg">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="url(#gold-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
                 </button>
             </div>
         </header>
@@ -32,14 +44,13 @@
         <!-- ─── CORE VIEWPORT CANVAS CONTAINER WRAPPER ─── -->
         <div class="viewport-wrapper">
             
-            <!-- OVERLAY SIDE DRAWER (Fully Scrollable Sidebar Template Container) -->
+            <!-- OVERLAY SIDE DRAWER -->
             <aside id="sideResourcesMenu" class="side-drawer">
                 <div class="drawer-header">
                     <h3><i data-lucide="layout-dashboard"></i> Dashboard Menu</h3>
                     <a href="#" class="drawer-close-trigger"><i data-lucide="x"></i></a>
                 </div>
                 <nav class="drawer-nav">
-                    <!-- Template slots for you to edit internal text contents directly -->
                     <div class="drawer-link-item"><a href="#view-quotes"><i data-lucide="chevron-right"></i> Terminal Home</a></div>
                     <div class="drawer-link-item"><a href="#view-charts"><i data-lucide="chevron-right"></i> Analysis Center</a></div>
                     <div class="drawer-link-item"><a href="#view-trade"><i data-lucide="chevron-right"></i> Execution Panel</a></div>
@@ -55,7 +66,7 @@
                     <!-- 1. EXCLUSIVELY QUOTES LIST PANEL VIEW (#view-quotes) -->
                     <div id="view-quotes" class="terminal-pane">
                         <div class="quotes-list-engine">
-                            <!-- High-Fidelity XAUUSD Gold Contract Parameter Grid Row Row -->
+                            <!-- High-Fidelity XAUUSD Gold Contract Parameter Grid Row -->
                             <div class="quote-row-item">
                                 <div class="pair-meta">
                                     <div class="pair-stats rise">+1420 <span class="percent">0.34%</span></div>
@@ -63,7 +74,6 @@
                                     <span class="spread-indicator">07:15:22 <span class="divider">|</span> 16</span>
                                 </div>
                                 <div class="pair-pricing">
-                                    <!-- Digit matrix formatting layout mimics the numbers architecture from your screenshot -->
                                     <div class="price-box bid rise">2054.<span class="pip">42</span><sup>8</sup></div>
                                     <div class="price-box ask rise">2054.<span class="pip">44</span><sup>4</sup></div>
                                     <div class="low-high-stats">L: 2040.12 &nbsp;&nbsp; H: 2061.85</div>
@@ -107,7 +117,7 @@
                 </div>
             </main>
 
-        </div> <!-- Closes .viewport-wrapper -->
+        </div>
 
         <!-- ─── PINNED HIGH TRANSIT MOBILE NAVIGATION DOCKBAR ─── -->
         <footer class="bottom-dock">
@@ -128,9 +138,9 @@
             </a>
         </footer>
 
-    </div> <!-- Closes .app-shell -->
+    </div>
 
-    <!-- Initialize Lucide Vector Icons and UI Core System Script -->
+    <!-- UI Core System Script -->
     <script src="prev/app.js"></script>
 </body>
 </html>
