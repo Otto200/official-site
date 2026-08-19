@@ -8,7 +8,7 @@
     --text-primary: #f0f4f8;
     --text-secondary: #8a99ad;
     --border-color: rgba(255, 215, 0, 0.1);
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -23,29 +23,42 @@
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
+    overflow: hidden;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Lock the frame globally to stop standard mobile browser page bouncing */
 }
 
-/* ─── HEADER / TOP NAV CONFIGURATION ─── */
-.top-bar {
+/* App Shell Wrapper Grid Lock */
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ─── TWO-TIER TOP NAVIGATION ─── */
+.multi-tier-header {
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
-    padding: 0 12px;
-    height: 64px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 110;
+}
+
+/* Tier One: Brand & Profile Actions */
+.header-tier-one {
+    height: 52px;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 110;
-    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.05);
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .brand-icon {
@@ -55,7 +68,7 @@ body {
 }
 
 .brand h1 {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 800;
     letter-spacing: 0.5px;
 }
@@ -64,75 +77,21 @@ body {
     color: var(--accent-gold);
 }
 
-/* PERMANENT VISIBILITY GRID FOR MOBILE VIEWPORTS */
-.top-nav-links {
-    display: flex;
-    gap: 4px;
-    height: 100%;
-    align-items: center;
-}
-
-.nav-tab {
-    background: transparent;
-    border: 1px solid transparent;
-    color: var(--text-secondary);
-    padding: 6px 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: var(--transition-smooth);
-}
-
-.nav-tab i {
-    width: 14px;
-    height: 14px;
-}
-
-.nav-tab:hover {
-    color: var(--text-primary);
-    background-color: var(--bg-surface-hover);
-}
-
-.nav-tab.active {
-    color: var(--accent-gold);
-    background-color: var(--accent-gold-glow);
-    border-color: var(--border-color);
-}
-
-.utility-btn {
-    border: 1px dashed var(--border-color);
-}
-
-/* Hide plain-text button labels exclusively on micro phone viewports to prevent compression text-wrapping */
-@media (max-width: 580px) {
-    .tab-label { display: none; }
-    .nav-tab { padding: 10px; }
-}
-
 .user-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
-/* Minimize user container width sizing parameters on smaller phone displays */
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-size: 0.75rem;
+    gap: 6px;
+    font-size: 0.8rem;
     background: rgba(255, 255, 255, 0.03);
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-@media (max-width: 400px) {
-    .username-display { display: none; } /* Hide user text label entirely on ultra small displays */
 }
 
 .user-icon {
@@ -146,39 +105,88 @@ body {
     border: none;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: var(--transition-smooth);
-    padding: 6px;
+    padding: 4px;
     display: flex;
     align-items: center;
+    transition: var(--transition-smooth);
 }
 
-.logout-btn:hover {
-    color: #ff4d4d;
+.logout-btn:hover { color: #ff4d4d; }
+
+/* Tier Two: Navigation View Targets Bar */
+.header-tier-two {
+    height: 48px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-/* ─── SYSTEM CONTAINERS MAIN ─── */
-.dashboard-container {
+.tier-two-tab {
+    flex: 1;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: var(--transition-smooth);
+}
+
+.tier-two-tab i {
+    width: 14px;
+    height: 14px;
+}
+
+.tier-two-tab:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-surface-hover);
+}
+
+.tier-two-tab.active {
+    color: var(--accent-gold);
+    background-color: var(--accent-gold-glow);
+    border-color: var(--border-color);
+}
+
+/* Response Compression Optimization Rule for Mobile Screen Bounds */
+@media (max-width: 480px) {
+    .tier-two-tab span { display: none; }
+    .tier-two-tab { padding: 12px 0; }
+    .tier-two-tab i { width: 16px; height: 16px; }
+    .username-display { display: none; }
+}
+
+/* ─── SYSTEM SPACE CONTENT LAYOUT STRUCTURE ─── */
+.viewport-wrapper {
     flex: 1;
     display: flex;
     position: relative;
     overflow: hidden;
-    height: calc(100vh - 124px - var(--safe-bottom)); /* Dynamic calculations preventing screen layout overflow */
 }
 
-/* ─── SIDE RESOURCES OVERLAY SLIDE OUT (MOBILE STACKING LAYER ARCHITECTURE) ─── */
+/* ─── OVERLAY SIDE RESOURCES SLIDING DRAWER ─── */
 .side-drawer {
-    width: 260px;
-    background-color: var(--bg-surface);
-    border-right: 1px solid var(--border-color);
     position: absolute;
-    left: -260px;
     top: 0;
     bottom: 0;
-    z-index: 100;
+    left: -280px;
+    width: 280px;
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-color);
+    z-index: 150;
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
-    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 12px 0 32px rgba(0, 0, 0, 0.6);
 }
 
 .side-drawer.open {
@@ -188,15 +196,28 @@ body {
 .drawer-header {
     padding: 16px;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .drawer-header h3 {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.drawer-close-trigger {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
 }
 
 .drawer-nav {
@@ -213,7 +234,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.01);
 }
@@ -223,29 +244,25 @@ body {
     background: transparent;
     border: none;
     color: var(--text-primary);
-    padding: 12px;
+    padding: 12px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     text-align: left;
     font-size: 0.85rem;
-    transition: var(--transition-smooth);
-}
-
-.accordion-trigger:hover {
-    background-color: var(--bg-surface-hover);
 }
 
 .accordion-trigger span {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .accordion-trigger i {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
+    color: var(--text-secondary);
 }
 
 .chevron {
@@ -265,20 +282,22 @@ body {
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 200px;
+    max-height: 250px;
 }
 
+/* Pure clean non-vector text formatting subnavigation options */
 .accordion-content button {
     background: transparent;
     border: none;
     color: var(--text-secondary);
-    padding: 10px 12px 10px 34px;
+    padding: 12px 14px 12px 38px;
     text-align: left;
     font-size: 0.8rem;
+    font-weight: 500;
     cursor: pointer;
     transition: var(--transition-smooth);
 }
@@ -295,12 +314,12 @@ body {
     padding: 16px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.02) 1px, transparent 0);
-    background-size: 24px 24px;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.015) 1px, transparent 0);
+    background-size: 20px 20px;
 }
 
 .canvas-layer {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -308,127 +327,90 @@ body {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-    animation: fadeScale 0.3s ease-out forwards;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    animation: fadeScale 0.25s ease-out forwards;
 }
 
 .content-card h2 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     color: var(--accent-gold);
 }
 
-.content-card h2 i {
-    width: 18px;
-    height: 18px;
-}
+.content-card h2 i { width: 18px; height: 18px; }
 
 .content-card hr {
     border: none;
     border-top: 1px solid var(--border-color);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .content-card p {
     color: var(--text-secondary);
-    line-height: 1.5;
-    font-size: 0.85rem;
+    line-height: 1.6;
+    font-size: 0.88rem;
 }
 
-/* ─── PERMANENT FOOTER SYSTEM DOCK FOR ALL DEVICES ─── */
+/* ─── PERMANENT FIXED BOTTOM NAV DOCK ─── */
 .bottom-dock {
     background-color: var(--bg-surface);
     border-top: 1px solid var(--border-color);
-    height: calc(60px + var(--safe-bottom));
+    height: calc(56px + var(--safe-bottom));
     padding-bottom: var(--safe-bottom);
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    z-index: 110;
+    justify-content: space-around;
     flex-shrink: 0;
+    z-index: 110;
 }
 
 .dock-btn {
     background: transparent;
     border: none;
     color: var(--text-secondary);
-    padding: 6px 0;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4px;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    transition: var(--transition-smooth);
     flex: 1;
+    height: 100%;
+    transition: var(--transition-smooth);
 }
 
 .dock-btn i {
-    width: 18px;
-    height: 18px;
-}
-
-.dock-btn:hover {
-    color: var(--text-primary);
+    width: 16px;
+    height: 16px;
 }
 
 .dock-btn.active {
     color: var(--accent-gold);
 }
 
-/* ─── 🖥️ RESPONSIVE DESKTOP INLINE ADJUSTMENT BREAKPOINT ─── */
+/* ─── 🖥️ LARGER MONITOR GRAPHICS ADJUSTMENT (TABLETS / DESKTOPS) ─── */
 @media (min-width: 768px) {
-    .top-bar { padding: 0 24px; }
-    .brand h1 { font-size: 1.15rem; gap: 10px; }
-    .brand-icon { width: 24px; height: 24px; }
-    .nav-tab { padding: 8px 16px; font-size: 0.9rem; gap: 8px; }
-    .nav-tab i { width: 16px; height: 16px; }
-    .user-profile { font-size: 0.85rem; padding: 6px 12px; gap: 8px; }
-    .user-icon { width: 14px; height: 14px; }
-
-    /* Transform drawer to static layout element smoothly when viewport dimensions permit space inline */
-    .side-drawer {
-        position: static;
-        width: 280px;
-        height: auto;
-        border-top: none;
-        border-right: 1px solid var(--border-color);
-        border-radius: 0;
-        box-shadow: none;
-        margin-left: -280px;
-    }
-
-    .side-drawer.open {
-        margin-left: 0;
-    }
-
-    .drawer-header { padding: 20px; }
-    .drawer-header h3 { font-size: 0.9rem; }
-    .drawer-nav { padding: 12px; gap: 6px; }
-    .accordion-trigger { font-size: 0.9rem; padding: 10px 12px; }
-    .accordion-trigger i { width: 16px; height: 16px; }
-    .accordion-content button { font-size: 0.85rem; padding: 8px 12px 8px 40px; }
+    .header-tier-one { height: 56px; padding: 0 24px; }
+    .brand h1 { font-size: 1.1rem; }
+    .header-tier-two { padding: 0 20px; gap: 8px; justify-content: flex-start; }
+    .tier-two-tab { flex: initial; padding: 8px 20px; font-size: 0.85rem; }
     
-    .workspace { padding: 24px; }
+    .workspace { padding: 28px; }
     .content-card { padding: 32px; }
-    .content-card h2 { font-size: 1.4rem; gap: 12px; }
-    .content-card p { font-size: 0.95rem; }
+    .content-card h2 { font-size: 1.35rem; }
+    
+    .dock-btn { font-size: 0.75rem; gap: 5px; }
+    .dock-btn i { width: 18px; height: 18px; }
 }
 
 @keyframes fadeScale {
-    from {
-        opacity: 0;
-        transform: scale(0.98) translateY(4px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    from { opacity: 0; transform: scale(0.98) translateY(4px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
