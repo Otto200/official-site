@@ -11,10 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.replace("login.html");
         return;
     }
-
-    if (traderNameElement) {
-        traderNameElement.textContent = activeUser;
-    }
 });
 
 // --- 🚪 SECURE SYSTEM LOGOUT CONTROLLER ---
@@ -23,7 +19,13 @@ document.getElementById("logoutBtn")?.addEventListener("click", () => {
     window.location.replace("login.html");
 });
 
-// Listen for hash variations natively to sync Lucide nodes across template re-renders
+// Refresh dynamic vector iconography layers across navigation hash routing events
 window.addEventListener('hashchange', () => {
     lucide.createIcons();
+    
+    // Automatically smooth close the drawer layout side menu upon panel options navigation
+    const sidebarElement = document.getElementById('sideResourcesMenu');
+    if (sidebarElement && window.location.hash !== '#sideResourcesMenu') {
+        sidebarElement.classList.remove('open');
+    }
 });
