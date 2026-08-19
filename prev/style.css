@@ -258,3 +258,78 @@ body:has(:target) .terminal-pane:first-child { display: none !important; }
         border-radius: 0 !important;
     }
 }
+
+
+
+
+
+
+
+/* ─── PINNED HIGH TRANSIT MOBILE NAVIGATION DOCKBAR (FULLY LOCKED FULL-BLEED) ─── */
+.bottom-dock {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    height: calc(62px + var(--safe-bottom));
+    padding-bottom: var(--safe-bottom);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-shrink: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%; /* Eradicates side-clipping on all desktop or ultra-wide monitoring resolutions */
+    z-index: 120;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dock-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--text-secondary); /* Text labels default state */
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    flex: 1;
+    height: 100%;
+    transition: var(--transition-smooth);
+}
+
+/* Dock Custom Vectors Processing Adjustment */
+.gold-svg-dock {
+    width: 20px;
+    height: 20px;
+    display: block;
+    opacity: 0.65; /* Slightly muted default state to match standard app behaviors */
+    transition: var(--transition-smooth);
+}
+
+/* Interactive focus feedback layout mapping styles */
+.dock-btn:hover .gold-svg-dock,
+.dock-btn:focus .gold-svg-dock,
+.dock-btn:active .gold-svg-dock {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.dock-btn:hover,
+.dock-btn:focus,
+.dock-btn:active {
+    color: var(--text-primary);
+}
+
+/* Complete destruction of desktop max-width constraints to maintain edge-to-edge full bleed */
+@media (min-width: 768px) {
+    .bottom-dock {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+}
