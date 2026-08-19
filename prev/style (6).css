@@ -1,0 +1,369 @@
+/* ─── SYSTEM ARCHITECTURE ROOT DESIGN VARIABLE VARIABLES ─── */
+:root {
+    --bg-main: #0a0e14;
+    --bg-surface: #121824;
+    --bg-surface-hover: #1c2638;
+    --accent-gold: #ffd700;
+    --accent-gold-glow: rgba(255, 215, 0, 0.15);
+    --text-primary: #f0f4f8;
+    --text-secondary: #8a99ad;
+    --border-color: rgba(255, 215, 0, 0.1);
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ─── HEADER / TOP NAV CONFIGURATION ─── */
+.top-bar {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-icon {
+    color: var(--accent-gold);
+    width: 24px;
+    height: 24px;
+}
+
+.brand h1 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand h1 span {
+    color: var(--accent-gold);
+}
+
+.top-nav-links {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.nav-tab i {
+    width: 16px;
+    height: 16px;
+}
+
+.nav-tab:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-surface-hover);
+}
+
+.nav-tab.active {
+    color: var(--accent-gold);
+    background-color: var(--accent-gold-glow);
+    border-color: var(--border-color);
+}
+
+.utility-btn {
+    border: 1px dashed var(--border-color);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--accent-gold);
+}
+
+.logout-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    padding: 4px;
+}
+
+.logout-btn:hover {
+    color: #ff4d4d;
+}
+
+/* ─── SYSTEM CONTAINERS MAIN ─── */
+.dashboard-container {
+    flex: 1;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ─── SIDE RESOURCES EXPANSION DRAWER ─── */
+.side-drawer {
+    width: 280px;
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-color);
+    position: absolute;
+    left: -280px;
+    top: 0;
+    bottom: 0;
+    z-index: 90;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.side-drawer.open {
+    left: 0;
+    position: relative; /* Pushes content canvas context outward smoothly when space allows */
+}
+
+.drawer-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.drawer-header h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.drawer-nav {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ─── ACCORDION STRUCTURAL ARCHITECTURE ─── */
+.accordion-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.accordion-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+}
+
+.accordion-trigger:hover {
+    background-color: var(--bg-surface-hover);
+}
+
+.accordion-trigger span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accordion-trigger i {
+    width: 16px;
+    height: 16px;
+}
+
+.chevron {
+    transition: var(--transition-smooth);
+}
+
+.accordion-item.active .chevron {
+    transform: rotate(180deg);
+    color: var(--accent-gold);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    padding-left: 14px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+}
+
+.accordion-content button {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-left: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+
+.accordion-content button:hover {
+    color: var(--accent-gold);
+    border-left-color: var(--accent-gold);
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* ─── CENTRAL CONTENT WORKSPACE CANVAS ─── */
+.workspace {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.02) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+.canvas-layer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    animation: fadeScale 0.3s ease-out forwards;
+}
+
+.content-card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--accent-gold);
+}
+
+.content-card hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.content-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ─── INTERFACE INTERACTIVE SYSTEM DOCK ─── */
+.bottom-dock {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+}
+
+.dock-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.dock-btn i {
+    width: 16px;
+    height: 16px;
+}
+
+.dock-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-surface-hover);
+}
+
+.dock-btn.active {
+    color: var(--bg-main);
+    background-color: var(--accent-gold);
+}
+
+/* Animations */
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(0.98) translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
