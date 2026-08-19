@@ -1,44 +1,3 @@
-/* ─── 🎨 PRESET PREMIUM SYSTEM TOKENS ─── */
-:root {
-    /* Core Cyber-Palette */
-    --sys-bg-base: #06090e;         /* Deep slate black for root container background */
-    --sys-bg-surface: #0f141c;      /* High contrast dark background for cards and headers */
-    --sys-bg-element: #161f2d;      /* Lighter background fill for inputs and buttons */
-    --sys-bg-hover: #202b3d;        /* Interactive highlight state color */
-
-    /* Tactical Brand Glow Indicators */
-    --sys-accent-gold: #ffcc00;     /* Laser-etched technical terminal highlight gold */
-    --sys-accent-glow: rgba(255, 204, 0, 0.12); /* Clean glowing border backdrop shadow layer */
-    --sys-signal-green: #00e676;    /* Precision execution/success indicator color */
-    --sys-signal-red: #ff3d00;      /* Liquidity breach/danger/logout signal color */
-
-    /* Typography Hierarchy Specs */
-    --sys-txt-primary: #f1f5f9;     /* Ultra crisp contrast text for headers and focus data */
-    --sys-txt-muted: #64748b;       /* De-emphasized slate metadata for background details */
-    --sys-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-
-    /* High-Definition Responsive Layout Dimensions */
-    --sys-border: 1px solid rgba(255, 204, 0, 0.08); /* Clean hair-line structural separating lines */
-    --sys-radius-sm: 4px;
-    --sys-radius-md: 8px;
-    --sys-radius-lg: 14px;
-    
-    /* Strict Mobile App Touch Parameters */
-    --sys-touch-target: 44px;       /* Absolute legal minimum height for fat-finger tapping on phones */
-    --sys-safe-zone: env(safe-area-inset-bottom, 0px);
-}
-
-/* ─── 🕹️ GLOBAL SYSTEM INTERACTIVE RESET CORE ─── */
-.nav-tab, .dock-btn, .accordion-trigger, .accordion-content button {
-    min-height: var(--sys-touch-target); /* Guarantees layout buttons are perfectly touch-optimized */
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-
 /* ─── SYSTEM ARCHITECTURE ROOT DESIGN VARIABLE VARIABLES ─── */
 :root {
     --bg-main: #0a0e14;
@@ -49,7 +8,7 @@
     --text-primary: #f0f4f8;
     --text-secondary: #8a99ad;
     --border-color: rgba(255, 215, 0, 0.1);
-    --transition-smooth: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -58,6 +17,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -68,7 +28,6 @@ body {
     height: 100vh;
 }
 
-/* App Shell Wrapper Grid Lock */
 .app-shell {
     display: flex;
     flex-direction: column;
@@ -86,7 +45,6 @@ body {
     z-index: 110;
 }
 
-/* Tier One: Brand & Profile Actions */
 .header-tier-one {
     height: 52px;
     padding: 0 16px;
@@ -96,357 +54,111 @@ body {
     border-bottom: 1px solid rgba(255, 215, 0, 0.05);
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.brand { display: flex; align-items: center; gap: 8px; }
+.brand-icon { color: var(--accent-gold); width: 20px; height: 20px; }
+.brand h1 { font-size: 1rem; font-weight: 800; letter-spacing: 0.5px; }
+.brand h1 span { color: var(--accent-gold); }
 
-.brand-icon {
-    color: var(--accent-gold);
-    width: 20px;
-    height: 20px;
-}
-
-.brand h1 {
-    font-size: 1rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-}
-
-.brand h1 span {
-    color: var(--accent-gold);
-}
-
-.user-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+.user-actions { display: flex; align-items: center; gap: 10px; }
 .user-profile {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex; align-items: center; gap: 6px; font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.03); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
 }
+.user-icon { width: 12px; height: 12px; color: var(--accent-gold); }
+.logout-btn { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; }
 
-.user-icon {
-    width: 12px;
-    height: 12px;
-    color: var(--accent-gold);
-}
-
-.logout-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    transition: var(--transition-smooth);
-}
-
-.logout-btn:hover { color: #ff4d4d; }
-
-/* Tier Two: Navigation View Targets Bar */
 .header-tier-two {
-    height: 48px;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px;
-    background-color: rgba(0, 0, 0, 0.15);
+    height: 48px; padding: 0 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; background-color: rgba(0, 0, 0, 0.15);
 }
 
 .tier-two-tab {
-    flex: 1;
-    background: transparent;
-    border: 1px solid transparent;
-    color: var(--text-secondary);
-    padding: 8px 0;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.78rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: var(--transition-smooth);
+    flex: 1; color: var(--text-secondary); padding: 8px 0; border-radius: 6px; font-size: 0.78rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; transition: var(--transition-smooth);
 }
+.tier-two-tab i { width: 14px; height: 14px; }
+.tier-two-tab:hover { color: var(--text-primary); background-color: var(--bg-surface-hover); }
 
-.tier-two-tab i {
-    width: 14px;
-    height: 14px;
-}
+/* ─── PURE CSS LAYOUT TOGGLES BASED ON ACTIVE LINKS ─── */
+.tier-two-tab:active { color: var(--accent-gold); background-color: var(--accent-gold-glow); border: 1px solid var(--border-color); }
 
-.tier-two-tab:hover {
-    color: var(--text-primary);
-    background-color: var(--bg-surface-hover);
-}
-
-.tier-two-tab.active {
-    color: var(--accent-gold);
-    background-color: var(--accent-gold-glow);
-    border-color: var(--border-color);
-}
-
-/* Response Compression Optimization Rule for Mobile Screen Bounds */
 @media (max-width: 480px) {
     .tier-two-tab span { display: none; }
-    .tier-two-tab { padding: 12px 0; }
     .tier-two-tab i { width: 16px; height: 16px; }
     .username-display { display: none; }
 }
 
-/* ─── SYSTEM SPACE CONTENT LAYOUT STRUCTURE ─── */
-.viewport-wrapper {
-    flex: 1;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-}
+.viewport-wrapper { flex: 1; display: flex; position: relative; overflow: hidden; }
 
-/* ─── OVERLAY SIDE RESOURCES SLIDING DRAWER ─── */
+/* ─── SIDE SLIDER MECHANICS ─── */
 .side-drawer {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -280px;
-    width: 280px;
-    background-color: var(--bg-surface);
-    border-right: 1px solid var(--border-color);
-    z-index: 150;
-    transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-    box-shadow: 12px 0 32px rgba(0, 0, 0, 0.6);
+    position: absolute; top: 0; bottom: 0; left: -280px; width: 280px;
+    background-color: var(--bg-surface); border-right: 1px solid var(--border-color);
+    z-index: 150; transition: var(--transition-smooth); display: flex; flex-direction: column; box-shadow: 12px 0 32px rgba(0, 0, 0, 0.6);
 }
 
-.side-drawer.open {
-    left: 0;
-}
+/* Open menu when the active URL matching targets this ID container */
+.side-drawer:target, #sideResourcesMenu:target { left: 0; }
 
-.drawer-header {
-    padding: 16px;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+.drawer-header { padding: 16px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+.drawer-header h3 { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+.drawer-close-trigger { color: var(--text-secondary); display: flex; align-items: center; }
 
-.drawer-header h3 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.drawer-nav { padding: 12px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
-.drawer-close-trigger {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-}
+/* ─── ACCORDIONS ─── */
+.accordion-item { display: flex; flex-direction: column; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; background-color: rgba(255, 255, 255, 0.01); }
+.accordion-trigger { width: 100%; background: transparent; border: none; color: var(--text-primary); padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-align: left; font-size: 0.85rem; }
+.accordion-trigger span { display: flex; align-items: center; gap: 10px; }
+.accordion-trigger i { width: 15px; height: 15px; color: var(--text-secondary); }
+.chevron { width: 12px; height: 12px; transition: var(--transition-smooth); }
 
-.drawer-nav {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
+.accordion-item.active .chevron { transform: rotate(180deg); color: var(--accent-gold); }
+.accordion-content { max-height: 0; overflow: hidden; transition: var(--transition-smooth); display: flex; flex-direction: column; background-color: rgba(0, 0, 0, 0.25); }
+.accordion-item.active .accordion-content { max-height: 250px; }
 
-/* ─── ACCORDION STRUCTURAL ARCHITECTURE ─── */
-.accordion-item {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.01);
-}
+.accordion-content a { color: var(--text-secondary); padding: 12px 14px 12px 38px; text-align: left; font-size: 0.8rem; font-weight: 500; transition: var(--transition-smooth); }
+.accordion-content a:active, .accordion-content a:hover { color: var(--accent-gold); background-color: rgba(255, 255, 255, 0.02); }
 
-.accordion-trigger {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: var(--text-primary);
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    text-align: left;
-    font-size: 0.85rem;
-}
+/* ─── MAIN WORKSPACE ARCHITECTURE ─── */
+.workspace { flex: 1; padding: 16px; overflow-y: auto; -webkit-overflow-scrolling: touch; background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.015) 1px, transparent 0); background-size: 20px 20px; }
+.canvas-layer { max-width: 800px; margin: 0 auto; position: relative; }
 
-.accordion-trigger span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.accordion-trigger i {
-    width: 15px;
-    height: 15px;
-    color: var(--text-secondary);
-}
-
-.chevron {
-    width: 12px;
-    height: 12px;
-    transition: var(--transition-smooth);
-}
-
-.accordion-item.active .chevron {
-    transform: rotate(180deg);
-    color: var(--accent-gold);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.25);
-}
-
-.accordion-item.active .accordion-content {
-    max-height: 250px;
-}
-
-/* Pure clean non-vector text formatting subnavigation options */
-.accordion-content button {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    padding: 12px 14px 12px 38px;
-    text-align: left;
-    font-size: 0.8rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-.accordion-content button:active,
-.accordion-content button:hover {
-    color: var(--accent-gold);
-    background-color: rgba(255, 255, 255, 0.02);
-}
-
-/* ─── CENTRAL CONTENT WORKSPACE CANVAS ─── */
-.workspace {
-    flex: 1;
-    padding: 16px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.015) 1px, transparent 0);
-    background-size: 20px 20px;
-}
-
-.canvas-layer {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
+/* Hide all view content cards by default */
 .content-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    animation: fadeScale 0.25s ease-out forwards;
+    display: none; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); animation: fadeScale 0.25s ease-out forwards;
 }
 
-.content-card h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--accent-gold);
-}
-
+.content-card h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: var(--accent-gold); }
 .content-card h2 i { width: 18px; height: 18px; }
+.content-card hr { border: none; border-top: 1px solid var(--border-color); margin-bottom: 16px; }
+.content-card p { color: var(--text-secondary); line-height: 1.6; font-size: 0.88rem; }
 
-.content-card hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin-bottom: 16px;
-}
+/* Show the default fallback card ONLY if there is no URL hash target loaded */
+.content-card:first-child { display: block; }
+body:has(:target) #view-default { display: none; }
 
-.content-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.88rem;
-}
+/* Show specific container cards when their exact ID is matched in the URL target route */
+.content-card:target { display: block !important; }
 
-/* ─── PERMANENT FIXED BOTTOM NAV DOCK ─── */
+/* ─── PERMANENT FOOTER BOTTOM APP DOCK ─── */
 .bottom-dock {
-    background-color: var(--bg-surface);
-    border-top: 1px solid var(--border-color);
-    height: calc(56px + var(--safe-bottom));
-    padding-bottom: var(--safe-bottom);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-shrink: 0;
-    z-index: 110;
+    background-color: var(--bg-surface); border-top: 1px solid var(--border-color); height: calc(56px + var(--safe-bottom)); padding-bottom: var(--safe-bottom); display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; z-index: 110;
 }
 
 .dock-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-size: 0.68rem;
-    font-weight: 600;
-    flex: 1;
-    height: 100%;
-    transition: var(--transition-smooth);
+    color: var(--text-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 0.68rem; font-weight: 600; flex: 1; height: 100%; transition: var(--transition-smooth);
 }
+.dock-btn i { width: 16px; height: 16px; }
+.dock-btn:active { color: var(--accent-gold); }
 
-.dock-btn i {
-    width: 16px;
-    height: 16px;
-}
-
-.dock-btn.active {
-    color: var(--accent-gold);
-}
-
-/* ─── 🖥️ LARGER MONITOR GRAPHICS ADJUSTMENT (TABLETS / DESKTOPS) ─── */
+/* Responsive adjustments for larger monitors */
 @media (min-width: 768px) {
     .header-tier-one { height: 56px; padding: 0 24px; }
     .brand h1 { font-size: 1.1rem; }
     .header-tier-two { padding: 0 20px; gap: 8px; justify-content: flex-start; }
     .tier-two-tab { flex: initial; padding: 8px 20px; font-size: 0.85rem; }
-    
     .workspace { padding: 28px; }
     .content-card { padding: 32px; }
     .content-card h2 { font-size: 1.35rem; }
-    
     .dock-btn { font-size: 0.75rem; gap: 5px; }
     .dock-btn i { width: 18px; height: 18px; }
 }
