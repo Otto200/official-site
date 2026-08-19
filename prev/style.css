@@ -1,3 +1,44 @@
+/* ─── 🎨 PRESET PREMIUM SYSTEM TOKENS ─── */
+:root {
+    /* Core Cyber-Palette */
+    --sys-bg-base: #06090e;         /* Deep slate black for root container background */
+    --sys-bg-surface: #0f141c;      /* High contrast dark background for cards and headers */
+    --sys-bg-element: #161f2d;      /* Lighter background fill for inputs and buttons */
+    --sys-bg-hover: #202b3d;        /* Interactive highlight state color */
+
+    /* Tactical Brand Glow Indicators */
+    --sys-accent-gold: #ffcc00;     /* Laser-etched technical terminal highlight gold */
+    --sys-accent-glow: rgba(255, 204, 0, 0.12); /* Clean glowing border backdrop shadow layer */
+    --sys-signal-green: #00e676;    /* Precision execution/success indicator color */
+    --sys-signal-red: #ff3d00;      /* Liquidity breach/danger/logout signal color */
+
+    /* Typography Hierarchy Specs */
+    --sys-txt-primary: #f1f5f9;     /* Ultra crisp contrast text for headers and focus data */
+    --sys-txt-muted: #64748b;       /* De-emphasized slate metadata for background details */
+    --sys-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+    /* High-Definition Responsive Layout Dimensions */
+    --sys-border: 1px solid rgba(255, 204, 0, 0.08); /* Clean hair-line structural separating lines */
+    --sys-radius-sm: 4px;
+    --sys-radius-md: 8px;
+    --sys-radius-lg: 14px;
+    
+    /* Strict Mobile App Touch Parameters */
+    --sys-touch-target: 44px;       /* Absolute legal minimum height for fat-finger tapping on phones */
+    --sys-safe-zone: env(safe-area-inset-bottom, 0px);
+}
+
+/* ─── 🕹️ GLOBAL SYSTEM INTERACTIVE RESET CORE ─── */
+.nav-tab, .dock-btn, .accordion-trigger, .accordion-content button {
+    min-height: var(--sys-touch-target); /* Guarantees layout buttons are perfectly touch-optimized */
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
 /* ─── SYSTEM ARCHITECTURE ROOT DESIGN VARIABLE VARIABLES ─── */
 :root {
     --bg-main: #0a0e14;
