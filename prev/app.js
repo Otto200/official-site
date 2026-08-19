@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (traderNameElement) {
         traderNameElement.textContent = activeUser;
     }
+
+    // Proactively initialize a default active module workspace view on system boot
+    loadContent('dock-strategy');
 });
 
 // --- 🚪 SECURE EXIT HANDLER ---
@@ -30,14 +33,28 @@ if (logoutBtn) {
 // --- 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS ---
 const sidebar = document.getElementById('sideResourcesMenu');
 const sidebarToggle = document.getElementById('sidebarToggle');
+const mobileMenuDockBtn = document.getElementById('mobileMenuDockBtn');
+const mobileCloseDrawerBtn = document.getElementById('mobileCloseDrawerBtn');
 
+function openDrawerInterface() {
+    if (sidebar) sidebar.classList.add('open');
+}
+
+function closeDrawerInterface() {
+    if (sidebar) sidebar.classList.remove('open');
+}
+
+// Desktop core top-bar systems controller link hook
 if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', () => {
         sidebar.classList.toggle('open');
-        // Handle vector icon toggles contextually if active matching class exists
         sidebarToggle.classList.toggle('active');
     });
 }
+
+// Mobile bottom-app docking toggle link hooks
+mobileMenuDockBtn?.addEventListener('click', openDrawerInterface);
+mobileCloseDrawerBtn?.addEventListener('click', closeDrawerInterface);
 
 // Accordion Functional State Layer Processor
 function toggleSubNav(triggerElement) {
@@ -47,8 +64,13 @@ function toggleSubNav(triggerElement) {
 
 // --- 🕹️ ACTIVE INTERFACE NAVIGATION CORE STATE SWITCHES ---
 function handleDockPress(btnRef, viewId) {
+    // De-highlight active status on all dock items, including mobile nodes
     document.querySelectorAll('.dock-btn').forEach(b => b.classList.remove('active'));
     btnRef.classList.add('active');
+    
+    // Smoothly auto-close the mobile drawer view layer if clicked inside dock action matrix
+    closeDrawerInterface();
+    
     loadContent('dock-' + viewId);
 }
 
@@ -59,9 +81,12 @@ function toggleMainDisplay(panelId) {
     });
     
     // Auto highlight source trigger item if invoked from a direct clickable element reference
-    if(event && event.currentTarget && event.currentTarget.classList.contains('nav-tab')) {
-        event.currentTarget.classList.add('active');
+    if(window.event && window.event.currentTarget && window.event.currentTarget.classList.contains('nav-tab')) {
+        window.event.currentTarget.classList.add('active');
     }
+    
+    // Smoothly auto-close mobile bottom sheet sheets after interactive menu selections
+    closeDrawerInterface();
     
     loadContent(panelId);
 }
