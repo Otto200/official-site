@@ -9,7 +9,7 @@
     --text-secondary: #8a99ad;
     --border-color: rgba(255, 215, 0, 0.1);
     --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    --phone-safe-padding: env(safe-area-inset-bottom, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * {
@@ -26,47 +26,48 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: hidden; /* Lock the frame globally to stop standard mobile browser page bouncing */
 }
 
 /* ─── HEADER / TOP NAV CONFIGURATION ─── */
 .top-bar {
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
-    padding: 0 16px;
+    padding: 0 12px;
     height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 100;
+    z-index: 110;
     flex-shrink: 0;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
 }
 
 .brand-icon {
     color: var(--accent-gold);
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 .brand h1 {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .brand h1 span {
     color: var(--accent-gold);
 }
 
+/* PERMANENT VISIBILITY GRID FOR MOBILE VIEWPORTS */
 .top-nav-links {
-    display: none; /* Collapsed initially for pure native app viewports */
-    gap: 8px;
+    display: flex;
+    gap: 4px;
     height: 100%;
     align-items: center;
 }
@@ -75,20 +76,20 @@ body {
     background: transparent;
     border: 1px solid transparent;
     color: var(--text-secondary);
-    padding: 8px 16px;
+    padding: 6px 8px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     transition: var(--transition-smooth);
 }
 
 .nav-tab i {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 }
 
 .nav-tab:hover {
@@ -106,26 +107,37 @@ body {
     border: 1px dashed var(--border-color);
 }
 
+/* Hide plain-text button labels exclusively on micro phone viewports to prevent compression text-wrapping */
+@media (max-width: 580px) {
+    .tab-label { display: none; }
+    .nav-tab { padding: 10px; }
+}
+
 .user-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
+/* Minimize user container width sizing parameters on smaller phone displays */
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
+    gap: 4px;
+    font-size: 0.75rem;
     background: rgba(255, 255, 255, 0.03);
-    padding: 6px 12px;
+    padding: 4px 8px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+@media (max-width: 400px) {
+    .username-display { display: none; } /* Hide user text label entirely on ultra small displays */
+}
+
 .user-icon {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     color: var(--accent-gold);
 }
 
@@ -135,7 +147,7 @@ body {
     color: var(--text-secondary);
     cursor: pointer;
     transition: var(--transition-smooth);
-    padding: 4px;
+    padding: 6px;
     display: flex;
     align-items: center;
 }
@@ -150,59 +162,45 @@ body {
     display: flex;
     position: relative;
     overflow: hidden;
+    height: calc(100vh - 124px - var(--safe-bottom)); /* Dynamic calculations preventing screen layout overflow */
 }
 
-/* ─── NATIVE SLIDING BOTTOM SHEET SPECIFICATION DRAWER ─── */
+/* ─── SIDE RESOURCES OVERLAY SLIDE OUT (MOBILE STACKING LAYER ARCHITECTURE) ─── */
 .side-drawer {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 75vh;
+    width: 260px;
     background-color: var(--bg-surface);
-    border-top: 2px solid var(--accent-gold);
-    border-radius: 20px 20px 0 0;
-    z-index: 200;
+    border-right: 1px solid var(--border-color);
+    position: absolute;
+    left: -260px;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.5);
 }
 
 .side-drawer.open {
-    bottom: 0;
+    left: 0;
 }
 
 .drawer-header {
-    padding: 16px 20px;
+    padding: 16px;
     border-bottom: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .drawer-header h3 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.mobile-close-handle {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
 .drawer-nav {
-    padding: 16px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -210,46 +208,14 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile Redundant Appended Core Elements Container */
-.mobile-menu-backplane {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.mobile-fallback-row {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    padding: 12px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.mobile-fallback-row i {
-    width: 16px;
-    height: 16px;
-}
-
-.mobile-fallback-row:active {
-    color: var(--accent-gold);
-    background-color: var(--bg-surface-hover);
-}
-
 /* ─── ACCORDION STRUCTURAL ARCHITECTURE ─── */
 .accordion-item {
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.01);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.01);
 }
 
 .accordion-trigger {
@@ -257,13 +223,13 @@ body {
     background: transparent;
     border: none;
     color: var(--text-primary);
-    padding: 12px 14px;
+    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: var(--transition-smooth);
 }
 
@@ -274,15 +240,17 @@ body {
 .accordion-trigger span {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .accordion-trigger i {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 }
 
 .chevron {
+    width: 12px;
+    height: 12px;
     transition: var(--transition-smooth);
 }
 
@@ -297,25 +265,26 @@ body {
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 250px;
+    max-height: 200px;
 }
 
 .accordion-content button {
     background: transparent;
     border: none;
     color: var(--text-secondary);
-    padding: 12px 14px 12px 40px;
+    padding: 10px 12px 10px 34px;
     text-align: left;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: var(--transition-smooth);
 }
 
-.accordion-content button:active {
+.accordion-content button:active,
+.accordion-content button:hover {
     color: var(--accent-gold);
     background-color: rgba(255, 255, 255, 0.02);
 }
@@ -339,48 +308,48 @@ body {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     animation: fadeScale 0.3s ease-out forwards;
 }
 
 .content-card h2 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 600;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: var(--accent-gold);
 }
 
 .content-card h2 i {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .content-card hr {
     border: none;
     border-top: 1px solid var(--border-color);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .content-card p {
     color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.9rem;
+    line-height: 1.5;
+    font-size: 0.85rem;
 }
 
-/* ─── INTERFACE INTERACTIVE SYSTEM DOCK ─── */
+/* ─── PERMANENT FOOTER SYSTEM DOCK FOR ALL DEVICES ─── */
 .bottom-dock {
     background-color: var(--bg-surface);
     border-top: 1px solid var(--border-color);
-    height: calc(60px + var(--phone-safe-padding));
-    padding-bottom: var(--phone-safe-padding);
+    height: calc(60px + var(--safe-bottom));
+    padding-bottom: var(--safe-bottom);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 100;
+    z-index: 110;
     flex-shrink: 0;
 }
 
@@ -395,7 +364,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
     transition: var(--transition-smooth);
     flex: 1;
@@ -414,21 +383,17 @@ body {
     color: var(--accent-gold);
 }
 
-/* ─── 🖥️ RESPONSIVE DESKTOP DUAL COLUMN BREAKPOINT ADJUSTMENT ─── */
+/* ─── 🖥️ RESPONSIVE DESKTOP INLINE ADJUSTMENT BREAKPOINT ─── */
 @media (min-width: 768px) {
-    .top-bar {
-        padding: 0 24px;
-    }
+    .top-bar { padding: 0 24px; }
+    .brand h1 { font-size: 1.15rem; gap: 10px; }
+    .brand-icon { width: 24px; height: 24px; }
+    .nav-tab { padding: 8px 16px; font-size: 0.9rem; gap: 8px; }
+    .nav-tab i { width: 16px; height: 16px; }
+    .user-profile { font-size: 0.85rem; padding: 6px 12px; gap: 8px; }
+    .user-icon { width: 14px; height: 14px; }
 
-    .brand h1 {
-        font-size: 1.25rem;
-    }
-
-    .top-nav-links {
-        display: flex;
-    }
-
-    /* Convert bottom drawer back into standard structural sidebar column */
+    /* Transform drawer to static layout element smoothly when viewport dimensions permit space inline */
     .side-drawer {
         position: static;
         width: 280px;
@@ -444,39 +409,19 @@ body {
         margin-left: 0;
     }
 
-    .drawer-header {
-        padding: 20px;
-    }
-
-    .drawer-nav {
-        padding: 12px;
-    }
-
-    /* Suppress unnecessary mobile fallback wrappers */
-    .mobile-close-handle,
-    .mobile-menu-backplane,
-    .bottom-dock {
-        display: none !important;
-    }
-
-    .workspace {
-        padding: 24px;
-    }
-
-    .content-card {
-        padding: 32px;
-    }
-
-    .content-card h2 {
-        font-size: 1.4rem;
-    }
-
-    .content-card p {
-        font-size: 0.95rem;
-    }
+    .drawer-header { padding: 20px; }
+    .drawer-header h3 { font-size: 0.9rem; }
+    .drawer-nav { padding: 12px; gap: 6px; }
+    .accordion-trigger { font-size: 0.9rem; padding: 10px 12px; }
+    .accordion-trigger i { width: 16px; height: 16px; }
+    .accordion-content button { font-size: 0.85rem; padding: 8px 12px 8px 40px; }
+    
+    .workspace { padding: 24px; }
+    .content-card { padding: 32px; }
+    .content-card h2 { font-size: 1.4rem; gap: 12px; }
+    .content-card p { font-size: 0.95rem; }
 }
 
-/* Animations */
 @keyframes fadeScale {
     from {
         opacity: 0;
