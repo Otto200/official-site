@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BANKBUGS|FX App Terminal</title>
-    <!-- Lucide Icons for premium vector iconography -->
+    <!-- Lucide Icons Vector Set CDN -->
     <script src="https://unpkg.com"></script>
     <link rel="stylesheet" href="prev/style.css">
 </head>
 <body>
 
-    <!-- APP SHELL CONTAINER -->
+    <!-- MAIN APP SHELL FRAMEWAY -->
     <div class="app-shell">
         
-        <!-- ─── TWO-TIER TOP NAVIGATION ─── -->
+        <!-- ─── TWO-TIER TOP NAV (FIXED) ─── -->
         <header class="multi-tier-header">
-            
             <div class="header-tier-one">
                 <div class="brand">
                     <i data-lucide="trending-up" class="brand-icon"></i>
@@ -24,7 +23,7 @@
                 <div class="user-actions">
                     <div class="user-profile">
                         <i data-lucide="user" class="user-icon"></i>
-                        <span class="username-display">Loading...</span>
+                        <span class="username-display">Loading Session...</span>
                     </div>
                     <button class="logout-btn" id="logoutBtn" title="Secure Log Out">
                         <i data-lucide="log-out"></i>
@@ -32,33 +31,31 @@
                 </div>
             </div>
             
-            <!-- Tier Two: Primary Workspace Views -->
             <div class="header-tier-two">
-                <button id="dashboardToggleBtn" class="tier-two-tab">
+                <!-- Anchor tags update the URL hash directly to toggle views via CSS -->
+                <a href="#sideResourcesMenu" id="dashboardToggleBtn" class="tier-two-tab">
                     <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
-                </button>
-                <button class="tier-two-tab active" onclick="toggleMainDisplay('top-sessions')">
+                </a>
+                <a href="#view-sessions" class="tier-two-tab">
                     <i data-lucide="clock"></i> <span>Sessions</span>
-                </button>
-                <button class="tier-two-tab" onclick="toggleMainDisplay('top-checklist')">
+                </a>
+                <a href="#view-checklist" class="tier-two-tab">
                     <i data-lucide="check-square"></i> <span>Checklist</span>
-                </button>
-                <button class="tier-two-tab" onclick="toggleMainDisplay('top-tools')">
+                </a>
+                <a href="#view-tools" class="tier-two-tab">
                     <i data-lucide="wrench"></i> <span>Tools</span>
-                </button>
+                </a>
             </div>
         </header>
 
-        <!-- ─── MAIN VIEWPORT LAYER WRAPPER ─── -->
+        <!-- ─── CENTRAL WORKSPACE ELEMENT ─── -->
         <div class="viewport-wrapper">
             
-            <!-- OVERLAY SIDE DRAWER (Hidden by default, slides over content) -->
+            <!-- OVERLAY SIDE DRAWER (CSS Targets this ID to slide open) -->
             <aside id="sideResourcesMenu" class="side-drawer">
                 <div class="drawer-header">
-                    <h3><i data-lucide="database"></i> System Navigation Node</h3>
-                    <button id="closeDrawerBtn" class="drawer-close-trigger">
-                        <i data-lucide="x"></i>
-                    </button>
+                    <h3><i data-lucide="database"></i> Resource Node</h3>
+                    <a href="#" class="drawer-close-trigger"><i data-lucide="x"></i></a>
                 </div>
                 
                 <nav class="drawer-nav">
@@ -69,9 +66,9 @@
                             <i data-lucide="chevron-down" class="chevron"></i>
                         </button>
                         <div class="accordion-content">
-                            <button onclick="loadContent('side-nav1-sub1')">Orderflow Dynamics</button>
-                            <button onclick="loadContent('side-nav1-sub2')">Liquidity Cycles</button>
-                            <button onclick="loadContent('side-nav1-sub3')">Premium/Discount</button>
+                            <a href="#view-orderflow">Orderflow Dynamics</a>
+                            <a href="#view-liquidity">Liquidity Cycles</a>
+                            <a href="#view-premium">Premium/Discount</a>
                         </div>
                     </div>
 
@@ -82,9 +79,9 @@
                             <i data-lucide="chevron-down" class="chevron"></i>
                         </button>
                         <div class="accordion-content">
-                            <button onclick="loadContent('side-nav2-sub1')">Mitigation Vectors</button>
-                            <button onclick="loadContent('side-nav2-sub2')">Fair Value Gaps</button>
-                            <button onclick="loadContent('side-nav2-sub3')">Order Blocks</button>
+                            <a href="#view-mitigation">Mitigation Vectors</a>
+                            <a href="#view-fvg">Fair Value Gaps</a>
+                            <a href="#view-ob">Order Blocks</a>
                         </div>
                     </div>
 
@@ -95,9 +92,9 @@
                             <i data-lucide="chevron-down" class="chevron"></i>
                         </button>
                         <div class="accordion-content">
-                            <button onclick="loadContent('side-nav3-sub1')">Session POC Maps</button>
-                            <button onclick="loadContent('side-nav3-sub2')">Value Area Highs</button>
-                            <button onclick="loadContent('side-nav3-sub3')">Volume Clusters</button>
+                            <a href="#view-poc">Session POC Maps</a>
+                            <a href="#view-vah">Value Area Highs</a>
+                            <a href="#view-clusters">Volume Clusters</a>
                         </div>
                     </div>
 
@@ -108,9 +105,9 @@
                             <i data-lucide="chevron-down" class="chevron"></i>
                         </button>
                         <div class="accordion-content">
-                            <button onclick="loadContent('side-nav4-sub1')">Liquidity Engine v4.1</button>
-                            <button onclick="loadContent('side-nav4-sub2')">Execution API Logs</button>
-                            <button onclick="loadContent('side-nav4-sub3')">Webhook Routings</button>
+                            <a href="#view-engine">Liquidity Engine v4.1</a>
+                            <a href="#view-api">Execution API Logs</a>
+                            <a href="#view-webhooks">Webhook Routings</a>
                         </div>
                     </div>
 
@@ -121,50 +118,137 @@
                             <i data-lucide="chevron-down" class="chevron"></i>
                         </button>
                         <div class="accordion-content">
-                            <button onclick="loadContent('side-nav5-sub1')">Video Modules</button>
-                            <button onclick="loadContent('side-nav5-sub2')">Execution Blueprint</button>
-                            <button onclick="loadContent('side-nav5-sub3')">Case Studies Catalog</button>
+                            <a href="#view-videos">Video Modules</a>
+                            <a href="#view-blueprint">Execution Blueprint</a>
+                            <a href="#view-cases">Case Studies Catalog</a>
                         </div>
                     </div>
                 </nav>
             </aside>
 
-            <!-- CANVAS WORKSPACE VIEWPORT -->
+            <!-- SCROLLABLE CENTER WORKSPACE -->
             <main class="workspace">
-                <div id="workspace-dynamic-canvas" class="canvas-layer">
-                    <!-- Dynamic database markup gets injected inside this frame -->
+                <div class="canvas-layer">
+
+                    <!-- Default Initial State -->
+                    <div id="view-default" class="content-card">
+                        <h2><i data-lucide="shield-check"></i> System Initialized</h2>
+                        <hr>
+                        <p>Select a structural framework module from the top navigation panel or open the resources node drawer to securely stream core data streams into this terminal view.</p>
+                    </div>
+
+                    <!-- Tier Two Views Content Blocks -->
+                    <div id="view-sessions" class="content-card">
+                        <h2><i data-lucide="clock"></i> Trading Session Frameworks</h2>
+                        <hr><p>Real-time deployment tracker monitor logging London liquidity injections, New York volume sweep operations, and Asian consolidation pricing bounds.</p>
+                    </div>
+                    <div id="view-checklist" class="content-card">
+                        <h2><i data-lucide="check-square"></i> Algorithmic Confirmation Checklist</h2>
+                        <hr><p>Verify systematic confirmation guidelines: 1. Higher Timeframe Bias Sync, 2. Structural Liquidity Sweep, 3. Market Structure Shift via Displacement confirmation vectors.</p>
+                    </div>
+                    <div id="view-tools" class="content-card">
+                        <h2><i data-lucide="wrench"></i> System Developer Toolkits Overlay</h2>
+                        <hr><p>Access backend configuration rules, webhook dispatch networks, precision charting margin matrices, and terminal latency debug settings layers.</p>
+                    </div>
+
+                    <!-- Side Resource Slider Content View Templates -->
+                    <div id="view-orderflow" class="content-card"><h2><i data-lucide="book-open"></i> Institutional Orderflow Dynamics</h2><hr><p>Add your complete custom training curriculum descriptions here.</p></div>
+                    <div id="view-liquidity" class="content-card"><h2><i data-lucide="database"></i> Liquidity Clearing Frameworks</h2><hr><p>Add your structural map details and guidelines here.</p></div>
+                    <div id="view-premium" class="content-card"><h2><i data-lucide="trending-up"></i> Premium vs Discount Valuations</h2><hr><p>Add premium discount sizing parameters here.</p></div>
+                    <div id="view-mitigation" class="content-card"><h2><i data-lucide="activity"></i> Mitigation Block Vectors</h2><hr><p>Add your structural tracking logs text data blocks here.</p></div>
+                    <div id="view-fvg" class="content-card"><h2><i data-lucide="layers"></i> Fair Value Gap Anomalies</h2><hr><p>Add volume gap documentation metrics entries here.</p></div>
+                    <div id="view-ob" class="content-card"><h2><i data-lucide="box"></i> Institutional Order Blocks</h2><hr><p>Add order block entry criteria text layers here.</p></div>
+                    <div id="view-poc" class="content-card"><h2><i data-lucide="bar-chart-2"></i> Session POC Matrix Maps</h2><hr><p>Add Point of Control tracking parameters here.</p></div>
+                    <div id="view-vah" class="content-card"><h2><i data-lucide="arrow-up-right"></i> Value Area High Horizons</h2><hr><p>Add distribution extremes indicators entries here.</p></div>
+                              <div id="view-clusters" class="content-card">
+                        <h2><i data-lucide="pie-chart"></i> Concentrated Volume Clusters</h2>
+                        <hr>
+                        <p>Add delta profile structural details here.</p>
+                    </div>
+                    <div id="view-engine" class="content-card">
+                        <h2><i data-lucide="cpu"></i> Liquidity Engine v4.1 Release Logs</h2>
+                        <hr>
+                        <p>Add technical patch configuration strings here.</p>
+                    </div>
+                    <div id="view-api" class="content-card">
+                        <h2><i data-lucide="terminal"></i> Transaction API Node Syncs</h2>
+                        <hr>
+                        <p>Add diagnostic code connection arrays here.</p>
+                    </div>
+                    <div id="view-webhooks" class="content-card">
+                        <h2><i data-lucide="git-branch"></i> Automated Webhook Protocols</h2>
+                        <hr>
+                        <p>Add signal tracking web rules here.</p>
+                    </div>
+                    <div id="view-videos" class="content-card">
+                        <h2><i data-lucide="video"></i> Stream Masterclass Modules</h2>
+                        <hr>
+                        <p>Add embedded video framework layout strings here.</p>
+                    </div>
+                    <div id="view-blueprint" class="content-card">
+                        <h2><i data-lucide="map"></i> Core Execution Blueprints</h2>
+                        <hr>
+                        <p>Add strategic logic text parameters here.</p>
+                    </div>
+                    <div id="view-cases" class="content-card">
+                        <h2><i data-lucide="archive"></i> Historic Trade Studies Archive</h2>
+                        <hr>
+                        <p>Add backtest evaluation charts records here.</p>
+                    </div>
+
+                    <div id="view-strategy" class="content-card">
+                        <h2><i data-lucide="shield-alert"></i> Active Strategy Deployment Matrix</h2>
+                        <hr>
+                        <p>Streaming system analytics logs mapping active parameter limits, active risk weights allocations, and live automated safety breaker nodes across your FX environment infrastructure.</p>
+                    </div>
+                    <div id="view-analysis" class="content-card">
+                        <h2><i data-lucide="pie-chart"></i> Macro Technical Market Analysis</h2>
+                        <hr>
+                        <p>Automated bias calculator evaluation engine streaming daily premium pricing zones, technical currency index strength trends, and institutional order distribution maps.</p>
+                    </div>
+                    <div id="view-risk" class="content-card">
+                        <h2><i data-lucide="calculator"></i> Precision Risk Allocation Control Terminal</h2>
+                        <hr>
+                        <p>System risk calculations dashboard interface instance. Process automated lot sizing equations instantly against operational drawdown thresholds.</p>
+                    </div>
+                    <div id="view-execution" class="content-card">
+                        <h2><i data-lucide="zap"></i> Low Latency Orders Execution Portal</h2>
+                        <hr>
+                        <p>Direct pipeline access point connecting straight into institutional transaction networks. Order triggers configured for single-tap execution processing loops.</p>
+                    </div>
+                    <div id="view-review" class="content-card">
+                        <h2><i data-lucide="file-text"></i> System Performance Journal Review</h2>
+                        <hr>
+                        <p>Consolidated trading activity database grid summary tracking statistical performance results, win-rate variables parameters, and overall profit-curve growth records.</p>
+                    </div>
+
                 </div>
             </main>
 
-        </div>
+        </div> <!-- Closes .viewport-wrapper -->
 
-        <!-- ─── PERMANENT FIXED BOTTOM NAVIGATION DOCK ─── -->
         <footer class="bottom-dock">
-            <button class="dock-btn active" onclick="handleDockPress(this, 'bottom-strategy')">
-                <i data-lucide="shield-alert"></i>
-                <span>Strategy</span>
-            </button>
-            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-analysis')">
-                <i data-lucide="pie-chart"></i>
-                <span>Analysis</span>
-            </button>
-            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-risk')">
-                <i data-lucide="calculator"></i>
-                <span>Risk Control</span>
-            </button>
-            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-execution')">
-                <i data-lucide="zap"></i>
-                <span>Execution</span>
-            </button>
-            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-review')">
-                <i data-lucide="file-text"></i>
-                <span>Review</span>
-            </button>
+            <a href="#view-strategy" class="dock-btn">
+                <i data-lucide="shield-alert"></i><span>Strategy</span>
+            </a>
+            <a href="#view-analysis" class="dock-btn">
+                <i data-lucide="pie-chart"></i><span>Analysis</span>
+            </a>
+            <a href="#view-risk" class="dock-btn">
+                <i data-lucide="calculator"></i><span>Risk Control</span>
+            </a>
+            <a href="#view-execution" class="dock-btn">
+                <i data-lucide="zap"></i><span>Execution</span>
+            </a>
+            <a href="#view-review" class="dock-btn">
+                <i data-lucide="file-text"></i><span>Review</span>
+            </a>
         </footer>
 
-    </div>
+    </div> <!-- Closes .app-shell -->
 
-    <!-- UI Core Automation Engine Core System Script -->
+    <!-- Initialize Lucide Vector Icons and UI Core System Script -->
     <script src="prev/app.js"></script>
 </body>
 </html>
+
