@@ -132,11 +132,37 @@ body {
     }
 }
 
+/* ─── CENTRAL MIDDLE-CONTAINER SANDWICH FRAME ─── */
+.dashboard-container {
+    flex: 1;
+    display: flex;
+    position: fixed;
+    /* Lock structural canvas edges right at your navigation panel borders */
+    top: 56px; 
+    bottom: calc(62px + var(--safe-bottom)); 
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - 118px - var(--safe-bottom)); /* Absolute dimensional size clamp lock */
+    overflow: hidden; /* Stops child modules from bleeding past borders */
+    background-color: var(--bg-app-base);
+}
+
 /* ─── OVERLAY SIDE RESOURCES SLIDING DRAWER ─── */
 .side-drawer {
-    position: absolute; top: 0; bottom: 0; left: -260px; width: 260px;
-    background-color: var(--bg-surface); border-right: 1px solid var(--border-color);
-    z-index: 150; transition: var(--transition-smooth); display: flex; flex-direction: column; box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15);
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: -260px; 
+    width: 260px;
+    height: 100%; /* Sizing is bounded 100% inside the middle container sandbox */
+    background-color: var(--bg-surface); 
+    border-right: 1px solid var(--border-color);
+    z-index: 150; 
+    transition: var(--transition-smooth); 
+    display: flex; 
+    flex-direction: column; 
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15);
 }
 
 .side-drawer:target, #sideResourcesMenu:target { left: 0; }
@@ -152,7 +178,13 @@ body {
 .drawer-link-item a:active { background-color: var(--accent-glow); color: var(--bg-header); }
 
 /* ─── TERMINAL INNER CORE CANVAS VIEWPORT LAYER ─── */
-.workspace { flex: 1; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; background-color: var(--bg-app-base); }
+.workspace { 
+    flex: 1; 
+    height: 100%; 
+    overflow-y: auto; /* Independent inner-scrolling so text blocks never cover navigation bars */
+    -webkit-overflow-scrolling: touch; 
+    background-color: var(--bg-app-base); 
+}
 .canvas-layer { width: 100%; height: 100%; position: relative; }
 
 .terminal-pane { display: none; width: 100%; height: 100%; padding: 0; animation: paneSwap 0.18s ease-out forwards; }
