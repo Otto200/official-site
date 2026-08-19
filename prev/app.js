@@ -23,8 +23,7 @@ document.getElementById("logoutBtn")?.addEventListener("click", () => {
     window.location.replace("login.html");
 });
 
-// Accordion Collapsible Structural Controller
-function toggleSubNav(triggerElement) {
-    const parent = triggerElement.parentElement;
-    parent.classList.toggle('active');
-}
+// Listen for hash variations natively to sync Lucide nodes across template re-renders
+window.addEventListener('hashchange', () => {
+    lucide.createIcons();
+});
