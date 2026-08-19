@@ -3,236 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BANKBUGS|FX MT5 Terminal</title>
+    <title>BANKBUGS|FX App Terminal</title>
     <!-- Lucide Icons Vector Set CDN -->
     <script src="https://unpkg.com"></script>
     <link rel="stylesheet" href="prev/style.css">
 </head>
 <body>
 
-    <!-- MT5 TERMINAL APP CONTAINER -->
+    <!-- MT5 TERMINAL APP SHELL CONTAINER -->
     <div class="app-shell">
         
-        <!-- ─── MT5 TOP STATUS TERMINAL BAR ─── -->
+        <!-- ─── SIMPLIFIED SINGLE-TIER APP NAV HEADER ─── -->
         <header class="terminal-top-nav">
-            <div class="terminal-brand">
-                <i data-lucide="trending-up" class="brand-glow-icon"></i>
-                <h1>BANKBUGS<span>FX</span></h1>
+            <div class="terminal-left-block">
+                <!-- Hamburger link targets the absolute URL route hash hook anchor to open drawer via CSS -->
+                <a href="#sideResourcesMenu" id="dashboardToggleBtn" class="hamburger-menu-btn" title="Open Sidebar Dashboard">
+                    <i data-lucide="menu"></i>
+                </a>
+                <h1 class="brand-title">BANKBUGS<span>FX</span></h1>
             </div>
-            <!-- Quick-action utility controls modeled after MT5 top pane -->
-            <div class="terminal-quick-actions">
-                <button title="Crosshair"><i data-lucide="crosshair"></i></button>
-                <button title="Indicators"><i data-lucide="f-calculator"></i></button>
-                <div class="user-badge">
-                    <i data-lucide="user"></i>
-                    <span class="username-display">Live Account</span>
-                </div>
+            <div class="terminal-right-block">
                 <button class="logout-btn" id="logoutBtn" title="Secure Exit">
                     <i data-lucide="log-out"></i>
                 </button>
             </div>
         </header>
 
-        <!-- ─── CORE VIEWPORT WRAPPER ─── -->
+        <!-- ─── CORE VIEWPORT CANVAS CONTAINER WRAPPER ─── -->
         <div class="viewport-wrapper">
             
-            <!-- SCROLLABLE CANVAS CONTAINER -->
+            <!-- OVERLAY SIDE DRAWER (Fully Scrollable Sidebar Template Container) -->
+            <aside id="sideResourcesMenu" class="side-drawer">
+                <div class="drawer-header">
+                    <h3><i data-lucide="layout-dashboard"></i> Dashboard Menu</h3>
+                    <a href="#" class="drawer-close-trigger"><i data-lucide="x"></i></a>
+                </div>
+                <nav class="drawer-nav">
+                    <!-- Template slots for you to edit internal text contents directly -->
+                    <div class="drawer-link-item"><a href="#view-quotes"><i data-lucide="chevron-right"></i> Terminal Home</a></div>
+                    <div class="drawer-link-item"><a href="#view-charts"><i data-lucide="chevron-right"></i> Analysis Center</a></div>
+                    <div class="drawer-link-item"><a href="#view-trade"><i data-lucide="chevron-right"></i> Execution Panel</a></div>
+                    <div class="drawer-link-item"><a href="#view-history"><i data-lucide="chevron-right"></i> Performance Sheets</a></div>
+                    <div class="drawer-link-item"><a href="#view-settings"><i data-lucide="chevron-right"></i> System Adjustments</a></div>
+                </nav>
+            </aside>
+
+            <!-- CANVAS SCREEN ELEMENT LAYERS -->
             <main class="workspace">
                 <div class="canvas-layer">
 
-                    <!-- 1. MT5 QUOTES VIEWPORT PANEL (#view-quotes) -->
-                    <div id="view-quotes" class="content-card terminal-pane">
-                        <div class="pane-header">
-                            <h2>Quotes Watchlist</h2>
-                            <span class="market-status open">● Market Open</span>
-                        </div>
-                        <hr>
-                        
-                        <!-- Real-time formatted asset list row matrices -->
+                    <!-- 1. EXCLUSIVELY QUOTES LIST PANEL VIEW (#view-quotes) -->
+                    <div id="view-quotes" class="terminal-pane">
                         <div class="quotes-list-engine">
-                            <!-- EURUSD Asset -->
+                            <!-- High-Fidelity XAUUSD Gold Contract Parameter Grid Row Row -->
                             <div class="quote-row-item">
                                 <div class="pair-meta">
-                                    <span class="ticker-symbol">EURUSD</span>
-                                    <span class="spread-indicator">Spread: 1.2</span>
-                                </div>
-                                <div class="pair-pricing">
-                                    <div class="price-box bid fall">1.08<span>45</span>0</div>
-                                    <div class="price-box ask rise">1.08<span>46</span>2</div>
-                                </div>
-                            </div>
-                            
-                            <!-- GBPUSD Asset -->
-                            <div class="quote-row-item">
-                                <div class="pair-meta">
-                                    <span class="ticker-symbol">GBPUSD</span>
-                                    <span class="spread-indicator">Spread: 1.5</span>
-                                </div>
-                                <div class="pair-pricing">
-                                    <div class="price-box bid rise">1.26<span>12</span>0</div>
-                                    <div class="price-box ask rise">1.26<span>13</span>5</div>
-                                </div>
-                            </div>
-
-                            <!-- USDJPY Asset -->
-                            <div class="quote-row-item">
-                                <div class="pair-meta">
-                                    <span class="ticker-symbol">USDJPY</span>
-                                    <span class="spread-indicator">Spread: 0.8</span>
-                                </div>
-                                <div class="pair-pricing">
-                                    <div class="price-box bid fall">150<span>.42</span>1</div>
-                                    <div class="price-box ask fall">150<span>.42</span>9</div>
-                                </div>
-                            </div>
-
-                            <!-- XAUUSD (Gold) Asset -->
-                            <div class="quote-row-item">
-                                <div class="pair-meta">
+                                    <div class="pair-stats rise">+1420 <span class="percent">0.34%</span></div>
                                     <span class="ticker-symbol">XAUUSD</span>
-                                    <span class="spread-indicator">Spread: 2.1</span>
+                                    <span class="spread-indicator">07:15:22 <span class="divider">|</span> 16</span>
                                 </div>
                                 <div class="pair-pricing">
-                                    <div class="price-box bid rise">2024<span>.52</span></div>
-                                    <div class="price-box ask rise">2024<span>.73</span></div>
+                                    <!-- Digit matrix formatting layout mimics the numbers architecture from your screenshot -->
+                                    <div class="price-box bid rise">2054.<span class="pip">42</span><sup>8</sup></div>
+                                    <div class="price-box ask rise">2054.<span class="pip">44</span><sup>4</sup></div>
+                                    <div class="low-high-stats">L: 2040.12 &nbsp;&nbsp; H: 2061.85</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 2. MT5 CHARTS VISUALIZATION VIEWPORT (#view-charts) -->
-                    <div id="view-charts" class="content-card terminal-pane">
-                        <div class="pane-header">
-                            <h2>EURUSD, H4 Chart Canvas</h2>
-                            <div class="timeframe-badges">
-                                <span class="active">H4</span><span>M15</span><span>D1</span>
-                            </div>
-                        </div>
-                        <hr>
-                        <!-- Chart Grid Mock Layer Frame -->
-                        <div class="chart-canvas-mock">
-                            <div class="grid-backdrop"></div>
-                            <div class="mock-candlestick-stream">
-                                <span class="indicator-line buy">Buy Line: 1.08450</span>
-                                <span class="indicator-line current">Price: 1.08462</span>
-                            </div>
-                            <p class="chart-notice"><i data-lucide="candlestick-chart"></i> Trading Engine Visual Canvas Overlay Template</p>
+                    <!-- 2. CHARTS OVERLAY SCREEN TEMPLATE WINDOW (#view-charts) -->
+                    <div id="view-charts" class="terminal-pane">
+                        <div class="content-card">
+                            <h2><i data-lucide="candlestick-chart"></i> Charts Canvas View</h2>
+                            <hr><p>Custom charts layout shell container window instance initialized successfully.</p>
                         </div>
                     </div>
 
-                    <!-- 3. MT5 TRADE EXECUTION ENGINE VIEWPORT (#view-trade) -->
-                    <div id="view-trade" class="content-card terminal-pane">
-                        <div class="pane-header">
-                            <h2>Trade Terminal Desk</h2>
-                            <span class="account-type live">LIVE TERMINAL</span>
-                        </div>
-                        <hr>
-                        
-                        <!-- Fixed MT5 Balance Sheet Monitor Metrics Card -->
-                        <div class="mt5-balance-matrix-card">
-                            <div class="metric-row"><span>Balance:</span><strong>$10,000.00</strong></div>
-                            <div class="metric-row"><span>Equity:</span><strong>$10,000.00</strong></div>
-                            <div class="metric-row"><span>Free Margin:</span><strong>$10,000.00</strong></div>
-                            <div class="metric-row"><span>Margin Level (%):</span><strong>0.00%</strong></div>
-                        </div>
-
-                        <!-- Direct execution touch parameters mapping -->
-                        <div class="lot-size-adjustment-bar">
-                            <button>-0.1</button><button>-0.01</button>
-                            <input type="text" value="1.00 Lot" disabled>
-                            <button>+0.01</button><button>+0.1</button>
-                        </div>
-
-                        <div class="instant-execution-triggers">
-                            <button class="trade-trigger sell-btn">
-                                <i data-lucide="arrow-down-circle"></i>
-                                <span>SELL BY MARKET</span>
-                            </button>
-                            <button class="trade-trigger buy-btn">
-                                <i data-lucide="arrow-up-circle"></i>
-                                <span>BUY BY MARKET</span>
-                            </button>
+                    <!-- 3. TRADE DESK CONSOLE MATRIX LAYER (#view-trade) -->
+                    <div id="view-trade" class="terminal-pane">
+                        <div class="content-card">
+                            <h2><i data-lucide="activity"></i> Trade Terminal Desk</h2>
+                            <hr><p>Position entries processing console interface layout template block setup complete.</p>
                         </div>
                     </div>
 
-                    <!-- 4. MT5 CLOSED ORDERS JOURNAL HISTORY PANEL (#view-history) -->
-                    <div id="view-history" class="content-card terminal-pane">
-                        <div class="pane-header">
-                            <h2>Orders History Ledger</h2>
-                            <div class="history-period-selector">
-                                <span class="active">Today</span><span>Week</span><span>Month</span>
-                            </div>
-                        </div>
-                        <hr>
-                        
-                        <!-- Closed execution data items arrays -->
-                        <div class="ledger-history-rows">
-                            <!-- History Entry 1 -->
-                            <div class="history-ledger-item profit">
-                                <div class="ledger-left">
-                                    <span class="ledger-ticker">EURUSD <span class="badge buy">buy 1.00</span></span>
-                                    <span class="ledger-timestamp">2026.08.19 14:22:05</span>
-                                </div>
-                                <div class="ledger-right">
-                                    <span class="ledger-pnl">+$245.00</span>
-                                    <span class="ledger-execution-prices">1.08210 → 1.08455</span>
-                                </div>
-                            </div>
-
-                                                     <!-- History Entry 2 -->
-                            <div class="history-ledger-item loss">
-                                <div class="ledger-left">
-                                    <span class="ledger-ticker">GBPUSD <span class="badge sell">sell 0.50</span></span>
-                                    <span class="ledger-timestamp">2026.08.19 16:05:41</span>
-                                </div>
-                                <div class="ledger-right">
-                                    <span class="ledger-pnl">-$112.50</span>
-                                    <span class="ledger-execution-prices">1.26350 → 1.26462</span>
-                                </div>
-                            </div>
-
-                            <!-- History Entry 3 -->
-                            <div class="history-ledger-item profit">
-                                <div class="ledger-left">
-                                    <span class="ledger-ticker">XAUUSD <span class="badge buy">buy 0.10</span></span>
-                                    <span class="ledger-timestamp">2026.08.20 09:12:14</span>
-                                </div>
-                                <div class="ledger-right">
-                                    <span class="ledger-pnl">+$380.00</span>
-                                    <span class="ledger-execution-prices">2016.20 → 2020.00</span>
-                                </div>
-                            </div>
+                    <!-- 4. ACCOUNT PERFORMANCE ORDERS HISTORY FILE CARD (#view-history) -->
+                    <div id="view-history" class="terminal-pane">
+                        <div class="content-card">
+                            <h2><i data-lucide="history"></i> Closed Logs Archive History</h2>
+                            <hr><p>Statistical performance logs accounting entry ledger tracking logs file layout view.</p>
                         </div>
                     </div>
 
-                    <!-- 5. MT5 SYSTEM TERMINAL SETTINGS ARRAYS (#view-settings) -->
-                    <div id="view-settings" class="content-card terminal-pane">
-                        <div class="pane-header">
-                            <h2>Terminal Settings</h2>
-                        </div>
-                        <hr>
-                        <div class="settings-list-group">
-                            <div class="setting-row-item">
-                                <div class="setting-meta">
-                                    <i data-lucide="shield"></i>
-                                    <span>Ecosystem Security Protocols</span>
-                                </div>
-                                <i data-lucide="chevron-right" class="arrow"></i>
-                            </div>
-                            <div class="setting-row-item">
-                                <div class="setting-meta">
-                                    <i data-lucide="bell"></i>
-                                    <span>Webhook Push Signal Routing</span>
-                                </div>
-                                <i data-lucide="chevron-right" class="arrow"></i>
-                            </div>
-                            <div class="setting-row-item">
-                                <div class="setting-meta">
-                                    <i data-lucide="sliders"></i>
-                                    <span>Indicators Offset Scaling Parameters</span>
-                                </div>
-                                <i data-lucide="chevron-right" class="arrow"></i>
-                            </div>
+                    <!-- 5. TERMINAL RE-ADJUSTMENTS NODE VIEWPORT (#view-settings) -->
+                    <div id="view-settings" class="terminal-pane">
+                        <div class="content-card">
+                            <h2><i data-lucide="settings"></i> Configurations Center</h2>
+                            <hr><p>Adjust system webhook routings, latency trackers filters, and layout theme scaling settings metrics.</p>
                         </div>
                     </div>
 
@@ -244,24 +112,19 @@
         <!-- ─── PINNED HIGH TRANSIT MOBILE NAVIGATION DOCKBAR ─── -->
         <footer class="bottom-dock">
             <a href="#view-quotes" class="dock-btn" title="Quotes Watchlist">
-                <i data-lucide="arrow-left-right"></i>
-                <span>Quotes</span>
+                <i data-lucide="arrow-left-right"></i><span>Quotes</span>
             </a>
             <a href="#view-charts" class="dock-btn" title="Charts Canvas">
-                <i data-lucide="candlestick-chart"></i>
-                <span>Charts</span>
+                <i data-lucide="candlestick-chart"></i><span>Charts</span>
             </a>
             <a href="#view-trade" class="dock-btn" title="Trade Desk">
-                <i data-lucide="activity"></i>
-                <span>Trade</span>
+                <i data-lucide="activity"></i><span>Trade</span>
             </a>
             <a href="#view-history" class="dock-btn" title="Orders History">
-                <i data-lucide="history"></i>
-                <span>History</span>
+                <i data-lucide="history"></i><span>History</span>
             </a>
             <a href="#view-settings" class="dock-btn" title="Terminal Settings">
-                <i data-lucide="settings"></i>
-                <span>Settings</span>
+                <i data-lucide="settings"></i><span>Settings</span>
             </a>
         </footer>
 
