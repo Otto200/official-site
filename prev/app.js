@@ -99,92 +99,67 @@ function toggleMainDisplay(panelId) {
     loadContent(panelId);
 }
 
-// --- 📦 CORE DATABASE REGISTRY MATRIX (5 Nav / 3 Sub-nav Template Matrix Attached) ---
-const CENTRAL_DATA_REGISTRY = {
-    // Tier Two Headers Context Mapping Modules
+// --- 📦 CORE CENTRAL ASYNCHRONOUS DATABASE LAYER ---
+const FX_SYSTEM_DATABASE = {
+    // --- 🎮 TIER 2 HEADER NAVIGATION TOP MODULE LABELS ---
     "top-sessions": {
         icon: "clock",
+        category: "Market Execution Engine",
         title: "Trading Session Frameworks",
-        body: "Real-time deployment tracker monitor logging London liquidity injections, New York volume sweep operations, and Asian consolidation pricing bounds."
+        status: "Active Tracking",
+        payload: "Streaming live time-block algorithms. London open liquidity injection cycles and New York structural displacement parameters are currently logging in high precision."
     },
     "top-checklist": {
         icon: "check-square",
-        title: "Algorithmic Confirmation Checklist",
-        body: "Verify systematic confirmation guidelines: 1. Higher Timeframe Bias Sync, 2. Structural Liquidity Sweep, 3. Market Structure Shift via Displacement confirmation vectors."
+        category: "System Confluence Matrix",
+        title: "Operational Trade Validation Check",
+        status: "Sync Ready",
+        payload: "System protocols require structural confirmations before lot allocation: 1. Higher Timeframe Liquidity Clear, 2. Lower Timeframe Displacement, 3. Optimal Premium/Discount Trade Entry Alignment."
     },
     "top-tools": {
         icon: "wrench",
-        title: "System Developer Toolkits Overlay",
-        body: "Access backend configuration rules, webhook dispatch networks, precision charting margin matrices, and terminal latency debug settings layers."
+        category: "Developer Integrations Engine",
+        title: "Terminal API System Configurations",
+        status: "Secure Link",
+        payload: "Access raw webhook terminal diagnostic logs, webhook routing overrides, charting margin scale calculations, and system response latency tracking metrics layers."
     },
 
-    // Side Menu Slider Sub-Navigation Node Templates
-    "side-nav1-sub1": { icon: "book-open", title: "Orderflow Dynamics Analysis", body: "Template Workspace content block initialization path: Side Menu Nav Item 1 - Sub Navigation Item 1 content card successfully loaded." },
-    "side-nav1-sub2": { icon: "book-open", title: "Liquidity Cycles Module", body: "Template Workspace content block initialization path: Side Menu Nav Item 1 - Sub Navigation Item 2 content card successfully loaded." },
-    "side-nav1-sub3": { icon: "book-open", title: "Premium vs Discount Matrices", body: "Template Workspace content block initialization path: Side Menu Nav Item 1 - Sub Navigation Item 3 content card successfully loaded." },
+    // --- 🗂️ SIDE RESOURCE LINK DRAWER MATRIX TARGET TEMPLATES ---
+    "side-nav1-sub1": { icon: "book-open", category: "Core Education", title: "Institutional Orderflow Dynamics", status: "Verified", payload: "Advanced structural training data block loaded. Review inner mechanics of institutional liquidity footprints without standard lagging indicators." },
+    "side-nav1-sub2": { icon: "book-open", category: "Core Education", title: "Liquidity Clearing Frameworks", status: "Verified", payload: "Structural map metrics defining high-probability sweep objectives, stop run targeting metrics, and institutional mitigation models." },
+    "side-nav1-sub3": { icon: "book-open", category: "Core Education", title: "Premium vs Discount Valuations", status: "Verified", payload: "Mathematical evaluation framework analyzing accurate discount loading thresholds against premium expansion vectors." },
     
-    "side-nav2-sub1": { icon: "activity", title: "Mitigation Block Vectors", body: "Template Workspace content block initialization path: Side Menu Nav Item 2 - Sub Navigation Item 1 content card successfully loaded." },
-    "side-nav2-sub2": { icon: "activity", title: "Fair Value Gap Imperfections", body: "Template Workspace content block initialization path: Side Menu Nav Item 2 - Sub Navigation Item 2 content card successfully loaded." },
-    "side-nav2-sub3": { icon: "activity", title: "Institutional Order Blocks", body: "Template Workspace content block initialization path: Side Menu Nav Item 2 - Sub Navigation Item 3 content card successfully loaded." },
+    "side-nav2-sub1": { icon: "activity", category: "Core Education", title: "Mitigation Block Vectors", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 2 - Sub Navigation Item 1 content card successfully loaded." },
+    "side-nav2-sub2": { icon: "activity", category: "Core Education", title: "Fair Value Faps", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 2 - Sub Navigation Item 2 content card successfully loaded." },
+    "side-nav2-sub3": { icon: "activity", category: "Core Education", title: "Order Blocks", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 2 - Sub Navigation Item 3 content card successfully loaded." },
     
-    "side-nav3-sub1": { icon: "bar-chart-3", title: "Session Point Of Control Maps", body: "Template Workspace content block initialization path: Side Menu Nav Item 3 - Sub Navigation Item 1 content card successfully loaded." },
-    "side-nav3-sub2": { icon: "bar-chart-3", title: "Value Area High Extremes", body: "Template Workspace content block initialization path: Side Menu Nav Item 3 - Sub Navigation Item 2 content card successfully loaded." },
-    "side-nav3-sub3": { icon: "bar-chart-3", title: "Volume Distribution Clusters", body: "Template Workspace content block initialization path: Side Menu Nav Item 3 - Sub Navigation Item 3 content card successfully loaded." },
+    "side-nav3-sub1": { icon: "bar-chart-3", category: "Volume Profiling", title: "Session POC Maps", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 3 - Sub Navigation Item 1 content card successfully loaded." },
+    "side-nav3-sub2": { icon: "bar-chart-3", category: "Value Area Highs", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 3 - Sub Navigation Item 2 content card successfully loaded." },
+    "side-nav3-sub3": { icon: "bar-chart-3", category: "Volume Clusters", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 3 - Sub Navigation Item 3 content card successfully loaded." },
     
-    "side-nav4-sub1": { icon: "cpu", title: "Liquidity Engine v4.1 Integration", body: "Template Workspace content block initialization path: Side Menu Nav Item 4 - Sub Navigation Item 1 content card successfully loaded." },
-    "side-nav4-sub2": { icon: "cpu", title: "Execution API Diagnostic Logs", body: "Template Workspace content block initialization path: Side Menu Nav Item 4 - Sub Navigation Item 2 content card successfully loaded." },
-    "side-nav4-sub3": { icon: "cpu", title: "Webhook Dispatch Rule Protocols", body: "Template Workspace content block initialization path: Side Menu Nav Item 4 - Sub Navigation Item 3 content card successfully loaded." },
+    "side-nav4-sub1": { icon: "cpu", category: "Proprietary Automation", title: "Liquidity Engine v4.1", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 4 - Sub Navigation Item 1 content card successfully loaded." },
+    "side-nav4-sub2": { icon: "cpu", category: "Proprietary Automation", title: "Execution API Logs", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 4 - Sub Navigation Item 2 content card successfully loaded." },
+    "side-nav4-sub3": { icon: "cpu", category: "Proprietary Automation", title: "Webhook Routings", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 4 - Sub Navigation Item 3 content card successfully loaded." },
     
-    "side-nav5-sub1": { icon: "graduation-cap", title: "Video Tutorial Framework Modules", body: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 1 content card successfully loaded." },
-    "side-nav5-sub2": { icon: "graduation-cap", title: "Execution Blueprint Guides", body: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 2 content card successfully loaded." },
-    "side-nav5-sub3": { icon: "graduation-cap", title: "Case Studies Historical Catalog", body: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 3 content card successfully loaded." },
+    "side-nav5-sub1": { icon: "graduation-cap", category: "Trader Education", title: "Video Modules", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 1 content card successfully loaded." },
+    "side-nav5-sub2": { icon: "graduation-cap", category: "Trader Education", title: "Execution Blueprint", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 2 content card successfully loaded." },
+    "side-nav5-sub3": { icon: "graduation-cap", category: "Trader Education", title: "Case Studies Catalog", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 3 content card successfully loaded." },
 
-    // Permanent Bottom Anchored Dock Action View Modules
+    // --- ⚓ BOTTOM FOOTER APP NAVIGATION TERMINAL LABELS ---
     "bottom-strategy": {
         icon: "shield-alert",
-        title: "Active Strategy Deployment Matrix",
-        body: "Streaming system analytics logs mapping active parameter limits, active risk weights allocations, and live automated safety breaker nodes across your FX environment infrastructure."
+        category: "Risk Shield Protocol",
+        title: "Active Risk Allocation Parameters",
+        status: "Operational Lock",
+        payload: "Automated engine tracking live risk coefficients parameters. Emergency breaker nodes are linked directly across all active currency exposure accounts."
     },
     "bottom-analysis": {
         icon: "pie-chart",
-        title: "Macro Technical Market Analysis",
-        body: "Automated bias calculator evaluation engine streaming daily premium pricing zones, technical currency index strength trends, and institutional order distribution maps."
+        category: "Macro Intelligence Stream",
+        title: "Cross-Asset Market Structure Bias",
+        status: "Automated Feed",
+        payload: "Automated data-stream calculations evaluate technical index strength vectors, premium price delivery cycles, and volume accumulation blocks dynamically."
     },
     "bottom-risk": {
         icon: "calculator",
-        title: "Precision Risk Allocation Control Terminal",
-        body: "System risk calculations dashboard interface instance. Process automated lot sizing equations instantly against operational drawdown thresholds."
-    },
-    "bottom-execution": {
-        icon: "zap",
-        title: "Low Latency Orders Execution Portal",
-        body: "Direct pipeline access point connecting straight into institutional transaction networks. Order triggers configured for single-tap execution processing loops."
-    },
-    "bottom-review": {
-        icon: "file-text",
-        title: "System Performance Journal Review",
-        body: "Consolidated trading activity database grid summary tracking statistical performance results, win-rate variables parameters, and overall profit-curve growth records."
-    }
-};
-
-// --- 🖥️ CENTRAL VIEWPORT INJECTOR ---
-function loadContent(nodeId) {
-    const canvas = document.getElementById('workspace-dynamic-canvas');
-    if (!canvas) return;
-
-    const data = CENTRAL_DATA_REGISTRY[nodeId] || {
-        icon: "layout",
-        title: "Terminal Instance Running",
-        body: "Secure runtime visualization canvas connection active. Workspace initial configuration verified successfully."
-    };
-
-    canvas.innerHTML = `
-        <div class="content-card">
-            <h2><i data-lucide="${data.icon}"></i> ${data.title}</h2>
-            <hr>
-            <p>${data.body}</p>
-        </div>
-    `;
-
-    lucide.createIcons();
-}
+        category: "Mathematical Allocation System",
