@@ -145,7 +145,7 @@ const FX_SYSTEM_DATABASE = {
     "side-nav5-sub2": { icon: "graduation-cap", category: "Trader Education", title: "Execution Blueprint", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 2 content card successfully loaded." },
     "side-nav5-sub3": { icon: "graduation-cap", category: "Trader Education", title: "Case Studies Catalog", status: "Verified", payload: "Template Workspace content block initialization path: Side Menu Nav Item 5 - Sub Navigation Item 3 content card successfully loaded." },
 
-    // --- ⚓ BOTTOM FOOTER APP NAVIGATION TERMINAL LABELS ---
+     // --- ⚓ BOTTOM FOOTER APP NAVIGATION TERMINAL LABELS ---
     "bottom-strategy": {
         icon: "shield-alert",
         category: "Risk Shield Protocol",
@@ -163,3 +163,22 @@ const FX_SYSTEM_DATABASE = {
     "bottom-risk": {
         icon: "calculator",
         category: "Mathematical Allocation System",
+        title: "Precision Drawdown Terminal Portal",
+        status: "Calculated Sync",
+        payload: "Interactive position processing engine array active. Input account metrics parameters to balance trade sizes precisely with current mathematical exposure caps."
+    },
+    "bottom-execution": {
+        icon: "zap",
+        category: "Direct Transaction Pipeline",
+        title: "Ultra-Low Latency Orders Desk",
+        status: "Standby Secure",
+        payload: "Direct institutional clearing network access bridges active. Direct entry algorithms configured for single-tap execution processing logic."
+    },
+    "bottom-review": {
+        icon: "file-text",
+        category: "Performance Analysis Ledger",
+        title: "Trader Performance Analytics Journal",
+        status: "Audit Lock",
+        payload: "Consolidated historical matrix tracking overall win-rate metrics, profit curve scaling metrics, draw-down tolerances records, and trade logging archives."
+    }
+
