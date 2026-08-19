@@ -3,111 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BANKBUGS|FX Dashboard</title>
-    <!-- Lucide Icons for clean vector iconography -->
+    <title>BANKBUGS|FX App Terminal</title>
+    <!-- Lucide Icons for premium vector iconography -->
     <script src="https://unpkg.com"></script>
     <link rel="stylesheet" href="prev/style.css">
 </head>
 <body>
 
-    <!-- ─── TOP TIER HEADERS ─── -->
-    <header class="top-bar">
-        <div class="brand">
-            <i data-lucide="trending-up" class="brand-icon"></i>
-            <h1>BANKBUGS<span>|FX</span></h1>
-        </div>
+    <!-- APP SHELL CONTAINER -->
+    <div class="app-shell">
         
-        <!-- PERMANENTLY VISIBLE TOP NAV LINKS ON ALL SCREEN CONFIGURATIONS -->
-        <div class="top-nav-links">
-            <button class="nav-tab active" onclick="toggleMainDisplay('core-concepts')">
-                <i data-lucide="terminal"></i> <span class="tab-label">Core Concepts</span>
-            </button>
-            <button class="nav-tab" onclick="toggleMainDisplay('indicators')">
-                <i data-lucide="layers"></i> <span class="tab-label">Systems & Tools</span>
-            </button>
-            <button id="sidebarToggle" class="nav-tab utility-btn">
-                <i data-lucide="folder-open"></i> <span class="tab-label">Resources</span>
-            </button>
-        </div>
-
-        <div class="user-actions">
-            <div class="user-profile">
-                <i data-lucide="user" class="user-icon"></i>
-                <span class="username-display">Loading Session...</span>
-            </div>
-            <button class="logout-btn" id="logoutBtn" title="Secure Log Out">
-                <i data-lucide="log-out"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- ─── MAIN VIEWPORT WRAPPER ─── -->
-    <div class="dashboard-container">
-        
-        <!-- SIDE RESOURCES DRAWER -->
-        <aside id="sideResourcesMenu" class="side-drawer">
-            <div class="drawer-header">
-                <h3><i data-lucide="database"></i> Resource Node</h3>
+        <!-- ─── TWO-TIER TOP NAVIGATION ─── -->
+        <header class="multi-tier-header">
+            
+            <div class="header-tier-one">
+                <div class="brand">
+                    <i data-lucide="trending-up" class="brand-icon"></i>
+                    <h1>BANKBUGS<span>|FX</span></h1>
+                </div>
+                <div class="user-actions">
+                    <div class="user-profile">
+                        <i data-lucide="user" class="user-icon"></i>
+                        <span class="username-display">Loading...</span>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn" title="Secure Log Out">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
             </div>
             
-            <nav class="drawer-nav">
-                <!-- Accordion Item 1 -->
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
-                        <span><i data-lucide="book-open"></i> Market Frameworks</span>
-                        <i data-lucide="chevron-down" class="chevron"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <button onclick="loadContent('structure-masterclass')">Orderflow Dynamics</button>
-                        <button onclick="loadContent('liquidity-cycles')">Liquidity Clearing</button>
-                    </div>
-                </div>
-
-                <!-- Accordion Item 2 -->
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleSubNav(this)">
-                        <span><i data-lucide="cpu"></i> Proprietary Tools</span>
-                        <i data-lucide="chevron-down" class="chevron"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <button onclick="loadContent('engine-v4')">Liquidity Engine v4.1</button>
-                        <button onclick="loadContent('volume-profiles')">Volume Matrix Docs</button>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-
-        <!-- DYNAMIC WORKSPACE CANVAS -->
-        <main class="workspace">
-            <div id="workspace-dynamic-canvas" class="canvas-layer">
-                <!-- Initial Core Landing State -->
-                <div class="content-card active-state">
-                    <h2><i data-lucide="shield-check"></i> System Initialized</h2>
-                    <hr>
-                    <p>Select a structural framework module from the top navigation panel or open the resources node drawer to securely stream core data streams into this terminal view.</p>
-                </div>
+            <!-- Tier Two: Primary Workspace Views -->
+            <div class="header-tier-two">
+                <button id="dashboardToggleBtn" class="tier-two-tab">
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                </button>
+                <button class="tier-two-tab active" onclick="toggleMainDisplay('top-sessions')">
+                    <i data-lucide="clock"></i> <span>Sessions</span>
+                </button>
+                <button class="tier-two-tab" onclick="toggleMainDisplay('top-checklist')">
+                    <i data-lucide="check-square"></i> <span>Checklist</span>
+                </button>
+                <button class="tier-two-tab" onclick="toggleMainDisplay('top-tools')">
+                    <i data-lucide="wrench"></i> <span>Tools</span>
+                </button>
             </div>
-        </main>
+        </header>
+
+        <!-- ─── MAIN VIEWPORT LAYER WRAPPER ─── -->
+        <div class="viewport-wrapper">
+            
+            <!-- OVERLAY SIDE DRAWER (Hidden by default, slides over content) -->
+            <aside id="sideResourcesMenu" class="side-drawer">
+                <div class="drawer-header">
+                    <h3><i data-lucide="database"></i> System Navigation Node</h3>
+                    <button id="closeDrawerBtn" class="drawer-close-trigger">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                
+                <nav class="drawer-nav">
+                    <!-- Nav Item 1 -->
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                            <span><i data-lucide="book-open"></i> Market Structures</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <button onclick="loadContent('side-nav1-sub1')">Orderflow Dynamics</button>
+                            <button onclick="loadContent('side-nav1-sub2')">Liquidity Cycles</button>
+                            <button onclick="loadContent('side-nav1-sub3')">Premium/Discount</button>
+                        </div>
+                    </div>
+
+                    <!-- Nav Item 2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                            <span><i data-lucide="activity"></i> Algorithmic Entry</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <button onclick="loadContent('side-nav2-sub1')">Mitigation Vectors</button>
+                            <button onclick="loadContent('side-nav2-sub2')">Fair Value Gaps</button>
+                            <button onclick="loadContent('side-nav2-sub3')">Order Blocks</button>
+                        </div>
+                    </div>
+
+                    <!-- Nav Item 3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                            <span><i data-lucide="bar-chart-3"></i> Volume Profiling</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <button onclick="loadContent('side-nav3-sub1')">Session POC Maps</button>
+                            <button onclick="loadContent('side-nav3-sub2')">Value Area Highs</button>
+                            <button onclick="loadContent('side-nav3-sub3')">Volume Clusters</button>
+                        </div>
+                    </div>
+
+                    <!-- Nav Item 4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                            <span><i data-lucide="cpu"></i> Proprietary Automation</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <button onclick="loadContent('side-nav4-sub1')">Liquidity Engine v4.1</button>
+                            <button onclick="loadContent('side-nav4-sub2')">Execution API Logs</button>
+                            <button onclick="loadContent('side-nav4-sub3')">Webhook Routings</button>
+                        </div>
+                    </div>
+
+                    <!-- Nav Item 5 -->
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleSubNav(this)">
+                            <span><i data-lucide="graduation-cap"></i> Trader Education</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <button onclick="loadContent('side-nav5-sub1')">Video Modules</button>
+                            <button onclick="loadContent('side-nav5-sub2')">Execution Blueprint</button>
+                            <button onclick="loadContent('side-nav5-sub3')">Case Studies Catalog</button>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- CANVAS WORKSPACE VIEWPORT -->
+            <main class="workspace">
+                <div id="workspace-dynamic-canvas" class="canvas-layer">
+                    <!-- Dynamic database markup gets injected inside this frame -->
+                </div>
+            </main>
+
+        </div>
+
+        <!-- ─── PERMANENT FIXED BOTTOM NAVIGATION DOCK ─── -->
+        <footer class="bottom-dock">
+            <button class="dock-btn active" onclick="handleDockPress(this, 'bottom-strategy')">
+                <i data-lucide="shield-alert"></i>
+                <span>Strategy</span>
+            </button>
+            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-analysis')">
+                <i data-lucide="pie-chart"></i>
+                <span>Analysis</span>
+            </button>
+            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-risk')">
+                <i data-lucide="calculator"></i>
+                <span>Risk Control</span>
+            </button>
+            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-execution')">
+                <i data-lucide="zap"></i>
+                <span>Execution</span>
+            </button>
+            <button class="dock-btn" onclick="handleDockPress(this, 'bottom-review')">
+                <i data-lucide="file-text"></i>
+                <span>Review</span>
+            </button>
+        </footer>
 
     </div>
 
-    <!-- ─── INTERACTION INTERFACE FOOTER DOCK (PERMANENTLY VISIBLE) ─── -->
-    <footer class="bottom-dock">
-        <button class="dock-btn active" onclick="handleDockPress(this, 'strategy')">
-            <i data-lucide="activity"></i>
-            <span>Strategy Matrix</span>
-        </button>
-        <button class="dock-btn" onclick="handleDockPress(this, 'market-bias')">
-            <i data-lucide="globe"></i>
-            <span>Market Bias</span>
-        </button>
-        <button class="dock-btn" onclick="handleDockPress(this, 'risk-calc')">
-            <i data-lucide="calculator"></i>
-            <span>Risk Matrix</span>
-        </button>
-    </footer>
-
-    <!-- Initialize Lucide Vector Icons and UI Core System Script -->
+    <!-- UI Core Automation Engine Core System Script -->
     <script src="prev/app.js"></script>
 </body>
 </html>
