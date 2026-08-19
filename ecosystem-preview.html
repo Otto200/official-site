@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BANKBUGS|FX Dashboard</title>
     <!-- Lucide Icons for clean vector iconography -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com"></script>
     <link rel="stylesheet" href="prev/style.css">
 </head>
 <body>
@@ -17,15 +17,16 @@
             <h1>BANKBUGS<span>|FX</span></h1>
         </div>
         
+        <!-- PERMANENTLY VISIBLE TOP NAV LINKS ON ALL SCREEN CONFIGURATIONS -->
         <div class="top-nav-links">
             <button class="nav-tab active" onclick="toggleMainDisplay('core-concepts')">
-                <i data-lucide="terminal"></i> Core Concepts
+                <i data-lucide="terminal"></i> <span class="tab-label">Core Concepts</span>
             </button>
             <button class="nav-tab" onclick="toggleMainDisplay('indicators')">
-                <i data-lucide="layers"></i> Systems & Tools
+                <i data-lucide="layers"></i> <span class="tab-label">Systems & Tools</span>
             </button>
             <button id="sidebarToggle" class="nav-tab utility-btn">
-                <i data-lucide="folder-open"></i> Resources
+                <i data-lucide="folder-open"></i> <span class="tab-label">Resources</span>
             </button>
         </div>
 
@@ -43,28 +44,13 @@
     <!-- ─── MAIN VIEWPORT WRAPPER ─── -->
     <div class="dashboard-container">
         
-        <!-- SIDE RESOURCES DRAWER (Desktop Sidebar / Mobile Bottom Sheet modal) -->
+        <!-- SIDE RESOURCES DRAWER -->
         <aside id="sideResourcesMenu" class="side-drawer">
             <div class="drawer-header">
                 <h3><i data-lucide="database"></i> Resource Node</h3>
-                <!-- Custom mobile-sheet swipe/close button node wrapper -->
-                <button id="mobileCloseDrawerBtn" class="mobile-close-handle">
-                    <i data-lucide="chevron-down"></i>
-                </button>
             </div>
             
             <nav class="drawer-nav">
-                <!-- Mobile Navigation Append Block (Visible only on smartphones) -->
-                <div class="mobile-menu-backplane">
-                    <button class="mobile-fallback-row" onclick="toggleMainDisplay('core-concepts')">
-                        <i data-lucide="terminal"></i> Core Concepts
-                    </button>
-                    <button class="mobile-fallback-row" onclick="toggleMainDisplay('indicators')">
-                        <i data-lucide="layers"></i> Systems & Tools
-                    </button>
-                    <hr style="border: none; border-top: 1px solid var(--border-color); margin: 8px 4px;">
-                </div>
-
                 <!-- Accordion Item 1 -->
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleSubNav(this)">
@@ -105,7 +91,7 @@
 
     </div>
 
-    <!-- ─── INTERACTION INTERFACE FOOTER DOCK ─── -->
+    <!-- ─── INTERACTION INTERFACE FOOTER DOCK (PERMANENTLY VISIBLE) ─── -->
     <footer class="bottom-dock">
         <button class="dock-btn active" onclick="handleDockPress(this, 'strategy')">
             <i data-lucide="activity"></i>
@@ -118,11 +104,6 @@
         <button class="dock-btn" onclick="handleDockPress(this, 'risk-calc')">
             <i data-lucide="calculator"></i>
             <span>Risk Matrix</span>
-        </button>
-        <!-- Mobile Menu Trigger Anchor Element Panel Toggle Button -->
-        <button id="mobileMenuDockBtn" class="dock-btn smartphone-menu-trigger">
-            <i data-lucide="layout-grid"></i>
-            <span>Menu Nodes</span>
         </button>
     </footer>
 
