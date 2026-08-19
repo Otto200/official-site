@@ -10,10 +10,10 @@
 </head>
 <body>
 
-    <!-- MT5 TERMINAL APP SHELL CONTAINER -->
+      <!-- MT5 TERMINAL APP SHELL CONTAINER -->
     <div class="app-shell">
         
-        <!-- ─── SIMPLIFIED SINGLE-TIER APP NAV HEADER ─── -->
+        <!-- ─── SIMPLIFIED SINGLE-TIER APP NAV HEADER (LOCKED ON TOP) ─── -->
         <header class="terminal-top-nav">
             <div class="terminal-left-block">
                 <!-- Premium Gold SVG Hamburger Menu Button -->
@@ -31,7 +31,13 @@
                 </a>
                 <h1 class="brand-title">BANKBUGS<span>FX</span></h1>
             </div>
+            
             <div class="terminal-right-block">
+                <!-- User Profile Label Tag (Placed right before logout) -->
+                <div class="user-profile-badge">
+                    <span class="username-display">Trader</span>
+                </div>
+                
                 <!-- Premium Gold SVG Logout Button -->
                 <button class="logout-btn" id="logoutBtn" title="Secure Exit">
                     <svg xmlns="http://w3.org" viewBox="0 0 24 24" class="gold-svg">
@@ -40,6 +46,7 @@
                 </button>
             </div>
         </header>
+
 
         <!-- ─── CORE VIEWPORT CANVAS CONTAINER WRAPPER ─── -->
         <div class="viewport-wrapper">
