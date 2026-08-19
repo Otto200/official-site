@@ -1,65 +1,98 @@
+// --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
+document.addEventListener("DOMContentLoaded", () => {
+    const sessionState = sessionStorage.getItem("ecosystem_session_state");
+    const activeUser = sessionStorage.getItem("ecosystem_active_user");
+    const traderNameElement = document.querySelector(".username-display"); // Matches your GitHub HTML
 
-        // --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
-        document.addEventListener("DOMContentLoaded", () => {
-            const sessionState = sessionStorage.getItem("ecosystem_session_state");
-            const activeUser = sessionStorage.getItem("ecosystem_active_user");
-            const traderNameElement = document.querySelector(".trader-name");
+    if (sessionState !== "authorized" || !activeUser) {
+        window.location.replace("login.html");
+        return;
+    }
+    if (traderNameElement) traderNameElement.textContent = activeUser;
+});
 
-            // Hard check: If the token is empty or invalid, block entry and boot to login
-            if (sessionState !== "authorized" || !activeUser) {
-                window.location.href = "login.html";
-                return;
-            }
+// --- ⚙️ INTERACTIVE INTERFACE CONTROLLERS ---
+// Toggle Collapsible Side Resources Drawer
+const sidebar = document.getElementById('sideResourcesMenu');
+const sidebarToggle = document.getElementById('sidebarToggle');
 
-            // Success: Inject the authenticated database username into the Top Nav Tier 1 profile
-            if (traderNameElement) {
-                traderNameElement.textContent = activeUser;
-            }
-        });
+if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+}
 
-        // --- 🚪 SECURE LOG OUT ENGINE ---
-        const logoutBtn = document.querySelector(".logout-btn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", () => {
-                // Clear session tokens completely
-                sessionStorage.removeItem("ecosystem_session_state");
-                sessionStorage.removeItem("ecosystem_active_user");
-                // Clear all fallback keys
-                sessionStorage.clear(); 
-                // Return to login gate
-                window.location.href = "login.html";
-            });
-        }
+// Nested Accordion Structure Controller
+function toggleSubNav(triggerElement) {
+    const currentItem = triggerElement.parentElement;
+    currentItem.classList.toggle('active');
+}
 
-        // --- 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS ---
-        const sideMenu = document.getElementById('sideMenu');
-        const myDashboardBtn = document.getElementById('myDashboardBtn');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
+// Active State Dock Button Switch Controller
+function handleDockPress(btnRef, viewId) {
+    document.querySelectorAll('.dock-action-btn').forEach(b => b.classList.remove('active'));
+    btnRef.classList.add('active');
+    loadContent('dock-' + viewId);
+}
 
-        // Toggle Sidebar Open/Closed state when clicking My Dashboard
-        myDashboardBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            sideMenu.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-        });
+// --- 📦 CORE DATABASE DEPLOYMENT PAYLOADS ---
+// Easily add, remove, or edit your trading contents right here
+const DASHBOARD_CONTENT_REGISTRY = {
+    // Top-tier utility panels
+    "core-concepts-panel": {
+        title: "Ecosystem Core Concepts",
+        body: "Master the foundational algorithmic framework of our proprietary environment."
+    },
+    "indicators-panel": {
+        title: "Trading Systems & Tools",
+        body: "Access state indicators, volume profiles, and liquidity models below."
+    },
+    // Sidebar items
+    "core-content-1": {
+        title: "Market Structure Masterclass",
+        body: "Learn raw institutional orderflow dynamics without lagging indicator data."
+    },
+    "books-content-1": {
+        title: "Orderflow Mechanics Catalog",
+        body: "Review technical mechanics detailing how liquidity clearing cycles process."
+    },
+    "indicators-content-1": {
+        title: "Liquidity Engine v4.1 Documentation",
+        body: "Implementation logs and parameters optimized for major FX pairs."
+    },
+    // Dock Actions
+    "dock-strategy": {
+        title: "Active Strategy Matrix",
+        body: "Currently deployed strategy maps tracking algorithmic order flow."
+    },
+    "dock-market": {
+        title: "Live Market Analysis",
+        body: "Real-time key structural zones and macro price delivery perspectives."
+    }
+};
 
-        // Close sidebar if user clicks anywhere outside of it
-        document.addEventListener('click', (e) => {
-            const isClickInsideMenu = sideMenu.contains(e.target);
-            const isClickOnToggleBtn = myDashboardBtn.contains(e.target);
-            
-            if (!isClickInsideMenu && !isClickOnToggleBtn && sideMenu.classList.contains('active')) {
-                sideMenu.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-            }
-        });
+// --- 🖥️ SECURE LAYER VIEWPORT INJECTOR ---
+function loadContent(nodeId) {
+    const canvas = document.getElementById('workspace-dynamic-canvas');
+    if (!canvas) return;
 
-        // Accordion functionality for dropdown items
-        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const parent = trigger.parentElement;
-                parent.classList.toggle('open');
-            });
-        });
-  
+    // Fetch dynamic item payload or fallback to generic layout state
+    const data = DASHBOARD_CONTENT_REGISTRY[nodeId] || {
+        title: `Active Module: ${nodeId.toUpperCase().replace(/-/g, ' ')}`,
+        body: "Custom workspace configuration successfully loaded into live runtime view."
+    };
+
+    // Inject content dynamically with clean layout wrappers
+    canvas.innerHTML = `
+        <div class="content-card-active animate-glow clicked-node-state">
+            <h2>${data.title}</h2>
+            <hr style="border: 1px solid rgba(255,215,0,0.1); margin: 15px 0;">
+            <p>${data.body}</p>
+        </div>
+    `;
+}
+
+// Fallback link mapping helper for global structural calls
+function toggleMainDisplay(panelId) {
+    loadContent(panelId);
+}
