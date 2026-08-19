@@ -1,219 +1,177 @@
-/* ─── SYSTEM ARCHITECTURE ROOT DESIGN VARIABLE VARIABLES ─── */
+/* --- 🎨 SYSTEM CORE TOKENS --- */
 :root {
     --bg-main: #0a0e14;
     --bg-surface: #121824;
-    --bg-surface-hover: #1c2638;
-    --accent-gold: #ffd700;
-    --accent-gold-glow: rgba(255, 215, 0, 0.15);
-    --text-primary: #f0f4f8;
-    --text-secondary: #8a99ad;
-    --border-color: rgba(255, 215, 0, 0.1);
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-surface-hover: #1c2336;
+    --color-gold: #ffd700;
+    --color-text-main: #e2e8f0;
+    --color-text-muted: #64748b;
+    --border-color: rgba(255, 215, 0, 0.12);
+    --header-height: 60px;
+    --dock-height: 65px;
 }
 
+/* --- 📱 MOBILE-FIRST BASE LAYOUT --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     background-color: var(--bg-main);
-    color: var(--text-primary);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    color: var(--color-text-main);
     overflow: hidden;
+    height: 100vh;
 }
 
-/* ─── HEADER / TOP NAV CONFIGURATION ─── */
-.top-bar {
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- 💎 FIXED SYSTEM HEADER --- */
+.app-header {
+    height: var(--header-height);
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
-    padding: 0 24px;
-    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 16px;
     z-index: 100;
 }
 
-.brand {
+.brand-block {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
-.brand-icon {
-    color: var(--accent-gold);
-    width: 24px;
-    height: 24px;
-}
-
-.brand h1 {
-    font-size: 1.15rem;
+.brand-block h1 {
+    font-size: 1.1rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-.brand h1 span {
-    color: var(--accent-gold);
+.brand-block h1 span {
+    color: var(--color-gold);
+    margin-left: 2px;
 }
 
-.top-nav-links {
-    display: flex;
-    gap: 8px;
-    height: 100%;
-    align-items: center;
-}
+.gold-text { color: var(--color-gold); }
 
-.nav-tab {
-    background: transparent;
-    border: 1px solid transparent;
-    color: var(--text-secondary);
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
+.header-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: var(--transition-smooth);
+    gap: 12px;
 }
 
-.nav-tab i {
-    width: 16px;
-    height: 16px;
-}
-
-.nav-tab:hover {
-    color: var(--text-primary);
-    background-color: var(--bg-surface-hover);
-}
-
-.nav-tab.active {
-    color: var(--accent-gold);
-    background-color: var(--accent-gold-glow);
-    border-color: var(--border-color);
-}
-
-.utility-btn {
-    border: 1px dashed var(--border-color);
-}
-
-.user-actions {
+.user-profile-tag {
     display: flex;
     align-items: center;
-    gap: 16px;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    background: rgba(255, 255, 255, 0.03);
+    gap: 6px;
+    background: rgba(255, 215, 0, 0.05);
     padding: 6px 12px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.user-icon {
-    width: 14px;
-    height: 14px;
-    color: var(--accent-gold);
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
 }
 
 .logout-btn {
     background: transparent;
     border: none;
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     cursor: pointer;
-    transition: var(--transition-smooth);
     padding: 4px;
-}
-
-.logout-btn:hover {
-    color: #ff4d4d;
-}
-
-/* ─── SYSTEM CONTAINERS MAIN ─── */
-.dashboard-container {
-    flex: 1;
     display: flex;
-    position: relative;
-    overflow: hidden;
+    align-items: center;
+    transition: color 0.2s;
 }
 
-/* ─── SIDE RESOURCES EXPANSION DRAWER ─── */
-.side-drawer {
-    width: 280px;
+.logout-btn:hover { color: var(--color-gold); }
+
+/* --- 🖥️ WORKSPACE GRID --- */
+.main-layout {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - var(--header-height) - var(--dock-height));
+    position: relative;
+}
+
+.viewport-canvas {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    background-image: radial-gradient(rgba(255, 215, 0, 0.015) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.scroll-container {
+    height: 100%;
+    overflow-y: auto;
+    padding: 16px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --- 🗂️ MOBILE BOTTOM SHEET & ACCORDION --- */
+.resources-drawer {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 75vh;
     background-color: var(--bg-surface);
-    border-right: 1px solid var(--border-color);
-    position: absolute;
-    left: -280px;
-    top: 0;
-    bottom: 0;
-    z-index: 90;
-    transition: var(--transition-smooth);
+    border-top: 2px solid var(--color-gold);
+    border-radius: 20px 20px 0 0;
+    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 200;
     display: flex;
     flex-direction: column;
 }
 
-.side-drawer.open {
-    left: 0;
-    position: relative; /* Pushes content canvas context outward smoothly when space allows */
-}
+.resources-drawer.open { bottom: 0; }
 
 .drawer-header {
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
     border-bottom: 1px solid var(--border-color);
 }
 
-.drawer-header h3 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.mobile-only-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-main);
+    padding: 4px;
 }
 
 .drawer-nav {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
 }
 
-/* ─── ACCORDION STRUCTURAL ARCHITECTURE ─── */
-.accordion-item {
-    display: flex;
-    flex-direction: column;
-    border-radius: 6px;
+.accordion-group {
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.01);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     overflow: hidden;
 }
 
 .accordion-trigger {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: var(--text-primary);
-    padding: 10px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 14px;
     cursor: pointer;
-    text-align: left;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    transition: var(--transition-smooth);
-}
-
-.accordion-trigger:hover {
-    background-color: var(--bg-surface-hover);
+    font-size: 0.95rem;
 }
 
 .accordion-trigger span {
@@ -222,148 +180,102 @@ body {
     gap: 10px;
 }
 
-.accordion-trigger i {
-    width: 16px;
-    height: 16px;
+.accordion-trigger .chevron {
+    font-size: 0.8rem;
+    transition: transform 0.2s;
 }
 
-.chevron {
-    transition: var(--transition-smooth);
-}
-
-.accordion-item.active .chevron {
-    transform: rotate(180deg);
-    color: var(--accent-gold);
-}
+.accordion-group.active .chevron { transform: rotate(180deg); }
 
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-    padding-left: 14px;
+    transition: max-height 0.25s ease-out;
+    background: rgba(0, 0, 0, 0.15);
 }
 
-.accordion-item.active .accordion-content {
-    max-height: 200px;
-    padding-top: 4px;
-    padding-bottom: 8px;
-}
+.accordion-group.active .accordion-content { max-height: 200px; }
 
 .accordion-content button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 12px 12px 42px;
     background: transparent;
     border: none;
-    color: var(--text-secondary);
-    padding: 8px 12px;
-    text-align: left;
-    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
     cursor: pointer;
-    border-left: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
 }
 
-.accordion-content button:hover {
-    color: var(--accent-gold);
-    border-left-color: var(--accent-gold);
-    background-color: rgba(255, 255, 255, 0.01);
-}
+.accordion-content button:active { color: var(--color-gold); }
 
-/* ─── CENTRAL CONTENT WORKSPACE CANVAS ─── */
-.workspace {
-    flex: 1;
-    padding: 24px;
-    overflow-y: auto;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,215,0,0.02) 1px, transparent 0);
-    background-size: 24px 24px;
-}
-
-.canvas-layer {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.content-card {
-    background-color: var(--bg-surface);
+/* --- 📦 CARD STYLING & GLOW ENGINE --- */
+.content-card-active {
+    background: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    animation: fadeScale 0.3s ease-out forwards;
+    padding: 20px;
 }
 
-.content-card h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--accent-gold);
+.animate-glow {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.03);
 }
 
-.content-card hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin-bottom: 20px;
+.content-card-active h2 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--color-gold);
 }
 
-.content-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
+.content-card-active p {
+    color: var(--color-text-main);
+    line-height: 1.5;
     font-size: 0.95rem;
 }
 
-/* ─── INTERFACE INTERACTIVE SYSTEM DOCK ─── */
-.bottom-dock {
+/* --- 🕹️ NATIVE BOTTOM DOCK (MOBILE ONLY) --- */
+.app-bottom-dock {
+    height: var(--dock-height);
     background-color: var(--bg-surface);
     border-top: 1px solid var(--border-color);
-    height: 60px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 12px;
+    justify-content: space-around;
+    padding-bottom: env(safe-area-inset-bottom);
     z-index: 100;
 }
 
-.dock-btn {
+.dock-action-btn {
     background: transparent;
     border: none;
-    color: var(--text-secondary);
-    padding: 8px 20px;
-    border-radius: 8px;
-    cursor: pointer;
+    color: var(--color-text-muted);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: var(--transition-smooth);
+    gap: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    flex: 1;
 }
 
-.dock-btn i {
-    width: 16px;
-    height: 16px;
-}
+.dock-action-btn.active { color: var(--color-gold); }
 
-.dock-btn:hover {
-    color: var(--text-primary);
-    background-color: var(--bg-surface-hover);
-}
-
-.dock-btn.active {
-    color: var(--bg-main);
-    background-color: var(--accent-gold);
-}
-
-/* Animations */
-@keyframes fadeScale {
-    from {
-        opacity: 0;
-        transform: scale(0.98) translateY(4px);
+/* --- 🖥️ LARGE SCREEN DESKTOP RESPONSIVE BREAKPOINT --- */
+@media (min-width: 768px) {
+    .main-layout {
+        height: calc(100vh - var(--header-height));
     }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
+
+    .app-bottom-dock { display: none; } /* Hide bottom bar on desktop */
+    .mobile-only-btn { display: none; }
+
+    .resources-drawer {
+        position: static; /* Lock inside layout grid side-by-side */
+        width: 280px;
+        height: 100%;
+        border-top: none;
+        border-right: 1px solid var(--border-color);
+        border-radius: 0;
     }
 }
