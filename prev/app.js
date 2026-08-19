@@ -1,13 +1,13 @@
 // --- 🔐 AUTHENTICATION INTEGRITY ENGINE ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Re-initialize Lucide dynamic vector node instances on layout load
+    // Initialize Vector Icons System
     lucide.createIcons();
 
     const sessionState = sessionStorage.getItem("ecosystem_session_state");
     const activeUser = sessionStorage.getItem("ecosystem_active_user");
     const traderNameElement = document.querySelector(".username-display");
 
-    // Standard Route Wall Lock Verification
+    // Route Protection Check
     if (sessionState !== "authorized" || !activeUser) {
         window.location.replace("login.html");
         return;
@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (traderNameElement) {
         traderNameElement.textContent = activeUser;
     }
-
-    // Proactively initialize a default active module workspace view on system boot
-    loadContent('dock-strategy');
 });
 
 // --- 🚪 SECURE EXIT HANDLER ---
@@ -33,28 +30,27 @@ if (logoutBtn) {
 // --- 🎛️ SIDEBAR OVERLAY INTERACTION CONTROLLERS ---
 const sidebar = document.getElementById('sideResourcesMenu');
 const sidebarToggle = document.getElementById('sidebarToggle');
-const mobileMenuDockBtn = document.getElementById('mobileMenuDockBtn');
-const mobileCloseDrawerBtn = document.getElementById('mobileCloseDrawerBtn');
 
-function openDrawerInterface() {
-    if (sidebar) sidebar.classList.add('open');
-}
-
-function closeDrawerInterface() {
-    if (sidebar) sidebar.classList.remove('open');
-}
-
-// Desktop core top-bar systems controller link hook
 if (sidebarToggle && sidebar) {
-    sidebarToggle.addEventListener('click', () => {
+    sidebarToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         sidebar.classList.toggle('open');
         sidebarToggle.classList.toggle('active');
     });
 }
 
-// Mobile bottom-app docking toggle link hooks
-mobileMenuDockBtn?.addEventListener('click', openDrawerInterface);
-mobileCloseDrawerBtn?.addEventListener('click', closeDrawerInterface);
+// Global click-outside closing mechanic optimized for mobile touch targets
+document.addEventListener('click', (e) => {
+    if (!sidebar || !sidebarToggle) return;
+    
+    const isClickInsideMenu = sidebar.contains(e.target);
+    const isClickOnToggleBtn = sidebarToggle.contains(e.target);
+    
+    if (!isClickInsideMenu && !isClickOnToggleBtn && sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('active');
+    }
+});
 
 // Accordion Functional State Layer Processor
 function toggleSubNav(triggerElement) {
@@ -64,29 +60,32 @@ function toggleSubNav(triggerElement) {
 
 // --- 🕹️ ACTIVE INTERFACE NAVIGATION CORE STATE SWITCHES ---
 function handleDockPress(btnRef, viewId) {
-    // De-highlight active status on all dock items, including mobile nodes
     document.querySelectorAll('.dock-btn').forEach(b => b.classList.remove('active'));
     btnRef.classList.add('active');
     
-    // Smoothly auto-close the mobile drawer view layer if clicked inside dock action matrix
-    closeDrawerInterface();
+    // Auto-close resource sidebar on mobile layout selection to prevent blocking data canvas view
+    if (window.innerWidth < 768 && sidebar) {
+        sidebar.classList.remove('open');
+        sidebarToggle?.classList.remove('active');
+    }
     
     loadContent('dock-' + viewId);
 }
 
 function toggleMainDisplay(panelId) {
-    // Clear top-tier header tab navigation active states
     document.querySelectorAll('.nav-tab').forEach(t => {
         if(!t.id.includes('sidebarToggle')) t.classList.remove('active');
     });
     
-    // Auto highlight source trigger item if invoked from a direct clickable element reference
     if(window.event && window.event.currentTarget && window.event.currentTarget.classList.contains('nav-tab')) {
         window.event.currentTarget.classList.add('active');
     }
     
-    // Smoothly auto-close mobile bottom sheet sheets after interactive menu selections
-    closeDrawerInterface();
+    // Auto-close resource sidebar on mobile layout selection
+    if (window.innerWidth < 768 && sidebar) {
+        sidebar.classList.remove('open');
+        sidebarToggle?.classList.remove('active');
+    }
     
     loadContent(panelId);
 }
@@ -145,14 +144,12 @@ function loadContent(nodeId) {
     const canvas = document.getElementById('workspace-dynamic-canvas');
     if (!canvas) return;
 
-    // Grab configuration mapping object or fallback smoothly
     const data = CENTRAL_DATA_REGISTRY[nodeId] || {
         icon: "layout",
         title: `Module Active: ${nodeId.toUpperCase().replace(/-/g, ' ')}`,
         body: "Data matrix pipeline established safely. Content visualization engine initialization completed successfully."
     };
 
-    // Inject layout securely using template parameters with clean dynamic Lucide nodes
     canvas.innerHTML = `
         <div class="content-card">
             <h2><i data-lucide="${data.icon}"></i> ${data.title}</h2>
@@ -161,6 +158,5 @@ function loadContent(nodeId) {
         </div>
     `;
 
-    // Re-initialize dynamic vector graphics processing engines on injected markup instances
     lucide.createIcons();
 }
