@@ -15,6 +15,7 @@
         
         <!-- ─── TWO-TIER TOP NAV (FIXED) ─── -->
         <header class="multi-tier-header">
+            
             <div class="header-tier-one">
                 <div class="brand">
                     <i data-lucide="trending-up" class="brand-icon"></i>
@@ -23,7 +24,7 @@
                 <div class="user-actions">
                     <div class="user-profile">
                         <i data-lucide="user" class="user-icon"></i>
-                        <span class="username-display">Loading Session...</span>
+                        <span class="username-display">Session Trader</span>
                     </div>
                     <button class="logout-btn" id="logoutBtn" title="Secure Log Out">
                         <i data-lucide="log-out"></i>
@@ -31,19 +32,19 @@
                 </div>
             </div>
             
+            <!-- Tier Two: Primary Workspace Views (Converted to Vector Icons) -->
             <div class="header-tier-two">
-                <!-- Anchor tags update the URL hash directly to toggle views via CSS -->
-                <a href="#sideResourcesMenu" id="dashboardToggleBtn" class="tier-two-tab">
-                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                <a href="#sideResourcesMenu" id="dashboardToggleBtn" class="tier-two-tab" title="Dashboard Menu">
+                    <i data-lucide="layout-dashboard"></i>
                 </a>
-                <a href="#view-sessions" class="tier-two-tab">
-                    <i data-lucide="clock"></i> <span>Sessions</span>
+                <a href="#view-sessions" class="tier-two-tab" title="Sessions View">
+                    <i data-lucide="clock"></i>
                 </a>
-                <a href="#view-checklist" class="tier-two-tab">
-                    <i data-lucide="check-square"></i> <span>Checklist</span>
+                <a href="#view-checklist" class="tier-two-tab" title="Checklist Validation">
+                    <i data-lucide="check-square"></i>
                 </a>
-                <a href="#view-tools" class="tier-two-tab">
-                    <i data-lucide="wrench"></i> <span>Tools</span>
+                <a href="#view-tools" class="tier-two-tab" title="Developer Tools">
+                    <i data-lucide="wrench"></i>
                 </a>
             </div>
         </header>
@@ -51,13 +52,14 @@
         <!-- ─── CENTRAL WORKSPACE ELEMENT ─── -->
         <div class="viewport-wrapper">
             
-            <!-- OVERLAY SIDE DRAWER (CSS Targets this ID to slide open) -->
+            <!-- OVERLAY SIDE DRAWER (Fully Scrollable Container) -->
             <aside id="sideResourcesMenu" class="side-drawer">
                 <div class="drawer-header">
                     <h3><i data-lucide="database"></i> Resource Node</h3>
                     <a href="#" class="drawer-close-trigger"><i data-lucide="x"></i></a>
                 </div>
                 
+                <!-- Scroll Nav Layer Section Wrapper -->
                 <nav class="drawer-nav">
                     <!-- Nav Item 1 -->
                     <div class="accordion-item">
@@ -151,7 +153,7 @@
                         <hr><p>Access backend configuration rules, webhook dispatch networks, precision charting margin matrices, and terminal latency debug settings layers.</p>
                     </div>
 
-                    <!-- Side Resource Slider Content View Templates -->
+                    <!-- Side Resource Content Views -->
                     <div id="view-orderflow" class="content-card"><h2><i data-lucide="book-open"></i> Institutional Orderflow Dynamics</h2><hr><p>Add your complete custom training curriculum descriptions here.</p></div>
                     <div id="view-liquidity" class="content-card"><h2><i data-lucide="database"></i> Liquidity Clearing Frameworks</h2><hr><p>Add your structural map details and guidelines here.</p></div>
                     <div id="view-premium" class="content-card"><h2><i data-lucide="trending-up"></i> Premium vs Discount Valuations</h2><hr><p>Add premium discount sizing parameters here.</p></div>
@@ -159,8 +161,12 @@
                     <div id="view-fvg" class="content-card"><h2><i data-lucide="layers"></i> Fair Value Gap Anomalies</h2><hr><p>Add volume gap documentation metrics entries here.</p></div>
                     <div id="view-ob" class="content-card"><h2><i data-lucide="box"></i> Institutional Order Blocks</h2><hr><p>Add order block entry criteria text layers here.</p></div>
                     <div id="view-poc" class="content-card"><h2><i data-lucide="bar-chart-2"></i> Session POC Matrix Maps</h2><hr><p>Add Point of Control tracking parameters here.</p></div>
-                    <div id="view-vah" class="content-card"><h2><i data-lucide="arrow-up-right"></i> Value Area High Horizons</h2><hr><p>Add distribution extremes indicators entries here.</p></div>
-                              <div id="view-clusters" class="content-card">
+                                <div id="view-vah" class="content-card">
+                        <h2><i data-lucide="arrow-up-right"></i> Value Area High Horizons</h2>
+                        <hr>
+                        <p>Add distribution extremes indicators entries here.</p>
+                    </div>
+                    <div id="view-clusters" class="content-card">
                         <h2><i data-lucide="pie-chart"></i> Concentrated Volume Clusters</h2>
                         <hr>
                         <p>Add delta profile structural details here.</p>
@@ -228,20 +234,20 @@
         </div> <!-- Closes .viewport-wrapper -->
 
         <footer class="bottom-dock">
-            <a href="#view-strategy" class="dock-btn">
-                <i data-lucide="shield-alert"></i><span>Strategy</span>
+            <a href="#view-strategy" class="dock-btn" title="Strategy">
+                <i data-lucide="shield-alert"></i>
             </a>
-            <a href="#view-analysis" class="dock-btn">
-                <i data-lucide="pie-chart"></i><span>Analysis</span>
+            <a href="#view-analysis" class="dock-btn" title="Analysis">
+                <i data-lucide="pie-chart"></i>
             </a>
-            <a href="#view-risk" class="dock-btn">
-                <i data-lucide="calculator"></i><span>Risk Control</span>
+            <a href="#view-risk" class="dock-btn" title="Risk Control">
+                <i data-lucide="calculator"></i>
             </a>
-            <a href="#view-execution" class="dock-btn">
-                <i data-lucide="zap"></i><span>Execution</span>
+            <a href="#view-execution" class="dock-btn" title="Execution">
+                <i data-lucide="zap"></i>
             </a>
-            <a href="#view-review" class="dock-btn">
-                <i data-lucide="file-text"></i><span>Review</span>
+            <a href="#view-review" class="dock-btn" title="Review">
+                <i data-lucide="file-text"></i>
             </a>
         </footer>
 
@@ -251,4 +257,3 @@
     <script src="prev/app.js"></script>
 </body>
 </html>
-
