@@ -1,5 +1,212 @@
-/* ─── XAUUSD PREMIUM FINTECH SETUP STYLES ─── */
-.setup-section-bleed { padding: 20px 0; display: flex; flex-direction: column; gap: 20px; width: 100%; }
-.setup-main-header { padding: 0 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.setup-pair-title { font-size: 1.4rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; }
-/* Additional layout, badge, chart, and interactive checklist styles omitted for conciseness. */
+/* ==========================================================================
+   PREMIUM FINTECH XAUUSD LAYOUT STYLES
+   ========================================================================== */
+
+/* Full Bleed Structural Area Containers */
+.setup-section-bleed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 16px 0;
+}
+
+/* Header Grid Alignment layout blocks */
+.setup-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.setup-pair-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.setup-pair-subtitle {
+    font-size: 0.85rem;
+    color: #8a8d93;
+    margin: 4px 0 0 0;
+}
+
+/* Premium Tags Engine */
+.setup-badges-right {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.fintech-tag {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: #1e222d;
+    border: 1px solid #2a2e39;
+    color: #d1d4dc;
+}
+
+.status-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 230, 0, 0.06);
+    border: 1px solid rgba(255, 230, 0, 0.25);
+    color: #ffe600;
+}
+
+/* Live Alert Pulse Dot Glow Animation */
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ffe600;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(255, 230, 0, 0.7);
+    animation: pulseGlowEffect 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulseGlowEffect {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 230, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 230, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 230, 0, 0); }
+}
+
+/* Fully Full Bleed Image Viewport Wrapper */
+.setup-chart-container {
+    width: 100%;
+    position: relative;
+    background: #000000;
+    border-top: 1px solid #1e222d;
+    border-bottom: 1px solid #1e222d;
+    overflow: hidden;
+}
+
+.setup-chart-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.setup-chart-container:hover .setup-chart-img {
+    transform: scale(1.015);
+}
+
+/* Tactile Matrix Checklist Form Controls */
+.trade-checklist-card {
+    padding: 0 16px;
+}
+
+.checklist-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8a8d93;
+    margin-bottom: 12px;
+}
+
+.checklist-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #1e222d;
+    border: 1px solid #1e222d;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.checklist-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    background: #131722;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.checklist-row:hover {
+    background: #171b26;
+}
+
+/* Absolute Hidden Standard Form Boxes */
+.checklist-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Custom Checkbox State Vector Engines */
+.custom-checkbox-box {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    background: #1e222d;
+    border: 1px solid #363c4e;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+}
+
+.checklist-checkbox-input:checked ~ .custom-checkbox-box {
+    background: #ffe600;
+    border-color: #ffe600;
+}
+
+.custom-checkbox-box::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid #000000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checklist-checkbox-input:checked ~ .custom-checkbox-box::after {
+    display: block;
+}
+
+/* Content Element Rows Styles */
+.checklist-row-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.text-bold {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.text-small {
+    font-size: 0.78rem;
+    color: #8a8d93;
+    line-height: 1.35;
+}
+
+/* Cross-fade text on check action activation */
+.checklist-checkbox-input:checked ~ .checklist-row-text .text-bold {
+    color: #8a8d93;
+    text-decoration: line-through;
+}
+
+.checklist-checkbox-input:checked ~ .checklist-row-text .text-small {
+    color: #474f66;
+}
