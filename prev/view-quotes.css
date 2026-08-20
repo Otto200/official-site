@@ -1,0 +1,5 @@
+/* ─── XAUUSD PREMIUM FINTECH SETUP STYLES ─── */
+.setup-section-bleed { padding: 20px 0; display: flex; flex-direction: column; gap: 20px; width: 100%; }
+.setup-main-header { padding: 0 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.setup-pair-title { font-size: 1.4rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; }
+/* Additional layout, badge, chart, and interactive checklist styles omitted for conciseness. */
