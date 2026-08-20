@@ -7,6 +7,7 @@
     <!-- Lucide Icons Vector Set CDN -->
     <script src="https://unpkg.com"></script>
     <link rel="stylesheet" href="prev/style.css">
+    <link rel="stylesheet" href="prev/view-quotes.css">
 </head>
 <body>
 
@@ -105,12 +106,78 @@
                     </div>
 
                     <!-- 2. CHARTS OVERLAY SCREEN TEMPLATE WINDOW (#view-charts) -->
-                    <div id="view-charts" class="terminal-pane">
-                        <div class="content-card">
-                            <h2><i data-lucide="candlestick-chart"></i> Charts Canvas View</h2>
-                            <hr><p>Custom charts layout shell container window instance initialized successfully.</p>
-                        </div>
-                    </div>
+<div id="view-charts" class="terminal-pane">
+    <div class="canvas-layer setup-section-bleed">
+      
+      <!-- Top Details Header -->
+      <header class="setup-main-header">
+        <div class="setup-header-left">
+          <h2 class="setup-pair-title">XAUUSD SETUP</h2>
+          <p class="setup-pair-subtitle">Gold Market Trade Watchlist</p>
+        </div>
+        
+        <div class="setup-badges-right">
+          <div class="fintech-tag date-tag">
+            <span>20/08/2026</span>
+          </div>
+          <div class="fintech-tag status-tag pending-glow">
+            <span class="pulse-dot"></span>
+            <span>PENDING CONFIRMATION</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Edge-to-Edge Chart Image -->
+      <div class="setup-chart-container">
+        <img src="prev/xauusd1.webp" alt="XAUUSD Chart View" class="setup-chart-img" loading="eager">
+      </div>
+
+      <!-- Trading Strategy Checklist -->
+      <section class="trade-checklist-card">
+        <h3 class="checklist-title">PRE-TRADE CHECKLIST</h3>
+        
+        <div class="checklist-group">
+          <label class="checklist-row">
+            <input type="checkbox" class="checklist-checkbox-input">
+            <span class="custom-checkbox-box"></span>
+            <div class="checklist-row-text">
+              <span class="text-bold">Liquidity Run</span>
+              <span class="text-small">Wait for price to clear the key high or low targets first.</span>
+            </div>
+          </label>
+
+          <label class="checklist-row">
+            <input type="checkbox" class="checklist-checkbox-input">
+            <span class="custom-checkbox-box"></span>
+            <div class="checklist-row-text">
+              <span class="text-bold">Structure change</span>
+              <span class="text-small">Look for a strong break of structure on the 15-minute chart.</span>
+            </div>
+          </label>
+
+          <label class="checklist-row">
+            <input type="checkbox" class="checklist-checkbox-input">
+            <span class="custom-checkbox-box"></span>
+            <div class="checklist-row-text">
+              <span class="text-bold">Optimal Trade Entry (OTE) Retracement</span>
+              <span class="text-small">Price must pull back into the 62% - 79% Fibonacci area.</span>
+            </div>
+          </label>
+
+          <label class="checklist-row">
+            <input type="checkbox" class="checklist-checkbox-input">
+            <span class="custom-checkbox-box"></span>
+            <div class="checklist-row-text">
+              <span class="text-bold">New York Volume Check</span>
+              <span class="text-small">Only take the trade if setup happens inside the NY session time window.</span>
+            </div>
+          </label>
+        </div>
+      </section>
+
+    </div>
+</div>
+
 
                     <!-- 3. TRADE DESK CONSOLE MATRIX LAYER (#view-trade) -->
                     <div id="view-trade" class="terminal-pane">
