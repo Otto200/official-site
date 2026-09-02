@@ -154,19 +154,35 @@
         <a href="#getting-started" class="btn-hero-gold btn-hero-large">Take first-step. Get Started</a>
     </div>
 
- <!-- Secondary Action Navigation Ecosystem Grid -->
-    <div class="hero-cta-secondary-grid">
-        
-        <!-- Button 2: Request Help (Now cleanly framed as a supportive auxiliary choice) -->
-        <a href="javascript:void(0);" onclick="redirectToWhatsApp('help');" class="btn-hero-gold btn-hero-gold-outline" rel="noopener">Claim Free Access (New). </a>
-    </div>
+<!-- Embedded CSS Override to force center alignment on PC -->
+<style>
+    .hero-cta-secondary-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    .btn-hero-gold-outline {
+        margin: 12px auto 0 auto !important;
+        display: inline-block !important;
+        text-align: center !important;
+    }
+</style>
+
+<!-- Secondary Action Navigation Ecosystem Grid -->
+<div class="hero-cta-secondary-grid">
+    
+    <!-- Button 2: Request Help -->
+    <a href="javascript:void(0);" onclick="redirectToWhatsApp('help');" class="btn-hero-gold btn-hero-gold-outline" rel="noopener">Claim Free Access (New). </a>
+</div>
 
 </div> <!-- /.hero-action-control-box -->
 
-        <!-- Friction Minimizer Supporting Meta Note -->
-        <span class="hero-supporting-meta-text">No subscription required. Explore the system, tools and education before deciding how you want to trade.</span>
+    <!-- Friction Minimizer Supporting Meta Note -->
+    <span class="hero-supporting-meta-text">No subscription required. Explore the system, tools and education before deciding how you want to trade.</span>
 
-    </div> <!-- /.structural-center-box -->
+</div> <!-- /.structural-center-box -->
 </header>
 
 
