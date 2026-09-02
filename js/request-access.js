@@ -3,7 +3,7 @@ function redirectToWhatsApp() {
   const whatsappNumber = "67576766296"; 
   
   // Professional pre-filled template message focused on account deployment instead of personal identity data
-  const messageText = "BANKBUGSfx Ecosystem Access. Claim Free Access.";
+  const messageText = "BANKBUGSfx Ecosystem Access. Claiming Free Access.";
   const encodedMessage = encodeURIComponent(messageText);
   
   // Construct final API endpoint URL
